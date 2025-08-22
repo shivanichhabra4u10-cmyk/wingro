@@ -1,0 +1,739 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { products as productsApi, coaches as coachesApi, community, CommunitySegment, CommunityPost } from '../services/api';
+
+/**
+ * DirectAdminDashboard component without JWT validation
+ * This is a simplified version for direct access to admin functionality
+ */
+const DirectAdminDashboard: React.FC = () => {
+  // Loading state for API operations
+  const [loading, setLoading] = useState<boolean>(false);
+  
+  // Product form state
+  const [isProductFormOpen, setIsProductFormOpen] = useState<boolean>(false);
+  const [productFormData, setProductFormData] = useState({
+    name: '',
+    description: '',
+    price: 0,
+    oldPrice: 0,
+    badge: 'New',
+    category: 'digital',
+    productType: 'individual' as 'individual' | 'enterprise',
+    images: [''],
+    features: ['']
+  });
+  
+  // Coach form state
+  const [isCoachFormOpen, setIsCoachFormOpen] = useState<boolean>(false);
+  const [coachFormData, setCoachFormData] = useState({
+    name: '',
+    email: '',
+    specialty: '',
+    bio: '',
+    rate: 0,
+    profileImage: '',
+    availability: true
+  });
+  
+  // Community management state
+  const [segments, setSegments] = useState<CommunitySegment[]>([]);
+  const [posts, setPosts] = useState<CommunityPost[]>([]);
+  const [isSegmentFormOpen, setIsSegmentFormOpen] = useState<boolean>(false);
+  const [segmentFormData, setSegmentFormData] = useState<CommunitySegment>({
+    id: '',
+    name: '',
+    description: '',
+    isMatched: false,
+    isActive: true
+  });
+  
+  // Products state
+  const [products, setProducts] = useState([
+    { id: 'PRD-001', name: 'Personal Growth Plan', type: 'digital', price: '₹3,999' },
+    { id: 'PRD-002', name: 'Career Acceleration Bundle', type: 'platform', price: '₹7,999' },
+    { id: 'PRD-003', name: 'Enterprise Leadership Program', type: 'enterprise', price: '₹29,999' }
+  ]);
+  
+  const [selectedPost, setSelectedPost] = useState<CommunityPost | null>(null);
+  const [isPostReviewOpen, setIsPostReviewOpen] = useState<boolean>(false);
+  const [answerFormData, setAnswerFormData] = useState({
+    answer: '',
+    answeredBy: '',
+    answererRole: '',
+    reflection: ''
+  });
+  
+  // Coaches data
+  const [coaches, setCoaches] = useState([
+    { id: 'COACH-001', name: 'Amit Patel', email: 'amit.p@wingrox.ai', specialization: 'Executive Leadership', status: 'active' },
+    { id: 'COACH-002', name: 'Samantha Miller', email: 'sam.m@wingrox.ai', specialization: 'Career Transitions', status: 'active' },
+    { id: 'COACH-003', name: 'Rahul Joshi', email: 'rahul.j@wingrox.ai', specialization: 'Startup Growth', status: 'pending' }
+  ]);
+  
+  // Mock data for admin dashboard
+  const [stats, setStats] = useState({
+    products: 24,
+    coaches: 18
+  });
+  
+  // Coach applications
+  const [applications, setApplications] = useState([
+    { id: 'APP-001', name: 'Neha Verma', email: 'neha.v@example.com', specialization: 'Business Strategy', date: '2 days ago', status: 'under-review' },
+    { id: 'APP-002', name: 'David Kim', email: 'david.k@example.com', specialization: 'Personal Development', date: '1 week ago', status: 'approved' },
+    { id: 'APP-003', name: 'Priya Shah', email: 'priya.s@example.com', specialization: 'Team Building', date: '3 days ago', status: 'rejected' }
+  ]);
+
+  // Fetch community data
+  useEffect(() => {
+    const fetchCommunityData = async () => {
+      try {
+        setLoading(true);
+        const fetchedSegments = await community.getSegments();
+        setSegments(fetchedSegments);
+
+        // Get posts from the first segment
+        if (fetchedSegments.length > 0) {
+          const fetchedPosts = await community.getPosts({ segmentId: fetchedSegments[0].id });
+          setPosts(fetchedPosts);
+        }
+      } catch (error) {
+        console.error('Failed to fetch community data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCommunityData();
+  }, []);
+
+  // Handle product form submission
+  const handleProductSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      // Call API to create product
+      const newProduct = await productsApi.create(productFormData);
+      // Update products list
+      setProducts([...products, {
+        id: newProduct.id,
+        name: newProduct.name,
+        type: newProduct.category,
+        price: `₹${newProduct.price}` 
+      }]);
+      // Reset form
+      setProductFormData({
+        name: '',
+        description: '',
+        price: 0,
+        oldPrice: 0,
+        badge: 'New',
+        category: 'digital',
+        productType: 'individual',
+        images: [''],
+        features: ['']
+      });
+      setIsProductFormOpen(false);
+    } catch (error) {
+      console.error('Failed to create product:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle coach form submission
+  const handleCoachSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      // Call API to create coach
+      const newCoach = await coachesApi.create(coachFormData);
+      // Update coaches list
+      setCoaches([...coaches, {
+        id: newCoach.id,
+        name: newCoach.name,
+        email: newCoach.email,
+        specialization: newCoach.specialty,
+        status: 'active'
+      }]);
+      // Reset form
+      setCoachFormData({
+        name: '',
+        email: '',
+        specialty: '',
+        bio: '',
+        rate: 0,
+        profileImage: '',
+        availability: true
+      });
+      setIsCoachFormOpen(false);
+    } catch (error) {
+      console.error('Failed to create coach:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle segment form submission
+  const handleSegmentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      // Call API to create segment
+      const newSegment = await community.createSegment(segmentFormData);
+      // Update segments list
+      setSegments([...segments, newSegment]);
+      // Reset form
+      setSegmentFormData({
+        id: '',
+        name: '',
+        description: '',
+        isMatched: false,
+        isActive: true
+      });
+      setIsSegmentFormOpen(false);
+    } catch (error) {
+      console.error('Failed to create segment:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle post answer form submission
+  const handleAnswerSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedPost) return;
+    
+    try {
+      setLoading(true);
+      // Call API to answer post
+      const updatedPost = await community.answerPost(selectedPost._id || '', {
+        answer: answerFormData.answer,
+        answeredBy: answerFormData.answeredBy,
+        answererRole: answerFormData.answererRole,
+        reflection: answerFormData.reflection
+      });
+      
+      // Update posts list
+      setPosts(posts.map(post => 
+        (post._id === updatedPost._id) ? updatedPost : post
+      ));
+      
+      // Reset form and close modal
+      setAnswerFormData({
+        answer: '',
+        answeredBy: '',
+        answererRole: '',
+        reflection: ''
+      });
+      setSelectedPost(null);
+      setIsPostReviewOpen(false);
+    } catch (error) {
+      console.error('Failed to answer post:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Select post for answering
+  const handleSelectPost = (post: CommunityPost) => {
+    setSelectedPost(post);
+    setIsPostReviewOpen(true);
+  };
+
+  // Handle coach application approval
+  const handleApplicationAction = (id: string, action: 'approve' | 'reject') => {
+    // Update application status
+    setApplications(applications.map(app => 
+      app.id === id 
+        ? { ...app, status: action === 'approve' ? 'approved' : 'rejected' } 
+        : app
+    ));
+
+    // If approved, add to coaches
+    if (action === 'approve') {
+      const application = applications.find(app => app.id === id);
+      if (application) {
+        setCoaches([...coaches, {
+          id: `COACH-${coaches.length + 1}`,
+          name: application.name,
+          email: application.email,
+          specialization: application.specialization,
+          status: 'active'
+        }]);
+      }
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <Link to="/" className="text-blue-600 hover:text-blue-800">
+                  Return to Site
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {/* Dashboard Stats */}
+        <div className="px-4 py-6 sm:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="px-4 py-5 sm:p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                    <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                  </div>
+                  <div className="ml-5 w-0 flex-1">
+                    <dt className="text-sm font-medium text-gray-500 truncate">Total Products</dt>
+                    <dd className="text-lg font-semibold text-gray-900">{stats.products}</dd>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="px-4 py-5 sm:p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                    <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div className="ml-5 w-0 flex-1">
+                    <dt className="text-sm font-medium text-gray-500 truncate">Active Coaches</dt>
+                    <dd className="text-lg font-semibold text-gray-900">{stats.coaches}</dd>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Products Management */}
+        <div className="px-4 py-6 sm:px-0 mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-900">Products Management</h2>
+            <button
+              onClick={() => setIsProductFormOpen(true)}
+              className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+            >
+              Add Product
+            </button>
+          </div>
+          <div className="bg-white shadow overflow-hidden sm:rounded-md">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+              {products.map((product) => (
+                <div key={product.id} className="bg-white rounded-lg shadow p-5 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold text-blue-700 mb-1 truncate">{product.name}</h3>
+                    <p className="text-sm text-gray-500 mb-2 capitalize">{product.type}</p>
+                    <p className="text-xl font-bold text-gray-900 mb-4">{product.price}</p>
+                  </div>
+                  <div className="flex space-x-2 mt-auto">
+                    <button className="flex-1 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded px-3 py-1">Edit</button>
+                    <button className="flex-1 text-sm text-white bg-red-600 hover:bg-red-700 rounded px-3 py-1">Delete</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Coach Applications */}
+        <div className="px-4 py-6 sm:px-0 mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-900">Coach Applications</h2>
+          </div>
+          <div className="bg-white shadow overflow-hidden sm:rounded-md">
+            <ul className="divide-y divide-gray-200">
+              {applications.map((application) => (
+                <li key={application.id}>
+                  <div className="px-4 py-4 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <div className="sm:flex sm:items-center">
+                        <p className="text-sm font-medium text-blue-600">{application.name}</p>
+                        <p className="mt-1 text-xs text-gray-500 sm:mt-0 sm:ml-6">{application.email}</p>
+                      </div>
+                      <div className="flex flex-shrink-0">
+                        {application.status === 'under-review' && (
+                          <>
+                            <button 
+                              onClick={() => handleApplicationAction(application.id, 'approve')}
+                              className="mr-2 px-3 py-1 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-green-600 hover:bg-green-700"
+                            >
+                              Approve
+                            </button>
+                            <button 
+                              onClick={() => handleApplicationAction(application.id, 'reject')}
+                              className="px-3 py-1 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-red-600 hover:bg-red-700"
+                            >
+                              Reject
+                            </button>
+                          </>
+                        )}
+                        {application.status === 'approved' && (
+                          <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+                            Approved
+                          </span>
+                        )}
+                        {application.status === 'rejected' && (
+                          <span className="px-3 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">
+                            Rejected
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-2 flex justify-between">
+                      <div className="flex">
+                        <p className="text-sm text-gray-500 mr-4">Specialization: <span className="font-medium">{application.specialization}</span></p>
+                        <p className="text-sm text-gray-500">Applied: <span className="font-medium">{application.date}</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Community Management */}
+        <div className="px-4 py-6 sm:px-0 mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-900">Community Management</h2>
+            <button
+              onClick={() => setIsSegmentFormOpen(true)}
+              className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+            >
+              Add Segment
+            </button>
+          </div>
+          <div className="bg-white shadow overflow-hidden sm:rounded-md">
+            <ul className="divide-y divide-gray-200">
+              {segments.map((segment) => (
+                <li key={segment.id}>
+                  <div className="px-4 py-4 flex items-center sm:px-6">
+                    <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-blue-600 truncate">{segment.name}</p>
+                        <p className="mt-1 text-sm text-gray-500 truncate">{segment.description}</p>
+                      </div>
+                      <div className="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${segment.isMatched ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                          {segment.isMatched ? 'Matched' : 'Unmatched'}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="ml-5 flex-shrink-0">
+                      <button className="text-sm text-blue-600 hover:text-blue-800 mr-4">Edit</button>
+                      <button className="text-sm text-red-600 hover:text-red-800">Delete</button>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        {/* Community Moderation */}
+        <div className="px-4 py-6 sm:px-0">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-900">Community Posts</h2>
+          </div>
+          <div className="bg-white shadow overflow-hidden sm:rounded-md">
+            <ul className="divide-y divide-gray-200">
+              {posts.map((post) => (
+                <li key={post._id}>
+                  <div className="px-4 py-4 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-medium text-blue-600">{post.author}</p>
+                      <div className="flex flex-shrink-0">
+                        {!post.isAnswered && (
+                          <button 
+                            onClick={() => handleSelectPost(post)}
+                            className="px-3 py-1 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-blue-600 hover:bg-blue-700"
+                          >
+                            Answer
+                          </button>
+                        )}
+                        {post.isAnswered && (
+                          <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+                            Answered
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-600">{post.question}</p>
+                      {post.isAnswered && post.answer && (
+                        <div className="mt-2 pl-4 border-l-2 border-green-500">
+                          <p className="text-xs text-gray-500">Answered by: <span className="font-medium">{post.answeredBy}</span></p>
+                          <p className="text-sm text-gray-600 mt-1">{post.answer}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      {/* Add Product Modal */}
+      {isProductFormOpen && (
+        <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">Add Product</h3>
+                <form onSubmit={handleProductSubmit} className="mt-4">
+                  <div className="mb-4">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      value={productFormData.name} 
+                      onChange={(e) => setProductFormData({...productFormData, name: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea 
+                      id="description" 
+                      value={productFormData.description} 
+                      onChange={(e) => setProductFormData({...productFormData, description: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
+                    <input 
+                      type="number" 
+                      id="price" 
+                      value={productFormData.price} 
+                      onChange={(e) => setProductFormData({...productFormData, price: Number(e.target.value)})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+                    <select 
+                      id="category" 
+                      value={productFormData.category} 
+                      onChange={(e) => setProductFormData({...productFormData, category: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    >
+                      <option value="digital">Digital</option>
+                      <option value="physical">Physical</option>
+                      <option value="service">Service</option>
+                    </select>
+                  </div>
+                  <div className="flex justify-end">
+                    <button 
+                      type="button" 
+                      onClick={() => setIsProductFormOpen(false)}
+                      className="mr-3 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-100"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit" 
+                      className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+                      disabled={loading}
+                    >
+                      {loading ? 'Saving...' : 'Save Product'}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Segment Modal */}
+      {isSegmentFormOpen && (
+        <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">Add Community Segment</h3>
+                <form onSubmit={handleSegmentSubmit} className="mt-4">
+                  <div className="mb-4">
+                    <label htmlFor="segment-id" className="block text-sm font-medium text-gray-700">Segment ID</label>
+                    <input 
+                      type="text" 
+                      id="segment-id" 
+                      value={segmentFormData.id} 
+                      onChange={(e) => setSegmentFormData({...segmentFormData, id: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="segment-name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <input 
+                      type="text" 
+                      id="segment-name" 
+                      value={segmentFormData.name} 
+                      onChange={(e) => setSegmentFormData({...segmentFormData, name: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="segment-description" className="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea 
+                      id="segment-description" 
+                      value={segmentFormData.description} 
+                      onChange={(e) => setSegmentFormData({...segmentFormData, description: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    ></textarea>
+                  </div>
+                  <div className="mb-4">
+                    <div className="flex items-center">
+                      <input 
+                        type="checkbox" 
+                        id="segment-matched" 
+                        checked={segmentFormData.isMatched} 
+                        onChange={(e) => setSegmentFormData({...segmentFormData, isMatched: e.target.checked})}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <label htmlFor="segment-matched" className="ml-2 block text-sm text-gray-700">Matched Segment</label>
+                    </div>
+                  </div>
+                  <div className="flex justify-end">
+                    <button 
+                      type="button" 
+                      onClick={() => setIsSegmentFormOpen(false)}
+                      className="mr-3 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-100"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit" 
+                      className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+                      disabled={loading}
+                    >
+                      {loading ? 'Saving...' : 'Save Segment'}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Answer Post Modal */}
+      {isPostReviewOpen && selectedPost && (
+        <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">Answer Community Question</h3>
+                <div className="mt-4 mb-6 bg-gray-50 p-4 rounded-md">
+                  <p className="text-sm text-gray-600">{selectedPost.question}</p>
+                  <p className="text-xs text-gray-500 mt-2">Posted by: {selectedPost.author}</p>
+                </div>
+                <form onSubmit={handleAnswerSubmit} className="mt-4">
+                  <div className="mb-4">
+                    <label htmlFor="answer" className="block text-sm font-medium text-gray-700">Answer</label>
+                    <textarea 
+                      id="answer" 
+                      value={answerFormData.answer} 
+                      onChange={(e) => setAnswerFormData({...answerFormData, answer: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      rows={4}
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="answeredBy" className="block text-sm font-medium text-gray-700">Your Name</label>
+                    <input 
+                      type="text" 
+                      id="answeredBy" 
+                      value={answerFormData.answeredBy} 
+                      onChange={(e) => setAnswerFormData({...answerFormData, answeredBy: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="answererRole" className="block text-sm font-medium text-gray-700">Your Role</label>
+                    <input 
+                      type="text" 
+                      id="answererRole" 
+                      value={answerFormData.answererRole} 
+                      onChange={(e) => setAnswerFormData({...answerFormData, answererRole: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      placeholder="e.g. Coach, Admin, Expert"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="reflection" className="block text-sm font-medium text-gray-700">Additional Reflection (Optional)</label>
+                    <textarea 
+                      id="reflection" 
+                      value={answerFormData.reflection} 
+                      onChange={(e) => setAnswerFormData({...answerFormData, reflection: e.target.value})}
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                      rows={3}
+                    ></textarea>
+                  </div>
+                  <div className="flex justify-end">
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        setSelectedPost(null);
+                        setIsPostReviewOpen(false);
+                      }}
+                      className="mr-3 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-100"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit" 
+                      className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+                      disabled={loading}
+                    >
+                      {loading ? 'Submitting...' : 'Submit Answer'}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default DirectAdminDashboard;

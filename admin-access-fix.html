@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WinGroX Admin Access Fix</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+    h1, h2 { color: #4F46E5; }
+    button { background: #4F46E5; color: white; border: none; padding: 12px 20px; 
+             border-radius: 4px; cursor: pointer; margin: 10px 10px 10px 0; }
+    button:hover { background: #4338CA; }
+    pre { background: #f1f1f1; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            padding: 20px; margin-bottom: 20px; }
+    .success { background: #d1fae5; color: #065f46; padding: 10px; border-radius: 4px; }
+    .error { background: #fee2e2; color: #991b1b; padding: 10px; border-radius: 4px; }
+    .code { font-family: monospace; background: #f1f1f1; padding: 2px 4px; }
+  </style>
+</head>
+<body>
+  <h1>WinGroX Admin Access Fix</h1>
+  
+  <div class="card">
+    <h2>Step 1: Set Admin Token</h2>
+    <p>Click the button below to set the admin token in this browser:</p>
+    <button id="setTokenBtn">SET ADMIN TOKEN</button>
+    <div id="tokenStatus"></div>
+  </div>
+  
+  <div class="card">
+    <h2>Step 2: Go to Products Page</h2>
+    <p>After setting the token, visit the Products page to see admin controls:</p>
+    <button onclick="window.open('http://localhost:3000/products', '_blank')">GO TO PRODUCTS PAGE</button>
+  </div>
+  
+  <div class="card">
+    <h2>Admin Credentials</h2>
+    <p>You can also try logging in with these admin credentials:</p>
+    <ul>
+      <li>Email: <span class="code">admin@wingrox.ai</span></li>
+      <li>Password: <span class="code">admin123</span></li>
+    </ul>
+    <button onclick="window.open('http://localhost:3000/login', '_blank')">GO TO LOGIN PAGE</button>
+  </div>
+  
+  <div class="card">
+    <h2>Troubleshooting</h2>
+    <ol>
+      <li>Check that your React app is running</li>
+      <li>Clear browser cache and cookies</li>
+      <li>Check browser console for errors (F12)</li>
+      <li>Try using private/incognito mode</li>
+    </ol>
+    <button id="debugBtn">SHOW TOKEN DEBUG INFO</button>
+    <div id="debugInfo" style="display: none; margin-top: 15px;"></div>
+  </div>
+  
+  <script>
+    // Temporary admin token for development    
+    const adminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZG1pbi11c2VyLTEyMyIsImVtYWlsIjoiYWRtaW5Ad2luZ3JveC5haSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzUwMDAwMDAwfQ.f9JmfkuLFwuKR5BmThz5PkxIPdMtiY3Xt_SYraEnkJA";
+
+    // Function to set admin token
+    document.getElementById('setTokenBtn').addEventListener('click', function() {
+      try {
+        // Clear any existing token first
+        localStorage.removeItem('token');
+        
+        // Set the token
+        setTimeout(() => {
+          localStorage.setItem('token', adminToken);
+          checkToken();
+        }, 100);
+      } catch (error) {
+        document.getElementById('tokenStatus').innerHTML = 
+          `<div class="error"><strong>Error:</strong> ${error.message}</div>`;
+      }
+    });
+    
+    // Function to check token
+    function checkToken() {
+      const tokenStatusDiv = document.getElementById('tokenStatus');
+      const token = localStorage.getItem('token');
+      
+      if (!token) {
+        tokenStatusDiv.innerHTML = `<div class="error"><strong>No token found</strong> in localStorage</div>`;
+        return;
+      }
+      
+      try {
+        // Parse token
+        const parts = token.split('.');
+        if (parts.length !== 3) {
+          throw new Error('Invalid token format');
+        }
+        
+        const payload = JSON.parse(atob(parts[1]));
+        const isAdmin = payload.role === 'admin';
+        const correctEmail = payload.email === 'admin@wingrox.ai';
+        const now = Math.floor(Date.now() / 1000);
+        const isExpired = payload.exp < now;
+        
+        if (isAdmin && correctEmail && !isExpired) {
+          tokenStatusDiv.innerHTML = `<div class="success">
+            <strong>✅ Success!</strong> Admin token set successfully with correct role and email.
+          </div>`;
+        } else {
+          let errors = [];
+          if (!isAdmin) errors.push('Token does not have admin role');
+          if (!correctEmail) errors.push(`Email is ${payload.email} (should be admin@wingrox.ai)`);
+          if (isExpired) errors.push('Token is expired');
+          
+          tokenStatusDiv.innerHTML = `<div class="error">
+            <strong>⚠️ Token has issues:</strong>
+            <ul>${errors.map(e => `<li>${e}</li>`).join('')}</ul>
+          </div>`;
+        }
+      } catch (error) {
+        tokenStatusDiv.innerHTML = `<div class="error">
+          <strong>Error:</strong> Failed to decode token: ${error.message}
+        </div>`;
+      }
+    }
+    
+    // Check token on page load
+    checkToken();
+    
+    // Debug button
+    document.getElementById('debugBtn').addEventListener('click', function() {
+      const debugDiv = document.getElementById('debugInfo');
+      debugDiv.style.display = debugDiv.style.display === 'none' ? 'block' : 'none';
+      
+      if (debugDiv.style.display === 'block') {
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+          debugDiv.innerHTML = `<div class="error">No token found in localStorage</div>`;
+          return;
+        }
+        
+        try {
+          const parts = token.split('.');
+          const payload = JSON.parse(atob(parts[1]));
+          const now = Math.floor(Date.now() / 1000);
+          
+          debugDiv.innerHTML = `
+            <h3>Token Payload</h3>
+            <pre>${JSON.stringify(payload, null, 2)}</pre>
+            <h3>Token Analysis</h3>
+            <ul>
+              <li>Email: ${payload.email} ${payload.email === 'admin@wingrox.ai' ? '✅' : '❌'}</li>
+              <li>Role: ${payload.role} ${payload.role === 'admin' ? '✅' : '❌'}</li>
+              <li>Expiration: ${new Date(payload.exp * 1000).toLocaleString()}</li>
+              <li>Is Expired: ${payload.exp < now ? 'Yes ❌' : 'No ✅'}</li>
+            </ul>
+            <h3>Browser Storage</h3>
+            <p>LocalStorage Items: ${localStorage.length}</p>
+            <p>Token Length: ${token.length} characters</p>
+          `;
+        } catch (error) {
+          debugDiv.innerHTML = `<div class="error">Error decoding token: ${error.message}</div>`;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

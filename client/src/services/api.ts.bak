@@ -1,0 +1,482 @@
+import axios from 'axios';
+
+const api = axios.create({
+  // Ensure we're using the correct base URL
+  baseURL: 'http://localhost:3001/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add a request interceptor for auth token
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Handle unauthorized access
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+// Auth types and functions
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
+}
+
+// Auth endpoints
+export const auth = {
+  login: async (credentials: { email: string; password: string }): Promise<AuthResponse> => {
+    const response = await api.post<AuthResponse>('/auth/login', credentials);
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+    }
+    return response.data;
+  },
+  register: async (userData: { name: string; email: string; password: string }): Promise<AuthResponse> => {
+    const response = await api.post<AuthResponse>('/auth/register', userData);
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+    }
+    return response.data;
+  },
+  getCurrentUser: async (): Promise<User> => {
+    const response = await api.get<User>('/auth/me');
+    return response.data;
+  },
+  logout: () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
+};
+
+// Growth plan endpoints
+export const growthPlans = {
+  getAll: () => api.get('/plans'),
+  getById: (id: string) => api.get(`/plans/${id}`),
+  create: (plan: { title: string; description: string }) =>
+    api.post('/plans', plan),
+  update: (id: string, plan: { title: string; description: string }) =>
+    api.put(`/plans/${id}`, plan),
+  delete: (id: string) => api.delete(`/plans/${id}`),
+};
+
+// Goals endpoints
+export const goals = {
+  getAll: () => api.get('/goals'),
+  getById: (id: string) => api.get(`/goals/${id}`),
+  create: (goal: {
+    planId: string;
+    title: string;
+    description: string;
+    deadline: Date;
+  }) => api.post('/goals', goal),
+  update: (
+    id: string,
+    goal: {
+      title: string;
+      description: string;
+      deadline: Date;
+    }
+  ) => api.put(`/goals/${id}`, goal),
+  delete: (id: string) => api.delete(`/goals/${id}`),
+};
+
+// Coaches API endpoints
+export const coaches = {
+  getAll: async (params?: { page?: number; limit?: number; specialization?: string }) => {
+    try {
+      const response = await api.get('/coaches', { params });
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching coaches:', error);
+      throw error;
+    }
+  },
+  getById: async (id: string) => {
+    try {
+      const response = await api.get(`/coaches/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching coach ${id}:`, error);
+      throw error;
+    }
+  },
+  create: async (coachData: any) => {
+    try {
+      const response = await api.post('/coaches', coachData);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error creating coach:', error);
+      throw error;
+    }
+  },
+  update: async (id: string, coachData: any) => {
+    try {
+      const response = await api.put(`/coaches/${id}`, coachData);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating coach ${id}:`, error);
+      throw error;
+    }
+  },
+  delete: async (id: string) => {
+    try {
+      const response = await api.delete(`/coaches/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting coach ${id}:`, error);
+      throw error;
+    }
+  }
+};
+
+// Assessment API endpoints
+export const assessment = {
+  submitIndividual: async (assessmentData: any) => {
+    try {
+      const response = await api.post('/assessment/individual', assessmentData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting assessment:', error);
+      throw error;
+    }
+  },
+  getIndividualResults: async (userId: string) => {
+    try {
+      const response = await api.get(`/assessment/individual/${userId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching assessment results for user ${userId}:`, error);
+      throw error;
+    }
+  },
+  updateIndividualResponses: async (assessmentId: string, responses: any) => {
+    try {
+      const response = await api.put(`/assessment/individual/${assessmentId}`, { responses });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating assessment ${assessmentId}:`, error);
+      throw error;
+    }
+  },
+  // Organization assessment endpoints
+  submitOrganization: async (organizationData: any) => {
+    try {
+      const response = await api.post('/assessment/organization', organizationData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting organization assessment:', error);
+      throw error;
+    }
+  },
+  getOrganizationResults: async (orgId: string) => {
+    try {
+      const response = await api.get(`/assessment/organization/${orgId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching organization assessment results for ${orgId}:`, error);
+      throw error;
+    }
+  },
+  updateOrganizationResponses: async (assessmentId: string, responses: any) => {
+    try {
+      const response = await api.put(`/assessment/organization/${assessmentId}`, { responses });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating organization assessment ${assessmentId}:`, error);
+      throw error;
+    }
+  }
+};
+
+// Contact API endpoints
+export const contact = {
+  submit: async (formData: any) => {
+    try {
+      const response = await api.post('/contact', formData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      throw error;
+    }
+  },
+  getAll: async () => {
+    try {
+      const response = await api.get('/contact');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching contact submissions:', error);
+      throw error;
+    }
+  }
+};
+
+// Community interfaces
+export interface CommunitySegment {
+  _id?: string;
+  id: string;
+  name: string;
+  description?: string;
+  isMatched: boolean;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface CommunityPost {
+  _id?: string;
+  author: string;
+  authorId?: string;
+  role?: string;
+  question: string;
+  answer?: string;
+  reflection?: string;
+  answeredBy?: string;
+  answererRole?: string;
+  answererCoachId?: string;
+  segmentId: string;
+  likes: number;
+  bookmarks: number;
+  comments: number;
+  isAnonymous: boolean;
+  isAnswered: boolean;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  timestamp?: string;
+}
+
+export interface Comment {
+  _id?: string;
+  postId: string;
+  author: string;
+  authorId?: string;
+  content: string;
+  isAnonymous: boolean;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+// Community endpoints
+export const community = {
+  // Segments
+  getSegments: async (): Promise<CommunitySegment[]> => {
+    try {
+      const response = await api.get('/community/segments');
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching community segments:', error);
+      throw error;
+    }
+  },
+  getSegmentById: async (id: string): Promise<CommunitySegment> => {
+    try {
+      const response = await api.get(`/community/segments/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  createSegment: async (segment: Omit<CommunitySegment, '_id'>): Promise<CommunitySegment> => {
+    try {
+      const response = await api.post('/community/segments', segment);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error creating community segment:', error);
+      throw error;
+    }
+  },
+  updateSegment: async (id: string, segment: Partial<CommunitySegment>): Promise<CommunitySegment> => {
+    try {
+      const response = await api.put(`/community/segments/${id}`, segment);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  deleteSegment: async (id: string): Promise<CommunitySegment> => {
+    try {
+      const response = await api.delete(`/community/segments/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  // Posts
+  getPosts: async (options: { segmentId?: string; answered?: boolean; sort?: string; limit?: number } = {}): Promise<CommunityPost[]> => {
+    try {
+      const response = await api.get('/community/posts', { params: options });
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching community posts:', error);
+      throw error;
+    }
+  },
+  getPostById: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.get(`/community/posts/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching community post ${id}:`, error);
+      throw error;
+    }
+  },
+  createPost: async (post: Omit<CommunityPost, '_id'>): Promise<CommunityPost> => {
+    try {
+      const response = await api.post('/community/posts', post);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error creating community post:', error);
+      throw error;
+    }
+  },
+  updatePost: async (id: string, post: Partial<CommunityPost>): Promise<CommunityPost> => {
+    try {
+      const response = await api.put(`/community/posts/${id}`, post);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating community post ${id}:`, error);
+      throw error;
+    }
+  },
+  answerPost: async (id: string, answerData: { answer: string; answeredBy: string; answererRole: string; answererCoachId?: string; reflection?: string }): Promise<CommunityPost> => {
+    try {
+      const response = await api.put(`/community/posts/${id}`, {
+        ...answerData,
+        isAnswered: true
+      });
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error answering community post ${id}:`, error);
+      throw error;
+    }
+  },
+  likePost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.post(`/community/posts/${id}/like`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error liking community post ${id}:`, error);
+      throw error;
+    }
+  },
+  bookmarkPost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.post(`/community/posts/${id}/bookmark`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error bookmarking community post ${id}:`, error);
+      throw error;
+    }
+  },
+  deletePost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.delete(`/community/posts/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  // Comments
+  getComments: async (postId: string): Promise<Comment[]> => {
+    try {
+      const response = await api.get(`/community/posts/${postId}/comments`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching comments for post ${postId}:`, error);
+      throw error;
+    }
+  },
+  addComment: async (postId: string, comment: Omit<Comment, '_id' | 'postId'>): Promise<Comment> => {
+    try {
+      const response = await api.post(`/community/posts/${postId}/comments`, comment);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error adding comment to post ${postId}:`, error);
+      throw error;
+    }
+  }
+};
+
+// Products API endpoints
+export const products = {
+  getAll: async (params?: { productType?: string; page?: number; limit?: number; sortBy?: string; sortOrder?: number }) => {
+    try {
+      const response = await api.get('/products', { params });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
+  },
+  getById: async (id: string) => {
+    try {
+      const response = await api.get(`/products/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching product ${id}:`, error);
+      throw error;
+    }
+  },
+  create: async (productData: any) => {
+    try {
+      const response = await api.post('/products', productData);
+      return response.data;
+    } catch (error) {
+      console.error('Error creating product:', error);
+      throw error;
+    }
+  },
+  update: async (id: string, productData: any) => {
+    try {
+      const response = await api.put(`/products/${id}`, productData);
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating product ${id}:`, error);
+      throw error;
+    }
+  },
+  delete: async (id: string) => {
+    try {
+      const response = await api.delete(`/products/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting product ${id}:`, error);
+      throw error;
+    }
+  }
+};
+
+// Export all api functions as a default object
+export default api;

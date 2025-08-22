@@ -1,0 +1,743 @@
+[
+  {
+    "id": 1,
+  "category": "Market-Product Fit",
+    "question": "How would you describe your product-market fit status?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong validation with paying customers and solid retention",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Early paying customers with promising feedback",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Users testing product but not yet paying",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Validated problem through research, building solution",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Conceptual stage with hypothesis needing validation",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Struggling to find product-market fit after multiple attempts",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+  "category": "Market-Product Fit",
+    "question": "How clear is your business model and revenue strategy?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Proven model generating consistent revenue with growth",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Clear model with early revenue validation",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Defined model being tested with early customers",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Developed hypothesis but needs testing",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Multiple potential models but unsure which to pursue",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No clear model for monetization yet",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+  "category": "Market-Product Fit",
+    "question": "How well do you understand your market size and growth potential?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Deep understanding with validated TAM/SAM/SOM and clear growth paths",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good grasp on market size with research-backed projections",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Basic understanding of market size but limited depth",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "General market awareness but need more specific research",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Limited understanding of real market potential",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No concrete market analysis conducted yet",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+  "category": "Market-Product Fit",
+    "question": "How would you characterize your competitive advantage?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong, defensible advantages with barriers to entry",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Clear differentiation that customers recognize and value",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Some differentiation but similar to competitors",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Still developing our unique value proposition",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Offering similar benefits to competitors with minimal differentiation",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Unsure how we differ from competitors meaningfully",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 5,
+  "category": "Market-Product Fit",
+    "question": "How scalable is your current business model?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Highly scalable with decreasing marginal costs",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good scalability with some resource scaling required",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Moderately scalable with operational efficiency challenges",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Limited scalability requiring significant resource increases",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Scalability constraints due to manual processes",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Current approach not scalable beyond small customer base",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 6,
+  "category": "Team & Leadership",
+    "question": "How complete is your founding team for current stage?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Full team with complementary skills and proven execution",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Strong team with most key roles filled by qualified people",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Core team in place but missing some key expertise",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Small founding team needing several key additions",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Solo founder or incomplete team with critical gaps",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Frequent team changes or difficulties retaining talent",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+  "category": "Team & Leadership",
+    "question": "How aligned is your team on company vision and strategy?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Complete alignment with shared vision and execution plan",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Strong alignment with occasional strategic discussions",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "General agreement but some differing opinions on direction",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Mixed perspectives with ongoing discussions about focus",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Significant disagreements about strategic direction",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No clear shared vision causing operational confusion",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+  "category": "Team & Leadership",
+    "question": "What's your ability to attract and retain talent?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Successfully attracting top talent with high retention",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good hiring success with competitive packages",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Able to hire qualified people but some recruitment challenges",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Difficulty hiring for specialized roles",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Struggling with recruitment and retention",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Unable to attract necessary talent at current stage",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+  "category": "Team & Leadership",
+    "question": "How experienced is your leadership team with startups?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Seasoned founders with successful startup experience",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Some startup experience with relevant industry background",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "First-time founders with relevant industry expertise",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "First-time founders with transferable skills",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Limited business experience, learning as we go",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No business background, primarily technical/product focused",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+  "category": "Team & Leadership",
+    "question": "How would you rate your team's execution capacity?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Consistently meet or exceed targets and timelines",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good execution with occasional timeline adjustments",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Moderate execution with some missed targets",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Inconsistent execution with frequent timeline shifts",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Struggling to execute on key initiatives",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Significant delays and execution problems",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 11,
+  "category": "Funding & Financial Health",
+    "question": "What is your current runway situation?",
+    "options": [
+      {
+        "option": "a",
+        "text": "18+ months of runway or cash flow positive",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "12-18 months of runway",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "6-12 months of runway",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "3-6 months of runway",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Less than 3 months of runway",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Emergency funding situation",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 12,
+  "category": "Funding & Financial Health",
+    "question": "How clear is your funding strategy?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Clear strategy with investor interest/commitments",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Defined strategy with active investor conversations",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Developed plan but not yet actively fundraising",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Basic strategy but unsure about investor fit",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Unclear approach to next funding round",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No defined funding strategy or investor relationships",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 13,
+  "category": "Funding & Financial Health",
+    "question": "How robust is your financial planning and modeling?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Detailed models with scenarios and tracking mechanisms",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Solid financial models with regular updates",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Basic financial planning with some assumptions",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Simple projections without detailed analysis",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Limited financial planning or outdated models",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No formal financial modeling or projections",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 14,
+  "category": "Funding & Financial Health",
+    "question": "How would you describe your unit economics?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong unit economics with path to profitability",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Positive unit economics with improving efficiency",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Break-even or near break-even unit economics",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Not yet profitable but clear path to improvement",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Challenging unit economics requiring significant changes",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Unprofitable without clear improvement strategy",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 15,
+  "category": "Funding & Financial Health",
+    "question": "How consistent is your financial tracking and reporting?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Comprehensive systems with regular analysis and forecasting",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good tracking with monthly reviews and adjustments",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Basic tracking in place but sometimes delayed",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Minimal tracking with informal processes",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Inconsistent tracking creating visibility issues",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No formal financial tracking processes",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 16,
+  "category": "Growth & Scaling Readiness",
+  "dimensionId": "growth",
+    "question": "How scalable is your customer acquisition approach?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Proven scalable channels with predictable CAC",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Working acquisition channels with improving efficiency",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Some working channels but not yet fully scalable",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Early experiments with inconsistent results",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Relying primarily on manual/founder-led acquisition",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No clear customer acquisition strategy",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 17,
+  "category": "Growth & Scaling Readiness",
+    "question": "How mature is your product development process?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Efficient process with regular releases and feedback loops",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Structured process with clear roadmap and priorities",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Basic process but sometimes inconsistent execution",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Ad hoc development with limited planning",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Reactive development driven by immediate needs",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No formal product development process",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+  "category": "Growth & Scaling Readiness",
+    "question": "How prepared is your infrastructure for scale?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Robust architecture designed for significant scale",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Solid systems with some scaling considerations",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Current systems adequate but needing investment for scale",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Some scalability concerns requiring attention",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "System limitations creating growth constraints",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "Technical debt or architecture issues blocking growth",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 19,
+  "category": "Growth & Scaling Readiness",
+    "question": "How defined are your operational processes?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Well-defined, documented processes allowing efficient scaling",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Key processes documented with responsibilities assigned",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Core processes established but not fully documented",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Basic processes exist but mostly informal",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Limited operational structure creating inefficiencies",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No formal operational processes established",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 20,
+  "category": "Growth & Scaling Readiness",
+    "question": "What's your customer retention and expansion strategy?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong retention with expansion driving significant growth",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good retention with developing expansion strategies",
+        "score": 8
+      },
+      {
+        "option": "c",
+        "text": "Average retention with some churn challenges",
+        "score": 6
+      },
+      {
+        "option": "d",
+        "text": "Retention data limited but early signs concerning",
+        "score": 4
+      },
+      {
+        "option": "e",
+        "text": "Concerning churn rates affecting growth",
+        "score": 2
+      },
+      {
+        "option": "f",
+        "text": "No clear retention strategy or metrics tracking",
+        "score": 0
+      }
+    ]
+  }
+]

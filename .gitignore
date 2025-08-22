@@ -1,0 +1,25 @@
+# Node / JS
+node_modules/
+**/.cache/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Builds / artifacts
+dist/
+build/
+coverage/
+.next/
+out/
+.temp/
+tmp/
+
+# Env & misc
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

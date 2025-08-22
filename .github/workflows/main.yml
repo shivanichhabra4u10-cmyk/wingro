@@ -1,0 +1,49 @@
+wingrox-ai
+├── client
+│   ├── src
+│   │   ├── components
+│   │   │   └── index.ts
+│   │   ├── context
+│   │   │   └── index.ts
+│   │   ├── hooks
+│   │   │   └── index.ts
+│   │   ├── pages
+│   │   │   └── index.ts
+│   │   ├── services
+│   │   │   └── api.ts
+│   │   ├── styles
+│   │   │   └── index.css
+│   │   ├── types
+│   │   │   └── index.ts
+│   │   ├── utils
+│   │   │   └── index.ts
+│   │   ├── App.tsx
+│   │   └── index.tsx
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── tsconfig.json
+├── server
+│   ├── src
+│   │   ├── controllers
+│   │   │   └── index.ts
+│   │   ├── middleware
+│   │   │   └── auth.ts
+│   │   ├── models
+│   │   │   └── index.ts
+│   │   ├── routes
+│   │   │   └── index.ts
+│   │   ├── services
+│   │   │   └── index.ts
+│   │   ├── types
+│   │   │   └── index.ts
+│   │   ├── utils
+│   │   │   └── index.ts
+│   │   └── app.ts
+│   ├── package.json
+│   └── tsconfig.json
+├── .github
+│   └── workflows
+│       └── main.yml
+├── docker-compose.yml
+├── Dockerfile
+└── README.md

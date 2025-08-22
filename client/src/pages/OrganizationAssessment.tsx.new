@@ -1,0 +1,924 @@
+import React, { useEffect, useState, useCallback } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Import the question data
+import earlyStartupQuestions from '../data/early-startup-questions.json';
+import establishedStartupQuestions from '../data/established-startup-questions.json';
+
+// Constants
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://api.wingrox.com/api' 
+  : 'http://localhost:3001/api';
+
+// Define question types for TypeScript
+interface Option {
+  option?: string;
+  text: string;
+  score?: number;
+}
+
+interface Question {
+  id: number;
+  category: string;
+  question: string;
+  options: Option[];
+}
+
+interface OrganizationData {
+  companyName: string;
+  contactName: string;
+  contactEmail: string;
+  industry: string;
+  companySize: string;
+  companyAge: string;
+  role: string;
+  organizationType?: string;
+  category?: string;
+  assessmentType?: string;
+}
+
+interface CategoryScore {
+  category: string;
+  score: number;
+}
+
+const OrganizationAssessment: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // State variables
+  const [isLoading, setIsLoading] = useState(true);
+  const [assessmentType, setAssessmentType] = useState<string>('');
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [organizationData, setOrganizationData] = useState<OrganizationData>({
+    companyName: '',
+    contactName: '',
+    contactEmail: '',
+    industry: '',
+    companySize: '',
+    companyAge: '',
+    role: ''
+  });
+  
+  // Add state for assessment ID from backend
+  const [assessmentId, setAssessmentId] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showIntro, setShowIntro] = useState(true);
+  const [showAssessment, setShowAssessment] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+
+  useEffect(() => {
+    // Determine the assessment type from the URL or localStorage
+    const searchParams = new URLSearchParams(location.search);
+    const typeParam = searchParams.get('type');
+    const category = localStorage.getItem('category') || '';
+    let type = '';
+    
+    if (typeParam === 'early-startup' || category === 'organization-early-startup') {
+      type = 'organization-early-startup';
+    } else if (typeParam === 'established' || category === 'organization-established') {
+      type = 'organization-established';
+    } else {
+      // If no valid type is found, redirect to assessment selection
+      navigate('/assessment-selection', { replace: true });
+      return;
+    }
+    
+    setAssessmentType(type);
+    
+    // Load the appropriate question set based on assessment type
+    loadQuestions(type);
+    
+    setIsLoading(false);
+  }, [location, navigate]);
+  
+  // Load questions based on assessment type
+  const loadQuestions = (type: string) => {
+    let questionData: Question[] = [];
+    
+    try {
+      if (type === 'organization-early-startup') {
+        questionData = earlyStartupQuestions as unknown as Question[];
+      } else if (type === 'organization-established') {
+        questionData = establishedStartupQuestions as unknown as Question[];
+      }
+      
+      if (Array.isArray(questionData) && questionData.length > 0) {
+        console.log(`Loaded ${questionData.length} questions for ${type}`);
+        setQuestions(questionData);
+      } else {
+        console.error('Questions data is not in the expected format');
+        setQuestions([]);
+        setError('Unable to load questions. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error loading questions:', error);
+      setQuestions([]);
+      setError('Error loading questions. Please try again later.');
+    }
+  };
+
+  // Handle form submission and start the assessment
+  const handleStartAssessment = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setSubmitting(true);
+    
+    // Collect organization data from form
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    const orgData: OrganizationData = {
+      companyName: formData.get('companyName') as string,
+      contactName: formData.get('contactName') as string,
+      contactEmail: formData.get('contactEmail') as string,
+      industry: formData.get('industry') as string,
+      companySize: formData.get('companySize') as string,
+      companyAge: formData.get('companyAge') as string,
+      role: formData.get('role') as string,
+      organizationType: assessmentType.includes('early-startup') ? 'early-stage-startup' : 'established-startup-sme',
+      category: assessmentType,
+      assessmentType: 'organization'
+    };
+    
+    setOrganizationData(orgData);
+    
+    try {
+      // Submit organization data to the backend API
+      const response = await axios.post(`${API_URL}/assessment/organization`, orgData);
+      
+      if (response.data && response.data.success) {
+        console.log('Organization assessment created:', response.data);
+        // Store the assessment ID for later use
+        if (response.data.data && response.data.data._id) {
+          setAssessmentId(response.data.data._id);
+        }
+        
+        // Hide intro and show assessment
+        setShowIntro(false);
+        setShowAssessment(true);
+        
+        // Reset to first question
+        setCurrentQuestionIndex(0);
+        toast.success('Organization info saved successfully!');
+      } else {
+        setError('Failed to create assessment. Please try again.');
+        toast.error('Failed to create assessment.');
+      }
+    } catch (err: any) {
+      console.error('Error creating organization assessment:', err);
+      setError(err.response?.data?.message || 'Failed to create assessment. Please try again later.');
+      toast.error(err.response?.data?.message || 'Failed to create assessment.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Handle selecting an answer
+  const handleSelectOption = (questionId: number, option: string) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: option
+    }));
+  };
+
+  // Handle next button click
+  const handleNextQuestion = () => {
+    const currentQuestion = questions[currentQuestionIndex];
+    
+    // Ensure an answer is selected
+    if (!answers[currentQuestion.id]) {
+      toast.warning('Please select an answer before proceeding.');
+      return;
+    }
+    
+    if (currentQuestionIndex < questions.length - 1) {
+      // Move to next question
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      // All questions answered, show results
+      handleSubmitAssessment();
+    }
+  };
+
+  // Handle previous button click
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+    }
+  };
+
+  // Handle assessment submission
+  const handleSubmitAssessment = async () => {
+    setShowAssessment(false);
+    setShowResults(true);
+    window.scrollTo(0, 0);
+    
+    setSubmitting(true);
+    setError(null);
+    
+    const assessmentData = {
+      type: assessmentType,
+      organization: organizationData,
+      answers: Object.entries(answers).map(([questionId, option]) => ({
+        questionId: parseInt(questionId),
+        option
+      }))
+    };
+    
+    try {
+      // Send POST request to create assessment
+      const response = await axios.post(`${API_URL}/assessments/organization/submit`, assessmentData);
+      setAssessmentId(response.data.id); // Set assessment ID from response
+      
+      toast.success('Assessment submitted successfully!');
+    } catch (err: any) {
+      console.error('Error submitting assessment:', err);
+      setError('Failed to submit assessment. Please try again later.');
+      toast.error(err.response?.data?.message || 'Failed to submit assessment.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
+  // Calculate category scores
+  const calculateCategoryScores = useCallback(() => {
+    const categoryScores: Record<string, number> = {};
+    const categoryCounts: Record<string, number> = {};
+    
+    questions.forEach(question => {
+      const answer = answers[question.id];
+      if (!answer) return;
+      
+      const mainCategory = question.category.split(':')[0].trim();
+      
+      if (!categoryScores[mainCategory]) {
+        categoryScores[mainCategory] = 0;
+        categoryCounts[mainCategory] = 0;
+      }
+      
+      categoryCounts[mainCategory] += 1;
+      
+      // Calculate score based on option letter (a=5, b=4, c=3, d=2, e=1, f=0)
+      const optionIndex = 'abcdef'.indexOf(answer.toLowerCase());
+      if (optionIndex !== -1) {
+        categoryScores[mainCategory] += (5 - optionIndex);
+      }
+    });
+    
+    // Convert to percentages
+    return Object.entries(categoryScores).reduce((finalScores: Record<string, number>, [category, score]) => {
+      const maxPossible = categoryCounts[category] * 5; // 5 is max score per question
+      finalScores[category] = Math.round((score / maxPossible) * 100);
+      return finalScores;
+    }, {});
+  }, [questions, answers]);
+  
+  // Calculate overall score
+  const calculateOverallScore = useCallback((categoryScores: Record<string, number>) => {
+    const categories = Object.values(categoryScores);
+    const totalScore = categories.reduce((sum, score) => sum + score, 0);
+    return categories.length ? Math.round(totalScore / categories.length) : 0;
+  }, []);
+
+  // Function to render loading state
+  const renderLoadingState = () => {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <p className="ml-3">Loading assessment...</p>
+      </div>
+    );
+  };
+
+  // Render intro section with organization info form
+  const renderIntroSection = () => {
+    const industrySectors = [
+      'Technology', 'Healthcare', 'Finance', 'Education', 'Manufacturing',
+      'Retail', 'Entertainment', 'Transportation', 'Energy', 'Real Estate', 'Other'
+    ];
+    
+    const companySizes = [
+      '1-10 employees', '11-50 employees', '51-200 employees',
+      '201-500 employees', '501-1000 employees', '1000+ employees'
+    ];
+    
+    const companyAges = [
+      'Less than 1 year', '1-3 years', '3-5 years',
+      '5-10 years', '10-20 years', '20+ years'
+    ];
+    
+    const roles = [
+      'Founder/CEO', 'C-Suite Executive', 'VP/Director', 'Manager',
+      'Team Lead', 'Individual Contributor', 'Consultant', 'Other'
+    ];
+    
+    return (
+      <section className="bg-white p-8 rounded-xl shadow-lg mb-10">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Organization Information
+        </h2>
+        
+        <div className="mb-8">
+          <p className="text-gray-600 text-center">
+            Please provide information about your organization to help us tailor the assessment.
+          </p>
+        </div>
+        
+        <form onSubmit={handleStartAssessment} className="max-w-xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
+                Company Name *
+              </label>
+              <input 
+                type="text" 
+                id="companyName" 
+                name="companyName" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-1">
+                Industry Sector *
+              </label>
+              <select 
+                id="industry" 
+                name="industry" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value=""></option>
+                {industrySectors.map(industry => (
+                  <option key={industry} value={industry}>{industry}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label htmlFor="companySize" className="block text-sm font-medium text-gray-700 mb-1">
+                Company Size *
+              </label>
+              <select 
+                id="companySize" 
+                name="companySize" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value=""></option>
+                {companySizes.map(size => (
+                  <option key={size} value={size}>{size}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label htmlFor="companyAge" className="block text-sm font-medium text-gray-700 mb-1">
+                Company Age *
+              </label>
+              <select 
+                id="companyAge" 
+                name="companyAge" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value=""></option>
+                {companyAges.map(age => (
+                  <option key={age} value={age}>{age}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label htmlFor="contactName" className="block text-sm font-medium text-gray-700 mb-1">
+                Your Name *
+              </label>
+              <input 
+                type="text" 
+                id="contactName" 
+                name="contactName" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-700 mb-1">
+                Your Email *
+              </label>
+              <input 
+                type="email" 
+                id="contactEmail" 
+                name="contactEmail" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">
+                Your Role *
+              </label>
+              <select 
+                id="role" 
+                name="role" 
+                required
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value=""></option>
+                {roles.map(role => (
+                  <option key={role} value={role}>{role}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          
+          <div className="flex items-center mt-4">
+            <input 
+              id="agreeToTerms" 
+              name="agreeToTerms" 
+              type="checkbox" 
+              required 
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" 
+            />
+            <label htmlFor="agreeToTerms" className="ml-2 block text-sm text-gray-700">
+              I agree to the terms and conditions and consent to data processing according to the privacy policy.
+            </label>
+          </div>
+          
+          <div className="text-center pt-4">
+            <button
+              type="submit"
+              disabled={submitting}
+              className={`px-6 py-2 rounded-lg font-medium transition bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:shadow-lg ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {submitting ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Processing...
+                </span>
+              ) : 'Start Assessment'}
+            </button>
+            
+            {error && (
+              <p className="text-red-500 mt-4">{error}</p>
+            )}
+          </div>
+        </form>
+      </section>
+    );
+  };
+
+  // Render questions and options
+  const renderAssessmentSection = () => {
+    if (questions.length === 0 || currentQuestionIndex >= questions.length) {
+      return (
+        <div className="bg-white p-8 rounded-xl shadow-lg">
+          <p className="text-center text-red-600">Error loading questions. Please try again later.</p>
+        </div>
+      );
+    }
+
+    const question = questions[currentQuestionIndex];
+    const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    
+    return (
+      <div className="bg-white p-8 rounded-xl shadow-lg">
+        <div className="mb-8">
+          <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-2">
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </span>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            {question.question}
+          </h2>
+          <p className="text-gray-600 text-sm">
+            Category: {question.category}
+          </p>
+        </div>
+
+        <div className="space-y-3 mb-10">
+          {question.options.map((option, index) => {
+            const optionLetter = String.fromCharCode(97 + index); // Convert 0 -> 'a', 1 -> 'b', etc.
+            const isSelected = answers[question.id] === optionLetter;
+            
+            return (
+              <div
+                key={`${question.id}-${optionLetter}`}
+                onClick={() => handleSelectOption(question.id, optionLetter)}
+                className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                  isSelected
+                    ? 'border-blue-500 bg-blue-50'
+                    : 'border-gray-200 hover:border-blue-300'
+                }`}
+              >
+                <div className="flex items-center">
+                  <div className={`h-5 w-5 rounded-full border ${
+                    isSelected
+                      ? 'bg-blue-500 border-blue-500'
+                      : 'border-gray-400'
+                  } flex items-center justify-center mr-3`}>
+                    {isSelected && (
+                      <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                  <span className={`${isSelected ? 'font-medium text-blue-800' : 'text-gray-800'}`}>
+                    {option.text}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {error && (
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-700">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-8">
+          <div className="flex justify-between mb-2">
+            <span className="text-sm text-gray-600">Progress</span>
+            <span className="text-sm text-gray-600">{Math.round(progress)}%</span>
+          </div>
+          <div className="h-2 bg-gray-200 rounded-full">
+            <div 
+              className="h-2 bg-blue-500 rounded-full" 
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+        </div>
+        
+        <div className="flex justify-between mt-8">
+          <button
+            onClick={handlePreviousQuestion}
+            disabled={currentQuestionIndex === 0}
+            className={`px-6 py-2 rounded-lg font-medium transition bg-gray-100 text-gray-700 hover:bg-gray-200 ${
+              currentQuestionIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNextQuestion}
+            className="px-6 py-2 rounded-lg font-medium transition bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:shadow-lg"
+          >
+            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  // Render assessment results
+  const renderResultsSection = () => {
+    const categoryScores = calculateCategoryScores();
+    const overallScore = calculateOverallScore(categoryScores);
+    
+    let riskLevel: string;
+    let riskColorClass: string;
+    
+    if (overallScore >= 70) {
+      riskLevel = 'Low Risk';
+      riskColorClass = 'text-green-600 bg-green-50 border-green-200';
+    } else if (overallScore >= 40) {
+      riskLevel = 'Moderate Risk';
+      riskColorClass = 'text-amber-600 bg-amber-50 border-amber-200';
+    } else {
+      riskLevel = 'High Risk';
+      riskColorClass = 'text-red-600 bg-red-50 border-red-200';
+    }
+    
+    // Sort scores for strengths and weaknesses
+    const sortedScores = Object.entries(categoryScores)
+      .map(([category, score]) => ({ category, score }))
+      .sort((a, b) => b.score - a.score);
+    
+    const strengths = sortedScores.slice(0, 3);
+    const weaknesses = sortedScores
+      .sort((a, b) => a.score - b.score)
+      .slice(0, 3);
+    
+    // Generate recommendations based on assessment type and scores
+    const generateRecommendations = () => {
+      const recommendations = [];
+      
+      // Early startup recommendations
+      if (assessmentType === 'organization-early-startup') {
+        if (overallScore < 50) {
+          recommendations.push('Focus on strengthening your foundational business operations before aggressively pursuing growth.');
+          recommendations.push('Consider seeking mentorship from experienced founders or joining a startup incubator program.');
+        } else {
+          recommendations.push('Your organization shows strong potential. Consider exploring funding opportunities to accelerate growth.');
+          recommendations.push('Build strategic partnerships to expand your market reach and customer base.');
+        }
+        
+        // Add category-specific recommendations for early startups
+        weaknesses.forEach(({ category }) => {
+          switch(category) {
+            case 'Financial Management':
+              recommendations.push('Implement proper financial tracking systems and consider working with a startup-focused accountant.');
+              break;
+            case 'Market Strategy':
+              recommendations.push('Conduct more comprehensive market research and refine your target customer profile.');
+              break;
+            case 'Team Development':
+              recommendations.push('Create a structured hiring plan and develop clear role definitions for your early team members.');
+              break;
+            default:
+              recommendations.push(`Develop a focused improvement plan for ${category.toLowerCase()}.`);
+          }
+        });
+      } 
+      // Established company recommendations
+      else {
+        if (overallScore < 50) {
+          recommendations.push('Consider bringing in external expertise to address fundamental organizational challenges.');
+          recommendations.push('Prioritize addressing structural issues before pursuing significant new growth initiatives.');
+        } else {
+          recommendations.push('Your organization is well-positioned for strategic growth. Consider exploring new markets or product lines.');
+          recommendations.push('Invest in systems and processes that will support scaling while maintaining operational excellence.');
+        }
+        
+        // Add category-specific recommendations for established companies
+        weaknesses.forEach(({ category }) => {
+          switch(category) {
+            case 'Operational Efficiency':
+              recommendations.push('Audit your current operational processes and implement automation where possible.');
+              break;
+            case 'Innovation Culture':
+              recommendations.push('Create structured innovation programs and encourage cross-department collaboration.');
+              break;
+            case 'Talent Management':
+              recommendations.push('Review your recruitment and retention strategies, and implement stronger professional development paths.');
+              break;
+            default:
+              recommendations.push(`Develop a comprehensive improvement strategy for ${category.toLowerCase()}.`);
+          }
+        });
+      }
+      
+      return recommendations;
+    };
+    
+    const recommendations = generateRecommendations();
+    
+    // Generate report date
+    const reportDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    return (
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        {/* Header section */}
+        <div className="bg-gradient-to-r from-indigo-600 to-blue-500 px-8 py-6 text-white">
+          <h2 className="text-3xl font-bold">Organization Assessment Results</h2>
+          <p className="text-blue-100 mt-2">
+            Completed on {reportDate} • Assessment ID: {assessmentId ? assessmentId.slice(-8).toUpperCase() : 'PENDING'}
+          </p>
+        </div>
+      
+        {/* Error banner */}
+        {error && (
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-amber-700">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="px-8 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {/* Overall score */}
+            <div className={`col-span-1 md:col-span-1 flex flex-col items-center justify-center p-6 rounded-xl border-2 shadow-sm transition-all hover:shadow-md ${riskColorClass}`}>
+              <h3 className="text-lg font-semibold text-gray-500 mb-1">Overall Assessment</h3>
+              <div className="text-5xl font-bold mb-2">{overallScore}%</div>
+              <div className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-gray-100 text-gray-800">
+                {riskLevel}
+              </div>
+              <p className="mt-2 text-sm text-center text-gray-500">
+                Based on {Object.keys(categoryScores).length} assessment categories
+              </p>
+            </div>
+            
+            {/* Organization Info */}
+            <div className="col-span-1 md:col-span-2 p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all">
+              <h4 className="text-lg font-semibold text-gray-800 mb-3">Organization Information</h4>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-500">Company</p>
+                  <p className="font-medium">{organizationData.companyName}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Industry</p>
+                  <p className="font-medium">{organizationData.industry}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Company Size</p>
+                  <p className="font-medium">{organizationData.companySize}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Company Age</p>
+                  <p className="font-medium">{organizationData.companyAge}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Assessment Type</p>
+                  <p className="font-medium">{assessmentType.includes('early-startup') ? 'Early-Stage Startup' : 'Established Organization'}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Category scores */}
+          <div className="p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all mb-6">
+            <h4 className="text-lg font-semibold text-gray-800 mb-3">Category Assessment</h4>
+            
+            <div className="space-y-4">
+              {Object.entries(categoryScores).map(([category, score], index) => {
+                let scoreColorClass = 'bg-green-500';
+                
+                if (score < 40) {
+                  scoreColorClass = 'bg-red-500';
+                } else if (score < 60) {
+                  scoreColorClass = 'bg-amber-500';
+                } else if (score < 75) {
+                  scoreColorClass = 'bg-blue-500';
+                }
+                
+                return (
+                  <div key={`category-${index}`}>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium text-gray-700">{category}</span>
+                      <span className="text-sm font-medium text-gray-700">{score}%</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className={`h-full ${scoreColorClass} rounded-full`}
+                        style={{ width: `${score}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* Strengths and weaknesses */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="p-5 rounded-lg border border-green-200 bg-green-50 hover:shadow-md transition-all">
+              <h4 className="text-lg font-semibold text-green-800 mb-3">Organizational Strengths</h4>
+              <ul className="space-y-2">
+                {strengths.map((item, index) => (
+                  <li key={`strength-${index}`} className="flex items-start">
+                    <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>
+                      <span className="font-medium">{item.category}:</span> {item.score}% - {item.score >= 80 ? 'Exceptional' : item.score >= 70 ? 'Strong' : 'Solid'}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="p-5 rounded-lg border border-amber-200 bg-amber-50 hover:shadow-md transition-all">
+              <h4 className="text-lg font-semibold text-amber-800 mb-3">Areas for Improvement</h4>
+              <ul className="space-y-2">
+                {weaknesses.map((item, index) => (
+                  <li key={`weakness-${index}`} className="flex items-start">
+                    <svg className="h-5 w-5 text-amber-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                    <span>
+                      <span className="font-medium">{item.category}:</span> {item.score}% - Needs attention
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          {/* Recommendations */}
+          <div className="p-5 rounded-lg border border-indigo-200 bg-indigo-50 hover:shadow-md transition-all mb-6">
+            <h4 className="text-lg font-semibold text-indigo-800 mb-3">Strategic Recommendations</h4>
+            <ul className="space-y-3">
+              {recommendations.map((recommendation, index) => (
+                <li key={`rec-${index}`} className="flex items-start">
+                  <svg className="h-5 w-5 text-indigo-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
+                  </svg>
+                  <span>{recommendation}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Next steps */}
+          <div className="mt-6 pt-4 border-t border-indigo-200">
+            <div className="flex flex-wrap items-center justify-between">
+              <p className="text-gray-700 font-medium">Next steps:</p>
+              <button 
+                onClick={() => toast.info('Development plan download coming soon!')} 
+                className="flex items-center text-sm bg-white rounded-md border border-indigo-200 px-4 py-2 text-indigo-600 font-medium hover:bg-indigo-50 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Full Report
+              </button>
+            </div>
+            <p className="text-gray-600 mt-2">Schedule a consultation with our business advisors to discuss your results and develop an action plan.</p>
+          </div>
+        </div>
+        
+        {/* Footer */}
+        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200">
+          <p className="text-center text-gray-500 text-sm">
+            This assessment is designed to provide insights into your organization's current state and is not a definitive measure of success potential. 
+            Results should be considered alongside other business metrics and industry context.
+          </p>
+          <p className="text-center text-gray-400 text-xs mt-2">
+            © {new Date().getFullYear()} WinGrox AI Organization Assessment. All rights reserved.
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  // Main return statement
+  return (
+    <div className="container mx-auto max-w-6xl px-4 py-8">
+      {/* Toast container for notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      
+      {/* Header section */}
+      <header className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 text-white mb-10 text-center">
+        <h1 className="text-4xl font-bold mb-4">
+          {assessmentType.includes('early-startup') 
+            ? 'Early-Stage Startup Risk Assessment' 
+            : 'Established Organization Risk Assessment'}
+        </h1>
+        <p className="text-xl max-w-3xl mx-auto">
+          Evaluate your organization's readiness and identify strategic growth opportunities
+        </p>
+      </header>
+
+      {/* Main content section */}
+      {isLoading ? renderLoadingState() : (
+        <>
+          {showIntro && renderIntroSection()}
+          {showAssessment && renderAssessmentSection()}
+          {showResults && renderResultsSection()}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default OrganizationAssessment;

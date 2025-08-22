@@ -1,0 +1,267 @@
+{
+  "assessmentMetadata": {
+    "id": "student-9-10-assessment",
+    "title": "Student Assessment for Grades 9-10",
+    "version": "1.0",
+    "scoringDimensions": [
+      {
+        "id": "clarity",
+        "name": "Career Clarity",
+        "description": "How clear a student is about their future path",
+        "maxScore": 100,
+        "thresholds": {
+          "high": 80,
+          "medium": 40,
+          "low": 0
+        }
+      },
+      {
+        "id": "confidence",
+        "name": "Self-Confidence",
+        "description": "Level of confidence in making educational decisions",
+        "maxScore": 100,
+        "thresholds": {
+          "high": 75,
+          "medium": 35,
+          "low": 0
+        }
+      },
+      {
+        "id": "exploration",
+        "name": "Career Exploration",
+        "description": "Engagement in exploring career options",
+        "maxScore": 100,
+        "thresholds": {
+          "high": 70,
+          "medium": 30,
+          "low": 0
+        }
+      },
+      {
+        "id": "resilience",
+        "name": "Academic Resilience",
+        "description": "Ability to bounce back from setbacks",
+        "maxScore": 100,
+        "thresholds": {
+          "high": 75,
+          "medium": 40,
+          "low": 0
+        }
+      }
+    ],
+    "resultProfiles": [
+      {
+        "id": "career-explorer",
+        "name": "Career Explorer",
+        "description": "You're actively exploring career options but need more clarity",
+        "conditions": {
+          "exploration": "high",
+          "clarity": "low-medium"
+        }
+      },
+      {
+        "id": "focused-planner",
+        "name": "Focused Planner",
+        "description": "You have a clear direction and are confidently working towards it",
+        "conditions": {
+          "clarity": "high",
+          "confidence": "high"
+        }
+      },
+      {
+        "id": "resilient-learner",
+        "name": "Resilient Learner",
+        "description": "You bounce back well from challenges but need more career direction",
+        "conditions": {
+          "resilience": "high",
+          "clarity": "low-medium"
+        }
+      },
+      {
+        "id": "needs-guidance",
+        "name": "Guidance Seeker",
+        "description": "You would benefit from more structured career guidance",
+        "conditions": {
+          "clarity": "low",
+          "exploration": "low-medium"
+        }
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "category": "Part 1: Clarity & Identity Confusion",
+      "question": "How clear are you about what to do after 10th?",
+      "dimensionId": "clarity",
+      "options": [
+        {
+          "option": "a",
+          "text": "I have complete clarity and a strong plan.",
+          "score": 10
+        },
+        {
+          "option": "b",
+          "text": "I have a good idea and have started preparing.",
+          "score": 9
+        },
+        {
+          "option": "c",
+          "text": "I'm leaning towards 1–2 options but not 100% sure.",
+          "score": 7
+        },
+        {
+          "option": "d",
+          "text": "I have general ideas but haven't researched deeply.",
+          "score": 5
+        },
+        {
+          "option": "e",
+          "text": "I'm still trying to figure it out.",
+          "score": 4
+        },
+        {
+          "option": "f",
+          "text": "I've been given advice but I'm not sure if it's right for me.",
+          "score": 3
+        },
+        {
+          "option": "g",
+          "text": "I'm feeling confused about what subject I should choose.",
+          "score": 2
+        },
+        {
+          "option": "h",
+          "text": "I feel lost when thinking about what to do next.",
+          "score": 1
+        },
+        {
+          "option": "i",
+          "text": "I'm worried I'll make the wrong choice.",
+          "score": 1
+        },
+        {
+          "option": "j",
+          "text": "I have absolutely no idea what to do next.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Part 1: Clarity & Identity Confusion",
+      "question": "How do you feel about choosing a career path?",
+      "dimensionId": "clarity",
+      "options": [
+        {
+          "option": "a",
+          "text": "I know exactly what career I want and feel confident.",
+          "score": 10
+        },
+        {
+          "option": "b",
+          "text": "I have some strong interests that could become careers.",
+          "score": 8
+        },
+        {
+          "option": "c",
+          "text": "I've narrowed it down to a few options.",
+          "score": 7
+        },
+        {
+          "option": "d",
+          "text": "I have some ideas but need more information.",
+          "score": 5
+        },
+        {
+          "option": "e",
+          "text": "I'm still discovering what interests me career-wise.",
+          "score": 4
+        },
+        {
+          "option": "f",
+          "text": "I'm unsure if I'll like the careers suggested to me.",
+          "score": 3
+        },
+        {
+          "option": "g",
+          "text": "I'm worried about choosing the wrong career.",
+          "score": 2
+        },
+        {
+          "option": "h",
+          "text": "I've changed my mind multiple times already.",
+          "score": 2
+        },
+        {
+          "option": "i",
+          "text": "I'm overwhelmed by too many options.",
+          "score": 1
+        },
+        {
+          "option": "j",
+          "text": "I have no idea what careers would suit me.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Part 2: Stream Selection",
+      "question": "How confident are you about choosing the right stream after 10th?",
+      "dimensionId": "confidence",
+      "options": [
+        {
+          "option": "a",
+          "text": "Very confident—I know exactly which stream fits me best.",
+          "score": 10
+        },
+        {
+          "option": "b",
+          "text": "Confident—I've researched my options thoroughly.",
+          "score": 9
+        },
+        {
+          "option": "c",
+          "text": "Somewhat confident—I have a preferred stream but still have some doubts.",
+          "score": 7
+        },
+        {
+          "option": "d",
+          "text": "Moderately confident—I'm considering 2-3 streams seriously.",
+          "score": 6
+        },
+        {
+          "option": "e",
+          "text": "Neutral—I could see myself in several different streams.",
+          "score": 5
+        },
+        {
+          "option": "f",
+          "text": "Slightly unsure—I'm leaning one way but have significant doubts.",
+          "score": 4
+        },
+        {
+          "option": "g",
+          "text": "Confused—I keep going back and forth between options.",
+          "score": 3
+        },
+        {
+          "option": "h",
+          "text": "Very uncertain—I don't know which stream would be best for me.",
+          "score": 2
+        },
+        {
+          "option": "i",
+          "text": "Anxious—I'm afraid of making the wrong choice.",
+          "score": 1
+        },
+        {
+          "option": "j",
+          "text": "Completely lost—I have no idea how to choose a stream.",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}

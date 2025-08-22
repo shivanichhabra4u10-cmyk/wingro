@@ -1,0 +1,252 @@
+import axios from 'axios';
+
+const api = axios.create({
+  // Ensure we're using the correct base URL
+  baseURL: 'http://localhost:3001',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add a request interceptor for auth token
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Handle unauthorized access
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+// Community interfaces
+export interface CommunitySegment {
+  _id?: string;
+  id: string;
+  name: string;
+  description: string;
+  isMatched: boolean;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface CommunityPost {
+  _id?: string;
+  segmentId: string;
+  question: string;
+  details?: string;
+  author: string;
+  role?: string;
+  isAnonymous: boolean;
+  tags?: string[];
+  views: number;
+  likes: number;
+  bookmarks: number;
+  comments: number;
+  isAnswered: boolean;
+  answer?: string;
+  answeredBy?: string;
+  answererRole?: string;
+  answererCoachId?: string;
+  reflection?: string;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  // UI-only field
+  timestamp?: string;
+}
+
+export interface Comment {
+  _id?: string;
+  postId?: string;
+  author: string;
+  content: string;
+  isAnonymous: boolean;
+  likes: number;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  // UI-only field
+  timestamp?: string;
+}
+
+// Community endpoints
+export const community = {
+  // Segments
+  getSegments: async (): Promise<CommunitySegment[]> => {
+    try {
+      const response = await api.get('/community/segments');
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching community segments:', error);
+      throw error;
+    }
+  },
+  
+  getSegmentById: async (id: string): Promise<CommunitySegment> => {
+    try {
+      const response = await api.get(`/community/segments/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  createSegment: async (segment: Omit<CommunitySegment, '_id'>): Promise<CommunitySegment> => {
+    try {
+      const response = await api.post('/community/segments', segment);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error creating community segment:', error);
+      throw error;
+    }
+  },
+  
+  updateSegment: async (id: string, segment: Partial<CommunitySegment>): Promise<CommunitySegment> => {
+    try {
+      const response = await api.put(`/community/segments/${id}`, segment);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  deleteSegment: async (id: string): Promise<CommunitySegment> => {
+    try {
+      const response = await api.delete(`/community/segments/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting community segment ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  // Posts
+  getPosts: async (options: { segmentId?: string; answered?: boolean; sort?: string; limit?: number } = {}): Promise<CommunityPost[]> => {
+    try {
+      const response = await api.get('/community/posts', { params: options });
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching community posts:', error);
+      throw error;
+    }
+  },
+  
+  getPostById: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.get(`/community/posts/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  createPost: async (post: Omit<CommunityPost, '_id'>): Promise<CommunityPost> => {
+    try {
+      const response = await api.post('/community/posts', post);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error creating community post:', error);
+      throw error;
+    }
+  },
+  
+  updatePost: async (id: string, post: Partial<CommunityPost>): Promise<CommunityPost> => {
+    try {
+      const response = await api.put(`/community/posts/${id}`, post);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  answerPost: async (id: string, answerData: { answer: string; answeredBy: string; answererRole: string; answererCoachId?: string; reflection?: string }): Promise<CommunityPost> => {
+    try {
+      const response = await api.put(`/community/posts/${id}`, {
+        ...answerData,
+        isAnswered: true
+      });
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error answering community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  likePost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.post(`/community/posts/${id}/like`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error liking community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  bookmarkPost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.post(`/community/posts/${id}/bookmark`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error bookmarking community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  deletePost: async (id: string): Promise<CommunityPost> => {
+    try {
+      const response = await api.delete(`/community/posts/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting community post ${id}:`, error);
+      throw error;
+    }
+  },
+  
+  // Comments
+  getComments: async (postId: string): Promise<Comment[]> => {
+    try {
+      const response = await api.get(`/community/posts/${postId}/comments`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error fetching comments for post ${postId}:`, error);
+      throw error;
+    }
+  },
+  
+  addComment: async (postId: string, comment: Omit<Comment, '_id' | 'postId'>): Promise<Comment> => {
+    try {
+      const response = await api.post(`/community/posts/${postId}/comments`, comment);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error adding comment to post ${postId}:`, error);
+      throw error;
+    }
+  }
+};
+
+// Export the entire API
+export default {
+  community
+};

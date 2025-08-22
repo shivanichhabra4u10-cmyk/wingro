@@ -1,0 +1,20 @@
+I need to design a backend for my application, which includes APIs for all pages. Based on the functionality and data requirements of the pages in my workspace, identify the APIs I need to create. For each API, provide the following details:
+
+Endpoint URL.
+HTTP method (GET, POST, PUT, DELETE).
+Expected request payload (if applicable).
+Expected response structure.
+Any authentication or authorization requirements.
+Ensure the APIs cover the following pages and their features:
+
+Home: Display dynamic content and call-to-action sections.
+WhoWeServe: Provide data for different user categories and solutions.
+Marketplace: Manage architects, client profiles, and booking flows.
+Products: Handle product listing, creation, updates, and deletion.
+CareerAssessment: Save user responses and fetch assessment results.
+Knowledge: Provide articles, categories, and resources.
+Contact: Submit contact form data and manage inquiries.
+JoinAsArchitect: Handle architect applications and manage profiles.
+Follow RESTful principles and ensure scalability, security, and maintainability in the API design."
+
+This prompt will help me generate a comprehensive backend API design tailored to your application's needs. Let me know if you want me to proceed with this!

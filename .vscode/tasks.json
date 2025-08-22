@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Career Assessment App",
+			"type": "shell",
+			"command": "cd ../ ; npm start",
+			"group": "test",
+			"problemMatcher": [],
+			"isBackground": true
+		}
+	]
+}

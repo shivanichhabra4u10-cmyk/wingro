@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinGrox AI Risk Navigator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mt-12 { margin-top: 3rem; }
+
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1f2937;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .persona-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .persona-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .persona-card {
+            background: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .persona-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .persona-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #7c3aed, #2563eb);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #6d28d9, #1d4ed8);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #7c3aed;
+            border: 2px solid #7c3aed;
+        }
+
+        .btn-secondary:hover {
+            background: #f3e7ff;
+        }
+
+        .btn-gray {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+
+        .btn-gray:hover {
+            background: #e5e7eb;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.75rem;
+            background: #e5e7eb;
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #7c3aed, #2563eb);
+            transition: width 0.3s ease;
+        }
+
+        .question-option {
+            width: 100%;
+            text-align: left;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-option:hover {
+            border-color: #7c3aed;
+            background: #f3e7ff;
+        }
+
+        .option-letter {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .question-option:hover .option-letter {
+            background: #e9d5ff;
+            color: #7c3aed;
+        }
+
+        .speedometer-container {
+            position: relative;
+            width: 256px;
+            height: 128px;
+            margin: 0 auto 1rem;
+        }
+
+        .segment-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .segment-green { background: #d1fae5; color: #065f46; }
+        .segment-yellow { background: #fef3c7; color: #78350f; }
+        .segment-orange { background: #fed7aa; color: #7c2d12; }
+        .segment-red { background: #fee2e2; color: #991b1b; }
+        .segment-darkred { background: #fecaca; color: #7f1d1d; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+
+        .grid-2 {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .plan-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+        }
+
+        .plan-silver {
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+        }
+
+        .plan-gold {
+            background: linear-gradient(to bottom right, #fef3c7, #fed7aa);
+            border: 2px solid #fbbf24;
+        }
+
+        .plan-diamond {
+            background: linear-gradient(to bottom right, #f3e7ff, #dbeafe);
+        }
+
+        .plan-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+
+        .list-icon {
+            margin-right: 0.5rem;
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .sm-flex-row {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landingPage" class="gradient-bg">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="hero-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h1 class="mb-4">WinGrox AI Risk Navigator</h1>
+                <p style="font-size: 1.5rem; color: #4b5563;" class="mb-8">
+                    Decode Your Risk. Discover Your Future.
+                </p>
+                <p style="font-size: 1.125rem; color: #6b7280; max-width: 42rem; margin: 0 auto;" class="mb-12">
+                    Take our comprehensive assessment to understand your current challenges, 
+                    unlock hidden potential, and get personalized growth recommendations powered by AI.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2 class="mb-6">Choose Your Profile to Begin</h2>
+                
+                <div class="mb-8">
+                    <h3 style="font-size: 1.125rem; color: #4b5563;" class="mb-4">Individuals</h3>
+                    <div class="persona-grid">
+                        <div class="persona-card" onclick="selectPersona('student-9-10')">
+                            <div class="persona-icon">📚</div>
+                            <h4>9-10 Grade Student</h4>
+                        </div>
+                        <div class="persona-card" onclick="selectPersona('student-11-12')">
+                            <div class="persona-icon">🎓</div>
+                            <h4>11-12 Grade Student</h4>
+                        </div>
+                        <div class="persona-card" onclick="selectPersona('working-professional')">
+                            <div class="persona-icon">💼</div>
+                            <h4>Working Professional</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.125rem; color: #4b5563;" class="mb-4">Organizations</h3>
+                    <div class="persona-grid">
+                        <div class="persona-card" onclick="selectPersona('startup-early')">
+                            <div class="persona-icon">🚀</div>
+                            <h4>Early-Stage Startup</h4>
+                        </div>
+                        <div class="persona-card" onclick="selectPersona('startup-established')">
+                            <div class="persona-icon">🏢</div>
+                            <h4>Established Startup/SME</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid mt-12">
+                <div class="stat-item">
+                    <div class="stat-value">10K+</div>
+                    <div style="color: #6b7280;">Assessments Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">95%</div>
+                    <div style="color: #6b7280;">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">AI-Powered</div>
+                    <div style="color: #6b7280;">Insights</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Survey Page -->
+    <div id="surveyPage" class="gradient-bg hidden">
+        <div class="container" style="max-width: 800px;">
+            <div class="card">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 id="surveyTitle">Assessment</h2>
+                        <span style="font-size: 0.875rem; color: #6b7280;" id="questionCounter">Question 1 of 2</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 id="sectionTitle" style="color: #7c3aed;" class="mb-2">Section</h3>
+                    <p id="questionText" style="font-size: 1.125rem; font-weight: 500;" class="mb-6">Question</p>
+
+                    <div id="optionsContainer">
+                        <!-- Options will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Page -->
+    <div id="reportPage" class="gradient-bg hidden">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h1 style="font-size: 2.5rem;" class="mb-4">Your Personalized Risk Assessment Report</h1>
+                <p style="font-size: 1.25rem; color: #4b5563;">
+                    From Understanding Your Challenges to Unlocking Your Potential
+                </p>
+            </div>
+
+            <!-- Risk Meter -->
+            <div class="card mb-8">
+                <h2 class="text-center mb-6">Your Risk Profile</h2>
+                
+                <div class="flex flex-col items-center mb-8">
+                    <div class="speedometer-container mb-4">
+                        <svg viewBox="0 0 200 100" style="width: 100%; height: 100%;">
+                            <path d="M 20 80 A 60 60 0 0 1 180 80" fill="none" stroke="#e5e7eb" stroke-width="20"/>
+                            <path d="M 20 80 A 60 60 0 0 1 56 40" fill="none" stroke="#10b981" stroke-width="20"/>
+                            <path d="M 56 40 A 60 60 0 0 1 100 20" fill="none" stroke="#eab308" stroke-width="20"/>
+                            <path d="M 100 20 A 60 60 0 0 1 144 40" fill="none" stroke="#f97316" stroke-width="20"/>
+                            <path d="M 144 40 A 60 60 0 0 1 180 80" fill="none" stroke="#ef4444" stroke-width="20"/>
+                            <line id="speedometerNeedle" x1="100" y1="80" x2="100" y2="30" stroke="#1f2937" stroke-width="3" transform="rotate(-90 100 80)"/>
+                            <circle cx="100" cy="80" r="5" fill="#1f2937"/>
+                        </svg>
+                    </div>
+                    
+                    <div id="segmentBadge" class="segment-badge"></div>
+                    <p style="color: #6b7280;" class="mt-2" id="totalScoreText">Total Score: 0</p>
+                </div>
+
+                <div class="text-center" style="max-width: 42rem; margin: 0 auto;">
+                    <p style="color: #374151;" id="segmentDescription"></p>
+                </div>
+            </div>
+
+            <!-- Strengths & Development Areas -->
+            <div class="grid-2 mb-8">
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 0.5rem;">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                        </svg>
+                        <h3 style="font-size: 1.25rem;">Your Top Strengths</h3>
+                    </div>
+                    <ul>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" class="list-icon">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span style="color: #374151;">Clear awareness of current challenges</span>
+                        </li>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" class="list-icon">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span style="color: #374151;">Willingness to seek growth and guidance</span>
+                        </li>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" class="list-icon">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span style="color: #374151;">Openness to transformation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" style="margin-right: 0.5rem;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <h3 style="font-size: 1.25rem;">Areas for Development</h3>
+                    </div>
+                    <ul>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" class="list-icon">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span style="color: #374151;">Career clarity and direction setting</span>
+                        </li>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" class="list-icon">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span style="color: #374151;">Skill development for future readiness</span>
+                        </li>
+                        <li class="list-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" class="list-icon">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span style="color: #374151;">Building resilience and adaptability</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Plan -->
+            <div class="card mb-8">
+                <h3 class="mb-6">Your Personalized Action Plan</h3>
+                
+                <div class="grid-3 mb-8">
+                    <div class="plan-card plan-silver">
+                        <div class="plan-icon" style="background: #e5e7eb;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4b5563" stroke-width="2">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="mb-2">Silver Plan</h4>
+                        <p style="color: #6b7280; font-size: 0.875rem;" class="mb-4">Foundation Building</p>
+                        <ul style="text-align: left; font-size: 0.875rem; color: #374151; margin-bottom: 1rem;">
+                            <li>• AI-guided self-assessment</li>
+                            <li>• Basic skill roadmap</li>
+                            <li>• Community access</li>
+                        </ul>
+                        <button class="btn btn-gray" style="width: 100%;">Learn More</button>
+                    </div>
+
+                    <div class="plan-card plan-gold">
+                        <div class="plan-icon" style="background: #fde68a;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#78350f" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <h4 class="mb-2">Gold Plan</h4>
+                        <p style="color: #6b7280; font-size: 0.875rem;" class="mb-4">Accelerated Growth</p>
+                        <ul style="text-align: left; font-size: 0.875rem; color: #374151; margin-bottom: 1rem;">
+                            <li>• 1:1 AI coaching sessions</li>
+                            <li>• Personalized learning path</li>
+                            <li>• Priority support</li>
+                        </ul>
+                        <button class="btn" style="width: 100%; background: linear-gradient(to right, #f59e0b, #ea580c); color: white;">Recommended</button>
+                    </div>
+
+                    <div class="plan-card plan-diamond">
+                        <div class="plan-icon" style="background: #e9d5ff;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                <polygon points="13 2 3 14 12 22 21 14 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h4 class="mb-2">Diamond Plan</h4>
+                        <p style="color: #6b7280; font-size: 0.875rem;" class="mb-4">Elite Transformation</p>
+                        <ul style="text-align: left; font-size: 0.875rem; color: #374151; margin-bottom: 1rem;">
+                            <li>• Executive AI mentorship</li>
+                            <li>• Custom growth strategy</li>
+                            <li>• VIP network access</li>
+                        </ul>
+                        <button class="btn" style="width: 100%; background: #7c3aed; color: white;">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p style="color: #6b7280;" class="mb-6">
+                        Ready to transform your challenges into opportunities?
+                    </p>
+                    <div class="flex flex-col sm-flex-row gap-4 justify-center">
+                        <button class="btn btn-primary">
+                            <span style="margin-right: 0.5rem;">✨</span>
+                            Book My 1:1 AI-Guided Coaching
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span style="margin-right: 0.5rem;">📊</span>
+                            Explore My Growth Toolkit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="card">
+                <h3 class="mb-4">Save Your Report</h3>
+                <div class="flex flex-col sm-flex-row gap-4">
+                    <button class="btn btn-gray" style="flex: 1;">
+                        <span style="margin-right: 0.5rem;">📥</span>
+                        Download PDF Report
+                    </button>
+                    <button class="btn btn-gray" style="flex: 1;">
+                        <span style="margin-right: 0.5rem;">📧</span>
+                        Email Report to Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentPersona = null;
+        let currentQuestionIndex = 0;
+        let responses = {};
+        let totalScore = 0;
+        let riskSegment = null;
+
+        // Risk segments data
+        const riskSegments = {
+            'student-9-10': [
+                { min: 26, max: 75, name: 'Purpose-Powered Navigator', color: 'green', icon: '🚀' },
+                { min: 76, max: 125, name: 'Watchful Re-inventor', color: 'yellow', icon: '👁️' },
+                { min: 126, max: 175, name: 'Disengaged Explorer', color: 'orange', icon: '🧭' },
+                { min: 176, max: 220, name: 'Midlife Breakdown Zone', color: 'red', icon: '⚠️' },
+                { min: 221, max: 260, name: 'Reinvention Emergency', color: 'darkred', icon: '🚨' }
+            ],
+            'student-11-12': [
+                { min: 31, max: 90, name: 'Self-Driven Achiever', color: 'green', icon: '🏆' },
+                { min: 91, max: 140, name: 'Curious Explorer', color: 'yellow', icon: '🔍' },
+                { min: 141, max: 190, name: 'Growth-Seeker', color: 'orange', icon: '🌱' },
+                { min: 191, max: 240, name: 'Confused Voyager', color: 'red', icon: '🌊' },
+                { min: 241, max: 310, name: 'High Risk Zone', color: 'darkred', icon: '⚡' }
+            ],
+            'working-professional': [
+                { min: 26, max: 75, name: 'Purpose-Powered Navigator', color: 'green', icon: '🎯' },
+                { min: 76, max: 125, name: 'Watchful Re-inventor', color: 'yellow', icon: '🔄' },
+                { min: 126, max: 175, name: 'Disengaged Explorer', color: 'orange', icon: '🧩' },
+                { min: 176, max: 220, name: 'Midlife Breakdown Zone', color: 'red', icon: '🔥' },
+                { min: 221, max: 260, name: 'Reinvention Emergency', color: 'darkred', icon: '🆘' }
+            ],
+            'startup-early': [
+                { min: 42, max: 100, name: 'Trailblazer Builders', color: 'green', icon: '🚀' },
+                { min: 101, max: 160, name: 'Strategic Optimizers', color: 'yellow', icon: '📊' },
+                { min: 161, max: 220, name: 'Scrappy Hustlers', color: 'orange', icon: '💪' },
+                { min: 221, max: 280, name: 'Overwhelmed Navigators', color: 'red', icon: '🌊' },
+                { min: 281, max: 420, name: 'Burnout Zone', color: 'darkred', icon: '🔥' }
+            ],
+            'startup-established': [
+                { min: 33, max: 80, name: 'Scale-Ready Masters', color: 'green', icon: '📈' },
+                { min: 81, max: 140, name: 'Growth-Mode Tuners', color: 'yellow', icon: '⚙️' },
+                { min: 141, max: 200, name: 'Plateau-Risk Operators', color: 'orange', icon: '⚖️' },
+                { min: 201, max: 260, name: 'Turnaround Targets', color: 'red', icon: '🔄' },
+                { min: 261, max: 330, name: 'Crisis-Stage SMEs', color: 'darkred', icon: '🚨' }
+            ]
+        };
+
+        // Sample questions
+        const questionSets = {
+            'student-9-10': {
+                title: 'Grade 9-10 Student Assessment',
+                sections: [
+                    {
+                        title: 'Clarity & Identity',
+                        questions: [
+                            {
+                                question: 'How clear are you about what to do after 10th?',
+                                options: [
+                                    'I have complete clarity and a strong plan',
+                                    'I have a good idea and have started preparing',
+                                    'I\'m leaning towards 1–2 options but not 100% sure',
+                                    'I\'ve shortlisted a few careers but don\'t know how to choose',
+                                    'I feel influenced by others\' suggestions more than my own research',
+                                    'I feel pressured to pick something quickly',
+                                    'I don\'t know enough about the options available',
+                                    'I\'m unsure how my interests fit into any real career',
+                                    'I\'m just going with what my friends are doing',
+                                    'I have no clue what direction I want to go in'
+                                ]
+                            },
+                            {
+                                question: 'Do you feel connected to a deeper reason ("why") for your studies?',
+                                options: [
+                                    'I study with a strong purpose and personal drive',
+                                    'I know why I study and what I\'m aiming for',
+                                    'I\'m generally motivated but haven\'t linked it to a bigger goal',
+                                    'I\'m studying because it\'s expected',
+                                    'I want to do well but don\'t know why',
+                                    'I feel disconnected from the school system',
+                                    'I often wonder why I need to study these subjects',
+                                    'I struggle to find meaning in what I\'m doing',
+                                    'I study only because of pressure from parents or school',
+                                    'I feel lost and see no real point in most subjects'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            'student-11-12': {
+                title: 'Grade 11-12 Student Assessment',
+                sections: [
+                    {
+                        title: 'Career Confusion & Decision Paralysis',
+                        questions: [
+                            {
+                                question: 'How clearly can you see a career that fits your personality, passion, and future economy?',
+                                options: [
+                                    'I\'ve mapped my strengths and chosen a clear career',
+                                    'I\'m sure of the domain, just exploring specializations',
+                                    'I have 2–3 strong options in mind',
+                                    'I switch between options regularly',
+                                    'I rely on parents or others to decide',
+                                    'I feel unsure whether I\'ll enjoy anything I choose',
+                                    'I have no framework—just guessing',
+                                    'I scroll endlessly for inspiration but get confused',
+                                    'I copy what my friends are doing',
+                                    'I\'m completely clueless and overwhelmed'
+                                ]
+                            },
+                            {
+                                question: 'How do you feel about choosing between traditional careers and new-age ones?',
+                                options: [
+                                    'I\'ve made a confident choice based on research',
+                                    'I lean toward one but keep an open mind',
+                                    'I like both—evaluating based on skills and interest',
+                                    'I swing between old and new options every week',
+                                    'I fear traditional paths might limit my creativity',
+                                    'I fear new-age options won\'t be "respected"',
+                                    'I\'m overwhelmed and frozen between choices',
+                                    'My parents only trust traditional paths',
+                                    'I just follow what others suggest',
+                                    'I don\'t want to think about this at all'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            'working-professional': {
+                title: 'Working Professional Assessment',
+                sections: [
+                    {
+                        title: 'Career Stagnation & Transition',
+                        questions: [
+                            {
+                                question: 'How do you feel about your current career growth prospects?',
+                                options: [
+                                    'Growing steadily with many options ahead',
+                                    'Growth feels steady but not exciting',
+                                    'Plateauing, but comfortable for now',
+                                    'Feeling stuck in a role with no clear path forward',
+                                    'Unsure how to pivot to something new',
+                                    'Frustrated by not knowing what\'s next',
+                                    'Facing resistance to moving up (age bias)',
+                                    'Unsure if my skills are even relevant anymore',
+                                    'My interests have evolved, but my role hasn\'t',
+                                    'Completely lost and directionless'
+                                ]
+                            },
+                            {
+                                question: 'What\'s holding you back from changing or pivoting your career?',
+                                options: [
+                                    'Nothing—I feel ready!',
+                                    'Just need a clear next step',
+                                    'Limited time or resources',
+                                    'Unsure how to apply my skills elsewhere',
+                                    'Afraid of being irrelevant',
+                                    'Worry about financial security if I switch',
+                                    'Feeling too old to start over',
+                                    'Lack of clear transferable skills',
+                                    'Fear of rejection or failure',
+                                    'Don\'t even know what else I could do'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            'startup-early': {
+                title: 'Early-Stage Startup Assessment',
+                sections: [
+                    {
+                        title: 'Core Founding & Strategy',
+                        questions: [
+                            {
+                                question: 'How aligned are you and your co-founders on long-term vision?',
+                                options: [
+                                    '100% synced on vision, priorities, and commitment',
+                                    'Mostly aligned with occasional disagreements',
+                                    'Aligned on product, not on money or timeline',
+                                    'We rarely revisit vision or alignment',
+                                    'We each have our own view of "success"',
+                                    'Conflict bubbles up when things go wrong',
+                                    'Avoiding tough conversations about goals',
+                                    'Passive disagreements slowing momentum',
+                                    'Alignment was never clearly discussed',
+                                    'I don\'t have a co-founder or we\'re misaligned'
+                                ]
+                            },
+                            {
+                                question: 'How clearly have you validated the problem you\'re solving with real users?',
+                                options: [
+                                    'Deep validation—interviews, signals, willingness to pay',
+                                    'We\'ve tested pain points across key personas',
+                                    'Anecdotal support from friends and early users',
+                                    'Limited external validation, mostly gut feel',
+                                    'Unsure what counts as "validation"',
+                                    'Built an MVP without clear validation',
+                                    'Users say it\'s interesting but don\'t use it',
+                                    'Constantly pivoting based on weak feedback',
+                                    'No user interviews or real signal yet',
+                                    'We guessed the problem and built fast'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            'startup-established': {
+                title: 'Established Startup/SME Assessment',
+                sections: [
+                    {
+                        title: 'Growth & Strategy',
+                        questions: [
+                            {
+                                question: 'How clear is your three-year growth roadmap?',
+                                options: [
+                                    'Crystal-clear milestones, metrics, and phased objectives',
+                                    'Roadmap documented; minor details evolving',
+                                    'Big-picture targets set, but not fully costed',
+                                    'Annual goals only; medium-term fuzzy',
+                                    'High-level vision, no written plan',
+                                    'Plans live in founder\'s head, not shared widely',
+                                    'Different leaders quote different numbers',
+                                    'We chase opportunities ad-hoc each quarter',
+                                    'We react to whatever customers request next',
+                                    'We\'re moving month-to-month without a plan'
+                                ]
+                            },
+                            {
+                                question: 'What best describes your current revenue trajectory?',
+                                options: [
+                                    'Sustained double-digit growth quarter on quarter',
+                                    'Growth slowing but still healthy',
+                                    'Flat for a few quarters, analysing causes',
+                                    'Small upticks mixed with declines',
+                                    'Plateaued despite new offers',
+                                    'Slipping gradually each month',
+                                    'One-off spikes, no pattern',
+                                    'Heavily discounting to keep numbers up',
+                                    'Revenues shrinking and unpredictable',
+                                    'Unsure of real revenue trend'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Functions
+        function selectPersona(personaId) {
+            currentPersona = personaId;
+            currentQuestionIndex = 0;
+            responses = {};
+            showSurvey();
+        }
+
+        function showSurvey() {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('surveyPage').classList.remove('hidden');
+            document.getElementById('reportPage').classList.add('hidden');
+            
+            const survey = questionSets[currentPersona];
+            document.getElementById('surveyTitle').textContent = survey.title;
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const survey = questionSets[currentPersona];
+            const section = survey.sections[0];
+            const question = section.questions[currentQuestionIndex];
+            const totalQuestions = section.questions.length;
+            
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+            
+            // Update question
+            document.getElementById('sectionTitle').textContent = section.title;
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Update options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'question-option';
+                button.onclick = () => handleAnswer(index + 1);
+                
+                button.innerHTML = `
+                    <div class="option-letter">${String.fromCharCode(97 + index)}</div>
+                    <span>${option}</span>
+                `;
+                
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function handleAnswer(score) {
+            responses[`q${currentQuestionIndex}`] = score;
+            
+            const survey = questionSets[currentPersona];
+            const totalQuestions = survey.sections[0].questions.length;
+            
+            if (currentQuestionIndex < totalQuestions - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                calculateResults();
+            }
+        }
+
+        function calculateResults() {
+            // Calculate total score
+            totalScore = Object.values(responses).reduce((sum, score) => sum + score, 0);
+            
+            // Find risk segment
+            const segments = riskSegments[currentPersona];
+            riskSegment = segments.find(s => totalScore >= s.min && totalScore <= s.max);
+            
+            showReport();
+        }
+
+        function showReport() {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('surveyPage').classList.add('hidden');
+            document.getElementById('reportPage').classList.remove('hidden');
+            
+            // Update segment badge
+            const badge = document.getElementById('segmentBadge');
+            badge.className = `segment-badge segment-${riskSegment.color}`;
+            badge.innerHTML = `<span style="margin-right: 0.5rem;">${riskSegment.icon}</span>${riskSegment.name}`;
+            
+            // Update total score
+            document.getElementById('totalScoreText').textContent = `Total Score: ${totalScore}`;
+            
+            // Update speedometer
+            const segments = riskSegments[currentPersona];
+            const maxScore = segments[segments.length - 1].max;
+            const rotation = (totalScore / maxScore) * 180 - 90;
+            document.getElementById('speedometerNeedle').setAttribute('transform', `rotate(${rotation} 100 80)`);
+            
+            // Update description
+            document.getElementById('segmentDescription').innerHTML = `
+                Based on your responses, you fall into the <strong>${riskSegment.name}</strong> category. 
+                This indicates specific areas where focused intervention can create meaningful transformation.
+            `;
+        }
+    </script>
+</body>
+</html>

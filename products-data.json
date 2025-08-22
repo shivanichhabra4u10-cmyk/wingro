@@ -1,0 +1,144 @@
+{
+  "products": [
+    {
+      "_id": "1",
+      "name": "Market Validation Kit",
+      "description": "Complete PMF analysis with AI-driven insights",
+      "price": 599,
+      "oldPrice": 999,
+      "badge": "AI-Powered",
+      "category": "digital",
+      "productType": "individual",
+      "images": [
+        "https://placehold.co/600x400/94a3b8/FFFFFF?text=Market+Validation+Dashboard",
+        "https://placehold.co/600x400/a1a1aa/FFFFFF?text=PMF+Analysis+Tool"
+      ],
+      "features": [
+        "Feature 1",
+        "Feature 2"
+      ],
+      "isActive": true,
+      "createdAt": "2025-06-11T14:39:12.630Z",
+      "updatedAt": "2025-06-11T14:39:12.632Z"
+    },
+    {
+      "_id": "2",
+      "name": "GTM Strategy Playbook",
+      "description": "Launch & pricing strategies that work",
+      "price": 599,
+      "badge": "Best Seller",
+      "category": "digital",
+      "productType": "individual",
+      "images": [
+        "https://placehold.co/600x400/a3e635/FFFFFF?text=GTM+Strategy+Framework",
+        "https://placehold.co/600x400/bef264/FFFFFF?text=Pricing+Model+Calculator"
+      ],
+      "features": [
+        "Feature 1",
+        "Feature 2"
+      ],
+      "isActive": false,
+      "createdAt": "2025-06-11T14:39:12.632Z",
+      "updatedAt": "2025-06-12T06:14:14.270Z"
+    },
+    {
+      "_id": "3",
+      "name": "InvestorIQ Engine",
+      "description": "AI-powered investor matchmaking",
+      "price": 599,
+      "badge": "Premium",
+      "category": "digital",
+      "productType": "enterprise",
+      "images": [
+        "https://placehold.co/600x400/c4b5fd/FFFFFF?text=Investor+Matching+Engine",
+        "https://placehold.co/600x400/d8b4fe/FFFFFF?text=Funding+Opportunity+Radar"
+      ],
+      "features": [
+        "Feature 1",
+        "Feature 2"
+      ],
+      "isActive": true,
+      "createdAt": "2025-06-11T14:39:12.632Z",
+      "updatedAt": "2025-06-11T14:39:12.632Z"
+    },
+    {
+      "_id": "1749653215798",
+      "price": 99,
+      "description": "API test product",
+      "name": "Test Product",
+      "productType": "individual",
+      "category": "digital",
+      "images": [
+        "https://placehold.co/600x400/94a3b8/FFFFFF?text=Test+Product"
+      ],
+      "isActive": true,
+      "createdAt": "2025-06-11T14:46:55.823Z",
+      "updatedAt": "2025-06-11T14:46:55.823Z"
+    },
+    {
+      "_id": "1749653441093",
+      "name": "Test",
+      "description": "adaf",
+      "price": 100,
+      "oldPrice": 200,
+      "badge": "",
+      "category": "digital",
+      "productType": "individual",
+      "images": [
+        "https://placehold.co/600x400/94a3b8/FFFFFF?text=Test"
+      ],
+      "features": [],
+      "isActive": false,
+      "createdAt": "2025-06-11T14:50:41.093Z",
+      "updatedAt": "2025-06-11T15:30:34.122Z"
+    },
+    {
+      "_id": "1750949250215",
+      "name": "Test Product",
+      "description": "Test Description",
+      "images": [
+        "https://placehold.co/600x400"
+      ],
+      "price": 99.99,
+      "category": "test",
+      "productType": "test",
+      "isActive": true,
+      "createdAt": "2025-06-26T14:47:30.215Z",
+      "updatedAt": "2025-06-26T14:47:30.215Z"
+    },
+    {
+      "_id": "1750949336616",
+      "price": 99.99,
+      "description": "Test Description",
+      "name": "Test Product",
+      "productType": "test",
+      "category": "test",
+      "images": [
+        "https://placehold.co/600x400/94a3b8/FFFFFF?text=Test+Product"
+      ],
+      "isActive": true,
+      "createdAt": "2025-06-26T14:48:56.616Z",
+      "updatedAt": "2025-06-26T14:48:56.616Z"
+    },
+    {
+      "_id": "1750953963659",
+      "name": "fsd",
+      "description": "sfsd",
+      "price": 10,
+      "oldPrice": 20,
+      "images": [
+        "https://placehold.co/600x400/94a3b8/FFFFFF?text=fsd"
+      ],
+      "category": "platform",
+      "productType": "individual",
+      "badge": "",
+      "features": [
+        "sfsd"
+      ],
+      "featured": false,
+      "isActive": true,
+      "createdAt": "2025-06-26T16:06:03.659Z",
+      "updatedAt": "2025-06-26T16:06:03.659Z"
+    }
+  ]
+}

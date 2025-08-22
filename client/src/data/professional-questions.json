@@ -1,0 +1,1500 @@
+[
+  {
+    "id": 1,
+  "category": "Career Trajectory: Overcoming Stagnation & Transition Barriers",
+
+    "question": "How do you feel about your current career growth prospects?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Growing steadily with many options ahead",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Good growth but uncertain long-term path",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Slowing down, but still progressing",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Hit a plateau in my current role",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Growth opportunities limited by organization",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Feeling passed over for advancement",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Skills becoming less relevant",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Feeling trapped in my specialization",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Reluctantly considering career change",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Complete dead-end with no growth path",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Career Trajectory: Overcoming Stagnation & Transition Barriers",
+    "question": "What's holding you back from changing or pivoting your career?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Nothing—I feel ready!",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Just need a clear next step",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Limited time or resources",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Unsure how to apply my skills elsewhere",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Afraid of being irrelevant",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Worry about financial security if I switch",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Feeling too old to start over",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Lack of clear transferable skills",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Fear of rejection or failure",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Don't even know what else I could do",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+  "category": "Work Fulfillment: Finding Meaning & Purpose",
+  "dimensionId": "fulfillment",
+    "question": "How would you describe your current sense of purpose at work?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Very meaningful and fulfilling",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Mostly meaningful but could be deeper",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Meaningful in parts, but not daily",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Work feels repetitive or transactional",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Wondering if this is really my purpose",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "I feel like I'm not living up to my calling",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I've lost connection to my passions",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "My work doesn't excite me anymore",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "My work feels like I'm just surviving",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "No sense of meaning at all",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Work Fulfillment: Finding Meaning & Purpose",
+    "question": "How often do you question if your past career choices align with your true self?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Rarely—my choices feel aligned",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Sometimes, but not worrying",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Occasionally, wondering \"what if?\"",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Often—I wonder if I missed my true calling",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Feeling a persistent identity crisis",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "My choices don't align with who I am now",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I feel I'm living someone else's script",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Constantly doubting my path",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I feel stuck in a mismatch",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I have no idea who I truly am professionally",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 5,
+  "category": "Professional Development: Bridging Skill & Knowledge Gaps",
+  "dimensionId": "skills",
+    "question": "How do you feel about your current skills in today's fast-changing world?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Future-ready and constantly learning",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Learning actively but still have gaps",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Moderately upskilled, but unsure what's next",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Overwhelmed by all the learning options",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "No time to learn or prioritize upskilling",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Not sure which skills matter anymore",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Struggling to adapt to digital changes",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "My skills feel outdated and irrelevant",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I've lost motivation to learn new things",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely unprepared for the future",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Professional Development: Bridging Skill & Knowledge Gaps",
+    "question": "How supported do you feel in upskilling and staying relevant?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Fully supported and guided",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Some guidance, but need more",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Mostly on my own, some resources",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Fragmented help, no clear plan",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "No clear pathways, just noise",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "No mentorship or roadmap at all",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Feel lost in a sea of courses",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Struggling to find credible, relevant resources",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Don't know where to even begin",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely alone and lost",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+  "category": "Wellbeing: Managing Burnout & Work-Life Harmony",
+  "dimensionId": "balance",
+    "question": "How balanced do you feel between work and life?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Fully balanced and healthy",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Mostly balanced, some busy spells",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Sometimes balanced, but often stressed",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Work often takes over personal life",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Feeling exhausted by constant demands",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Never enough time for family or self",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Health is suffering due to imbalance",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Feel guilty for not being fully present at home",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Work stress has become unmanageable",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Constant burnout, no sense of balance",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Wellbeing: Managing Burnout & Work-Life Harmony",
+    "question": "How do you feel physically and mentally in this work-life juggle?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Energized and resilient",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Some tiredness, but manageable",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Often drained, need more rest",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Constant fatigue, can't recover",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Health issues (mental or physical) surfacing",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Stress is impacting my home life",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I can't remember when I felt truly rested",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Health is a constant worry now",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I'm constantly running on empty",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel like I'm breaking down",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+  "category": "Financial Stability: Addressing Compensation & Security",
+  "dimensionId": "finance",
+    "question": "How secure do you feel about your financial future?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Confident and well-prepared",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Mostly secure, with plans in place",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Some gaps, but working on them",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Dependent on my job for stability",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Worried about retirement or children's future",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Feel unprepared for financial disruptions",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "No plan beyond the next paycheck",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Financial stress is constant",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Fearful it's too late to create wealth",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Financially adrift and anxious",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Financial Stability: Addressing Compensation & Security",
+    "question": "What worries you most about your finances?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Nothing—I feel in control",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Just want to grow more stability",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Balancing career and future savings",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Sudden layoffs or market shifts",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Kids' education or family security",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Managing daily expenses is hard",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "No buffer for health or emergencies",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Too much debt, no exit plan",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "No confidence in handling money",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I'm overwhelmed by financial chaos",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 11,
+  "category": "Organizational Impact: Building Leadership & Influence",
+  "dimensionId": "impact",
+    "question": "How recognized is your leadership at work?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Fully seen and valued as a leader",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Growing steadily in influence",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Some influence, but limited",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Overlooked despite experience",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Struggling to build a leadership brand",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Not sure how to step up",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Younger colleagues overshadow me",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Leadership role feels out of reach",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "No mentors to guide me up",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I don't see myself as a leader at all",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "Organizational Impact: Building Leadership & Influence",
+    "question": "How do you feel about navigating power dynamics and influence?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Confident and skilled",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Learning, but doing okay",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Unsure in new or digital settings",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Often feel excluded or undervalued",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "No safe space to build influence",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Feeling stuck without trusted advisors",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I feel disconnected from leadership paths",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Politics and digital shifts confuse me",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I feel like an outsider",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I'm invisible in leadership spaces",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 13,
+  "category": "Physical Wellbeing: Optimizing Health & Energy",
+  "dimensionId": "health",
+    "question": "How would you describe your current physical health?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong and healthy",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Generally good, some minor issues",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Often tired, need more exercise",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Lifestyle issues creeping in (weight, BP, etc.)",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Health concerns starting to affect work",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Energy is low, struggle to stay active",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I don't prioritize health enough",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Health has become a daily worry",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Health issues are impacting my performance",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel physically and mentally exhausted",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "Physical Wellbeing: Optimizing Health & Energy",
+    "question": "How often do you feel you have enough energy for work and life?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Almost always energetic",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Mostly have energy, some dips",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Energy is up and down",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Often feel drained by end of day",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Hard to find time to recharge",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Constantly running low on energy",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Health issues reduce my stamina",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "I can't keep up with demands anymore",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Energy crashes affect my motivation",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely depleted",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 15,
+  "category": "Workplace Dynamics: Navigating Politics & Culture",
+  "dimensionId": "culture",
+    "question": "How comfortable are you with workplace politics?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Confident and navigate them well",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Generally comfortable, even if I dislike it",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Sometimes struggle with shifting alliances",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Find it hard to play office politics",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Feel caught in power struggles",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Struggle to voice opinions in flat cultures",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Feel left out of key decisions",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Workplace politics feel toxic",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I avoid them entirely, to my detriment",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely sidelined",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Workplace Dynamics: Navigating Politics & Culture",
+    "question": "How aligned do you feel with your organization's culture and values?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Fully aligned and happy",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Mostly aligned, with some concerns",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Unsure if I fit in here",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Cultural shifts make me uncomfortable",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "My values clash with new ways of working",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Remote/hybrid setups make me feel invisible",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Digital-first culture feels alien",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Traditional practices hold me back",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I feel lost in shifting cultures",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel like I don't belong",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 17,
+  "category": "Digital Adaptation: Staying Relevant in Technological Change",
+  "dimensionId": "digital",
+    "question": "How do you feel about digital transformation and your place in it?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Excited and embracing new tech",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Curious, learning at my pace",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Cautious but trying to adapt",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Intimidated by new tools and platforms",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Worried about keeping up with younger talent",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Struggling to find relevance in digital work",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I feel overshadowed by digital natives",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Overwhelmed by constant change",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I fear becoming obsolete",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely left behind",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Digital Adaptation: Staying Relevant in Technological Change",
+    "question": "How confident are you using new digital tools and platforms?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Very confident, I love them",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Confident with a learning curve",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Somewhat comfortable, but gaps remain",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Hesitant with new tech, but trying",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Frustrated by tech complexity",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Afraid of making mistakes",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Tech adoption feels forced, not natural",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Digital change feels exhausting",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I actively avoid new digital tools",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel totally incapable with digital",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 19,
+  "category": "Life Balance: Managing Personal & Family Responsibilities",
+  "dimensionId": "family",
+    "question": "How much do family and caregiving demands impact you?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Minimal—family is well supported",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Some balance issues, but okay",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Balancing family and career takes effort",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Juggling multiple family responsibilities",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Caregiving for parents strains my time",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "My children's needs are overwhelming",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Marital stress linked to my work issues",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Constantly sandwiched between needs",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "My family pressures feel impossible",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel torn and stretched to the limit",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "Life Balance: Managing Personal & Family Responsibilities",
+    "question": "How often do family issues weigh on your mind during work?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Rarely—it's under control",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Sometimes, but manageable",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Occasionally distracting",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Often worried about home issues",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Home stress impacts my focus",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "I feel guilty for not doing enough",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Family stress drains my work energy",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "I feel trapped in personal obligations",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I can't separate work and family worries",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Family pressures constantly overshadow work",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 21,
+  "category": "Past Decisions: Processing Regret & Missed Opportunities",
+  "dimensionId": "regret",
+    "question": "How often do you think about things you could have done differently?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Rarely—I'm proud of my path",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Occasionally, but I've accepted it",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Sometimes wonder about missed chances",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Frequently feel \"I should have done more\"",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Regret not pursuing passions earlier",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Comparing myself to more successful peers",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "I feel stuck with unfulfilled potential",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "My regrets feel like heavy baggage",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I constantly replay missed chances",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Regret dominates my thinking",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 22,
+  "category": "Professional Network: Overcoming Isolation & Building Connections",
+  "dimensionId": "network",
+    "question": "How connected do you feel to peers and professional networks?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong, vibrant community",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Moderately connected, some gaps",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Decent network, but could expand",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Peers feel distant or busy",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "My network has shrunk recently",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Missing circles to exchange ideas",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "No accountability or growth groups",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "I feel isolated in my field",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I feel completely alone professionally",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "My professional community has disappeared",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 23,
+  "category": "Professional Identity: Strengthening Personal Brand & Reputation",
+  "dimensionId": "brand",
+    "question": "How would you describe your personal and professional brand?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Strong, clear, and recognized",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Growing steadily and visible",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Moderate, needs more work",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Hard to differentiate from peers",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "My presence is inconsistent",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Social media presence feels messy",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "My brand feels invisible",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Unsure how to position myself",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "No time or energy to build a brand",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I don't have a brand at all",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 24,
+  "category": "Career Reinvention: Overcoming Transition Anxiety",
+  "dimensionId": "reinvent",
+    "question": "How do you feel about the idea of pivoting or reinventing yourself?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Excited—opportunities ahead!",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Curious and open to change",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Interested, but need guidance",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Nervous about leaving comfort zone",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Feel too late to start again",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Overwhelmed by how to even start",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Fear of failure or embarrassment",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Don't know what else I'd do",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Reinvention feels out of reach",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "I feel completely blocked",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 25,
+  "category": "Decision Confidence: Overcoming Career Choice Paralysis",
+  "dimensionId": "confidence",
+    "question": "How decisive do you feel about career and life transitions?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Very confident and clear",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Usually clear, with some doubts",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Some confusion, but manageable",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "Often second-guessing choices",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Stuck analyzing every option",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Fear of making the wrong choice",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Unsure what's right for me",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Decisions feel heavy and exhausting",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "Constantly spinning in circles",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "Can't make decisions at all",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 26,
+  "category": "Support Systems: Finding Mentorship & Structured Growth Paths",
+  "dimensionId": "support",
+    "question": "How supported do you feel in finding a structured life or career plan?",
+    "options": [
+      {
+        "option": "a",
+        "text": "Fully supported by mentors and systems",
+        "score": 10
+      },
+      {
+        "option": "b",
+        "text": "Some trusted guides, gaps remain",
+        "score": 9
+      },
+      {
+        "option": "c",
+        "text": "Mixed support, no single framework",
+        "score": 8
+      },
+      {
+        "option": "d",
+        "text": "No holistic support system",
+        "score": 7
+      },
+      {
+        "option": "e",
+        "text": "Generic, cookie-cutter advice",
+        "score": 6
+      },
+      {
+        "option": "f",
+        "text": "Advice I get doesn't fit me",
+        "score": 5
+      },
+      {
+        "option": "g",
+        "text": "Don't know where to turn for real help",
+        "score": 4
+      },
+      {
+        "option": "h",
+        "text": "Overwhelmed by conflicting advice",
+        "score": 3
+      },
+      {
+        "option": "i",
+        "text": "I feel alone in figuring it out",
+        "score": 2
+      },
+      {
+        "option": "j",
+        "text": "No guidance at all—I feel lost",
+        "score": 0
+      }
+    ]
+  }
+]
