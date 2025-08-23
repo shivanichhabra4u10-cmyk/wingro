@@ -14,6 +14,8 @@ out/
 .temp/
 tmp/
 
+server/dist/
+
 # Env & misc
 .env
 .env.*
@@ -23,3 +25,45 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Monorepo-specific ignores
+client/build/
+client/.next/
+client/.cache/
+client/coverage/
+server/coverage/
+products-api/coverage/
+products-api/dist/
+products-api/node_modules/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Test output
+*.test-results.xml
+
+# Misc
+*.log
+*.local
+
+# Ignore lock files in node_modules (should only be at project root)
+**/node_modules/.package-lock.json
+
+# OS-specific
+.AppleDouble
+.LSOverride
+ehthumbs.db
+Desktop.ini
+
+# NPM package tarballs
+*.tgz
+
+# Backup files
+*~
+
+# Docker local override
+docker-compose.override.yml
+
+# Swap files
+*.swp
+*.swo

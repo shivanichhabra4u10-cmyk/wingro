@@ -7,7 +7,7 @@
     "start": "node dist/app.js",
     "prestart": "npm run build",
     "dev": "nodemon -r dotenv/config --exec ts-node src/app.ts",
-    "build": "rimraf dist && tsc",
+    "build": "npx rimraf dist && tsc",
     "test": "jest",
     "typecheck": "tsc --noEmit"
   },
