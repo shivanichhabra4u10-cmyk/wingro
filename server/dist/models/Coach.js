@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const CoachSchema = new mongoose_1.Schema({
+    applicationId: { type: String, required: true, unique: true },
     certifications: { type: String, trim: true },
     yearsCoaching: { type: String, trim: true },
     preferredIndustries: { type: String, trim: true },

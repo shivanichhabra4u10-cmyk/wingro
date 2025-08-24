@@ -28,19 +28,35 @@ const approveCoachApplication = (req, res) => __awaiter(void 0, void 0, void 0, 
         yield application.save();
         // Create Coach profile
         const coachData = {
+            applicationId: application.applicationId,
+            certifications: application.certifications,
+            yearsCoaching: application.yearsCoaching,
+            preferredIndustries: application.preferredIndustries,
+            languages: application.languages,
+            aiToolsExperience: application.aiToolsExperience,
+            referralSource: application.referralSource,
             name: application.name,
+            email: application.email,
+            phone: application.phone,
             title: application.specialization || 'Coach',
-            bio: application.experience ? `Experience: ${application.experience}` : '',
-            experience: parseInt(application.experience) || 0,
             rating: 5.0,
             clientCount: 0,
             specializations: [application.specialization],
             tags: [],
-            imageUrl: '',
-            startingPrice: 0,
             pricingModel: 'hourly',
             isActive: true,
-            linkedinUrl: '',
+            linkedinUrl: application.linkedInUrl,
+            industry: application.industry,
+            growthPhilosophy: application.growthPhilosophy,
+            successStory: application.successStory,
+            coachingStyle: application.coachingStyle,
+            targetClients: application.targetClients,
+            hourlyRate: application.hourlyRate,
+            availableHours: application.availableHours,
+            offerPackages: application.offerPackages,
+            remoteOnly: application.remoteOnly,
+            resumeUrl: application.resumeUrl,
+            profilePhotoUrl: application.profilePhotoUrl
         };
         // Only create if not already present
         const existingCoach = yield Coach_1.default.findOne({ name: coachData.name, specializations: coachData.specializations });
@@ -57,10 +73,14 @@ exports.approveCoachApplication = approveCoachApplication;
 const submitCoachApplication = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, email, phone, linkedInUrl, specialization, experience, currentTitle, industry, growthPhilosophy, successStory, coachingStyle, targetClients, hourlyRate, availableHours, offerPackages, remoteOnly, certifications, yearsCoaching, preferredIndustries, languages, groupCoaching, aiToolsExperience, referralSource, resumeUrl, profilePhotoUrl, status, appliedDate } = req.body;
+        // Generate unique applicationId
+        const randomNum = Math.floor(100000 + Math.random() * 900000);
+        const applicationId = `APP${randomNum}`;
         if (!name || !email || !specialization || !experience) {
             return res.status(400).json({ success: false, error: 'Missing required fields' });
         }
         const application = yield CoachApplication_1.default.create({
+            applicationId,
             name,
             email,
             phone,
