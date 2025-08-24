@@ -26,7 +26,8 @@ RUN npm install
 # Copy source code and config
 COPY . .
 
-# Build the application
+# Fix tsc permission and build the application
+RUN chmod +x ./node_modules/.bin/tsc
 RUN npm run build
 
 # Production stage
