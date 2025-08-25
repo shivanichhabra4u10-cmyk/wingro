@@ -32,6 +32,7 @@ COPY .env ./
 RUN chmod +x ./node_modules/.bin/tsc
 # Debug: list files before build
 RUN ls -l /app && ls -l /app/src
+RUN tsc --listFiles
 RUN npm run build
 
 # Production stage
