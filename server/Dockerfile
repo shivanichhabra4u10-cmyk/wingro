@@ -25,7 +25,8 @@ COPY tsconfig.json ./
 RUN npm install
 
 # Copy source code and config
-COPY . .
+COPY src ./src
+COPY .env ./
 
 # Fix tsc permission and build the application
 RUN chmod +x ./node_modules/.bin/tsc
