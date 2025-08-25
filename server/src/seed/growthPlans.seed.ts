@@ -1,5 +1,5 @@
 // Seed script for GrowthPlan collection
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import GrowthPlan from '../models/GrowthPlan';
 
 const plans = [

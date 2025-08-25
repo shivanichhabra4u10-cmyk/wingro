@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 const router = express.Router();
 
 // POST /api/diagnostic - Save diagnostic tool results

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import * as appInsights from 'applicationinsights';
 import { config } from '../config';
 

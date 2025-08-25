@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import * as mongoose from 'mongoose';
+import * as dotenv from 'dotenv';
 import { CommunitySegmentModel } from '../models/communitySegment.model';
 import { CommunityPostModel } from '../models/communityPost.model';
 import { CommentModel } from '../models/comment.model';
