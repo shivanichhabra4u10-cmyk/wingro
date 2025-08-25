@@ -71,7 +71,8 @@ COPY tsconfig.json ./
 RUN npm install
 # Copy source code
 COPY src ./src
-# Debug: print tsconfig.json before build
+# Debug: list all files and print tsconfig.json before build
+RUN ls -l
 RUN cat tsconfig.json
 # Build the app
 RUN npm run build
