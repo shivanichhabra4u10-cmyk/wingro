@@ -16,7 +16,7 @@ export async function sendPasswordResetEmail(email: string, resetToken: string) 
     html: `<p>You requested a password reset.</p><p><a href="${resetUrl}">Reset your password</a></p>`
   });
 }
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 export async function sendVerificationEmail(email: string, token: string) {
   const transporter = nodemailer.createTransport({

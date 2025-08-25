@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { createUserPlan, getUserPlan } from '../controllers/userPlan.controller';
 
 const router = express.Router();

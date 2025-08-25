@@ -1,22 +1,22 @@
 // First load environment variables before importing other modules
-import path from 'path';
+import * as path from 'path';
 
-import dotenv from 'dotenv';
-import fs from 'fs';
+import * as dotenv from 'dotenv';
+import * as fs from 'fs';
 const envPath = path.resolve(__dirname, '../.env');
 const envExists = fs.existsSync(envPath);
 dotenv.config({ path: envPath });
 //dotenv.config({ path: path.resolve(__dirname, '../.env') });
 //dotenv.config();
 
-import express from 'express';
-import cors from 'cors';
+import * as express from 'express';
+import * as cors from 'cors';
 import { config } from './config';
 import { databaseService } from './services/database.service';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
 
-const app = express();
+const app = express.default();
 // Initialize Application Insights in production
 if (process.env.NODE_ENV === 'production') {
   const appInsights = require('applicationinsights');
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Middleware
-app.use(cors({
+app.use(cors.default({
   origin: [
     'http://localhost:3000',
     'http://localhost:3001',
