@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "lib": ["es2022"],
+    "lib": [
+      "es2022",
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
     "module": "commonjs",
     "rootDir": "./src",
     "outDir": "./dist",
