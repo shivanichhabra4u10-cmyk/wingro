@@ -30,9 +30,8 @@ COPY .env ./
 
 # Fix tsc permission and build the application
 RUN chmod +x ./node_modules/.bin/tsc
-# Debug: list files before build
 RUN ls -l /app && ls -l /app/src
-RUN tsc --listFiles
+RUN ./node_modules/.bin/tsc --listFiles
 RUN npm run build
 
 # Production stage
