@@ -9,14 +9,14 @@ dotenv.config({ path: envPath });
 //dotenv.config({ path: path.resolve(__dirname, '../.env') });
 //dotenv.config();
 
-import * as express from 'express';
-import * as cors from 'cors';
+import express from 'express';
+import cors from 'cors';
 import { config } from './config';
 import { databaseService } from './services/database.service';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
 
-const app = express.default();
+const app = express();
 // Initialize Application Insights in production
 if (process.env.NODE_ENV === 'production') {
   const appInsights = require('applicationinsights');
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Middleware
-app.use(cors.default({
+app.use(cors({
   origin: [
     'http://localhost:3000',
     'http://localhost:3001',
