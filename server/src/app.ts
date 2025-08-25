@@ -17,20 +17,7 @@ import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
-// Initialize Application Insights in production
-if (process.env.NODE_ENV === 'production') {
-  const appInsights = require('applicationinsights');
-  appInsights.setup(config.azure.appInsightsKey)
-    .setAutoDependencyCorrelation(true)
-    .setAutoCollectRequests(true)
-    .setAutoCollectPerformance(true)
-    .setAutoCollectExceptions(true)
-    .setAutoCollectDependencies(true)
-    .setAutoCollectConsole(true)
-    .setUseDiskRetryCaching(true)
-    .setSendLiveMetrics(true)
-    .start();
-}
+
 
 // Middleware
 app.use(cors({

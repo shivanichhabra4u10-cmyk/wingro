@@ -1,22 +1,10 @@
 import * as mongoose from 'mongoose';
-import * as appInsights from 'applicationinsights';
+
 import { config } from '../config';
 
 export const databaseService = {
     async init() {
-        // Initialize Application Insights if key is provided
-        if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
-            appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
-                .setAutoDependencyCorrelation(true)
-                .setAutoCollectRequests(true)
-                .setAutoCollectPerformance(true)
-                .setAutoCollectExceptions(true)
-                .setAutoCollectDependencies(true)
-                .setAutoCollectConsole(true)
-                .setUseDiskRetryCaching(true)
-                .setSendLiveMetrics(true)
-                .start();
-        }
+
         
         // Get MongoDB connection string from environment with fallbacks
         const mongoURI = process.env.MONGODB_URI || config.mongodbUri || 'mongodb://localhost:27017/wingrox_db';
