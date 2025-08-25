@@ -1,22 +1,3 @@
-    python3 \
-    py3-pip \
-    make \
-    g++ \
-    gcc \
-    libc-dev \
-    linux-headers \
-    build-base \
-    git \
-    openssh-client \
-    libc6-compat
-    python3 \
-    make \
-    g++ \
-    gcc \
-    libc-dev \
-    linux-headers
-    PORT=3001
-
 FROM node:18-alpine AS builder
 WORKDIR /app
 # Install build dependencies
