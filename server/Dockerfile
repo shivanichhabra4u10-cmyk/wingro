@@ -1,3 +1,6 @@
+# Debug: list contents of /app and /app/src before build
+RUN ls -l /app
+RUN ls -l /app/src
 FROM node:18-alpine AS builder
 
 # Install all necessary build dependencies
