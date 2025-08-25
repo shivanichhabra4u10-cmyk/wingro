@@ -19,6 +19,7 @@ WORKDIR /app
 # Copy package files and tsconfig
 COPY package*.json ./
 COPY tsconfig.json ./
+COPY src ./src
 
 # Clean install all dependencies and build bcrypt from source
 RUN npm install
