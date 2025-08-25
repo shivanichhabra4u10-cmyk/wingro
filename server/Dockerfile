@@ -17,7 +17,6 @@
     linux-headers
     PORT=3001
 
-# Build stage
 FROM node:18-alpine AS builder
 WORKDIR /app
 # Install build dependencies
