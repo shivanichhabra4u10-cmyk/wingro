@@ -21,7 +21,16 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 # Install build dependencies
-RUN apk add --no-cache python3 make g++ gcc libc-dev linux-headers git openssh-client libc6-compat
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    gcc \
+    libc-dev \
+    linux-headers \
+    git \
+    openssh-client \
+    libc6-compat
 # Copy package files and tsconfig
 COPY package*.json ./
 COPY tsconfig.json ./
