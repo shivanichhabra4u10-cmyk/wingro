@@ -32,6 +32,9 @@ COPY .env ./
 WORKDIR /app
 RUN chmod +x ./node_modules/.bin/tsc
 RUN ls -l /app && ls -l /app/src
+RUN find /app/src
+RUN cat /app/tsconfig.json
+RUN ./node_modules/.bin/tsc src/app.ts
 RUN ./node_modules/.bin/tsc --listFiles -p /app/tsconfig.json
 RUN npm run build
 
