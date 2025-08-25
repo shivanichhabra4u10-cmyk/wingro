@@ -1,4 +1,4 @@
-import * as express from 'express';
+import express from 'express';
 import { createCheckoutSession, getDownloadsForSession, createPlanCheckoutSession } from '../controllers/checkout.controller';
 
 const router = express.Router();

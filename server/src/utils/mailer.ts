@@ -1,3 +1,6 @@
+
+import nodemailer from 'nodemailer';
+
 export async function sendPasswordResetEmail(email: string, resetToken: string) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -16,7 +19,6 @@ export async function sendPasswordResetEmail(email: string, resetToken: string) 
     html: `<p>You requested a password reset.</p><p><a href="${resetUrl}">Reset your password</a></p>`
   });
 }
-import * as nodemailer from 'nodemailer';
 
 export async function sendVerificationEmail(email: string, token: string) {
   const transporter = nodemailer.createTransport({

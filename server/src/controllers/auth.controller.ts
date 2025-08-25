@@ -3,8 +3,8 @@ interface RequestWithUser extends Request {
     user?: JwtPayload;
 }
 import { Request, Response } from 'express';
-import * as bcrypt from 'bcrypt';
-import * as jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { User } from '../models/User';
 import { config } from '../config';
 import GrowthPlan from '../models/GrowthPlan';
