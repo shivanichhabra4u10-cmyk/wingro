@@ -1,3 +1,12 @@
+# Ignore all compiled JS and map files in server/src subfolders
+server/src/utils/*.js
+server/src/utils/*.js.map
+server/src/scripts/*.js
+server/src/scripts/*.js.map
+server/src/services/*.js
+server/src/services/*.js.map
+server/src/types/*.js
+server/src/types/*.js.map
 # Node / JS
 node_modules/
 **/.cache/
@@ -15,6 +24,10 @@ out/
 tmp/
 
 server/dist/
+
+# Ignore compiled JS and map files in server/src
+server/src/**/*.js
+server/src/**/*.js.map
 
 # Env & misc
 .env
