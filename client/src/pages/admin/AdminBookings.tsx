@@ -50,7 +50,8 @@ const AdminBookings: React.FC = () => {
         if (params.length) url += `?${params.join('&')}`;
         const res = await fetch(url);
         if (!res.ok) throw new Error('Failed to fetch bookings');
-        let data = (await res.json()).data;
+        const apiResult = await res.json();
+        let data = apiResult && Array.isArray(apiResult.data) ? apiResult.data : [];
         // Filter by status
         if (filterStatus) data = data.filter((b: any) => b.status === filterStatus);
         // Filter by date

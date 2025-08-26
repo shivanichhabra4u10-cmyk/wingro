@@ -24,7 +24,7 @@ interface Product {
 }
 
 const AdminProducts: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[] | null>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -95,7 +95,9 @@ const AdminProducts: React.FC = () => {
     try {
       setLoading(true);
       const response = await productsApiWithFiles.getAll({ page, limit: pageSize });
-      setProducts(response.data?.data || response.data || response);
+  // Defensive: ensure products is always an array
+  const productsData = response.data?.data || response.data || response;
+  setProducts(Array.isArray(productsData) ? productsData : []);
       setTotal(response.totalCount || response.data?.totalCount || 0);
       setError(null);
     } catch (err: any) {
@@ -348,14 +350,15 @@ const AdminProducts: React.FC = () => {
           </div>
         </div>
       )}
-      {loading ? (
+  {loading ? (
         <div className="flex justify-center items-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
           <span className="ml-3 text-lg text-gray-700">Loading products...</span>
         </div>
       ) : (
         <div className="bg-white shadow overflow-hidden sm:rounded-md">
-          {products.length === 0 ? (
+          {/* Defensive: handle products not being an array */}
+          {(!Array.isArray(products) || products.length === 0) ? (
             <div className="text-center py-12">
               <svg
                 className="mx-auto h-12 w-12 text-gray-400"
@@ -377,7 +380,7 @@ const AdminProducts: React.FC = () => {
           ) : (
             <>
               <ul className="divide-y divide-gray-200">
-                {products.map(product => (
+                {Array.isArray(products) && products.map(product => (
                   <li key={product._id} className="py-4 px-6 flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-gray-900">{product.name}</div>
