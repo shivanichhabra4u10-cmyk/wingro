@@ -25,7 +25,8 @@ app.use(cors({
     'http://localhost:3000',
     'http://localhost:3001',
     'http://127.0.0.1:3000',
-    'http://127.0.0.1:3001'
+    'http://127.0.0.1:3001',
+    'https://wingro-o7vufowlf-shivanis-projects-c4a2e47b.vercel.app'
   ],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
