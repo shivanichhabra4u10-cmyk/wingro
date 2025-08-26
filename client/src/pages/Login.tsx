@@ -31,7 +31,7 @@ const Login = () => {
   const [otpLoading, setOtpLoading] = useState(false);
   // Replace with your Google OAuth client ID and redirect URI
   const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
-  const GOOGLE_REDIRECT_URI = 'http://localhost:3001/auth/google/callback';
+  const GOOGLE_REDIRECT_URI = `${process.env.REACT_APP_API_URL}/auth/google/callback`;
 
   const getGoogleOAuthUrl = () => {
     const base = 'https://accounts.google.com/o/oauth2/v2/auth';
@@ -120,7 +120,7 @@ const Login = () => {
                       setTestGoogleToken(token);
                     }
                     const phone = window.prompt('Enter phone (optional, for first time)');
-                    fetch('http://localhost:5000/api/auth/login/google', {
+                    fetch(`${process.env.REACT_APP_API_URL}/api/auth/login/google`, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       credentials: 'include',
@@ -160,7 +160,7 @@ const Login = () => {
                 setForgotLoading(true);
                 setForgotMsg('');
                 try {
-                  const res = await fetch('http://localhost:3001/api/auth/request-password-reset', {
+                  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/request-password-reset`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: forgotEmail }),

@@ -47,7 +47,8 @@ const ProductDetail: React.FC = () => {
   useEffect(() => {
     if (product) return;
     setLoading(true);
-    fetch(`http://localhost:3001/api/products/${id}`)
+  const apiUrl = process.env.REACT_APP_API_URL;
+  fetch(`${apiUrl}/api/products/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Product not found');
         return res.json();

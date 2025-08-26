@@ -28,9 +28,7 @@ const TieredPlans: React.FC<TieredPlansProps> = ({ plans = defaultPlans, userId,
         await saveUserPlan(userId, planId, assessmentType);
       }
       // Use correct backend port and endpoint for plan checkout
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? '/api/plan-session'
-        : 'http://localhost:3001/api/plan-session';
+      const apiUrl = `${process.env.REACT_APP_API_URL}/api/plan-session`;
       const response = await axios.post(apiUrl, { planId });
       // Backend returns { url: session.url }
       const { url } = response.data;

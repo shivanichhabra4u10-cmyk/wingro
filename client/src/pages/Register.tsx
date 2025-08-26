@@ -42,7 +42,8 @@ export default function Register() {
       }
       setLoading(true);
       try {
-        const res = await fetch('http://localhost:3001/api/auth/register', {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const res = await fetch(`${apiUrl}/api/auth/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

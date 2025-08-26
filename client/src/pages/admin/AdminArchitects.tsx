@@ -33,7 +33,7 @@ const AdminArchitects: React.FC = () => {
       setLoading(true);
       setError(null);
       try {
-        const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
         const res = await axios.get(`${API_BASE_URL}/api/applications/coach`);
         setApplications(res.data.data || []);
       } catch (err: any) {

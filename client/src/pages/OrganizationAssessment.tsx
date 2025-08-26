@@ -44,9 +44,7 @@ interface OrganizationData {
   linkedinUrl?: string;
 }
 
-const API_URL = process.env.NODE_ENV === 'production'
-  ? 'https://api.wingrox.com/api'
-  : 'http://localhost:3001/api';
+const API_URL = `${process.env.REACT_APP_API_URL}/api`;
 
 const OrganizationAssessment: React.FC = () => {
   const location = useLocation();

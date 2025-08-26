@@ -24,7 +24,8 @@ const Download: React.FC = () => {
       try {
         if (!sessionId) throw new Error('Missing session ID');
         // Fetch download links from backend
-        const res = await fetch(`http://localhost:3001/api/downloads/${sessionId}`);
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const res = await fetch(`${apiUrl}/api/downloads/${sessionId}`);
         const data = await res.json();
         if (!res.ok) {
           setError(data && data.error ? data.error : 'Failed to fetch download links');

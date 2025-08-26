@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const communityApi = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -30,7 +30,7 @@ export const userApi = {
 };
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

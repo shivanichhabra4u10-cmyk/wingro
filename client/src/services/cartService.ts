@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CartItem } from '../context/CartContext';
 
-const API_URL = 'http://localhost:3001/api/cart';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/cart`;
 
 function getAuthConfig() {
   const token = localStorage.getItem('token');
