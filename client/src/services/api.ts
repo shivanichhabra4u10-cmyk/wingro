@@ -21,7 +21,7 @@ communityApi.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-// User API endpoints
+// User API endpoints 
 export const userApi = {
   getProfile: async () => {
     const response = await api.get('/api/auth/me');
