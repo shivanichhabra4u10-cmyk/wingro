@@ -83,8 +83,16 @@
                                                                   //   return;
                                                                   // }
 
-                                                                  const coach = await Coach.create(req.body);
-                                                                  
+                                                                  // Ensure applicationId is present
+                                                                  let coachPayload = { ...req.body };
+                                                                  if (!coachPayload.applicationId) {
+                                                                    // Use uuid for guaranteed uniqueness
+                                                                    const { v4: uuidv4 } = require('uuid');
+                                                                    coachPayload.applicationId = `APP-${uuidv4()}`;
+                                                                  }
+
+                                                                  const coach = await Coach.create(coachPayload);
+    
                                                                   res.status(201).json({
                                                                     success: true,
                                                                     data: coach

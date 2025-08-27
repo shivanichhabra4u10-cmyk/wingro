@@ -1,4 +1,5 @@
 import Coach from '../models/Coach';
+import { v4 as uuidv4 } from 'uuid';
 // Approve coach application: update status and create Coach profile
 export const approveCoachApplication = async (req: Request, res: Response) => {
   try {
@@ -85,9 +86,8 @@ export const submitCoachApplication = async (req: Request, res: Response) => {
       appliedDate
     } = req.body;
 
-    // Generate unique applicationId
-    const randomNum = Math.floor(100000 + Math.random() * 900000);
-    const applicationId = `APP${randomNum}`;
+  // Generate unique applicationId using uuid
+  const applicationId = `APP-${uuidv4()}`;
     if (!name || !email || !specialization || !experience) {
       return res.status(400).json({ success: false, error: 'Missing required fields' });
     }
