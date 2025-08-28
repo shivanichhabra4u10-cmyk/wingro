@@ -380,8 +380,8 @@ const AdminProducts: React.FC = () => {
           ) : (
             <>
               <ul className="divide-y divide-gray-200">
-                {Array.isArray(products) && products.map(product => (
-                  <li key={product._id} className="py-4 px-6 flex items-center justify-between">
+                {Array.isArray(products) && products.map((product, idx) => (
+                  <li key={product._id || product.id || idx} className="py-4 px-6 flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-gray-900">{product.name}</div>
                       <div className="text-sm text-gray-500">{product.category}</div>
