@@ -47,16 +47,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { name: 'Diagnostic Tool', href: '/diagnostic-tool' },
         { name: 'Playbooks', href: '/playbooks' },
         { name: 'Book a Coach', href: '/marketplace' },
-  { name: 'Join as Coach', href: '/join-as-coach' },
+        { name: 'Join as Coach', href: '/join-as-coach' },
       ],
     },
+    // Knowledge Hub menu (hidden, set hidden: true to hide from UI but keep in code for future use)
     {
       name: 'Knowledge Hub',
-      icon: '�',
+      icon: '📚',
       submenu: [
         { name: 'Knowledge Hub Home', href: '/knowledge' },
         { name: 'Assessment Selection', href: '/assessment-selection' },
       ],
+      hidden: true,
     },
     {
       name: 'Community',
@@ -85,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </Link>
             {/* Navigation */}
             <div className="hidden md:flex items-center gap-0.5">
-              {navigation.map((item) => {
+              {navigation.filter(item => !item.hidden).map((item) => {
                 if (item.submenu && item.submenu.length > 0) {
                   return (
                     <div key={item.name} className="relative group">
@@ -147,6 +149,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               })}
               {/* Admin menu for admin users */}
               {isAdmin && <AdminMenu />}
+              {/* Prominent Take Assessment button always after AdminMenu */}
+              <a
+                href="/assessment-selection"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 px-5 py-2 rounded-full text-base font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-700 text-white shadow-lg border-2 border-blue-300 hover:scale-105 hover:shadow-xl transition-all duration-200"
+                style={{ letterSpacing: '0.03em' }}
+              >
+                <span className="mr-2">📝</span>
+                Take Assessment
+              </a>
             </div>
             {/* User menu */}
             <div className="flex items-center ml-2">
