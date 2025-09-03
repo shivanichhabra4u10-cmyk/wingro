@@ -55,13 +55,15 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
       // Generate a download URL (simulate)
       return res.json({ free: true, downloadUrl: `/download?session_id=free-${Date.now()}` });
     }
+  // Always use CLIENT_URL from environment
+  const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
     // Create Stripe session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: `http://localhost:3000/download?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/cart?cancelled=1`,
+      success_url: `${CLIENT_URL}/download?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${CLIENT_URL}/cart?cancelled=1`,
       metadata: {
         productIds: productIds.join(','),
       },
