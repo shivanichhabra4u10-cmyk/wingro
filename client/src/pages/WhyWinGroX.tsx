@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const WhyWinGroX: React.FC = () => {
+  const [testimonials, setTestimonials] = useState<any[]>([]);
+
+  useEffect(() => {
+    import('../data/testimonials.json').then((mod) => setTestimonials(mod.default || mod));
+  }, []);
+
   return (
     <div className="flex flex-col space-y-12 pb-16">
       {/* Hero Section */}
@@ -89,36 +95,41 @@ const WhyWinGroX: React.FC = () => {
       <section className="bg-white rounded-xl p-8 shadow-lg">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-800">Success Stories</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg">
-            <p className="text-gray-700 italic mb-4">"WinGroX AI helped me pivot my career from marketing to UX design with a clear, step-by-step roadmap that made the transition smooth and successful."</p>
-            <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
-              <div>
-                <p className="font-semibold text-gray-800">Sarah K.</p>
-                <p className="text-sm text-gray-600">Career Transitioner</p>
-              </div>
+          {testimonials.map((t, idx) => (
+            <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg">
+              {t.type === 'comment' ? (
+                <>
+                  <p className="text-gray-700 italic mb-4">"{t.text}"</p>
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">{t.name}</p>
+                      <p className="text-sm text-gray-600">{t.role}</p>
+                    </div>
+                  </div>
+                </>
+              ) : t.type === 'video' ? (
+                <>
+                  <div className="aspect-w-16 aspect-h-9 mb-4">
+                    <iframe
+                      src={t.videoUrl}
+                      title={t.name}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-48 rounded"
+                    />
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">{t.name}</p>
+                      <p className="text-sm text-gray-600">{t.role}</p>
+                    </div>
+                  </div>
+                </>
+              ) : null}
             </div>
-          </div>
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg">
-            <p className="text-gray-700 italic mb-4">"As a founder, I was overwhelmed with options. WinGroX AI helped me identify the critical focus areas and saved me months of expensive trial and error."</p>
-            <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
-              <div>
-                <p className="font-semibold text-gray-800">Michael T.</p>
-                <p className="text-sm text-gray-600">Startup Founder</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg">
-            <p className="text-gray-700 italic mb-4">"The Growth Intelligence Platform gave our organization clarity on team development needs we hadn't even identified yet. Game changer for our leadership."</p>
-            <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
-              <div>
-                <p className="font-semibold text-gray-800">Priya M.</p>
-                <p className="text-sm text-gray-600">HR Director</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
