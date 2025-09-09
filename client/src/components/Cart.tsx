@@ -11,7 +11,7 @@ const Cart: React.FC = () => {
     setError(null);
     try {
       const checkoutItems = cart.items.map(({ productId, quantity }) => ({ productId, quantity }));
-      const res = await fetch('http://localhost:3001/api/create-checkout-session', {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/create-checkout-session`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: checkoutItems }),
