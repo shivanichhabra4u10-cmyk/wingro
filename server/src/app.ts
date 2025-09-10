@@ -27,7 +27,9 @@ app.use(cors({
     'http://127.0.0.1:3000',
     'http://127.0.0.1:3001',
     'https://wingro.vercel.app',
-    'https://wingro-o7vufowlf-shivanis-projects-c4a2e47b.vercel.app'
+    'https://wingro-o7vufowlf-shivanis-projects-c4a2e47b.vercel.app',
+    'https://wingrox.ai',
+    'https://wingro.onrender.com'
   ],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
