@@ -2,10 +2,11 @@
  * Utility functions for creating assessment scoring services for different assessment types
  */
 
-import student910ScoringData from '../data/student-9-10-questions-with-scoring.json';
+import student910QuestionsData from '../data/student-9-10-questions.json';
 
 // Template for new assessment scorers
-export const createAssessmentScorer = (assessmentData) => {
+// Default to student910QuestionsData if no assessmentData is provided
+export const createAssessmentScorer = (assessmentData = student910QuestionsData) => {
   /**
    * Calculate scores for each dimension based on user responses
    * @param {Object} responses - Object with question IDs as keys and selected option letters as values

@@ -5,7 +5,7 @@
  * Can be extended for 11-12 grade and professional assessments
  */
 
-import assessmentData from '../data/student-9-10-questions-with-scoring.json';
+import assessmentData from '../data/student-9-10-questions.json';
 import { createAssessmentScorer } from '../utils/assessmentScoringUtils';
 
 // Import other assessment data when available
