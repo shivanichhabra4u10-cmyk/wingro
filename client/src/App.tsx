@@ -21,6 +21,7 @@ const Register = React.lazy(() => import('./pages/Register'));
 const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const GoogleCallback = React.lazy(() => import('./pages/GoogleCallback'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const AccessDenied = React.lazy(() => import('./pages/AccessDenied'));
 const Home = React.lazy(() => import('./pages/Home'));
@@ -81,7 +82,8 @@ const router = createBrowserRouter(
     </Layout>}>
       <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
+  <Route path="register" element={<Register />} />
+  <Route path="auth/google/callback" element={<GoogleCallback />} />
       <Route path="reset-password" element={<ResetPassword />} />
       {/* All other routes are protected */}
       <Route element={<ProtectedRoute><Outlet /></ProtectedRoute>}>

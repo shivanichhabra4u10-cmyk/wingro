@@ -1,4 +1,5 @@
 // Add RequestWithUser interface for controller methods
+import { JwtPayload } from 'jsonwebtoken';
 interface RequestWithUser extends Request {
     user?: JwtPayload;
 }
@@ -9,7 +10,8 @@ import { User } from '../models/User';
 import { config } from '../config';
 import GrowthPlan from '../models/GrowthPlan';
 import { Goal } from '../models/Goal';
-import { JwtPayload } from 'jsonwebtoken';
+
+import { verifyGoogleToken } from '../utils/googleAuth';
 
 
 
@@ -325,6 +327,7 @@ export const authController = {
         }
     },
 
+    // --- Google Sign-In ---
     deleteGoal: async (req: RequestWithUser, res: Response) => {
         try {
             const userId = req.user?.userId;
@@ -338,6 +341,51 @@ export const authController = {
         } catch (error) {
             console.error('Delete goal error:', error);
             res.status(500).json({ error: 'Server error' });
+        }
+    },
+    googleLogin: async (req: Request, res: Response) => {
+        try {
+            const { idToken } = req.body;
+            if (!idToken) {
+                return res.status(400).json({ error: 'Google ID token required' });
+            }
+            // Verify Google token and extract user info
+            const payload = await verifyGoogleToken(idToken);
+            const { email, name, sub: googleId } = payload;
+            if (!email) {
+                return res.status(400).json({ error: 'Google account email required' });
+            }
+            // Find or create user
+            let user = await User.findOne({ email });
+            if (!user) {
+                // Set a random password for Google users to satisfy Mongoose validation
+                const randomPassword = Math.random().toString(36).slice(-12);
+                user = await User.create({
+                    email,
+                    password: randomPassword,
+                    name: name || 'Google User',
+                    emailVerified: true,
+                    role: 'user',
+                });
+            }
+            // Issue JWT
+            const token = jwt.sign(
+                { userId: user._id, email: user.email, role: user.role, name: user.name },
+                config.jwtSecret,
+                { expiresIn: '24h' }
+            );
+            res.json({
+                user: {
+                    id: user._id,
+                    email: user.email,
+                    name: user.name,
+                    role: user.role
+                },
+                token
+            });
+        } catch (error) {
+            console.error('Google login error:', error);
+            res.status(401).json({ error: 'Invalid Google token' });
         }
     }
 };

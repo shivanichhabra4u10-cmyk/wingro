@@ -29,18 +29,19 @@ const Login = () => {
   const [otpCode, setOtpCode] = useState('');
   const [otpError, setOtpError] = useState('');
   const [otpLoading, setOtpLoading] = useState(false);
-  // Replace with your Google OAuth client ID and redirect URI
-  const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
-  const GOOGLE_REDIRECT_URI = `${process.env.REACT_APP_API_URL}/auth/google/callback`;
+  // Use Google OAuth client ID from .env
+  const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID || '';
+  const GOOGLE_REDIRECT_URI = `${window.location.origin}/auth/google/callback`;
 
   const getGoogleOAuthUrl = () => {
     const base = 'https://accounts.google.com/o/oauth2/v2/auth';
     const params = new URLSearchParams({
       client_id: GOOGLE_CLIENT_ID,
       redirect_uri: GOOGLE_REDIRECT_URI,
-      response_type: 'token',
+      response_type: 'id_token',
       scope: 'openid email profile',
       prompt: 'select_account',
+      nonce: Math.random().toString(36).substring(2),
     });
     return `${base}?${params.toString()}`;
   };

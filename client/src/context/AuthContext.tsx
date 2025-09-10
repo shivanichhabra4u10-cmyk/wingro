@@ -17,6 +17,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => void;
+  loginWithGoogleToken: (token: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -92,6 +93,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+
+  const loginWithGoogleToken = async (token: string) => {
+    try {
+      // Call backend endpoint to verify Google token and get JWT
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/google-login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: token })
+      });
+      if (!response.ok) throw new Error('Google login failed');
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+      setUser(data.user);
+      setIsAuthenticated(true);
+      setIsAdmin(data.user?.role === 'admin');
+    } catch (error) {
+      localStorage.removeItem('token');
+      setIsAuthenticated(false);
+      setIsAdmin(false);
+      throw error;
+    }
+  };
+
   const logout = () => {
     auth.logout();
     setUser(null);
@@ -105,7 +131,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       isAuthenticated,
       login, 
       register, 
-      logout 
+      logout,
+      loginWithGoogleToken
     }}>
       {!loading && children}
     </AuthContext.Provider>

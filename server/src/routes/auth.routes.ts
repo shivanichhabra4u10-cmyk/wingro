@@ -12,6 +12,8 @@ router.post('/reset-password', authController.resetPassword);
 
 // Authentication routes
 router.post('/register', registerLimiter, authController.register);
+// Google Sign-In
+router.post('/google-login', authController.googleLogin);
 router.post('/send-otp', authController.sendOtp);
 router.post('/verify-otp', authController.verifyOtp);
 router.get('/verify-email', authController.verifyEmail);
