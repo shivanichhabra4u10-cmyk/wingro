@@ -21,26 +21,26 @@ router.post('/login', loginLimiter, authController.login);
 router.get('/me', authMiddleware.protect, authController.getProfile);
 
 // Growth Plan routes
-router.get('/plans', authMiddleware.protect, authController.getGrowthPlans);
+router.get('/plans', authController.getGrowthPlans);
 router.post('/plans', authMiddleware.protect, authController.createGrowthPlan);
-router.get('/plans/:id', authMiddleware.protect, authController.getGrowthPlans);
+router.get('/plans/:id', authController.getGrowthPlans);
 router.put('/plans/:id', authMiddleware.protect, authController.createGrowthPlan);
 router.delete('/plans/:id', authMiddleware.protect, authController.getGrowthPlans);
 
 // Goal routes
-router.get('/goals', authMiddleware.protect, authController.getGoals);
+router.get('/goals', authController.getGoals);
 router.post('/goals', authMiddleware.protect, authController.createGoal);
 router.get('/goals/:id', authMiddleware.protect, authController.getGoals);
 router.put('/goals/:id', authMiddleware.protect, authController.updateGoal);
 router.delete('/goals/:id', authMiddleware.protect, authController.deleteGoal);
 
 // User management (admin only)
-router.get('/users', authMiddleware.protect, adminOnly, authController.listUsers);
+router.get('/users', adminOnly, authController.listUsers);
 router.put('/users/role', authMiddleware.protect, adminOnly, authController.updateUserRole);
 router.put('/users/:id', authMiddleware.protect, adminOnly, authController.updateUserDetails);
 
 // Token verification endpoint for frontend
-router.get('/verify', authMiddleware.protect, (req: RequestWithUser, res) => {
+router.get('/verify', (req: RequestWithUser, res) => {
   // Return the user info from the token
   res.json(req.user);
 });

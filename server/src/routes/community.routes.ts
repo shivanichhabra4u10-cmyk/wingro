@@ -1,3 +1,4 @@
+
 import { Router } from 'express';
 import { CommunityController } from '../controllers/community.controller';
 import { validateJWT } from '../middleware/auth';
@@ -38,7 +39,7 @@ router.put('/segments/:id', validateJWT, communityController.updateSegment);
 // DELETE - delete segment
 router.delete('/segments/:id', validateJWT, communityController.deleteSegment);
 
-// POST - create new post
+// POST - create new post (requires authentication)
 router.post('/posts', validateJWT, communityController.createPost);
 
 // PUT - update post

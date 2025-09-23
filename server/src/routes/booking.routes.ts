@@ -5,8 +5,9 @@ import { createBooking, getBookings, updateBooking } from '../controllers/bookin
 const router = Router();
 
 
-// POST /api/bookings - create a new booking
-router.post('/', createBooking);
+// POST /api/bookings - create a new booking (requires authentication)
+import { validateJWT } from '../middleware/auth';
+router.post('/', validateJWT, createBooking);
 
 // GET /api/bookings - get all bookings (optionally filter by coachId)
 router.get('/', getBookings);

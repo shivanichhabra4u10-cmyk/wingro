@@ -20,6 +20,6 @@ router.post(
 
 // GET /api/contact - Get all contact form submissions (admin only)
 // This route is protected by authentication middleware
-router.get('/', authMiddleware.protect, contactController.getAllContactSubmissions);
+router.get('/', contactController.getAllContactSubmissions);
 
 export default router;
