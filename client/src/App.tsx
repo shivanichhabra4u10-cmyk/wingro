@@ -85,68 +85,68 @@ const router = createBrowserRouter(
   <Route path="register" element={<Register />} />
   <Route path="auth/google/callback" element={<GoogleCallback />} />
       <Route path="reset-password" element={<ResetPassword />} />
-      {/* All other routes are protected */}
+      {/* Public routes */}
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/why-wingrox" element={<WhyWinGroX />} />
+      <Route path="/how-it-works" element={<HowItWorks />} />
+      <Route path="/who-we-serve" element={<WhoWeServe />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="/knowledge" element={<Knowledge />} />
+      <Route path="/marketplace" element={<Marketplace />} />
+      <Route path="/coach/:id" element={<CoachProfile />} />
+      <Route path="/assessment-selection" element={<AssessmentSelection />} />
+      <Route path="/student-9-10" element={<CareerAssessment />} />
+      <Route path="/student-11-12" element={<CareerAssessment />} />
+      <Route path="/professional" element={<CareerAssessment />} />
+      <Route path="/organization" element={<OrganizationAssessment />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/join-as-coach" element={<JoinAsCoach />} />
+      <Route path="/start-your-journey" element={<GrowthSeeker />} />
+      <Route path="/grow-with-community" element={<GrowWithCommunity />} />
+      <Route path="/playbooks" element={<Playbooks />} />
+      <Route path="/diagnostic-tool" element={<DiagnosticTool />} />
+      <Route path="/branding-kit" element={<BrandingKit />} />
+      <Route path="/access-denied" element={<AccessDenied />} />
+      {/* Protected user routes */}
       <Route element={<ProtectedRoute><Outlet /></ProtectedRoute>}>
         <Route path="cart" element={<Cart />} />
         <Route path="download" element={<Download />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/why-wingrox" element={<WhyWinGroX />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/who-we-serve" element={<WhoWeServe />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/knowledge" element={<Knowledge />} />
-        <Route path="/marketplace" element={<Marketplace />} />
-        <Route path="/coach/:id" element={<CoachProfile />} />
-        <Route path="/assessment-selection" element={<AssessmentSelection />} />
-        <Route path="/student-9-10" element={<CareerAssessment />} />
-        <Route path="/student-11-12" element={<CareerAssessment />} />
-        <Route path="/professional" element={<CareerAssessment />} />
-        <Route path="/organization" element={<OrganizationAssessment />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/join-as-coach" element={<JoinAsCoach />} />
-        <Route path="/start-your-journey" element={<GrowthSeeker />} />
-        <Route path="/grow-with-community" element={<GrowWithCommunity />} />
-        <Route path="/playbooks" element={<Playbooks />} />
-        <Route path="/diagnostic-tool" element={<DiagnosticTool />} />
-        <Route path="/branding-kit" element={<BrandingKit />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/access-denied" element={<AccessDenied />} />
-        {/* Redirect old direct admin path to secure admin dashboard */}
-        <Route path="/admin-direct" element={<Navigate to="/admin" replace />} />
-        {/* Admin Routes */}
-        <Route path="/admin" element={
-          <AdminProtected>
-            <AdminDashboard />
-          </AdminProtected>
-        } />
-        <Route path="/admin/products" element={
-          <AdminProtected>
-            <AdminProducts />
-          </AdminProtected>
-        } />
-        <Route path="/admin/coaches" element={
-          <AdminProtected>
-            <AdminCoaches />
-          </AdminProtected>
-        } />
-        <Route path="/admin/bookings" element={
-          <AdminProtected>
-            <AdminBookings />
-          </AdminProtected>
-        } />
-        <Route path="/admin/users" element={
-          <AdminProtected>
-            <AdminUsers />
-          </AdminProtected>
-        } />
-        <Route path="/admin/settings" element={
-          <AdminProtected>
-            <AdminSettings />
-          </AdminProtected>
-        } />
       </Route>
+      {/* Admin Routes */}
+      <Route path="/admin-direct" element={<Navigate to="/admin" replace />} />
+      <Route path="/admin" element={
+        <AdminProtected>
+          <AdminDashboard />
+        </AdminProtected>
+      } />
+      <Route path="/admin/products" element={
+        <AdminProtected>
+          <AdminProducts />
+        </AdminProtected>
+      } />
+      <Route path="/admin/coaches" element={
+        <AdminProtected>
+          <AdminCoaches />
+        </AdminProtected>
+      } />
+      <Route path="/admin/bookings" element={
+        <AdminProtected>
+          <AdminBookings />
+        </AdminProtected>
+      } />
+      <Route path="/admin/users" element={
+        <AdminProtected>
+          <AdminUsers />
+        </AdminProtected>
+      } />
+      <Route path="/admin/settings" element={
+        <AdminProtected>
+          <AdminSettings />
+        </AdminProtected>
+      } />
       <Route path="*" element={<NotFound />} />
     </Route>
   ),

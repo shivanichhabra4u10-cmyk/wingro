@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import ProductCarousel from '../components/ProductCarousel';
@@ -32,6 +33,7 @@ const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
   const { addToCart } = useCart();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(() => {
     // Use product from navigation state if available
@@ -173,8 +175,25 @@ const ProductDetail: React.FC = () => {
             </div>
             {/* ...existing code for actions, reviews, etc... */}
             <div className="flex gap-4 mb-2 justify-center md:justify-start">
-              <button className={`bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition-all text-lg shadow-md w-40 ${added ? 'opacity-60 cursor-not-allowed' : ''}`} onClick={() => { if (!product) return; if (!product._id && !(product as any).id) { alert('This product cannot be added to cart (missing product ID).'); return; } const productId = product._id || (product as any).id; if (!productId) { alert('This product cannot be added to cart (missing product ID).'); return; } addToCart({ productId, name: product.name, price: product.price, quantity: 1, image: product.images?.[0] || '', }); setAdded(true); setTimeout(() => setAdded(false), 1200); }} disabled={added}>{added ? 'Added!' : 'Add to cart'}</button>
-              <button className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 rounded-lg transition-all text-lg shadow-md w-40" onClick={() => navigate('/cart')}>Buy now</button>
+              <button className={`bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition-all text-lg shadow-md w-40 ${added ? 'opacity-60 cursor-not-allowed' : ''}`} onClick={() => {
+                if (!isAuthenticated) {
+                  navigate('/login', { state: { from: `/product/${product?._id || id}` } });
+                  return;
+                }
+                if (!product) return;
+                if (!product._id && !(product as any).id) { alert('This product cannot be added to cart (missing product ID).'); return; }
+                const productId = product._id || (product as any).id;
+                if (!productId) { alert('This product cannot be added to cart (missing product ID).'); return; }
+                addToCart({ productId, name: product.name, price: product.price, quantity: 1, image: product.images?.[0] || '', });
+                setAdded(true); setTimeout(() => setAdded(false), 1200);
+              }} disabled={added}>{added ? 'Added!' : 'Add to cart'}</button>
+              <button className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-3 rounded-lg transition-all text-lg shadow-md w-40" onClick={() => {
+                if (!isAuthenticated) {
+                  navigate('/login', { state: { from: '/cart' } });
+                  return;
+                }
+                navigate('/cart');
+              }}>Buy now</button>
               <button className="ml-2 p-3 rounded-full border border-gray-200 hover:bg-gray-100" title="Add to wishlist"><svg className="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" /></svg></button>
             </div>
             <div className="flex flex-wrap gap-3 text-xs text-gray-600 justify-center md:justify-start">

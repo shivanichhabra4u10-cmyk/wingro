@@ -206,12 +206,13 @@ const CareerAssessment: React.FC = () => {
   }, [location.pathname]);
 
   // Handle moving to the next question
+  // ...existing code...
   const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       window.scrollTo(0, 0);
     } else {
-      // End of assessment
+      // End of assessment: just show results, login already handled at start
       showAssessmentResults();
     }
   };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 type CategoryType = 'individual' | 'organization' | null;
 
@@ -22,10 +23,14 @@ const AssessmentSelection: React.FC = () => {
   };
 
   // Handle selection of assessment type
+  const { isAuthenticated } = useAuth();
   const handleAssessmentSelection = (category: string) => {
+    if (!isAuthenticated) {
+      navigate('/login', { state: { from: '/assessment-selection' } });
+      return;
+    }
     // Store the selected category in localStorage for reference
     localStorage.setItem('category', category);
-    
     // Navigate to the appropriate assessment page
     switch (category) {
       case 'individual-grade-9-10':
@@ -47,7 +52,7 @@ const AssessmentSelection: React.FC = () => {
         // Default to home if invalid selection
         navigate('/');
     }
-  };  
+  };
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 py-12">
