@@ -14,6 +14,11 @@ function getPartSectionLabel(step: number): string {
   if (step === 9) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection C — Customer Experience & Retention Flywheel";
   if (step === 10) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection D — Impact & Ethical Scalability";
   if (step === 11) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection E — Investor Narrative & Story Clarity";
+    if (step === 12) return "Part 4 — Final Readiness & Selection Matrix\nSection M — Resilience, Adaptability & Growth Energy";
+  if (step === 13) return "Part 4 — Final Readiness & Selection Matrix\nSection N — Cultural Fit & Learning Velocity";
+  if (step === 14) return "Part 4 — Final Readiness & Selection Matrix\nSection O — Growth Ethics & Leadership Integrity";
+  if (step === 15) return "Part 4 — Final Readiness & Selection Matrix\nSection P — Accelerator Alignment & Commitment";
+  if (step === 16) return "Part 4 — Final Readiness & Selection Matrix\nSection Q — Final Reflection & Commitment Statement";
   // Extend for other steps/parts/sections as needed
   return `Part ${step + 1}`;
 }
@@ -819,7 +824,7 @@ const sections: Section[] = [
       },
     ],
   },
- // ===== PART 3 - JUST APPENDED BELOW =====
+ // ===== PART 3 - =====
   {
     title: "Section A — Innovation Edge & Technology Readiness",
     questions: [
@@ -1298,6 +1303,294 @@ const sections: Section[] = [
       },
     ],
   },
+
+  // ===== PART 4 - =====
+  {
+    title: "Section M — Resilience, Adaptability & Growth Energy",
+    questions: [
+      {
+        label: "How do you typically respond when growth slows down or metrics fall?",
+        type: "radio",
+        name: "growthSlowResponse",
+        options: [
+          "Double down on sales and outreach",
+          "Pause → analyze → re-strategize",
+          "Experiment with new channels",
+          "Seek mentor support or peer advice",
+          "Revisit customer insights",
+          "Blame external factors (economy / market)",
+          "Reflect and pivot rapidly",
+          "Freeze or delay decisions",
+          "Rally team for brainstorm sprints",
+          "Ignore data and trust instinct",
+        ]
+      },
+      {
+        label: "What best describes your mindset under extreme pressure?",
+        type: "radio",
+        name: "extremePressureMindset",
+        options: [
+          "Calm & analytical",
+          "Emotional but resilient",
+          "High-energy problem-solver",
+          "Avoidant / defensive",
+          "Collaborative responder",
+          "Command-style leader",
+          "Creative under chaos",
+          "Reactive / impulsive",
+          "Mindful / centered",
+          "Still learning to handle it",
+        ]
+      },
+      {
+        label: "If your main experiment fails, what’s your default next step?",
+        type: "radio",
+        name: "experimentFailStep",
+        options: [
+          "Run a retrospective to extract lessons",
+          "Pivot to adjacent market",
+          "Re-evaluate assumptions with mentor",
+          "Cut losses & move on",
+          "Scale back & iterate small",
+          "Rebuild team energy",
+          "Rebrand or reposition",
+          "Wait for better timing",
+          "Run A/B tests to validate",
+          "Take a short break to recover",
+        ]
+      },
+      {
+        label: "Rate your personal grit (1–10) and share one proof moment (≤ 50 words).",
+        type: "number",
+        name: "personalGrit"
+      },
+      {
+        label: "When you face contradictory mentor advice, you usually…",
+        type: "radio",
+        name: "contradictMentorAdvice",
+        options: [
+          "Choose data over emotion",
+          "Follow gut instinct",
+          "Synthesize both and test",
+          "Seek a third view",
+          "Delay decision",
+          "Vote within team",
+          "Pick the most aligned to vision",
+          "Ignore both and experiment",
+          "Benchmark competitors",
+          "Still confused — need guidance",
+        ]
+      },
+      {
+        label: "Upload (optional): short video (≤ 1 min) on “How I handle setbacks.”",
+        type: "file",
+        name: "setbacksVideo",
+        optional: true,
+      }
+    ]
+  },
+  {
+    title: "Section N — Cultural Fit & Learning Velocity",
+    questions: [
+      {
+        label: "What best describes how you learn new concepts or skills?",
+        type: "radio",
+        name: "learningStyle",
+        options: [
+          "Hands-on application",
+          "Self-study / online learning",
+          "Mentorship shadowing",
+          "Peer collaboration",
+          "Trial and error",
+          "Structured reading & journaling",
+          "Micro-courses & AI tools",
+          "Case-study learning",
+          "Live workshops",
+          "Prefer delegating to experts",
+        ]
+      },
+      {
+        label: "How often do you intentionally step outside your comfort zone?",
+        type: "radio",
+        name: "comfortZoneStep",
+        options: [
+          "Daily", "Weekly", "Bi-weekly", "Monthly", "Quarterly", "Rarely", "Only when forced", "During programs", "Planned habitually", "Never"
+        ]
+      },
+      {
+        label: "How frequently do you seek feedback from your team or customers?",
+        type: "radio",
+        name: "feedbackFrequency",
+        options: [
+          "Daily", "Weekly", "Bi-weekly", "Monthly", "Quarterly", "Ad-hoc", "Never", "Only on launches", "After issues", "Planned survey roll-out"
+        ]
+      },
+      {
+        label: "Learning agility score (1–10) + example of rapid course-correction (≤ 50 words).",
+        type: "number",
+        name: "learningAgility"
+      }
+    ]
+  },
+  {
+    title: "Section O — Growth Ethics & Leadership Integrity",
+    questions: [
+      {
+        label: "How do you balance ambition with ethics in decision-making?",
+        type: "radio",
+        name: "ethicsDecisionBalance",
+        options: [
+          "Always choose values over speed",
+          "Prefer compliance before growth",
+          "Assess impact on stakeholders",
+          "Follow industry regulations strictly",
+          "Do what’s right even if slower",
+          "Shortcuts if impact is good",
+          "Decide based on ROI",
+          "Mentor-approved judgment",
+          "AI-supported risk modeling",
+          "Don’t consider ethical trade-offs yet",
+        ]
+      },
+      {
+        label: "Which leadership archetype describes you best?",
+        type: "radio",
+        name: "leadershipArchetype",
+        options: [
+          "The Visionary", "The Operator", "The Empath", "The Strategist", "The Experimenter", "The Builder", "The Connector", "The Analyst", "The Evangelist", "The Rebel"
+        ]
+      },
+      {
+        label: "If your team disagrees on a moral choice (e.g., customer data use), you would…",
+        type: "radio",
+        name: "moralDisagreementResponse",
+        options: [
+          "Hold a values review session",
+          "Follow the law strictly",
+          "Seek third-party ethics advisor",
+          "Run stakeholder poll",
+          "Vote democratically",
+          "Decide as founder",
+          "Pause project until resolved",
+          "Communicate transparently to users",
+          "Ignore if minor",
+          "Unsure — need guidance"
+        ]
+      },
+      {
+        label: "Describe how your values show up in day-to-day work (≤ 75 words).",
+        type: "text",
+        name: "valuesDayToDay"
+      }
+    ]
+  },
+  {
+    title: "Section P — Accelerator Alignment & Commitment",
+    questions: [
+      {
+        label: "Why do you believe the Wingrox AI e-Accelerator™ is right for you now?",
+        type: "radio",
+        name: "acceleratorFit",
+        options: [
+          "Need structured playbooks to scale",
+          "Seeking funding readiness",
+          "Want to fix unit economics",
+          "Need mentors for growth ops",
+          "Looking for AI-powered growth insights",
+          "Need peer community support",
+          "Seeking corporate pilot opportunities",
+          "Want investor visibility",
+          "Looking for accountability system",
+          "All of the above"
+        ]
+      },
+      {
+        label: "Time commitment you can realistically dedicate to the program:",
+        type: "radio",
+        name: "timeCommitment",
+        options: [
+          "< 5 hrs per week", "5–10 hrs", "10–15 hrs", "15–20 hrs", "20–30 hrs", "> 30 hrs", "Flexible based on sprints", "Weekend-only", "Delegated to team", "Unsure"
+        ]
+      },
+      {
+        label: "How do you prefer to interact with mentors and Growth Architects?",
+        type: "radio",
+        name: "mentorInteraction",
+        options: [
+          "Weekly 1:1 calls", "Live cohorts", "Slack/WhatsApp async", "AI mentor chatbot", "Workshops + office hours", "Peer hot-seats", "Email updates", "As needed only", "In-person (Delhi/Bangalore)", "Flexible"
+        ]
+      },
+      {
+        label: "What type of feedback style works best for you?",
+        type: "radio",
+        name: "feedbackStyle",
+        options: [
+          "Direct & brutal truth",
+          "Encouraging & affirming",
+          "Structured with data",
+          "Collaborative discussion",
+          "Step-by-step guidance",
+          "Visual dashboards",
+          "AI summary reports",
+          "Silent observation then review",
+          "Peer coaching",
+          "Mix of all"
+        ]
+      },
+      {
+        label: "How do you plan to contribute back to the cohort or ecosystem?",
+        type: "radio",
+        name: "cohortContribution",
+        options: [
+          "Mentor junior founders",
+          "Share learnings in demo stories",
+          "Help peers with my domain",
+          "Offer pilot collaborations",
+          "Invest back in future batches",
+          "Volunteer as Growth Coach",
+          "Support alumni network",
+          "Build community events",
+          "Publish insight articles",
+          "All of the above"
+        ]
+      },
+      {
+        label: "If selected, how soon can you begin?",
+        type: "radio",
+        name: "selectionStartTime",
+        options: [
+          "Immediately", "Within a week", "Within 2 weeks", "Within a month", "After funding closure", "Post team alignment", "After product launch", "Pending travel plan", "Flexible", "Other"
+        ]
+      }
+    ]
+  },
+  {
+    title: "Section Q — Final Reflection & Commitment Statement",
+    questions: [
+      {
+        label: "Complete the sentence:\n“In the next 90 days, my startup will be unrecognizable because…” (≤ 40 words)",
+        type: "text",
+        name: "ninetyDaysReflection"
+      },
+      {
+        label: "If not selected, what will you improve before re-applying?",
+        type: "radio",
+        name: "improveBeforeReapply",
+        options: [
+          "Financial discipline",
+          "Revenue traction",
+          "Team capacity",
+          "Pitch clarity",
+          "Unit economics",
+          "Customer retention",
+          "Leadership systems",
+          "Impact measurement",
+          "Investor network",
+          "Other"
+        ]
+      }
+    ]
+  }
 ];
 
 // --- rest of your component unchanged ---
