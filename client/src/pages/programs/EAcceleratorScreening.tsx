@@ -6,15 +6,15 @@ function getPartSectionLabel(step: number): string {
   if (step === 1) return "Part 1 — Founder & Growth Readiness DNA\nSection B — Founding Team & Execution Velocity";
   if (step === 2) return "Part 1 — Founder & Growth Readiness DNA\nSection C — Growth Bottleneck Diagnosis";
   if (step === 3) return "Part 1 — Founder & Growth Readiness DNA\nSection D — Market & Revenue Readiness";
-  if (step === 4) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection A — Financial Health & Strategic Control";
-  if (step === 5) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection B — Scalability & Market Size";
-  if (step === 6) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection C — Investment History & Readiness";
-   if (step === 7) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection A — Innovation Edge & Technology Readiness";
-  if (step === 8) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection B — Operational Discipline & Scalability";
-  if (step === 9) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection C — Customer Experience & Retention Flywheel";
-  if (step === 10) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection D — Impact & Ethical Scalability";
-  if (step === 11) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection E — Investor Narrative & Story Clarity";
-    if (step === 12) return "Part 4 — Final Readiness & Selection Matrix\nSection M — Resilience, Adaptability & Growth Energy";
+  if (step === 4) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection E — Financial Health & Strategic Control";
+  if (step === 5) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection F — Scalability & Market Size";
+  if (step === 6) return "Part 2 — Financial Discipline, Market Scale & Investor Readiness\nSection G — Investment History & Readiness";
+   if (step === 7) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection H — Innovation Edge & Technology Readiness";
+  if (step === 8) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection I — Operational Discipline & Scalability";
+  if (step === 9) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection J — Customer Experience & Retention Flywheel";
+  if (step === 10) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection K — Impact & Ethical Scalability";
+  if (step === 11) return "Part 3 — Innovation, Operational Excellence & Impact Leadership\nSection L — Investor Narrative & Story Clarity";
+  if (step === 12) return "Part 4 — Final Readiness & Selection Matrix\nSection M — Resilience, Adaptability & Growth Energy";
   if (step === 13) return "Part 4 — Final Readiness & Selection Matrix\nSection N — Cultural Fit & Learning Velocity";
   if (step === 14) return "Part 4 — Final Readiness & Selection Matrix\nSection O — Growth Ethics & Leadership Integrity";
   if (step === 15) return "Part 4 — Final Readiness & Selection Matrix\nSection P — Accelerator Alignment & Commitment";
@@ -1615,8 +1615,14 @@ export default function EAcceleratorScreening() {
     }
   };
 
-  const handleNext = () => setStep((s) => Math.min(s + 1, sections.length - 1));
-  const handlePrev = () => setStep((s) => Math.max(s - 1, 0));
+  const handleNext = () => {
+    setStep((s) => Math.min(s + 1, sections.length - 1));
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
+  };
+  const handlePrev = () => {
+    setStep((s) => Math.max(s - 1, 0));
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Submitted!");
@@ -1625,7 +1631,7 @@ export default function EAcceleratorScreening() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100">
       <section className="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl p-8 md:p-12 text-white relative overflow-hidden mb-8 shadow-lg">
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
+        <div className="relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-400 mb-4 tracking-tight" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
             Wingrox AI e-Accelerator™ — Screening & Selection Questionnaire
           </h1>
@@ -1636,7 +1642,7 @@ export default function EAcceleratorScreening() {
         <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 blur-3xl"></div>
         <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 blur-3xl"></div>
       </section>
-      <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
+      <form onSubmit={handleSubmit}>
         <div className="bg-white rounded-2xl shadow-sm p-8">
           <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
@@ -1719,30 +1725,32 @@ export default function EAcceleratorScreening() {
           </div>
         </div>
         <div className="flex justify-between mt-8">
-          <button
-            type="button"
-            onClick={handlePrev}
-            disabled={step === 0}
-            className={`px-6 py-3 rounded-md font-semibold transition-colors ${step === 0 ? 'bg-gray-300 cursor-not-allowed text-gray-500' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
-          >
-            Previous
-          </button>
-          {step < sections.length - 1 ? (
+          <div className="flex w-full gap-4 justify-between">
             <button
               type="button"
-              onClick={handleNext}
-              className="px-6 py-3 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+              onClick={handlePrev}
+              disabled={step === 0}
+              className={`px-6 py-3 rounded-md font-semibold transition-colors ${step === 0 ? 'bg-gray-300 cursor-not-allowed text-gray-500' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
             >
-              Next
+              Previous
             </button>
-          ) : (
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-md bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors"
-            >
-              Submit
-            </button>
-          )}
+            {step < sections.length - 1 ? (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="px-6 py-3 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-md bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors"
+              >
+                Submit
+              </button>
+            )}
+          </div>
         </div>
       </form>
     </div>
