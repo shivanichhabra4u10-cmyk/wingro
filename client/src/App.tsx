@@ -16,6 +16,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Pages
+const GrowthLink = React.lazy(() => import('./pages/programs/growth-link'));
+const EIncubator = React.lazy(() => import('./pages/programs/e-incubator'));
+const EAccelrator = React.lazy(() => import('./pages/programs/e-accelrator'));
+const EAcceleratorScreening = React.lazy(() => import('./pages/programs/EAcceleratorScreening'));
+  <Route path="programs/e-accelrator/screening" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAcceleratorScreening /></React.Suspense>} />
+const GrowthLinkPainDiscovery = React.lazy(() => import('./pages/programs/GrowthLinkPainDiscovery'));
+const ProviderIntelligenceForm = React.lazy(() => import('./pages/programs/ProviderIntelligenceForm'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
 const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
@@ -77,82 +84,60 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout>
-      <Outlet />
-    </Layout>}>
+    <Route path="/" element={<Layout><Outlet /></Layout>}>
       <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
-  <Route path="register" element={<Register />} />
-  <Route path="auth/google/callback" element={<GoogleCallback />} />
+      <Route path="register" element={<Register />} />
+      <Route path="auth/google/callback" element={<GoogleCallback />} />
       <Route path="reset-password" element={<ResetPassword />} />
       {/* Public routes */}
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/why-wingrox" element={<WhyWinGroX />} />
-      <Route path="/how-it-works" element={<HowItWorks />} />
-      <Route path="/who-we-serve" element={<WhoWeServe />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/knowledge" element={<Knowledge />} />
-      <Route path="/marketplace" element={<Marketplace />} />
-      <Route path="/coach/:id" element={<CoachProfile />} />
-      <Route path="/assessment-selection" element={<AssessmentSelection />} />
-      <Route path="/student-9-10" element={<CareerAssessment />} />
-      <Route path="/student-11-12" element={<CareerAssessment />} />
-      <Route path="/professional" element={<CareerAssessment />} />
-      <Route path="/organization" element={<OrganizationAssessment />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/join-as-coach" element={<JoinAsCoach />} />
-      <Route path="/start-your-journey" element={<GrowthSeeker />} />
-      <Route path="/grow-with-community" element={<GrowWithCommunity />} />
-      <Route path="/playbooks" element={<Playbooks />} />
-      <Route path="/diagnostic-tool" element={<DiagnosticTool />} />
-      <Route path="/branding-kit" element={<BrandingKit />} />
-      <Route path="/access-denied" element={<AccessDenied />} />
+      <Route path="about-us" element={<AboutUs />} />
+      <Route path="why-wingrox" element={<WhyWinGroX />} />
+      <Route path="how-it-works" element={<HowItWorks />} />
+      <Route path="who-we-serve" element={<WhoWeServe />} />
+      <Route path="products" element={<Products />} />
+      <Route path="product/:id" element={<ProductDetail />} />
+      <Route path="knowledge" element={<Knowledge />} />
+      <Route path="marketplace" element={<Marketplace />} />
+      <Route path="coach/:id" element={<CoachProfile />} />
+      <Route path="assessment-selection" element={<AssessmentSelection />} />
+      <Route path="student-9-10" element={<CareerAssessment />} />
+      <Route path="student-11-12" element={<CareerAssessment />} />
+      <Route path="professional" element={<CareerAssessment />} />
+      <Route path="organization" element={<OrganizationAssessment />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="join-as-coach" element={<JoinAsCoach />} />
+      <Route path="start-your-journey" element={<GrowthSeeker />} />
+      <Route path="grow-with-community" element={<GrowWithCommunity />} />
+      <Route path="playbooks" element={<Playbooks />} />
+      <Route path="diagnostic-tool" element={<DiagnosticTool />} />
+      <Route path="branding-kit" element={<BrandingKit />} />
+      <Route path="access-denied" element={<AccessDenied />} />
+  {/* Our Programs submenu routes */}
+  <Route path="programs/growth-link" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><GrowthLink /></React.Suspense>} />
+  <Route path="programs/growth-link/pain-discovery" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><GrowthLinkPainDiscovery /></React.Suspense>} />
+  <Route path="programs/e-incubator" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EIncubator /></React.Suspense>} />
+  <Route path="programs/e-accelrator" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAccelrator /></React.Suspense>} />
+  <Route path="programs/e-accelrator/screening" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAcceleratorScreening /></React.Suspense>} />
+  <Route path="programs/join-as-provider" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><ProviderIntelligenceForm /></React.Suspense>} />
       {/* Protected user routes */}
       <Route element={<ProtectedRoute><Outlet /></ProtectedRoute>}>
         <Route path="cart" element={<Cart />} />
         <Route path="download" element={<Download />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Route>
       {/* Admin Routes */}
-      <Route path="/admin-direct" element={<Navigate to="/admin" replace />} />
-      <Route path="/admin" element={
-        <AdminProtected>
-          <AdminDashboard />
-        </AdminProtected>
-      } />
-      <Route path="/admin/products" element={
-        <AdminProtected>
-          <AdminProducts />
-        </AdminProtected>
-      } />
-      <Route path="/admin/coaches" element={
-        <AdminProtected>
-          <AdminCoaches />
-        </AdminProtected>
-      } />
-      <Route path="/admin/bookings" element={
-        <AdminProtected>
-          <AdminBookings />
-        </AdminProtected>
-      } />
-      <Route path="/admin/users" element={
-        <AdminProtected>
-          <AdminUsers />
-        </AdminProtected>
-      } />
-      <Route path="/admin/settings" element={
-        <AdminProtected>
-          <AdminSettings />
-        </AdminProtected>
-      } />
+      <Route path="admin-direct" element={<Navigate to="/admin" replace />} />
+      <Route path="admin" element={<AdminProtected><AdminDashboard /></AdminProtected>} />
+      <Route path="admin/products" element={<AdminProtected><AdminProducts /></AdminProtected>} />
+      <Route path="admin/coaches" element={<AdminProtected><AdminCoaches /></AdminProtected>} />
+      <Route path="admin/bookings" element={<AdminProtected><AdminBookings /></AdminProtected>} />
+      <Route path="admin/users" element={<AdminProtected><AdminUsers /></AdminProtected>} />
+      <Route path="admin/settings" element={<AdminProtected><AdminSettings /></AdminProtected>} />
       <Route path="*" element={<NotFound />} />
     </Route>
-  ),
-  {
-  future: {}
-  }
+  )
 );
 
 const App = () => {

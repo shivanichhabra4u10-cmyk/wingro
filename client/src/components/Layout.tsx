@@ -50,6 +50,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { name: 'Join as Coach', href: '/join-as-coach' },
       ],
     },
+      {
+        name: 'Our Programs',
+        icon: '🚀',
+        submenu: [
+          { name: 'E Accelrator', href: '/programs/e-accelrator' },
+          { name: 'E Incubator', href: '/programs/e-incubator' },
+          { name: 'Growth Link', href: '/programs/growth-link' },
+        ],
+      },
     // Knowledge Hub menu (hidden, set hidden: true to hide from UI but keep in code for future use)
     {
       name: 'Knowledge Hub',
