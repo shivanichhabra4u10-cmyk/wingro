@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { contactController } from '../controllers';
 import { body } from 'express-validator';
-import { authMiddleware } from '../middleware/auth';
+
 
 const router = Router();
 
@@ -18,8 +18,8 @@ router.post(
   contactController.submitContactForm
 );
 
-// GET /api/contact - Get all contact form submissions (admin only)
-// This route is protected by authentication middleware
+// GET /api/contact - Get all contact form submissions (public)
+// NOTE: This is intentionally public. Add authMiddleware if you want to restrict.
 router.get('/', contactController.getAllContactSubmissions);
 
 export default router;
