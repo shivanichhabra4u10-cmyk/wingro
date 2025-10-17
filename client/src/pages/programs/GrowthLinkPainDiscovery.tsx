@@ -126,10 +126,12 @@ const GrowthLinkPainDiscovery: React.FC = () => {
     // TODO: API integration
   };
 
-  const handleNext = () => {
+  const handleNext = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     if (step < totalSteps) setStep(step + 1);
   };
-  const handlePrev = () => {
+  const handlePrev = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     if (step > 1) setStep(step - 1);
   };
 
@@ -309,9 +311,9 @@ const GrowthLinkPainDiscovery: React.FC = () => {
             )}
             {/* Navigation Buttons */}
             <div className="flex justify-between mt-8">
-              <button type="button" onClick={handlePrev} disabled={step === 1} className={`px-6 py-2 rounded-full font-semibold shadow ${step === 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>Previous</button>
+              <button type="button" onClick={(e) => handlePrev(e)} disabled={step === 1} className={`px-6 py-2 rounded-full font-semibold shadow ${step === 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>Previous</button>
               {step < totalSteps ? (
-                <button type="button" onClick={handleNext} className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow">Next</button>
+                <button type="button" onClick={(e) => handleNext(e)} className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow">Next</button>
               ) : (
                 <button type="submit" className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow">Submit</button>
               )}
