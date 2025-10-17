@@ -205,7 +205,7 @@ const EAccelerator: React.FC = () => {
       {/* Quick CTAs */}
       <section className="flex flex-col md:flex-row gap-4 justify-center mt-8">
         <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full shadow">Assess My Growth Readiness</button>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow">Apply to e-Growth Accelerator</button>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow" onClick={() => navigate('/programs/e-accelrator/screening')}>Apply to e-Growth Accelerator</button>
         <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow">Become a Sponsor/Investor</button>
       </section>
 
