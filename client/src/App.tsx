@@ -22,7 +22,7 @@ const EAccelrator = React.lazy(() => import('./pages/programs/e-accelrator'));
 const EAcceleratorScreening = React.lazy(() => import('./pages/programs/EAcceleratorScreening'));
   <Route path="programs/e-accelrator/screening" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAcceleratorScreening /></React.Suspense>} />
 const GrowthLinkPainDiscovery = React.lazy(() => import('./pages/programs/GrowthLinkPainDiscovery'));
-const ProviderIntelligenceForm = React.lazy(() => import('./pages/programs/ProviderIntelligenceForm'));
+const ProviderIntelligence = React.lazy(() => import('./pages/programs/ProviderIntelligence'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
 const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
@@ -119,7 +119,7 @@ const router = createBrowserRouter(
   <Route path="programs/e-incubator" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EIncubator /></React.Suspense>} />
   <Route path="programs/e-accelrator" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAccelrator /></React.Suspense>} />
   <Route path="programs/e-accelrator/screening" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAcceleratorScreening /></React.Suspense>} />
-  <Route path="programs/join-as-provider" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><ProviderIntelligenceForm /></React.Suspense>} />
+  <Route path="programs/join-as-provider" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><ProviderIntelligence /></React.Suspense>} />
       {/* Protected user routes */}
       <Route element={<ProtectedRoute><Outlet /></ProtectedRoute>}>
         <Route path="cart" element={<Cart />} />
