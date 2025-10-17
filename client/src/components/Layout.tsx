@@ -43,9 +43,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       icon: '🛠️',
       submenu: [
         { name: 'Product Store', href: '/products' },
-        { name: 'Branding Kit', href: '/branding-kit' },
-        { name: 'Diagnostic Tool', href: '/diagnostic-tool' },
-        { name: 'Playbooks', href: '/playbooks' },
         { name: 'Book a Coach', href: '/marketplace' },
         { name: 'Join as Coach', href: '/join-as-coach' },
       ],
@@ -74,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       icon: '👨‍👩‍👧‍👦',
       submenu: [
         { name: 'Join Community', href: '/grow-with-community' },
-        { name: 'Free Assessments', href: '/assessment-selection' },
+        { name: 'Provider Marketplace', href: '/community/provider-marketplace' },
       ],
     },
   ];

@@ -20,9 +20,9 @@ const GrowthLink = React.lazy(() => import('./pages/programs/growth-link'));
 const EIncubator = React.lazy(() => import('./pages/programs/e-incubator'));
 const EAccelrator = React.lazy(() => import('./pages/programs/e-accelrator'));
 const EAcceleratorScreening = React.lazy(() => import('./pages/programs/EAcceleratorScreening'));
-  <Route path="programs/e-accelrator/screening" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><EAcceleratorScreening /></React.Suspense>} />
 const GrowthLinkPainDiscovery = React.lazy(() => import('./pages/programs/GrowthLinkPainDiscovery'));
 const ProviderIntelligence = React.lazy(() => import('./pages/programs/ProviderIntelligence'));
+const GrowthLinkProviderMarketplace = React.lazy(() => import('./pages/programs/GrowthLinkProviderMarketplace'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
 const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
@@ -48,6 +48,7 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 const JoinAsCoach = React.lazy(() => import('./pages/JoinAsCoach'));
 const GrowthSeeker = React.lazy(() => import('./pages/GrowthSeeker'));
 const GrowWithCommunity = React.lazy(() => import('./pages/GrowWithCommunity'));
+
 const Playbooks = React.lazy(() => import('./pages/Playbooks'));
 const DiagnosticTool = React.lazy(() => import('./pages/DiagnosticTool'));
 const BrandingKit = React.lazy(() => import('./pages/BrandingKit'));
@@ -109,6 +110,7 @@ const router = createBrowserRouter(
       <Route path="join-as-coach" element={<JoinAsCoach />} />
       <Route path="start-your-journey" element={<GrowthSeeker />} />
       <Route path="grow-with-community" element={<GrowWithCommunity />} />
+      <Route path="community/provider-marketplace" element={<React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}><GrowthLinkProviderMarketplace /></React.Suspense>} />
       <Route path="playbooks" element={<Playbooks />} />
       <Route path="diagnostic-tool" element={<DiagnosticTool />} />
       <Route path="branding-kit" element={<BrandingKit />} />
