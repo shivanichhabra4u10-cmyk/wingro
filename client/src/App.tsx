@@ -52,6 +52,7 @@ const GrowWithCommunity = React.lazy(() => import('./pages/GrowWithCommunity'));
 const Playbooks = React.lazy(() => import('./pages/Playbooks'));
 const DiagnosticTool = React.lazy(() => import('./pages/DiagnosticTool'));
 const BrandingKit = React.lazy(() => import('./pages/BrandingKit'));
+const DigitalTwinCareer = React.lazy(() => import('./pages/DigitalTwinCareer'));
 
 const Cart = React.lazy(() => import('./components/Cart'));
 const Download = React.lazy(() => import('./pages/Download'));
@@ -102,6 +103,7 @@ const router = createBrowserRouter(
       <Route path="marketplace" element={<Marketplace />} />
       <Route path="coach/:id" element={<CoachProfile />} />
       <Route path="assessment-selection" element={<AssessmentSelection />} />
+      <Route path="digital-twin" element={<DigitalTwinCareer />} />
       <Route path="student-9-10" element={<CareerAssessment />} />
       <Route path="student-11-12" element={<CareerAssessment />} />
       <Route path="professional" element={<CareerAssessment />} />

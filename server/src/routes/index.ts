@@ -2,6 +2,7 @@ import { Router } from 'express';
 import authRoutes from './auth.routes';
 import contactRoutes from './contact.routes';
 import assessmentRoutes from './assessment.routes';
+import digitalTwinRoutes from './digitaltwin.routes';
 import productRoutes from './product.routes';
 import coachRoutes from './coach.routes';
 import coachApplicationRoutes from './coachApplication.routes';
@@ -19,6 +20,7 @@ const router = Router();
 router.use('/auth', authRoutes);
 router.use('/contact', contactRoutes);
 router.use('/assessment', assessmentRoutes);
+router.use('/digitaltwin', digitalTwinRoutes);
 router.use('/products', productRoutes);
 
 

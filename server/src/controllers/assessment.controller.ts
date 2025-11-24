@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IndividualAssessment, OrganizationAssessment } from '../models';
+import { IndividualAssessment, OrganizationAssessment, DigitalTwinIndividual } from '../models';
 import { validationResult } from 'express-validator';
 
 export const assessmentController = {
@@ -289,6 +289,181 @@ export const assessmentController = {
       });
     } catch (error) {
       console.error('Error updating organization assessment:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Server error while processing your request'
+      });
+    }
+  },
+
+  /**
+   * Submit Digital Twin individual assessment data
+   * @route POST /api/digitaltwin/individual
+   */
+  submitDigitalTwinIndividual: async (req: Request, res: Response) => {
+    try {
+      // Extract form data from request body
+      let {
+        userId,
+        firstName,
+        lastName,
+        email,
+        jobTitle,
+        company,
+        yearsExperience,
+        linkedinUrl
+      } = req.body;
+
+      // Trim string values (handles both JSON and form data)
+      firstName = typeof firstName === 'string' ? firstName.trim() : firstName;
+      lastName = typeof lastName === 'string' ? lastName.trim() : lastName;
+      email = typeof email === 'string' ? email.trim() : email;
+      jobTitle = typeof jobTitle === 'string' ? jobTitle.trim() : jobTitle;
+      company = typeof company === 'string' ? company.trim() : company;
+      yearsExperience = typeof yearsExperience === 'string' ? yearsExperience.trim() : yearsExperience;
+      linkedinUrl = typeof linkedinUrl === 'string' ? linkedinUrl.trim() : linkedinUrl;
+      userId = typeof userId === 'string' ? userId.trim() : userId;
+
+      console.log('Received Digital Twin assessment:', {
+        firstName,
+        lastName,
+        email,
+        jobTitle
+      });
+
+      // Create new Digital Twin assessment entry in MongoDB
+      const assessment = await DigitalTwinIndividual.create({
+        userId,
+        firstName,
+        lastName,
+        email,
+        jobTitle,
+        company,
+        yearsExperience,
+        linkedinUrl,
+        assessmentType: 'digitaltwin',
+        responseData: {},
+        completed: false
+      });
+
+      // Return success response
+      res.status(201).json({
+        success: true,
+        message: 'Digital Twin assessment started successfully',
+        data: assessment
+      });
+    } catch (error) {
+      console.error('Error in Digital Twin assessment submission:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Server error while processing your request'
+      });
+    }
+  },
+
+  /**
+   * Update Digital Twin individual assessment with responses
+   * @route PUT /api/digitaltwin/individual/:id
+   */
+  updateDigitalTwinIndividual: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const { responseData } = req.body;
+
+      // Enhanced logging for debugging
+      console.log('Updating Digital Twin assessment with ID:', id);
+      console.log('Response data received:', JSON.stringify(responseData, null, 2));
+
+      // Validate that the responseData exists
+      if (!responseData) {
+        console.warn('Response data is empty or invalid:', responseData);
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid response data format'
+        });
+      }
+
+      console.log('Using direct MongoDB update for reliability');
+
+      // Use direct MongoDB update for maximum reliability
+      const result = await DigitalTwinIndividual.updateOne(
+        { _id: id },
+        {
+          $set: {
+            responseData: responseData,
+            completedAt: new Date(),
+            completed: true
+          }
+        },
+        { upsert: false }
+      );
+
+      console.log('Update result:', result);
+
+      if (result.matchedCount === 0) {
+        console.error(`Digital Twin assessment not found with ID: ${id}`);
+        return res.status(404).json({
+          success: false,
+          message: 'Assessment not found'
+        });
+      }
+
+      if (result.modifiedCount === 0) {
+        console.warn(`Digital Twin assessment found but not modified. ID: ${id}`);
+      }
+
+      // Verify the update worked by fetching it again
+      const updatedAssessment = await DigitalTwinIndividual.findById(id);
+
+      if (updatedAssessment) {
+        console.log('Digital Twin assessment updated successfully:', updatedAssessment._id);
+        console.log('Response data fields:', Object.keys(updatedAssessment.responseData || {}));
+      }
+
+      res.status(200).json({
+        success: true,
+        message: 'Digital Twin assessment responses saved successfully',
+        data: {
+          id: id,
+          completedAt: new Date()
+        }
+      });
+    } catch (error) {
+      console.error('Error updating Digital Twin assessment:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Server error while processing your request'
+      });
+    }
+  },
+
+  /**
+   * Get Digital Twin individual assessment by ID
+   * @route GET /api/digitaltwin/individual/:id
+   */
+  getDigitalTwinIndividual: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      console.log('Fetching Digital Twin assessment with ID:', id);
+
+      const assessment = await DigitalTwinIndividual.findById(id);
+
+      if (!assessment) {
+        console.error(`Digital Twin assessment not found with ID: ${id}`);
+        return res.status(404).json({
+          success: false,
+          message: 'Assessment not found'
+        });
+      }
+
+      res.status(200).json({
+        success: true,
+        message: 'Digital Twin assessment retrieved successfully',
+        data: assessment
+      });
+    } catch (error) {
+      console.error('Error fetching Digital Twin assessment:', error);
       res.status(500).json({
         success: false,
         message: 'Server error while processing your request'

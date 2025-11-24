@@ -155,7 +155,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               })}
               {/* Admin menu for admin users */}
               {isAdmin && <AdminMenu />}
-              {/* Prominent Take Assessment button always after AdminMenu */}
+              {/* Prominent Take Assessment button */}
               <a
                 href="/assessment-selection"
                 target="_blank"
@@ -166,6 +166,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <span className="mr-2">📝</span>
                 Take Assessment
               </a>
+              {/* Prominent Digital Twin button */}
+              <Link
+                to="/digital-twin"
+                className="ml-2 px-5 py-2 rounded-full text-base font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white shadow-lg border-2 border-indigo-300 hover:scale-105 hover:shadow-xl transition-all duration-200"
+                style={{ letterSpacing: '0.03em' }}
+              >
+                <span className="mr-2">🤖</span>
+                Digital Twin
+              </Link>
             </div>
             {/* User menu */}
             <div className="flex items-center ml-2">

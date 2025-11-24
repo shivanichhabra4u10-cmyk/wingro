@@ -1,869 +1,194 @@
 {
   "assessmentMetadata": {
-    "id": "gautam-advanced-assessment-v2",
-    "title": "WinGrox AI Digital Twin Intelligence — Gautam Ganglani",
-    "subtitle": "Personal Transformation & Ecosystem Design",
-    "version": "2.0",
-    "description": "A comprehensive assessment designed to map Gautam's transformation journey across 35 dimensions of leadership, legacy, and personal evolution.",
-    "estimatedTime": "45-60 minutes",
-    "assessmentType": "advanced",
-    "targetProfile": "Gautam Ganglani - Leadership Transformation"
+    "id": "digital-twin-career-snapshot",
+    "title": "Digital Twin Career Snapshot",
+    "subtitle": "10 Deeply Diagnostic Questions for Career Clarity",
+    "version": "1.0",
+    "description": "A focused assessment to map your current career alignment, energy, and readiness for transformation.",
+    "estimatedTime": "15-20 minutes",
+    "assessmentType": "diagnostic",
+    "targetProfile": "Career Seeker - All Levels"
   },
-  "topicalSections": [],
   "questions": [
     {
       "id": 1,
-      "category": "Legacy & Identity Alignment",
-      "question": "When you reflect on the legacy of RightSelection and your personal journey, what emotion surfaces most?",
+      "category": "Identity & Purpose Alignment",
+      "question": "How connected do you feel to your deeper purpose through your current professional role?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Pride in sustaining a trusted global brand" },
-        { "option": "b", "text": "Joy from helping others shine brighter" },
-        { "option": "c", "text": "Gratitude for continuing the family vision" },
-        { "option": "d", "text": "Curiosity about what legacy 2.0 could look like" },
-        { "option": "e", "text": "Restlessness to build something larger than events" },
-        { "option": "f", "text": "Pressure to honor the past while innovating" },
-        { "option": "g", "text": "Fear of losing authentic touch amid digital scale" },
-        { "option": "h", "text": "Wonder if your own story is fully told" },
-        { "option": "i", "text": "Excitement to reimagine your identity beyond Right Selection" },
-        { "option": "j", "text": "Uncertainty on how to balance legacy and reinvention" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "I feel deeply aligned — my work expresses who I am becoming." },
+        { "option": "b", "text": "I feel meaning occasionally, but it's inconsistent or fragile." },
+        { "option": "c", "text": "I like what I do, but I'm not sure it reflects my deeper purpose." },
+        { "option": "d", "text": "I've grown detached — it feels like I'm on autopilot most days." },
+        { "option": "e", "text": "My purpose is clear, but my work does not support it yet." },
+        { "option": "f", "text": "I sense an emerging purpose, but I can't articulate it fully." },
+        { "option": "g", "text": "I'm questioning everything — my identity, values, direction." },
+        { "option": "h", "text": "I feel stuck in a role that no longer fits who I'm becoming." },
+        { "option": "i", "text": "I don't know my purpose, but I feel a pull toward something new." },
+        { "option": "j", "text": "I'm reinventing myself and searching for a more meaningful identity." }
+      ]
     },
     {
       "id": 2,
-      "category": "Leadership Energy Utilization",
-      "question": "How would you describe where your leadership energy is currently invested?",
+      "category": "Flow & Strength Expression",
+      "question": "When do you most experience flow or 'lose track of time' while working?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Empowering team and partners daily" },
-        { "option": "b", "text": "Managing operational details to maintain quality" },
-        { "option": "c", "text": "Nurturing client relationships and trust loops" },
-        { "option": "d", "text": "Designing new concepts for learning ecosystems" },
-        { "option": "e", "text": "Coaching and mentoring emerging thought leaders" },
-        { "option": "f", "text": "Speaking and brand representation" },
-        { "option": "g", "text": "Crisis-solving and firefighting" },
-        { "option": "h", "text": "Balancing business growth with personal time" },
-        { "option": "i", "text": "Strategic innovation and tech integration" },
-        { "option": "j", "text": "Reconnecting to your own creative flow" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "When solving problems that stretch me intellectually." },
+        { "option": "b", "text": "When I'm creating, building, or designing something new." },
+        { "option": "c", "text": "When I'm helping people, coaching, or empowering others." },
+        { "option": "d", "text": "When I'm organizing chaos and bringing clarity to complexity." },
+        { "option": "e", "text": "When I'm analyzing patterns, data, or systems." },
+        { "option": "f", "text": "When I'm strategizing about the future or long-term direction." },
+        { "option": "g", "text": "When I'm collaborating with motivated, high-energy people." },
+        { "option": "h", "text": "When I'm working independently without interruptions." },
+        { "option": "i", "text": "I rarely experience flow — work feels fragmented or draining." },
+        { "option": "j", "text": "I don't know yet — my strengths feel undeveloped or hidden." }
+      ]
     },
     {
       "id": 3,
-      "category": "Delegation & Empowerment Gaps",
-      "question": "When scaling projects or events, what best reflects your current delegation style?",
+      "category": "Career Trajectory Perception",
+      "question": "How do you perceive your current career growth trajectory?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Fully empowered teams run independently with trust" },
-        { "option": "b", "text": "Clear delegation but frequent check-ins" },
-        { "option": "c", "text": "Partial ownership with you as final approver" },
-        { "option": "d", "text": "Prefer hands-on involvement to ensure brand standards" },
-        { "option": "e", "text": "Hard to delegate creative or relationship tasks" },
-        { "option": "f", "text": "Delegation depends on who I trust at the moment" },
-        { "option": "g", "text": "Delegation is efficient but inconsistent across teams" },
-        { "option": "h", "text": "Team asks for more direction than I intend to give" },
-        { "option": "i", "text": "Delegation often returns back as rework" },
-        { "option": "j", "text": "I'm actively re-engineering how I delegate through systems" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "Upward and accelerating — I'm gaining momentum." },
+        { "option": "b", "text": "Growing steadily but not exponentially." },
+        { "option": "c", "text": "Stable, predictable, and comfortable." },
+        { "option": "d", "text": "Growing externally, but internally I feel stagnant." },
+        { "option": "e", "text": "I'm plateauing — growth feels slower than it should." },
+        { "option": "f", "text": "My trajectory is unclear — I'm still finding the path." },
+        { "option": "g", "text": "I feel misaligned — I'm growing, but in the wrong direction." },
+        { "option": "h", "text": "I've hit a wall — progress feels blocked or political." },
+        { "option": "i", "text": "I'm preparing for a major pivot, even if it's not visible yet." },
+        { "option": "j", "text": "I feel lost — I don't know where this path is taking me." }
+      ]
     },
     {
       "id": 4,
-      "category": "Visibility & Self-Brand Expression",
-      "question": "Which statement mirrors how your personal brand visibility compares to the leaders you promote?",
+      "category": "Emotional Relationship with Work",
+      "question": "Which statement best describes your emotional relationship with work right now?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "I'm comfortable being behind the scene builder" },
-        { "option": "b", "text": "My visibility naturally flows through others' success" },
-        { "option": "c", "text": "I share my journey occasionally but not strategically" },
-        { "option": "d", "text": "I prioritize speaker visibility over mine" },
-        { "option": "e", "text": "I feel the market still does not fully know my story" },
-        { "option": "f", "text": "I wish to build a stronger thought-leader identity" },
-        { "option": "g", "text": "I'm ready to codify my philosophy into digital formats" },
-        { "option": "h", "text": "I prefer intimate impact over public spotlight" },
-        { "option": "i", "text": "I'm exploring digital platforms for content scaling" },
-        { "option": "j", "text": "I'm actively building 'Gautam Ganglani™' as a global brand" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "I feel energized — work stretches me in meaningful ways." },
+        { "option": "b", "text": "I feel engaged but wish my emotional connection was deeper." },
+        { "option": "c", "text": "I feel neutral — work gets done, but it doesn't move me." },
+        { "option": "d", "text": "I feel emotionally distant — like I'm watching myself work." },
+        { "option": "e", "text": "I'm productive, but I've lost joy and spark in the process." },
+        { "option": "f", "text": "I feel drained — not because of work, but because of constant context switching." },
+        { "option": "g", "text": "Work feels heavier lately — small things take more emotional effort." },
+        { "option": "h", "text": "I feel undervalued or unseen, which affects my energy." },
+        { "option": "i", "text": "I'm functioning, but I'm on emotional autopilot." },
+        { "option": "j", "text": "I feel like I need a reset — emotionally, mentally, or directionally." }
+      ]
     },
     {
       "id": 5,
-      "category": "Innovation and Future Scalability",
-      "question": "What describes your current relationship with technology and innovation?",
+      "category": "Energy & Workload Reality",
+      "question": "How would you describe your typical weekly energy and workload experience?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Actively experimenting with AI tools and platforms" },
-        { "option": "b", "text": "Learning but not yet integrated into daily workflow" },
-        { "option": "c", "text": "Rely on team for digital implementation" },
-        { "option": "d", "text": "Prefer human touch over tech systems" },
-        { "option": "e", "text": "Inspired but unsure how to embed AI in leadership growth" },
-        { "option": "f", "text": "Testing digital formats for speaker and client engagement" },
-        { "option": "g", "text": "Balancing innovation with heritage brand essence" },
-        { "option": "h", "text": "Awaiting proof before adopting new systems" },
-        { "option": "i", "text": "Collaborating with partners for tech-enabled experiments" },
-        { "option": "j", "text": "Ready to digitize the entire Right Selection experience" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "Balanced — I end most weeks with fuel left in the tank." },
+        { "option": "b", "text": "Manageable — some weeks are heavy, but I recover well." },
+        { "option": "c", "text": "Variable — energy swings depending on tasks or people." },
+        { "option": "d", "text": "Sustained pressure — doable but tiring." },
+        { "option": "e", "text": "Always 'on' — difficult to disconnect fully." },
+        { "option": "f", "text": "Overextended — I manage, but barely." },
+        { "option": "g", "text": "Mentally overloaded — too many tasks, not enough space." },
+        { "option": "h", "text": "Physically exhausted — my body feels the strain before my mind does." },
+        { "option": "i", "text": "Running on reserve energy — recovery isn't happening." },
+        { "option": "j", "text": "In burnout zone — I'm functioning but emotionally depleted." }
+      ]
     },
     {
       "id": 6,
-      "category": "Time & Energy Leak Awareness",
-      "question": "If you had extra two hours daily, what would you re-allocate it to?",
+      "category": "Cultural Tension Signal",
+      "question": "If you could change one cultural aspect of your workplace, what would it be?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Deep creative thinking and content creation" },
-        { "option": "b", "text": "Nurturing family and self-care balance" },
-        { "option": "c", "text": "Coaching high-potential leaders" },
-        { "option": "d", "text": "Business expansion strategies" },
-        { "option": "e", "text": "Learning new technologies" },
-        { "option": "f", "text": "Philanthropy or social impact projects" },
-        { "option": "g", "text": "Building personal brand assets" },
-        { "option": "h", "text": "Reflection and spiritual growth" },
-        { "option": "i", "text": "Mentoring team for succession" },
-        { "option": "j", "text": "Unstructured exploration and travel for inspiration" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "More transparency in communication and decisions." },
+        { "option": "b", "text": "More trust — less micromanagement and control." },
+        { "option": "c", "text": "More recognition — people deserve to be seen." },
+        { "option": "d", "text": "More fairness — fewer favorites, clearer merit." },
+        { "option": "e", "text": "More psychological safety — freedom to speak honestly." },
+        { "option": "f", "text": "More collaboration — less siloed, more collective energy." },
+        { "option": "g", "text": "More innovation — fewer layers, more experimentation." },
+        { "option": "h", "text": "More empathy — leaders understanding human realities." },
+        { "option": "i", "text": "More clarity — clearer goals, roles, expectations." },
+        { "option": "j", "text": "Less politics — more authenticity and real conversations." }
+      ]
     },
     {
       "id": 7,
-      "category": "Meaning & Fulfilment Quotient",
-      "question": "What best captures your sense of fulfilment today?",
+      "category": "Leadership Energy Drain / Boost",
+      "question": "How would you describe the impact your current leadership/manager has on your energy and confidence?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "I feel deeply content and aligned with purpose" },
-        { "option": "b", "text": "I love my work but crave new creative stretch" },
-        { "option": "c", "text": "I feel fulfilled when others transform through my platforms" },
-        { "option": "d", "text": "I sense a subtle void that asks for personal reinvention" },
-        { "option": "e", "text": "I often question what my next big chapter should be" },
-        { "option": "f", "text": "I feel driven yet sometimes emotionally drained" },
-        { "option": "g", "text": "Fulfilment varies depending on recognition and results" },
-        { "option": "h", "text": "I find joy in growth but miss play and experimentation" },
-        { "option": "i", "text": "I want to leave a deeper legacy beyond business" },
-        { "option": "j", "text": "I am ready to integrate spirituality into my work design" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "They elevate me — I grow faster because of them." },
+        { "option": "b", "text": "They support me — I feel safe to stretch myself." },
+        { "option": "c", "text": "They guide me, but our styles don't fully match." },
+        { "option": "d", "text": "They're neutral — neither draining nor inspiring." },
+        { "option": "e", "text": "They're distant — I'm left to navigate things alone." },
+        { "option": "f", "text": "They're inconsistent — some days empowering, some days draining." },
+        { "option": "g", "text": "They're demanding — growth happens but with emotional weight." },
+        { "option": "h", "text": "They unintentionally drain me — communication gaps or unclear direction." },
+        { "option": "i", "text": "They limit me — my confidence dips around them." },
+        { "option": "j", "text": "They exhaust me — I'm operating in survival mode." }
+      ]
     },
     {
       "id": 8,
-      "category": "Feedback and Recognition Pattern",
-      "question": "How do you emotionally respond to feedback from clients or team?",
+      "category": "Meaning & Values Alignment",
+      "question": "When you reflect on your work and life, which statement feels most accurate?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Grateful and reflective — always open to learn" },
-        { "option": "b", "text": "Encouraged by positive words, quietly self-critical inside" },
-        { "option": "c", "text": "Tend to underplay praise and move on" },
-        { "option": "d", "text": "Feel energized yet rarely celebrate wins" },
-        { "option": "e", "text": "Take feedback as personal responsibility to fix everything" },
-        { "option": "f", "text": "Seek validation through impact, not words" },
-        { "option": "g", "text": "Occasionally feel unseen behind others' spotlight" },
-        { "option": "h", "text": "Use feedback to mentor team and raise standards" },
-        { "option": "i", "text": "Prefer private acknowledgment to public applause" },
-        { "option": "j", "text": "Ready to redefine success metrics beyond external approval" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "My work aligns beautifully with what I stand for." },
+        { "option": "b", "text": "My values guide my decisions, and work supports them." },
+        { "option": "c", "text": "I'm aligned internally, but my environment doesn't always reflect it." },
+        { "option": "d", "text": "I'm clear about my values, but not fully living them." },
+        { "option": "e", "text": "I know my values, but I'm unsure how they fit into my career." },
+        { "option": "f", "text": "My values are shifting — I'm evolving." },
+        { "option": "g", "text": "I feel a growing mismatch between what I do and who I am." },
+        { "option": "h", "text": "I'm questioning whether my career truly reflects my identity." },
+        { "option": "i", "text": "I feel pulled between personal meaning and external pressures." },
+        { "option": "j", "text": "I feel disconnected — I need a deeper sense of direction." }
+      ]
     },
     {
       "id": 9,
-      "category": "Growth Mindset & Innovation Resistance",
-      "question": "When new, disruptive ideas or technologies arise, what best represents your inner dialogue?",
+      "category": "Reinvention & Future-Readiness",
+      "question": "How do you emotionally view your next big career change or reinvention?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "'Exciting — how can we integrate this with purpose?'" },
-        { "option": "b", "text": "'Let's observe trends before full commitment.'" },
-        { "option": "c", "text": "'I'll test this personally before recommending it.'" },
-        { "option": "d", "text": "'Innovation must always align with human touch.'" },
-        { "option": "e", "text": "'We've succeeded without it; adoption needs clarity.'" },
-        { "option": "f", "text": "'I love the idea but lack time to experiment.'" },
-        { "option": "g", "text": "'Innovation is essential — but someone else should drive it.'" },
-        { "option": "h", "text": "'Technology can dilute authenticity if not handled wisely.'" },
-        { "option": "i", "text": "'We should partner with experts instead of reinventing.'" },
-        { "option": "j", "text": "'It's time to completely digitize how we deliver value.'" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "Excited — I'm ready to leap." },
+        { "option": "b", "text": "Open — I'm eager to explore new directions." },
+        { "option": "c", "text": "Curious — I sense something bigger is calling me." },
+        { "option": "d", "text": "Prepared — I've been building toward this." },
+        { "option": "e", "text": "Cautiously optimistic — I want to move, but with stability." },
+        { "option": "f", "text": "Undecided — I feel the shift coming but can't define it yet." },
+        { "option": "g", "text": "Anxious — too many unknowns, not enough clarity." },
+        { "option": "h", "text": "Conflicted — part of me wants change, part of me resists." },
+        { "option": "i", "text": "Fearful — change feels overwhelming right now." },
+        { "option": "j", "text": "Stuck — I know I need reinvention, but don't know where to begin." }
+      ]
     },
     {
       "id": 10,
-      "category": "Emotional Energy Management",
-      "question": "How often do you feel emotionally overextended despite positive outcomes?",
+      "category": "Hidden Passion & Future Self Expression",
+      "question": "If fear, money, and expectations were removed, what would you love your life's work to express?",
       "type": "multiple-choice",
       "options": [
-        { "option": "a", "text": "Rarely — I manage my emotional boundaries well." },
-        { "option": "b", "text": "Occasionally, after high-intensity client cycles." },
-        { "option": "c", "text": "Often — I invest deeply in every relationship." },
-        { "option": "d", "text": "I recharge through solitude but it's infrequent." },
-        { "option": "e", "text": "I feel responsible for everyone's happiness." },
-        { "option": "f", "text": "I rarely show emotional fatigue externally." },
-        { "option": "g", "text": "I'm learning to balance empathy with detachment." },
-        { "option": "h", "text": "I thrive on energy exchanges but need structured recovery." },
-        { "option": "i", "text": "I delegate operational stress but emotional weight remains." },
-        { "option": "j", "text": "I'm actively designing systems to preserve energy flow." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 11,
-      "category": "Purpose & Fulfilment Reinforcement",
-      "question": "When you assess your current purpose journey, which statement resonates most?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "My purpose feels clear, but my platform needs evolution." },
-        { "option": "b", "text": "I'm living my purpose daily through connection and service." },
-        { "option": "c", "text": "I'm redefining my purpose for the digital age." },
-        { "option": "d", "text": "I feel I've achieved what I set out to, now seeking new mountains." },
-        { "option": "e", "text": "My purpose feels bigger than my current operational bandwidth." },
-        { "option": "f", "text": "I'm experimenting with new ways to make impact sustainable." },
-        { "option": "g", "text": "I sometimes conflate purpose with productivity." },
-        { "option": "h", "text": "I mentor others' purpose but need to nurture my own next arc." },
-        { "option": "i", "text": "My purpose is evolving from individual impact to ecosystem change." },
-        { "option": "j", "text": "I'm ready to crystallize a 'Purpose 3.0' model blending impact + income." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 12,
-      "category": "Scaling & Ecosystem Design",
-      "question": "What best represents your comfort with scaling your influence beyond personal capacity?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Comfortable — systems and team manage growth." },
-        { "option": "b", "text": "Scaling feels exciting but unpredictable." },
-        { "option": "c", "text": "I prefer high-touch models that resist rapid scale." },
-        { "option": "d", "text": "Delegation systems are not yet fully autonomous." },
-        { "option": "e", "text": "I worry scale might dilute relationship quality." },
-        { "option": "f", "text": "I'm exploring digital twins to scale my curation logic." },
-        { "option": "g", "text": "I'd rather mentor leaders who can replicate my ethos." },
-        { "option": "h", "text": "Scaling is my next frontier; I'm seeking trusted co-architects." },
-        { "option": "i", "text": "I see scalability through tech, automation, and licensing." },
-        { "option": "j", "text": "I'm designing Right Selection 3.0 as a self-evolving ecosystem." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 13,
-      "category": "Recognition, Legacy & Personal Fulfilment",
-      "question": "Which version of success feels most meaningful today?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Deep impact on few lives" },
-        { "option": "b", "text": "Global reach and measurable transformation" },
-        { "option": "c", "text": "Financial sustainability with human depth" },
-        { "option": "d", "text": "Joyful work with balance and peace" },
-        { "option": "e", "text": "Sustaining family and brand legacy" },
-        { "option": "f", "text": "Becoming a global voice for human connection" },
-        { "option": "g", "text": "Empowering new-age thought leaders" },
-        { "option": "h", "text": "Creating a model others replicate and expand" },
-        { "option": "i", "text": "Integrating spirituality with entrepreneurship" },
-        { "option": "j", "text": "Leaving behind a codified system of conscious capitalism" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 14,
-      "category": "Cognitive & Strategic Bottlenecks",
-      "question": "What do you perceive as the biggest limiter to your next level of growth?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Time bandwidth for strategic creation" },
-        { "option": "b", "text": "Reluctance to delegate emotionally meaningful tasks" },
-        { "option": "c", "text": "Limited digital infrastructure" },
-        { "option": "d", "text": "Balancing tradition with disruption" },
-        { "option": "e", "text": "Market's limited awareness of full potential" },
-        { "option": "f", "text": "Team alignment with evolving vision" },
-        { "option": "g", "text": "Overdependence on founder-led energy" },
-        { "option": "h", "text": "Difficulty converting influence into IP revenue" },
-        { "option": "i", "text": "Under-leveraged partnerships for scale" },
-        { "option": "j", "text": "Absence of automated growth intelligence systems" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 15,
-      "category": "Relationship & Ecosystem Trust Dynamics",
-      "question": "When managing global relationships, what challenge arises most frequently?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Ensuring consistent quality across partners" },
-        { "option": "b", "text": "Aligning diverse personalities under shared purpose" },
-        { "option": "c", "text": "Maintaining emotional bandwidth for all stakeholders" },
-        { "option": "d", "text": "Translating trust digitally in a hybrid world" },
-        { "option": "e", "text": "Setting clear boundaries between friendship and business" },
-        { "option": "f", "text": "Managing cross-cultural expectations" },
-        { "option": "g", "text": "Retaining authenticity at scale" },
-        { "option": "h", "text": "Nurturing younger talent while preserving standards" },
-        { "option": "i", "text": "Building scalable trust protocols and digital empathy loops" },
-        { "option": "j", "text": "Creating frameworks so trust becomes a repeatable system" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 16,
-      "category": "Creativity & Curiosity Quotient",
-      "question": "What best mirrors your current creative expression?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "High — daily flow of fresh ideas and innovation" },
-        { "option": "b", "text": "Moderate — ideas emerge but need space to shape" },
-        { "option": "c", "text": "Occasional — dependent on travel or inspiration" },
-        { "option": "d", "text": "I feel creatively rich but time-poor" },
-        { "option": "e", "text": "My creativity expresses through curating others' brilliance" },
-        { "option": "f", "text": "I crave more solitude for ideation" },
-        { "option": "g", "text": "I want to merge art, storytelling, and leadership" },
-        { "option": "h", "text": "I need a creative partner or lab to incubate ideas" },
-        { "option": "i", "text": "I plan to channel creativity into digital media" },
-        { "option": "j", "text": "I'm ready to evolve into a 'creative philosopher-leader' archetype" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 17,
-      "category": "Decision-Making Bias & Strategic Triggers",
-      "question": "When faced with an important strategic decision (e.g., new investment, partnership, or expansion), what most influences your final call?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Gut feeling honed by years of experience" },
-        { "option": "b", "text": "Feedback from long-term trusted partners" },
-        { "option": "c", "text": "Alignment with my purpose and values" },
-        { "option": "d", "text": "Potential for long-term relational capital" },
-        { "option": "e", "text": "Immediate emotional resonance with the idea" },
-        { "option": "f", "text": "Analytical data and financial sustainability" },
-        { "option": "g", "text": "Brand and reputation risk considerations" },
-        { "option": "h", "text": "Mentor or peer validation before commitment" },
-        { "option": "i", "text": "Scalability and ecosystem synergy potential" },
-        { "option": "j", "text": "How it 'feels' energetically at that moment" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 18,
-      "category": "Risk Appetite & Adaptability",
-      "question": "How do you typically respond to uncertainty or potential business risk?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Embrace it as a natural part of growth" },
-        { "option": "b", "text": "Evaluate carefully and move if purpose-aligned" },
-        { "option": "c", "text": "Take small, controlled experiments before full leap" },
-        { "option": "d", "text": "Prefer tested models over new disruptions" },
-        { "option": "e", "text": "Delegate exploration to trusted innovators" },
-        { "option": "f", "text": "Weigh emotional and relational implications first" },
-        { "option": "g", "text": "Seek data and market signals before action" },
-        { "option": "h", "text": "Move forward if it resonates with my long-term vision" },
-        { "option": "i", "text": "Wait for clarity — trust timing over urgency" },
-        { "option": "j", "text": "Reframe risk as an opportunity for reinvention" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 19,
-      "category": "Partnership Archetype",
-      "question": "In long-term collaborations, which description most fits your operating style?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "The Visionary — sets the emotional tone and shared mission" },
-        { "option": "b", "text": "The Enabler — empowers and uplifts others to lead" },
-        { "option": "c", "text": "The Strategist — aligns direction, clarity, and structure" },
-        { "option": "d", "text": "The Guardian — ensures quality and values integrity" },
-        { "option": "e", "text": "The Inspirer — motivates through empathy and energy" },
-        { "option": "f", "text": "The Listener — reads emotional cues and builds harmony" },
-        { "option": "g", "text": "The Connector — expands ecosystem reach organically" },
-        { "option": "h", "text": "The Harmonizer — balances people and performance" },
-        { "option": "i", "text": "The Investor — nurtures relationships with a growth mindset" },
-        { "option": "j", "text": "The Architect — designs systems to make collaboration self-sustaining" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 20,
-      "category": "Communication & Influence Style",
-      "question": "How would your network describe your influence in a room?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Warm, genuine, and emotionally magnetic" },
-        { "option": "b", "text": "Charismatic — people instantly trust me" },
-        { "option": "c", "text": "Thought-provoking — I make people reflect deeply" },
-        { "option": "d", "text": "Grounded — I make others feel safe and seen" },
-        { "option": "e", "text": "Calm and listening more than speaking" },
-        { "option": "f", "text": "Inspirational storyteller — I move hearts before minds" },
-        { "option": "g", "text": "Strategic — I anchor energy with logic and vision" },
-        { "option": "h", "text": "Energetic — I ignite motivation and action" },
-        { "option": "i", "text": "Gentle yet firm — leading with empathy and clarity" },
-        { "option": "j", "text": "Transformational — I shift people's perspective long after I leave" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 21,
-      "category": "Monetization & Impact Consciousness",
-      "question": "When translating purpose into business outcomes, what is your instinctive approach?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Impact first, revenue follows naturally" },
-        { "option": "b", "text": "Monetization must feel ethical and heart-aligned" },
-        { "option": "c", "text": "Focus on win-win reciprocity with clients and partners" },
-        { "option": "d", "text": "Balance mission with measurable outcomes" },
-        { "option": "e", "text": "Prioritize purpose clarity over financial scaling" },
-        { "option": "f", "text": "Monetization is necessary to sustain impact" },
-        { "option": "g", "text": "Delegate financial design to trusted collaborators" },
-        { "option": "h", "text": "Seek models where profit fuels purpose" },
-        { "option": "i", "text": "Ready to design recurring, scalable impact models" },
-        { "option": "j", "text": "Monetization is an amplifier — not an afterthought" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 22,
-      "category": "Market Awareness & Brand Evolution",
-      "question": "How do you perceive the current positioning of RightSelection and your personal brand in the global leadership market?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "A legacy brand with trust capital unmatched in Asia" },
-        { "option": "b", "text": "A global connector with deep emotional credibility" },
-        { "option": "c", "text": "A respected brand ready for its digital evolution" },
-        { "option": "d", "text": "Recognized among niche leadership circles" },
-        { "option": "e", "text": "A platform needing stronger youth relevance" },
-        { "option": "f", "text": "Known for relationships, not yet for digital innovation" },
-        { "option": "g", "text": "Ready for a global rebranding as 'Right Selection 3.0'" },
-        { "option": "h", "text": "Under-leveraged brand equity compared to impact delivered" },
-        { "option": "i", "text": "Poised for exponential expansion via AI and ecosystem design" },
-        { "option": "j", "text": "A timeless human brand — now seeking its tech-powered expression" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 23,
-      "category": "Ecosystem Leverage & Co-Creation Readiness",
-      "question": "Which statement mirrors your readiness to collaborate with global accelerators, digital partners, and learning communities?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Open and enthusiastic — I see global partnerships as multipliers" },
-        { "option": "b", "text": "Curious but cautious — alignment matters more than speed" },
-        { "option": "c", "text": "Prefer selective collaboration with high-trust partners" },
-        { "option": "d", "text": "I'm exploring AI and tech collaborations to scale reach" },
-        { "option": "e", "text": "Keen to co-create with universities and innovation hubs" },
-        { "option": "f", "text": "Desire to expand into digital-first, subscription ecosystems" },
-        { "option": "g", "text": "Seeking partners to co-build digital community platforms" },
-        { "option": "h", "text": "Ready to evolve from event partnerships to strategic alliances" },
-        { "option": "i", "text": "Exploring joint ventures for thought leadership academies" },
-        { "option": "j", "text": "Actively architecting a global network of co-creators and investors" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 24,
-      "category": "Revenue Model Readiness",
-      "question": "When envisioning the next level of business sustainability, what resonates most?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Retain current model, refine operations for profitability" },
-        { "option": "b", "text": "Introduce premium subscription-based leadership ecosystems" },
-        { "option": "c", "text": "Launch global online academies powered by AI" },
-        { "option": "d", "text": "License Right Selection IP to certified partners" },
-        { "option": "e", "text": "Create digital twin-based curation services" },
-        { "option": "f", "text": "Monetize community membership experiences" },
-        { "option": "g", "text": "Build revenue via virtual retreats and masterclasses" },
-        { "option": "h", "text": "Launch a speaker and coach marketplace with matching tech" },
-        { "option": "i", "text": "Attract strategic investors for global expansion" },
-        { "option": "j", "text": "Create a hybrid purpose + profit investment model for legacy impact" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 25,
-      "category": "Future Vision & Leadership Identity Shift",
-      "question": "How do you visualize your next version of self as a global leader?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "The Conscious Capitalist — blending profit with humanity" },
-        { "option": "b", "text": "The Mentor of Mentors — developing new thought leaders" },
-        { "option": "c", "text": "The Architect — designing scalable learning ecosystems" },
-        { "option": "d", "text": "The Futurist — merging technology with emotional intelligence" },
-        { "option": "e", "text": "The Sage — preserving wisdom through storytelling" },
-        { "option": "f", "text": "The Bridge — connecting cultures and continents through leadership" },
-        { "option": "g", "text": "The Investor — backing purpose-led startups and ideas" },
-        { "option": "h", "text": "The Guide — leading global conversations on meaningful leadership" },
-        { "option": "i", "text": "The Innovator — redefining learning and speaker engagement through AI" },
-        { "option": "j", "text": "The Legacy Creator — institutionalizing the philosophy of Breaking Bread" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 26,
-      "category": "Emotional Triggers & Recovery Patterns",
-      "question": "When something doesn't go as planned — a partnership stalls, an event underperforms — what describes your instinctive recovery pattern?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Reflect quietly, find the lesson, and move on" },
-        { "option": "b", "text": "Seek honest feedback to refine next attempt" },
-        { "option": "c", "text": "Dive back into work to regain rhythm" },
-        { "option": "d", "text": "Re-energise through family or spiritual space" },
-        { "option": "e", "text": "Feel responsible for others' disappointment" },
-        { "option": "f", "text": "Reframe failure as a story of resilience" },
-        { "option": "g", "text": "Analyse systems to prevent recurrence" },
-        { "option": "h", "text": "Suppress emotion publicly, process privately" },
-        { "option": "i", "text": "Use humor and gratitude to diffuse stress" },
-        { "option": "j", "text": "Channel the emotion into creative ideation" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 27,
-      "category": "Work–Life Consciousness & Energy Flow",
-      "question": "Which statement mirrors your current rhythm between purpose, performance, and personal space?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Perfectly balanced — my work nourishes my life" },
-        { "option": "b", "text": "Mostly aligned but work occasionally overflows" },
-        { "option": "c", "text": "Purposeful intensity, limited rest windows" },
-        { "option": "d", "text": "Conscious of imbalance yet accepting it for now" },
-        { "option": "e", "text": "Recharge through travel or reflection breaks" },
-        { "option": "f", "text": "Weekends are more mentoring than resting" },
-        { "option": "g", "text": "Constant connectivity makes detachment hard" },
-        { "option": "h", "text": "Family time feels present yet mentally pre-occupied" },
-        { "option": "i", "text": "Experimenting with mindfulness and digital detox" },
-        { "option": "j", "text": "Designing a lifestyle where business and wellbeing merge seamlessly" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 28,
-      "category": "Behavioural Consistency & Habit Loops",
-      "question": "When adopting new practices or innovations, how consistent are you over time?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Extremely consistent — routines anchor my success" },
-        { "option": "b", "text": "High consistency when emotionally connected to outcome" },
-        { "option": "c", "text": "Depend on accountability partners or team follow-ups" },
-        { "option": "d", "text": "Start strong, sustain moderately" },
-        { "option": "e", "text": "Passionate early adopter but easily diverted by new ideas" },
-        { "option": "f", "text": "Prefer flow over rigid discipline" },
-        { "option": "g", "text": "Structure daily reflections to stay aligned" },
-        { "option": "h", "text": "Need visual dashboards to sustain progress" },
-        { "option": "i", "text": "Thrive under external commitment or public goals" },
-        { "option": "j", "text": "Building systems so consistency becomes effortless" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 29,
-      "category": "Feedback Assimilation & Growth Mindset Triggers",
-      "question": "How do you internalise both praise and constructive feedback from peers or mentees?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Accept with humility and gratitude" },
-        { "option": "b", "text": "Use it to refine delivery and intention" },
-        { "option": "c", "text": "Feel energised but move quickly to next goal" },
-        { "option": "d", "text": "Appreciate praise, underestimate its depth" },
-        { "option": "e", "text": "Reflect deeply on constructive criticism" },
-        { "option": "f", "text": "Translate every comment into a learning plan" },
-        { "option": "g", "text": "Seek patterns across feedback for insight" },
-        { "option": "h", "text": "Prefer one-to-one honest conversations" },
-        { "option": "i", "text": "Occasionally question if feedback reflects others' biases" },
-        { "option": "j", "text": "Document insights to convert into new playbooks" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 30,
-      "category": "Growth Activation Style",
-      "question": "When embarking on a new growth initiative (e.g., digital platform, academy, or venture), which style reflects your activation energy?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Visionary launcher — ignite idea, hand over execution" },
-        { "option": "b", "text": "Deep diver — stay hands-on through prototype phase" },
-        { "option": "c", "text": "Collaborative co-creator — build with trusted peers" },
-        { "option": "d", "text": "Systematic planner — define roadmap before motion" },
-        { "option": "e", "text": "Story-driven evangelist — attract allies through narrative" },
-        { "option": "f", "text": "Explorer — iterate through experimentation" },
-        { "option": "g", "text": "Mentor-builder — empower team to lead execution" },
-        { "option": "h", "text": "Investor-advisor — fund, monitor, and guide remotely" },
-        { "option": "i", "text": "Integrator — synchronise multiple initiatives into one flow" },
-        { "option": "j", "text": "Conscious architect — design ecosystem with emotional and financial balance" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 31,
-      "category": "Learning & Growth Ecosystem Preferences",
-      "question": "Which environment helps you sustain your highest learning curve?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Immersive retreats blending reflection and collaboration" },
-        { "option": "b", "text": "Peer learning circles with diverse global leaders" },
-        { "option": "c", "text": "One-to-one mentoring with deep accountability" },
-        { "option": "d", "text": "AI-assisted self-paced learning dashboards" },
-        { "option": "e", "text": "Experimentation labs with real-world application" },
-        { "option": "f", "text": "Storytelling and experiential workshops" },
-        { "option": "g", "text": "Structured leadership certification journeys" },
-        { "option": "h", "text": "Co-teaching or facilitation with other experts" },
-        { "option": "i", "text": "Digital communities with measurable progress tracking" },
-        { "option": "j", "text": "A blended model integrating human + AI mentorship" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 32,
-      "category": "Growth Acceleration Preferences",
-      "question": "What form of intervention feels most natural to accelerate your transformation?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Immersive 90-day sprint with defined milestones" },
-        { "option": "b", "text": "Gradual reflection-driven transformation journey" },
-        { "option": "c", "text": "AI-enabled growth dashboard with weekly insights" },
-        { "option": "d", "text": "Monthly mastermind with thought peers" },
-        { "option": "e", "text": "Co-creation lab with younger innovators" },
-        { "option": "f", "text": "Personalized mentorship combining data + intuition" },
-        { "option": "g", "text": "Experiential leadership simulations" },
-        { "option": "h", "text": "Daily micro-nudges and behavioural trackers" },
-        { "option": "i", "text": "Hybrid format: digital + in-person accountability" },
-        { "option": "j", "text": "Self-guided growth map with quarterly check-ins" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 33,
-      "category": "Joy, Fulfilment & Flow Catalysts",
-      "question": "What situations make you feel most alive in your work?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Witnessing others' transformation first-hand" },
-        { "option": "b", "text": "Designing experiences that move people emotionally" },
-        { "option": "c", "text": "Delivering talks that inspire global audiences" },
-        { "option": "d", "text": "Co-creating with trusted partners on new initiatives" },
-        { "option": "e", "text": "Mentoring next-gen leaders into their power" },
-        { "option": "f", "text": "Building intellectual frameworks and models" },
-        { "option": "g", "text": "Storytelling through writing or media" },
-        { "option": "h", "text": "Curating communities of purpose" },
-        { "option": "i", "text": "Quiet strategic planning with long-term vision" },
-        { "option": "j", "text": "Blending spirituality, creativity, and commerce into one flow" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 34,
-      "category": "Desired Transformation Outcomes",
-      "question": "If the WinGrox AI Growth Amplification Navigator™ could help you achieve one transformative shift within the next 12 months, which would you choose first?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Digitise my legacy into scalable global IP" },
-        { "option": "b", "text": "Build a next-gen leadership academy ecosystem" },
-        { "option": "c", "text": "Monetise trust capital through AI-curated marketplaces" },
-        { "option": "d", "text": "Reduce operational load via automated systems" },
-        { "option": "e", "text": "Expand into conscious capitalism and impact investing" },
-        { "option": "f", "text": "Achieve holistic time-energy balance" },
-        { "option": "g", "text": "Amplify personal brand visibility internationally" },
-        { "option": "h", "text": "Codify 'Breaking Bread' into a global movement" },
-        { "option": "i", "text": "Empower successor teams to lead Right Selection 3.0" },
-        { "option": "j", "text": "Redefine self as a Conscious Capitalist Leader for 2030" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 35,
-      "category": "Integration & Commitment Reflection",
-      "question": "When you think about implementing your next transformation chapter, what truth resonates most?",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "I'm ready — I just need a precise roadmap" },
-        { "option": "b", "text": "My energy is abundant but needs direction" },
-        { "option": "c", "text": "I seek co-architects who can translate vision into design" },
-        { "option": "d", "text": "I want to measure transformation through tangible metrics" },
-        { "option": "e", "text": "My intuition is strong; I need systems to match it" },
-        { "option": "f", "text": "I've outgrown current models; expansion feels inevitable" },
-        { "option": "g", "text": "I desire impact that outlives my presence" },
-        { "option": "h", "text": "I'm eager to digitise wisdom without losing warmth" },
-        { "option": "i", "text": "I want to align legacy, livelihood, and love seamlessly" },
-        { "option": "j", "text": "Transformation for me now means evolution with ease" },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
+        { "option": "a", "text": "Creativity — building, designing, expressing ideas." },
+        { "option": "b", "text": "Impact — improving lives and contributing meaningfully." },
+        { "option": "c", "text": "Mastery — becoming exceptional in a craft or skill." },
+        { "option": "d", "text": "Freedom — working on my terms, in my rhythm." },
+        { "option": "e", "text": "Leadership — guiding people, shaping systems." },
+        { "option": "f", "text": "Innovation — solving problems and inventing possibilities." },
+        { "option": "g", "text": "Learning — teaching, mentoring, sharing knowledge." },
+        { "option": "h", "text": "Adventure — exploring spaces, industries, new worlds." },
+        { "option": "i", "text": "Service — helping others find clarity, direction, hope." },
+        { "option": "j", "text": "Legacy — creating something enduring beyond myself." }
+      ]
     }
-  ],
-  "scenarioQuestions": [
-    {
-      "id": 36,
-      "category": "Complex Scenarios",
-      "title": "Scenario 1 — The Crossroads of Legacy and Innovation",
-      "scenario": "You are preparing to launch Right Selection 3.0, a re-imagined hybrid ecosystem combining live events, digital learning pods, and AI-curated speaker experiences. Two senior team members (one from your father's era, one a Gen-Z digital strategist) have opposing views. The veteran wants to preserve the 'human warmth and exclusivity' that made the brand legendary. The Gen-Z lead argues for full digital scale, subscriptions, and influencer-style branding. A global client also hints that they might shift budgets to a younger, more tech-first agency if Right Selection doesn't modernize quickly. You must decide how to act under visible tension between heritage, team loyalty, and speed of innovation.",
-      "question": "How would you most likely respond in this situation? (Choose one statement that best mirrors instinctive behaviour — all appear positive on surface, but reveal different personality anchors.)",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Host a heartfelt round-table to unify both generations and co-create a blended model." },
-        { "option": "b", "text": "Side with the veteran first to honour legacy, then slowly introduce digital pilots to prove value." },
-        { "option": "c", "text": "Empower the Gen-Z strategist to lead one low-risk digital experiment while I monitor outcomes." },
-        { "option": "d", "text": "Seek counsel from trusted global mentors before committing to either side." },
-        { "option": "e", "text": "Frame the conflict as a 'Breaking Bread' learning moment on inter-generational leadership." },
-        { "option": "f", "text": "Privately design the 3.0 vision myself and later reveal it to align both camps under clarity." },
-        { "option": "g", "text": "Defer the decision until more client data validates digital demand." },
-        { "option": "h", "text": "Split responsibilities — legacy events remain physical, innovation unit reports directly to me." },
-        { "option": "i", "text": "Use this tension to publicly announce a new philosophy: 'Tradition meets Technology.'" },
-        { "option": "j", "text": "Re-evaluate both leaders' readiness; replace emotion with a neutral external transformation coach." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 37,
-      "category": "Complex Scenarios",
-      "title": "Scenario 2 — The Global Client Crisis and Public Reputation Test",
-      "scenario": "Right Selection is about to host a flagship global leadership summit featuring top-tier speakers and long-time clients. Just 48 hours before the event, a major keynote speaker—one of your close associates—cancels unexpectedly due to a health emergency. Social media chatter begins spreading about 'Right Selection losing its edge' and several corporate sponsors are questioning whether the event will still deliver the same impact. The internal team is anxious, the client expects reassurance, and the press is requesting an immediate statement. You stand at a decision crossroads between damage control, reputation protection, and emotional loyalty to the speaker who canceled.",
-      "question": "How would you most likely respond in this situation? (Choose one statement that best reflects instinctive reaction — each choice appears positive but reveals different dimensions of leadership personality and stress-response behavior.)",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Immediately reassure the client and audience personally, promising a powerful alternative experience without showing any sign of stress." },
-        { "option": "b", "text": "Call an emergency internal meeting to brainstorm replacement speakers and crowd-pleasing innovations." },
-        { "option": "c", "text": "Reach out to other thought leaders in my network to bring in an emergency replacement and frame it as 'Breaking Bread: The Unexpected Edition.'" },
-        { "option": "d", "text": "Choose to stand by my canceled speaker publicly, posting a heartfelt message that turns the incident into an empathy-driven narrative." },
-        { "option": "e", "text": "Quietly take charge of stage moderation myself, using my storytelling and authenticity to hold audience trust." },
-        { "option": "f", "text": "Delay all public communication until a concrete alternative plan is finalized, prioritizing certainty over speed." },
-        { "option": "g", "text": "Empower my younger team to take ownership of the crisis, testing their readiness for future leadership." },
-        { "option": "h", "text": "Convert the situation into a leadership case study for the audience — modeling how authenticity trumps perfection." },
-        { "option": "i", "text": "Focus on protecting relationships first, then use AI-powered analytics and PR tracking tools to measure sentiment recovery post-event." },
-        { "option": "j", "text": "Keep operations calm internally, while reaching out personally to every key client to reaffirm trust and gratitude." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 38,
-      "category": "Complex Scenarios",
-      "title": "Scenario 3 — Team Fatigue, Loyalty, and Renewal Dilemma",
-      "scenario": "After three decades of leading Right Selection, you notice subtle yet persistent fatigue across your core team. Some of your long-serving colleagues—those who built the brand alongside you and your father—are showing reduced creativity and energy. Meanwhile, younger team members express frustration that 'new ideas take too long to implement.' You value loyalty and relationships deeply. You know these senior members stood by you through tough times. However, clients now expect agility, digital transformation, and faster innovation cycles. You must decide whether to restructure the team, retrain the loyalists, or redefine your leadership model to re-ignite momentum without breaking trust.",
-      "question": "How would you most likely respond in this situation? (Choose the response that most closely represents instinctive behavior — all seem positive but unveil distinct growth levers.)",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Create a 'Leadership Renewal Retreat' where old and new teams co-design the company's next decade vision." },
-        { "option": "b", "text": "Personally mentor senior team members to transition into new roles that leverage their experience differently." },
-        { "option": "c", "text": "Hire external consultants or AI tools to assess performance objectively before taking any decision." },
-        { "option": "d", "text": "Initiate a 'Reverse Mentorship' program where young employees coach seniors on digital tools and innovation." },
-        { "option": "e", "text": "Quietly redesign the org chart to create healthy accountability without overt confrontation." },
-        { "option": "f", "text": "Allow time for natural evolution—trusting that loyal employees will adapt as the organization shifts." },
-        { "option": "g", "text": "Build a parallel 'innovation cell' with young intrapreneurs to run rapid pilots while keeping legacy intact." },
-        { "option": "h", "text": "Prioritize compassion first—have open heart-to-heart conversations to co-author transitions." },
-        { "option": "i", "text": "Reimagine the culture by creating a 'Breaking Bread 3.0 Playbook' integrating values, technology, and speed." },
-        { "option": "j", "text": "Take a sabbatical-like pause to reflect, realign, and relaunch the leadership structure with renewed clarity." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 39,
-      "category": "Complex Scenarios",
-      "title": "Scenario 4 — Scaling Beyond Self: Delegation, Control & Ecosystem Growth",
-      "scenario": "Right Selection's ecosystem is expanding rapidly — from global events and speaker representation to digital academies, AI-powered learning pods, and international collaborations. However, most strategic decisions still orbit around you. Clients, partners, and even new hires instinctively look to you for the final word. While this centrality preserves quality and consistency, it also limits scalability. Recently, a partner proposed licensing 'Breaking Bread Circles™' across Southeast Asia — a move that could multiply reach tenfold, but would require you to let go of direct control and trust new franchise-style operators to uphold brand integrity. You now face the emotional paradox: How can I scale myself without losing myself?",
-      "question": "How would you most likely respond in this situation? (Choose the response that most closely reflects instinctive reaction — all appear positive but expose key leadership growth levers.)",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Design a detailed brand manual and trust select licensees to follow it precisely." },
-        { "option": "b", "text": "Build a core 'Guardian Council' of seasoned allies to review and approve key franchise decisions." },
-        { "option": "c", "text": "Launch the expansion in one pilot country first, learning before full rollout." },
-        { "option": "d", "text": "Personally oversee the first few launches to ensure alignment, then gradually step back." },
-        { "option": "e", "text": "Empower the partner completely, believing that intent and values will carry the essence." },
-        { "option": "f", "text": "Delay the decision until I feel emotionally ready to delegate such a large part of my identity." },
-        { "option": "g", "text": "Hire an external COO with deep franchise and brand-scaling expertise to operationalize the model." },
-        { "option": "h", "text": "Create an AI-powered 'Breaking Bread Operating System™' that codifies my philosophy for partners." },
-        { "option": "i", "text": "Reframe the transition as 'From Founder to Philosopher' — where my role shifts from doing to guiding." },
-        { "option": "j", "text": "Focus on training a few internal leaders who can replicate my thought process before external expansion." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    },
-    {
-      "id": 40,
-      "category": "Complex Scenarios",
-      "title": "Scenario 5 — Personal Legacy, Purpose Fatigue & Reinvention Readiness",
-      "scenario": "After 30+ years of leading Right Selection and building global relationships, You find yourself at a reflective crossroads. Your professional calendar is full, your reputation is impeccable, and your influence immense — yet an inner voice quietly asks, 'What's next for me?' You are torn between: Continuing to expand Right Selection globally through 3.0 models and partnerships, Codifying your wisdom into digital academies and thought-leadership content, or Slowing down to explore deeper meaning — perhaps focusing on writing, mentoring, or social impact. Simultaneously, family expectations, legacy responsibilities, and emotional attachment to your father's vision make any pivot emotionally complex. You now face the profound question: Should you evolve into a global 'Conscious Capitalist Leader' shaping human transformation ecosystems, or gracefully transition into the next chapter of mentorship and meaning?",
-      "question": "How would you most likely respond in this situation? (Choose the response that most resonates instinctively — each option appears empowering but reveals distinct readiness and emotional anchors.)",
-      "type": "multiple-choice",
-      "options": [
-        { "option": "a", "text": "Pause intentionally for reflection — taking a sabbatical or spiritual immersion before designing the next 10 years." },
-        { "option": "b", "text": "Begin documenting my journey through a memoir, course, or documentary that captures my philosophy." },
-        { "option": "c", "text": "Continue scaling Right Selection aggressively, focusing on innovation and global expansion before transition." },
-        { "option": "d", "text": "Mentor emerging leaders to inherit and evolve the Right Selection DNA." },
-        { "option": "e", "text": "Partner with a global conscious leadership institute to co-create the 'Breaking Bread Academy.'" },
-        { "option": "f", "text": "Reframe my next decade around 'Legacy Capitalism' — turning wisdom and empathy into scalable social ventures." },
-        { "option": "g", "text": "Engage a strategic coach or AI-guided system (like WinGrox AI) to decode my next-version roadmap objectively." },
-        { "option": "h", "text": "Focus on creating personal time for learning, health, and self-expression before making any new commitments." },
-        { "option": "i", "text": "Channel my influence into impact investment and sustainability initiatives for leadership and wellbeing." },
-        { "option": "j", "text": "Blend both worlds — evolve as a Thought Leader 3.0 while reducing operational intensity gradually." },
-        { "option": "other", "text": "Other (please specify)" }
-      ],
-      "allowOtherText": true
-    }
-  ],
-  "reflectionPrompts": [
-    {
-      "id": 41,
-      "category": "Deep Reflection",
-      "title": "Reflection 1: What do you want the next phase of your life and work to feel like?",
-      "prompt": "Gautam, when you think about the next 5–10 years, don't start with 'What should I do?' — start with 'How do I want to feel?'\n\nConsider:\n\n• What kind of daily rhythm do you want — travel vs. stillness, stage time vs. deep work, people-time vs. solitude?\n\n• How much freedom vs. structure do you want in your calendar?\n\n• What balance of family, health, business, spirituality, travel, and creativity feels right for you?\n\n• What kind of emotional tone do you want: calm, playful, exploratory, high-impact, legacy-focused?\n\n• When you wake up each morning in this next phase, what kind of day do you want to look forward to?\n\n\nAnswer this as if you are describing a typical week in your ideal future life — in rich detail.",
-      "type": "open-ended",
-      "responseFormat": "textarea"
-    },
-    {
-      "id": 42,
-      "category": "Deep Reflection",
-      "title": "Reflection 2: Which parts of your work today give you the most joy, and which parts drain your energy?",
-      "prompt": "Here, think very practically about your current reality — no filter, no 'should'.\n\nWhat energizes you?\n\n• Which moments in your work make you think: 'This is why I do what I do'?\n  - Examples: being on stage, curating speakers, intimate conversations, designing experiences, mentoring, deal-making, writing\n\n• Which activities expand your energy even after a long day?\n\n\nWhat drains you?\n\n• Which tasks feel heavy, repetitive, or emotionally tiring?\n  - Examples: operations, logistics, follow-ups, approvals, firefighting, financial admin, managing misaligned partners\n\n• Which activities leave you feeling drained or depleted, even if they are 'successful' on paper?\n\n\nStrategic reallocation:\n\n• If you could double 3 types of activities, what would they be?\n\n• If you could halve 3 types of activities, what would they be?\n\n\nWrite freely — list situations, examples, and recent incidents. The more specific you are, the more precisely your future roadmap can be designed around your energy, not just your time.",
-      "type": "open-ended",
-      "responseFormat": "textarea"
-    },
-    {
-      "id": 43,
-      "category": "Deep Reflection",
-      "title": "Reflection 3: If you could create one new initiative or project in the next 10 years that truly represents who you are, what would it be?",
-      "prompt": "Imagine there is no constraint — money, time, or geography. This is about a project that feels like your soul's signature, not just another business line.\n\nFormat & Expression:\n\n• Would it be a global academy, a movement, a documentary, a book series, a digital community, a conscious leadership school, a Breaking Bread foundation, or something else?\n\n\nImpact & Audience:\n\n• Who would this initiative serve most deeply?\n  - Leaders, youth, families, founders, conscious capitalists, speakers, communities?\n\n• What kind of transformation would you want people to experience because of it?\n\n\nConnection & Identity:\n\n• How would this initiative connect to your existing work at Right Selection?\n\n• How would it still feel distinctly like 'Gautam 3.0'?\n\n• If this were the one thing people remember you for, what would make you proud inside?\n\n\nDescribe this initiative as if you're pitching it to your future self in 2035 — why it matters, how it feels, and what it changes.",
-      "type": "open-ended",
-      "responseFormat": "textarea"
-    },
-    {
-      "id": 44,
-      "category": "Deep Reflection",
-      "title": "Reflection 4: What are the two or three challenges or patterns that have held you back from scaling your impact even further?",
-      "prompt": "This is not about failure — it's about honest patterns. Think of this as a safe mirror, not a judgment.\n\nBehavioral & Operational Patterns:\n\n• Are there recurring patterns like over-involvement, reluctance to delegate, emotional attachment, perfectionism, time scarcity, tech hesitation, loyalty vs. speed conflicts, or identity tied to doing everything yourself?\n\n• Where do you feel: 'If I could unblock just this one thing, everything else would move faster'?\n\n\nFears & Beliefs:\n\n• Are there fears beneath the surface?\n  - Fear of dilution, loss of intimacy, loss of control, or misalignment with your values?\n\n\nStructural & External Gaps:\n\n• Are there structural gaps that slow you down?\n  - Right partners, successors, systems, tech, or capital?\n\n\nInternal Habits:\n\n• Are there internal habits like postponing your own projects (book, IP, academy) while prioritizing others?\n\n\nShare stories and examples. The idea is to identify a few root-level patterns (not a long list of problems) so that your roadmap can directly solve for these bottlenecks.",
-      "type": "open-ended",
-      "responseFormat": "textarea"
-    },
-    {
-      "id": 45,
-      "category": "Deep Reflection",
-      "title": "Reflection 5: When you imagine Gautam in 2035, what do you want people to remember you for?",
-      "prompt": "Close your eyes and imagine it's year 2035. People are talking about you in a room where you are not present. What do you want them to say?\n\nHuman Impact & Perception:\n\n• What kind of human impact do you want people to associate with your name?\n\n• How do you want your family, team, speakers, clients, and communities to describe you?\n\n\nLegacy Assets:\n\n• What kind of legacy assets do you want to exist?\n  - Movements, institutions, academies, digital platforms, books, scholarships, fellowships, philosophies?\n\n\nFulfillment & Meaning:\n\n• What would make you feel: 'Yes, I used my relationships, empathy, and platforms in the most meaningful way possible'?\n\n• How do you want people to complete the sentence: 'Because of Gautam, I was able to…'?\n\n\nWrite this as if you are writing a short narrative from the future, describing 'Gautam 2035' — how he lives, what he stands for, and what he has built or enabled.",
-      "type": "open-ended",
-      "responseFormat": "textarea"
-    }
-  ]
-}
+  ]}
+   

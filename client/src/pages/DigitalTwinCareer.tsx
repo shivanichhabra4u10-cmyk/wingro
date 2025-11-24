@@ -293,33 +293,27 @@ const CareerAssessment: React.FC = () => {
         purpose: userData.purpose?.trim(),
       });
 
-      // Create FormData to include file upload
-      const formData = new FormData();
-      formData.append('firstName', userData.firstName.trim());
-      formData.append('lastName', userData.lastName.trim());
-      formData.append('email', userData.email.trim());
-      formData.append('jobTitle', (userData.jobTitle || '').trim());
-      formData.append('company', (userData.company || '').trim());
-      formData.append('yearsExperience', (userData.yearsExperience || '').trim());
-      formData.append('grade', (userData.grade || '').trim());
-      formData.append('schoolName', (userData.schoolName || '').trim());
-      formData.append('linkedinUrl', (userData.linkedinUrl || '').trim());
-      formData.append('linkedinProfileData', (userData.linkedinProfileData || '').trim());
-      formData.append('aspiration', (userData.aspiration || '').trim());
-      formData.append('passion', (userData.passion || '').trim());
-      formData.append('purpose', (userData.purpose || '').trim());
-      formData.append('individualType', assessmentType);
-      formData.append('category', localStorage.getItem('digitalTwinCategory') || '');
-      formData.append('assessmentType', 'digital-twin-individual');
-      
-      if (profileFile) {
-        formData.append('profileUpload', profileFile);
-      }
+      // Create JSON payload for Digital Twin assessment submission
+      const assessmentData = {
+        firstName: userData.firstName.trim(),
+        lastName: userData.lastName.trim(),
+        email: userData.email.trim(),
+        jobTitle: (userData.jobTitle || '').trim(),
+        company: (userData.company || '').trim(),
+        yearsExperience: (userData.yearsExperience || '').trim(),
+        linkedinUrl: (userData.linkedinUrl || '').trim(),
+        aspiration: (userData.aspiration || '').trim(),
+        passion: (userData.passion || '').trim(),
+        purpose: (userData.purpose || '').trim(),
+        individualType: assessmentType,
+        category: localStorage.getItem('digitalTwinCategory') || '',
+        assessmentType: 'digital-twin-individual'
+      };
 
       // Submit user data to backend
-      const response = await axios.post(`${API_URL}/assessment/individual`, formData, {
+      const response = await axios.post(`${API_URL}/digitaltwin/individual`, assessmentData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json'
         }
       });
       
@@ -626,11 +620,16 @@ const CareerAssessment: React.FC = () => {
       // Determine the correct endpoint based on assessment type
       const assessmentEndpoint = isOrgAssessment ? 'organization' : 'individual';
       
-      console.log(`Making PUT request to /assessment/${assessmentEndpoint}/${assessmentId}`);
+      // For Digital Twin assessments, use the /digitaltwin endpoint
+      const endpoint = isOrgAssessment 
+        ? `${API_URL}/assessment/${assessmentEndpoint}/${assessmentId}` 
+        : `${API_URL}/digitaltwin/${assessmentEndpoint}/${assessmentId}`;
+      
+      console.log(`Making PUT request to ${endpoint}`);
       
       // Add timeout to axios request to prevent long hanging requests
       const response = await axios.put(
-        `${API_URL}/assessment/${assessmentEndpoint}/${assessmentId}`, 
+        endpoint, 
         { responseData: enhancedResponseData },
         { timeout: 10000 } // 10 second timeout
       );
