@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { IndividualAssessment, OrganizationAssessment, DigitalTwinIndividual } from '../models';
 import { validationResult } from 'express-validator';
-import { calculateDigitalTwinScores } from '../services/digitalTwinScoringService';
 
 export const assessmentController = {
   /**
@@ -472,92 +471,5 @@ export const assessmentController = {
     }
   },
 
-  /**
-   * Calculate and generate Digital Twin assessment scores
-   * @route GET /api/digitaltwin/individual/:id/scores
-   */
-  generateDigitalTwinScores: async (req: Request, res: Response) => {
-    try {
-      const { id } = req.params;
 
-      console.log('Generating Digital Twin scores for assessment ID:', id);
-
-      const assessment = await DigitalTwinIndividual.findById(id);
-
-      if (!assessment) {
-        console.error(`Digital Twin assessment not found with ID: ${id}`);
-        return res.status(404).json({
-          success: false,
-          message: 'Assessment not found'
-        });
-      }
-
-      if (!assessment.responseData || !assessment.responseData.answers) {
-        console.error(`Assessment ${id} has no response data`);
-        return res.status(400).json({
-          success: false,
-          message: 'Assessment has not been completed yet'
-        });
-      }
-
-      // Calculate scores using the scoring service
-      const scoredResults = await calculateDigitalTwinScores(
-        id,
-        assessment.firstName,
-        assessment.lastName,
-        assessment.email,
-        assessment.responseData
-      );
-
-      console.log('Scores calculated successfully');
-
-      // Transform the response to match frontend expectations
-      const formattedResults = {
-        assessmentId: scoredResults.assessmentId,
-        firstName: scoredResults.firstName,
-        lastName: scoredResults.lastName,
-        email: scoredResults.email,
-        completedAt: scoredResults.completedAt,
-        overallScore: scoredResults.summaryMetrics.averageScore,
-        readinessLevel: scoredResults.summaryMetrics.readinessLevel,
-        primaryArchetype: scoredResults.summaryMetrics.primaryArchetype,
-        overallInsight: scoredResults.summaryMetrics.overallInsight,
-        scores: scoredResults.scores.map((score: any) => ({
-          questionId: score.questionId,
-          dimensionName: score.questionTheme,
-          indexName: score.indexName,
-          scoreType: score.scoreType,
-          userScore: score.userScore,
-          maxScore: score.maxScore,
-          percentageScore: score.percentageScore,
-          selectedOption: score.selectedOption,
-          description: score.insight,
-          insight: score.insight,
-          recommendation: score.recommendation,
-          archetype: score.archetype,
-          microActions: score.microActions
-        })),
-        keyInsights: [
-          scoredResults.summaryMetrics.overallInsight,
-          `Your primary archetype is: ${scoredResults.summaryMetrics.primaryArchetype}`,
-          `Readiness level: ${scoredResults.summaryMetrics.readinessLevel}`
-        ],
-        actionPlan: scoredResults.actionPlan,
-        lowestScore: scoredResults.summaryMetrics.lowestScore,
-        highestScore: scoredResults.summaryMetrics.highestScore
-      };
-
-      res.status(200).json({
-        success: true,
-        message: 'Digital Twin assessment scores calculated successfully',
-        data: formattedResults
-      });
-    } catch (error) {
-      console.error('Error generating Digital Twin scores:', error);
-      res.status(500).json({
-        success: false,
-        message: 'Server error while processing your request'
-      });
-    }
-  }
 };

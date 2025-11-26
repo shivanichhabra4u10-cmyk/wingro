@@ -48,10 +48,4 @@ router.get(
   assessmentController.getDigitalTwinIndividual
 );
 
-// GET /api/digitaltwin/individual/:id/scores - Generate Digital Twin assessment scores
-router.get(
-  '/individual/:id/scores',
-  assessmentController.generateDigitalTwinScores
-);
-
 export default router;
