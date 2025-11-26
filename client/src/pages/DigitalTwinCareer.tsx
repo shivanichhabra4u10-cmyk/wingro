@@ -644,7 +644,7 @@ const CareerAssessment: React.FC = () => {
       }
     }
     setQuestions(questionsData);
-    // Disable cluster mode for User specific assessments (questions are not in clusters)
+    // Disable cluster mode for User specific assessments and Digital Twin (questions are not in clusters)
     setClusterMode(!orgAssessment && assessType === ASSESSMENT_TYPES.PROFESSIONAL);
     setIsLoading(false);
   }, [location.pathname]);
@@ -1107,13 +1107,12 @@ const CareerAssessment: React.FC = () => {
   const clusterKeys = useMemo(() => clusterMode ? Object.keys(clusters) : [], [clusterMode, clusters]);
   
   // Progress percentage for the assessment
-  // For Digital Twin: show progress based on answered questions out of 10
+  // For Digital Twin: show progress based on current question position (1-10)
   // For other assessments: show progress based on current question index
   const progressRaw = (() => {
     if (assessmentType === 'digital-twin-individual' && questions.length > 0) {
-      // Count answered questions for Digital Twin
-      const answeredCount = Object.keys(answers).length;
-      return (answeredCount / questions.length) * 100;
+      // Show progress based on current question position
+      return (currentQuestionIndex / (questions.length - 1)) * 100;
     } else {
       // Use question index for other assessments
       return (currentQuestionIndex / (questions.length - 1)) * 100;
@@ -1560,7 +1559,8 @@ const CareerAssessment: React.FC = () => {
     }
 
     // Cluster-mode rendering: show both questions from the current cluster together
-    if (clusterMode && clusterKeys.length > 0) {
+    // NEVER use cluster mode for Digital Twin assessment
+    if (clusterMode && clusterKeys.length > 0 && assessmentType !== 'digital-twin-individual') {
       const clusterKey = clusterKeys[currentClusterIndex];
       const clusterQuestions = clusters[clusterKey] || [];
       // Compute cluster completion: all questions in this cluster must be answered
@@ -1801,32 +1801,62 @@ const CareerAssessment: React.FC = () => {
     const clusterVisuals = getClusterVisuals(questionCluster);
 
     return (
-      <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-        {/* Progress bar */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-bold text-gray-600 uppercase tracking-wide">
-              {assessmentType === 'digital-twin-individual' 
-                ? `Answered: ${Object.keys(answers).length} of ${questions.length}` 
-                : `Question ${currentQuestionIndex + 1} of ${questions.length}`}
-            </span>
-            <span className="text-sm font-black text-gray-900">{progressPercentage}% Complete</span>
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        {/* Beautiful Header Banner */}
+        <div className={`relative h-56 bg-gradient-to-br ${clusterVisuals.gradient} overflow-hidden`}>
+          {/* Decorative Background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-white/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
           </div>
-          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
-            <div 
-              className={`h-full bg-gradient-to-r ${clusterVisuals.gradient} transition-all duration-700 ease-out rounded-full relative overflow-hidden`}
-              style={{ width: `${progressPercentage}%` }}
-            >
-              {/* Animated shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+          
+          {/* Dot Pattern */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1.5px, transparent 0)`,
+            backgroundSize: '32px 32px'
+          }}></div>
+
+          {/* Content */}
+          <div className="relative h-full flex items-center justify-between px-10 py-6">
+            <div className="flex-1">
+              {/* Question Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full mb-3 border border-white/30">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <span className="text-white text-xs font-bold tracking-wider uppercase">
+                  Question {currentQuestionIndex + 1} of {questions.length}
+                </span>
+              </div>
+
+              {/* Category Title */}
+              <h2 className="text-4xl font-black text-white mb-2 leading-tight drop-shadow-2xl">
+                {currentQuestion.category}
+              </h2>
+
+              {/* Progress Info */}
+              <div className="flex items-center gap-3">
+                <div className="h-1.5 w-32 bg-white/40 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-white rounded-full transition-all duration-500"
+                    style={{ width: `${progressPercentage}%` }}
+                  ></div>
+                </div>
+                <span className="text-white/90 text-sm font-semibold">
+                  {progressPercentage}% Overall Progress
+                </span>
+              </div>
+            </div>
+
+            {/* Icon */}
+            <div className="flex-shrink-0 relative">
+              <div className="w-32 h-32 bg-white/15 backdrop-blur-xl rounded-2xl flex items-center justify-center border-2 border-white/30 shadow-2xl">
+                <span className="text-6xl drop-shadow-2xl">{clusterVisuals.icon}</span>
+              </div>
             </div>
           </div>
         </div>
-        
-        {/* Question category */}
-        <div className={`inline-block px-4 py-1 bg-gradient-to-r ${clusterVisuals.gradient} text-white rounded-full text-xs font-bold mb-4 uppercase tracking-wider shadow-md`}>
-          {currentQuestion.category}
-        </div>
+
+        {/* Question Content Card */}
+        <div className="p-8">
         
         {/* Question title (for scenarios/reflections) */}
         {currentQuestion.title && (
@@ -1895,26 +1925,27 @@ const CareerAssessment: React.FC = () => {
                   const isSelected = storedAnswer === optionLetter;
                   
                   return (
-                    <div 
+                    <button
                       key={`${currentQuestion.id}-${optionLetter}`}
                       onClick={() => handleAnswerSelect(currentQuestion.id, optionLetter)}
-                      className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 h-full shadow-md hover:shadow-lg group ${
+                      type="button"
+                      className={`w-full p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 h-full shadow-md hover:shadow-lg group text-left ${
                         isSelected 
-                          ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white border-transparent shadow-xl' 
-                          : 'bg-white border-gray-200 text-gray-900 hover:border-gray-300'
+                          ? 'bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 text-white border-purple-600 shadow-xl ring-2 ring-purple-300 ring-offset-2' 
+                          : 'bg-white border-gray-300 text-gray-900 hover:border-purple-400 hover:bg-purple-50'
                       }`}
                     >
                       <div className="flex items-start h-full gap-3">
-                        <div className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
+                        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all flex-none ${
                           isSelected 
-                            ? 'bg-white bg-opacity-30 text-white' 
-                            : 'bg-gray-200 text-gray-700'
+                            ? 'bg-white text-purple-600 shadow-lg' 
+                            : 'bg-gray-300 text-gray-700'
                         }`}>
                           {optionLetter === 'other' ? '✎' : optionLetter.toUpperCase()}
                         </div>
-                        <span className="text-sm leading-relaxed font-medium mt-0.5">{option.text}</span>
+                        <span className="text-sm leading-relaxed font-medium mt-1">{option.text}</span>
                       </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
@@ -1960,8 +1991,8 @@ const CareerAssessment: React.FC = () => {
           </div>
           <button
             onClick={() => {
-              // Check if all 10 questions are answered
-              if (assessmentType === 'digital-twin-individual') {
+              // Only validate all answers when clicking Finish (last question)
+              if (currentQuestionIndex === questions.length - 1 && assessmentType === 'digital-twin-individual') {
                 const allAnswered = questions.every(q => !!answers[String(q.id)]);
                 if (!allAnswered) {
                   toast.error('Please answer all 10 questions before finishing');
@@ -1975,6 +2006,7 @@ const CareerAssessment: React.FC = () => {
           >
             {currentQuestionIndex === questions.length - 1 ? 'Finish ✔️' : 'Next →'}
           </button>
+        </div>
         </div>
       </div>
     );
@@ -2073,7 +2105,7 @@ const CareerAssessment: React.FC = () => {
                   ✓ Your responses have been securely stored and encrypted
                 </p>
                 <p className="text-emerald-800 text-sm font-semibold mt-2">
-                  Our AI team will analyze your insights within 24 hours
+                  Our team will analyze your insights within 24 hours
                 </p>
               </div>
             )}
