@@ -26,6 +26,7 @@ import {
 } from '../services/assessmentScoringService';
 import { Question as AssessmentQuestion, AssessmentScoringResult } from '../types/assessment';
 import { AssessmentData } from '../types/assessment';
+import { calculateDigitalTwinScores } from '../services/digitalTwinClientScoring';
 
 import professionalQuestions from '../data/survey-questions.json';
 
@@ -230,6 +231,8 @@ const CareerAssessment: React.FC = () => {
   const [loadingReport, setLoadingReport] = useState(false);
   // Premium gating: AI deep report only after purchase
   const [premiumUnlocked, setPremiumUnlocked] = useState(false);
+  const [scoringResults, setScoringResults] = useState<any>(null);
+  const [loadingScores, setLoadingScores] = useState(false);
   
   // Handle user data input changes
   const handleUserDataChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -239,18 +242,32 @@ const CareerAssessment: React.FC = () => {
 
   // Handle answer selection for assessment questions
   const handleAnswerSelect = (questionId: number, optionLetter: string) => {
-    setAnswers(prev => {
-      const current = prev[questionId] || [];
-      const currentArray = Array.isArray(current) ? current : [];
-      
-      if (currentArray.includes(optionLetter)) {
-        // Remove if already selected
-        return { ...prev, [questionId]: currentArray.filter(opt => opt !== optionLetter) };
-      } else {
-        // Add to selection
-        return { ...prev, [questionId]: [...currentArray, optionLetter] };
-      }
-    });
+    console.log('📌 handleAnswerSelect called:', { questionId, optionLetter, assessmentType });
+    
+    const stringKey = String(questionId);
+    console.log('Using STRING key:', { stringKey, typeOf: typeof stringKey });
+    
+    // For Digital Twin assessment, use single-select (just a string)
+    if (assessmentType === 'digital-twin-individual') {
+      console.log('Setting answer for Digital Twin:', { questionId, optionLetter, stringKey });
+      setAnswers(prev => {
+        const newAnswers = {
+          ...prev,
+          [stringKey]: optionLetter  // Use STRING key
+        };
+        console.log('Updated answers object:', newAnswers);
+        console.log('Keys in object:', Object.keys(newAnswers));
+        console.log('Value at key "' + stringKey + '":', newAnswers[stringKey]);
+        return newAnswers;
+      });
+    } else {
+      // For other assessments, ALSO use single-select now (no multi-select)
+      setAnswers(prev => {
+        const current = prev[stringKey] || '';
+        // Simply replace with new selection (single-select)
+        return { ...prev, [stringKey]: optionLetter };
+      });
+    }
   };
 
   // Handle moving from intro to aspiration step
@@ -331,6 +348,7 @@ const CareerAssessment: React.FC = () => {
       setAssessmentId(assessmentId);
       console.log('Digital Twin started with ID:', assessmentId);
       toast.success('Digital Twin started successfully!');
+      setAssessmentType('digital-twin-individual');  // ← SET THE ASSESSMENT TYPE HERE
       setShowAspirationStep(false);
       setShowAssessment(true);
     } catch (error: any) {
@@ -349,6 +367,21 @@ const CareerAssessment: React.FC = () => {
       }
     };
   }, [showResults]);
+
+  // When results are shown, check if scoring results exist and generate AI report
+  // TODO: Uncomment when report generation endpoint is ready
+  // useEffect(() => {
+  //   if (showResults && assessmentId && scoringResults) {
+  //     console.log('Results displayed with scores:', scoringResults);
+  //     
+  //     // Generate AI report in background if not already loading
+  //     if (!loadingReport && !aiReport) {
+  //       console.log('Triggering AI report generation in background');
+  //       setLoadingReport(true);
+  //       generateAIReport(assessmentId);
+  //     }
+  //   }
+  // }, [showResults, scoringResults, assessmentId, loadingReport, aiReport]);
 
   useEffect(() => {
     // Determine the assessment type from the URL, localStorage, or custom user login
@@ -413,6 +446,180 @@ const CareerAssessment: React.FC = () => {
       questionsData = student1112Questions as Question[];
     } else if (assessType === ASSESSMENT_TYPES.PROFESSIONAL) {
       questionsData = transformProfessionalQuestions(professionalQuestions);
+    } else if (assessType === 'digital-twin-individual') {
+      // Digital Twin Assessment: 10 specific questions
+      questionsData = [
+        {
+          id: 1,
+          category: 'Identity & Purpose',
+          question: 'How aligned are your current work and your inner purpose?',
+          options: [
+            { option: 'a', text: 'Your work and purpose move as one — rare alignment.' },
+            { option: 'b', text: 'You feel meaning, but it flickers instead of flowing.' },
+            { option: 'c', text: 'You enjoy the work, but your deeper purpose hasn\'t joined the conversation yet.' },
+            { option: 'd', text: 'You\'re functioning, but your identity is asleep at the wheel.' },
+            { option: 'e', text: 'Your purpose is clear — your work simply hasn\'t caught up yet.' },
+            { option: 'f', text: 'You sense a calling forming beneath the surface, waiting to be articulated.' },
+            { option: 'g', text: 'You\'re questioning everything — a powerful sign of deeper truth emerging.' },
+            { option: 'h', text: 'You\'ve outgrown a role that no longer matches who you\'re becoming.' },
+            { option: 'i', text: 'You don\'t know the purpose yet, but something is pulling you forward.' },
+            { option: 'j', text: 'You\'re shedding an old identity and searching for the one that fits your next life chapter.' }
+          ]
+        },
+        {
+          id: 2,
+          category: 'Flow & Strength',
+          question: 'When do you enter your deepest flow state?',
+          options: [
+            { option: 'a', text: 'Your mind comes alive when a challenge stretches your intelligence.' },
+            { option: 'b', text: 'You enter deep flow when you\'re building or designing something new.' },
+            { option: 'c', text: 'You lose track of time when you\'re uplifting, coaching, or enabling others.' },
+            { option: 'd', text: 'You thrive when you turn chaos into clarity and structure.' },
+            { option: 'e', text: 'Patterns, systems, and data unlock your strongest flow state.' },
+            { option: 'f', text: 'You flow best when thinking long-term, shaping direction, and imagining futures.' },
+            { option: 'g', text: 'You enter flow when working alongside driven, high-energy people.' },
+            { option: 'h', text: 'Your deepest flow emerges in solitude, without interruptions.' },
+            { option: 'i', text: 'Flow is rare because your work is too scattered to sustain deep concentration.' },
+            { option: 'j', text: 'Your real strengths are still hidden — flow hasn\'t found its doorway yet.' }
+          ]
+        },
+        {
+          id: 3,
+          category: 'Career Trajectory',
+          question: 'What does your career trajectory feel like right now?',
+          options: [
+            { option: 'a', text: 'Your trajectory is in lift-off mode — momentum is unmistakable.' },
+            { option: 'b', text: 'You\'re growing well, but not yet compounding exponentially.' },
+            { option: 'c', text: 'Your path is steady and predictable — safe but not stretching.' },
+            { option: 'd', text: 'You\'re progressing on paper but not evolving within.' },
+            { option: 'e', text: 'You feel the slowdown — growth is happening but too slowly.' },
+            { option: 'f', text: 'The road ahead is foggy — you\'re still discovering the right direction.' },
+            { option: 'g', text: 'You\'re growing — but in a direction that doesn\'t feel like yours.' },
+            { option: 'h', text: 'You\'ve hit a wall — politics, systems, or barriers are stalling you.' },
+            { option: 'i', text: 'You\'re preparing quietly for a major shift — the signs of reinvention have begun.' },
+            { option: 'j', text: 'You\'re moving without a compass — clarity and direction need rebuilding.' }
+          ]
+        },
+        {
+          id: 4,
+          category: 'Emotional Work',
+          question: 'How do you feel emotionally about your work?',
+          options: [
+            { option: 'a', text: 'Work stretches you in the right ways — emotional energy is fully alive.' },
+            { option: 'b', text: 'You\'re invested, but you crave a deeper emotional resonance with your work.' },
+            { option: 'c', text: 'Work gets done, but it doesn\'t touch your emotional core.' },
+            { option: 'd', text: 'You see yourself working from the outside — emotional distance is growing.' },
+            { option: 'e', text: 'Productivity is intact, but the spark has faded quietly underneath.' },
+            { option: 'f', text: 'Too many shifts are draining your emotional bandwidth.' },
+            { option: 'g', text: 'Even small tasks are demanding more emotional energy than they should.' },
+            { option: 'h', text: 'Feeling undervalued is stealing your emotional vitality.' },
+            { option: 'i', text: 'You\'re functioning without emotional presence — running on habit, not heart.' },
+            { option: 'j', text: 'You\'ve reached the threshold — your system is asking for a reset or direction shift.' }
+          ]
+        },
+        {
+          id: 5,
+          category: 'Energy & Workload',
+          question: 'How is your energy and workload affecting you?',
+          options: [
+            { option: 'a', text: 'Your weekly rhythm is healthy — energy remains steady with room to grow.' },
+            { option: 'b', text: 'Pressure appears occasionally, but your recovery mechanisms are strong.' },
+            { option: 'c', text: 'Your energy swings — people and tasks significantly shape your weeks.' },
+            { option: 'd', text: 'Your workload is constant and tiring, but still within your control zone.' },
+            { option: 'e', text: 'Disconnecting is hard — your mind rarely gets to switch off fully.' },
+            { option: 'f', text: 'You\'re managing, but just barely — the overextension signals are visible.' },
+            { option: 'g', text: 'Your brain is carrying too much — task density is exceeding processing space.' },
+            { option: 'h', text: 'Your body is absorbing the workload strain before your mind does.' },
+            { option: 'i', text: 'You\'re running on the last layer of fuel — recovery isn\'t happening effectively.' },
+            { option: 'j', text: 'You\'re functioning, but emotionally and physically depleted — burnout zone detected.' }
+          ]
+        },
+        {
+          id: 6,
+          category: 'Cultural Fit',
+          question: 'What cultural elements are most important to you?',
+          options: [
+            { option: 'a', text: 'You thrive in truth-first cultures — clarity fuels your best work.' },
+            { option: 'b', text: 'You work best when empowered — not controlled or monitored.' },
+            { option: 'c', text: 'Being unseen drains you — acknowledgment is your fuel.' },
+            { option: 'd', text: 'Bias or favouritism irritates you — merit matters deeply.' },
+            { option: 'e', text: 'You want a culture where honesty doesn\'t come with risk.' },
+            { option: 'f', text: 'You believe siloed work kills potential — collective energy lifts you.' },
+            { option: 'g', text: 'Layers and rules suffocate your creativity — you crave experimentation.' },
+            { option: 'h', text: 'You want leaders who understand human realities, not just metrics.' },
+            { option: 'i', text: 'Ambiguity drains you — you need roles, goals, and direction clear.' },
+            { option: 'j', text: 'You\'re allergic to politics — authenticity matters more than optics.' }
+          ]
+        },
+        {
+          id: 7,
+          category: 'Leadership Impact',
+          question: 'How does your manager impact your energy and growth?',
+          options: [
+            { option: 'a', text: 'Your leader multiplies your growth — they are a true accelerator.' },
+            { option: 'b', text: 'You feel supported and safe to stretch — trust fuels your progress.' },
+            { option: 'c', text: 'Guidance exists, but the style mismatch slows your fullest potential.' },
+            { option: 'd', text: 'Your leader neither boosts nor drains you — energy remains flat.' },
+            { option: 'e', text: 'You\'re navigating alone — the absence of leadership costs you energy.' },
+            { option: 'f', text: 'Unpredictable leadership creates emotional whiplash and uneven motivation.' },
+            { option: 'g', text: 'You\'re growing, but the emotional price of meeting expectations is heavy.' },
+            { option: 'h', text: 'Unclear direction or feedback quietly drains your confidence.' },
+            { option: 'i', text: 'Your leader restricts your potential — your confidence dips around them.' },
+            { option: 'j', text: 'Leadership exhausts you — you\'re operating in defensive, survival-driven energy.' }
+          ]
+        },
+        {
+          id: 8,
+          category: 'Values Alignment',
+          question: 'How closely does your work match your core values?',
+          options: [
+            { option: 'a', text: 'Your work beautifully mirrors what you stand for — rare alignment.' },
+            { option: 'b', text: 'Your values steer your choices, and your work largely supports them.' },
+            { option: 'c', text: 'You\'re aligned within, but your environment doesn\'t always match your values.' },
+            { option: 'd', text: 'You know your values, but you\'re not consistently living them yet.' },
+            { option: 'e', text: 'You understand your values, but struggle to translate them into career direction.' },
+            { option: 'f', text: 'Your values are changing — you\'re in a meaningful identity evolution.' },
+            { option: 'g', text: 'Your work and identity feel increasingly misaligned — friction is rising.' },
+            { option: 'h', text: 'You\'re beginning to doubt whether your career reflects who you are becoming.' },
+            { option: 'i', text: 'External demands are pulling you away from what truly matters to you.' },
+            { option: 'j', text: 'You feel disconnected from meaning — your inner compass needs recalibration.' }
+          ]
+        },
+        {
+          id: 9,
+          category: 'Reinvention Ready',
+          question: 'How ready are you for major career change or reinvention?',
+          options: [
+            { option: 'a', text: 'You\'re ready to leap — energy and clarity are aligned for a big change.' },
+            { option: 'b', text: 'You\'re genuinely open to new paths — curiosity is guiding you forward.' },
+            { option: 'c', text: 'You sense something bigger ahead — the spark of reinvention is alive.' },
+            { option: 'd', text: 'You\'ve been building toward change — the groundwork is already in motion.' },
+            { option: 'e', text: 'You want change, but prefer stability as your safety net.' },
+            { option: 'f', text: 'You feel a shift coming, but the direction is still foggy.' },
+            { option: 'g', text: 'The unknowns feel heavy — clarity must rise before momentum can build.' },
+            { option: 'h', text: 'Part of you wants change; part resists — the tug-of-war is real.' },
+            { option: 'i', text: 'Reinvention feels overwhelming — fear is louder than possibility right now.' },
+            { option: 'j', text: 'You know change is needed, but you don\'t know how to begin — stuck at the starting line.' }
+          ]
+        },
+        {
+          id: 10,
+          category: 'Hidden Passion',
+          question: 'What is your deepest passion or hidden dream?',
+          options: [
+            { option: 'a', text: 'Your soul speaks through creation — imagination is your native language.' },
+            { option: 'b', text: 'You\'re wired to improve lives — meaning drives your future more than title.' },
+            { option: 'c', text: 'You\'re built to become world-class — depth and discipline define your path.' },
+            { option: 'd', text: 'You thrive when you choose your rhythm — autonomy is your highest currency.' },
+            { option: 'e', text: 'You\'re meant to guide people and shape systems — influence is your calling.' },
+            { option: 'f', text: 'Your mind thinks in future tense — you\'re a natural builder of new ideas.' },
+            { option: 'g', text: 'You\'re motivated by knowledge — teaching and mentoring light your inner fire.' },
+            { option: 'h', text: 'You\'re drawn to new worlds — experiences, industries, and environments energize you.' },
+            { option: 'i', text: 'Helping others find direction or hope is your quiet superpower.' },
+            { option: 'j', text: 'You want your life\'s work to outlive you — legacy matters more than applause.' }
+          ]
+        }
+      ] as Question[];
     } else {
       // For custom user assessments
       // Dynamically load the assessment JSON file
@@ -460,9 +667,10 @@ const CareerAssessment: React.FC = () => {
       if (params.get('unlockPremium') === '1') {
         setPremiumUnlocked(true);
         // If results are already visible and we have an ID, generate immediately
-        if (assessmentId && showResults) {
-          generateAIReport(assessmentId);
-        }
+        // TODO: Uncomment when report generation endpoint is ready
+        // if (assessmentId && showResults) {
+        //   generateAIReport(assessmentId);
+        // }
       }
     } catch (e) {
       console.error('Error parsing query params for premium unlock:', e);
@@ -667,10 +875,36 @@ const CareerAssessment: React.FC = () => {
       return false;
     }
   };
+
+  // Calculate Digital Twin scoring results CLIENT-SIDE (no backend call needed)
+  const calculateScoringResults = (answers: any) => {
+    try {
+      console.log('Calculating Digital Twin scores client-side from answers:', answers);
+      
+      // Call client-side scoring function
+      const results = calculateDigitalTwinScores(answers);
+      
+      console.log('Client-side scoring complete:', results);
+      setScoringResults(results);
+      toast.success('✨ Your Digital Twin Career Snapshot is ready!');
+      setLoadingScores(false);
+      return true;
+    } catch (error) {
+      console.error('Error calculating scores client-side:', error);
+      toast.error('Could not generate scoring results. Please try again.');
+      setLoadingScores(false);
+      return false;
+    }
+  };
+
   // Calculate and display results
   const showAssessmentResults = async () => {
     try {
       setSubmitError('');
+      console.log('=== ASSESSMENT SUBMISSION STARTED ===');
+      console.log('Assessment Type:', assessmentType);
+      console.log('Answers received:', answers);
+      console.log('Answer keys:', Object.keys(answers));
       
       // Prepare the response data with just the answers
       const responseData = {
@@ -679,32 +913,89 @@ const CareerAssessment: React.FC = () => {
         assessmentType: assessmentType
       };
       
-      // Submit to server
-      if (assessmentId) {
-        console.log('Submitting assessment answers:', responseData);
+      // For Digital Twin assessments, calculate scores CLIENT-SIDE
+      if (assessmentType === 'digital-twin-individual') {
+        console.log('👉 DIGITAL TWIN ASSESSMENT DETECTED - Starting client-side scoring');
+        console.log('Answers being scored:', answers);
         
         try {
-          const result = await submitCompletedAssessment(assessmentId, responseData);
+          // Calculate scores immediately (synchronous)
+          console.log('Calling calculateDigitalTwinScores with answers:', answers);
+          const results = calculateDigitalTwinScores(answers as { [key: string]: string });
           
-          if (result) {
-            toast.success('Thank you for completing the assessment!');
-          } else {
-            console.error('Failed to save assessment');
-            setSubmitError('Assessment submission failed. Please try again.');
+          console.log('✅ Scoring complete:', results);
+          console.log('Result scores array:', results?.scores);
+          console.log('Result keyInsights:', results?.keyInsights);
+          console.log('Setting scoringResults state...');
+          setScoringResults(results);
+          
+          console.log('✅ scoringResults state set to:', results);
+          console.log('✅ Showing success toast');
+          toast.success('✨ Your Digital Twin Career Snapshot is ready!');
+          
+          console.log('✅ Hiding assessment, showing results');
+          setShowAssessment(false);
+          setShowResults(true);
+          window.scrollTo(0, 0);
+          
+          // Save to server in background (fire and forget)
+          if (assessmentId) {
+            console.log('💾 Saving to server in background...');
+            submitCompletedAssessment(assessmentId, responseData)
+              .catch(err => console.error('Background save failed:', err));
           }
-        } catch (submissionError) {
-          console.error('Error submitting assessment:', submissionError);
-          setSubmitError('Assessment submission failed. Please try again.');
+          
+          // Generate AI report in background after a short delay (fire and forget)
+          // TODO: Implement AI report generation when endpoint is ready
+          // if (assessmentId) {
+          //   setTimeout(() => {
+          //     console.log('🤖 Starting background AI report generation for assessment:', assessmentId);
+          //     setLoadingReport(true);
+          //     generateAIReport(assessmentId);
+          //   }, 1000);
+          // }
+        } catch (scoringError) {
+          console.error('❌ Error calculating scores:', scoringError);
+          console.error('Stack:', (scoringError as any)?.stack);
+          toast.error('Could not generate scoring results. Please try again.');
+          setShowAssessment(false);
+          setShowResults(true);
         }
       } else {
-        console.log('No assessment ID available');
-        setSubmitError('Assessment submission failed. Please try again.');
+        console.log('📋 NON-DIGITAL TWIN ASSESSMENT - Using standard flow');
+        // Original flow for other assessment types
+        if (assessmentId) {
+          console.log('Submitting assessment answers:', responseData);
+          
+          try {
+            const result = await submitCompletedAssessment(assessmentId, responseData);
+            
+            if (result) {
+              toast.success('Thank you for completing the assessment!');
+            } else {
+              console.error('Failed to save assessment');
+              setSubmitError('Assessment submission failed. Please try again.');
+            }
+          } catch (submissionError) {
+            console.error('Error submitting assessment:', submissionError);
+            setSubmitError('Assessment submission failed. Please try again.');
+          }
+        } else {
+          console.log('No assessment ID available');
+          setSubmitError('Assessment submission failed. Please try again.');
+        }
+        
+        // Show results for non-Digital Twin assessments
+        setShowAssessment(false);
+        setShowResults(true);
+        window.scrollTo(0, 0);
       }
+      
+      window.scrollTo(0, 0);
     } catch (error) {
-      console.error('Error processing assessment:', error);
+      console.error('❌ Outer error processing assessment:', error);
       setSubmitError('An error occurred. Please try again.');
-    } finally {
-      // Show thank you page
+      setLoadingScores(false);
       setShowAssessment(false);
       setShowResults(true);
       window.scrollTo(0, 0);
@@ -760,7 +1051,7 @@ const CareerAssessment: React.FC = () => {
     const questionScores: Record<number, number> = {};
 
     questions.forEach(question => {
-      const answer = answers[question.id];
+      const answer = answers[String(question.id)];
       if (!answer || !question.options) return; // Skip if no answer or no options (gautam questions)
       const cat = question.category;
       if (!categoryScoresRaw[cat]) categoryScoresRaw[cat] = { raw: 0, max: 0 };
@@ -814,9 +1105,23 @@ const CareerAssessment: React.FC = () => {
     return byCategory;
   }, [clusterMode, questions]);
   const clusterKeys = useMemo(() => clusterMode ? Object.keys(clusters) : [], [clusterMode, clusters]);
-  // Progress percentage for the assessment (question-mode baseline)
-  const progressRaw = (currentQuestionIndex / (questions.length - 1)) * 100;
+  
+  // Progress percentage for the assessment
+  // For Digital Twin: show progress based on answered questions out of 10
+  // For other assessments: show progress based on current question index
+  const progressRaw = (() => {
+    if (assessmentType === 'digital-twin-individual' && questions.length > 0) {
+      // Count answered questions for Digital Twin
+      const answeredCount = Object.keys(answers).length;
+      return (answeredCount / questions.length) * 100;
+    } else {
+      // Use question index for other assessments
+      return (currentQuestionIndex / (questions.length - 1)) * 100;
+    }
+  })();
+  
   const questionProgressPercentage = Number.isFinite(progressRaw) ? Math.round(progressRaw) : 0;
+  
   // In cluster mode, progress is based on clusters
   const clusterProgress = useMemo(() => {
     if (!clusterMode) return 0;
@@ -824,6 +1129,7 @@ const CareerAssessment: React.FC = () => {
     const raw = (currentClusterIndex / total) * 100;
     return Number.isFinite(raw) ? Math.round(raw) : 0;
   }, [clusterMode, clusterKeys.length, currentClusterIndex]);
+  
   const progressPercentage = clusterMode ? clusterProgress : questionProgressPercentage;
 
   // Render the introduction section
@@ -1258,7 +1564,7 @@ const CareerAssessment: React.FC = () => {
       const clusterKey = clusterKeys[currentClusterIndex];
       const clusterQuestions = clusters[clusterKey] || [];
       // Compute cluster completion: all questions in this cluster must be answered
-      const clusterComplete = clusterQuestions.every(q => !!answers[q.id]);
+      const clusterComplete = clusterQuestions.every(q => !!answers[String(q.id)]);
       const clusterIndexLabel = (() => {
         const match = /Cluster\s*(\d+)/i.exec(clusterKey);
         return match ? parseInt(match[1], 10) : currentClusterIndex + 1;
@@ -1267,7 +1573,7 @@ const CareerAssessment: React.FC = () => {
       const categoryName = clusterKey.replace(/:\s*Cluster\s*\d+/i, '').trim();
       // Calculate current question position in cluster
       const totalQuestionsInCluster = clusterQuestions.length;
-      const answeredQuestionsInCluster = clusterQuestions.filter(q => !!answers[q.id]).length;
+      const answeredQuestionsInCluster = clusterQuestions.filter(q => !!answers[String(q.id)]).length;
       const currentQuestionInCluster = Math.min(answeredQuestionsInCluster + 1, totalQuestionsInCluster);
       
       const clusterVisuals = getClusterVisuals(clusterKey);
@@ -1399,7 +1705,7 @@ const CareerAssessment: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {q.options && q.options.map((option, index) => {
                       const optionLetter = option.option === 'other' ? 'other' : String.fromCharCode(97 + index);
-                      const selectedOptions = Array.isArray(answers[q.id]) ? answers[q.id] as string[] : [];
+                      const selectedOptions = Array.isArray(answers[String(q.id)]) ? answers[String(q.id)] as string[] : [];
                       const isSelected = selectedOptions.includes(optionLetter);
                       return (
                         <div 
@@ -1432,7 +1738,7 @@ const CareerAssessment: React.FC = () => {
                     })}
                   </div>
                 </div>
-                {Array.isArray(answers[q.id]) && (answers[q.id] as string[]).includes('other') && (
+                {Array.isArray(answers[String(q.id)]) && (answers[String(q.id)] as string[]).includes('other') && (
                   <textarea
                     value={(answers as Record<string, any>)[`${q.id}-other-text`] || ''}
                     onChange={(e) => setAnswers(prev => ({ ...prev, [`${q.id}-other-text`]: e.target.value }))}
@@ -1499,7 +1805,11 @@ const CareerAssessment: React.FC = () => {
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-bold text-gray-600 uppercase tracking-wide">Question {currentQuestionIndex + 1} of {questions.length}</span>
+            <span className="text-sm font-bold text-gray-600 uppercase tracking-wide">
+              {assessmentType === 'digital-twin-individual' 
+                ? `Answered: ${Object.keys(answers).length} of ${questions.length}` 
+                : `Question ${currentQuestionIndex + 1} of ${questions.length}`}
+            </span>
             <span className="text-sm font-black text-gray-900">{progressPercentage}% Complete</span>
           </div>
           <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
@@ -1544,8 +1854,8 @@ const CareerAssessment: React.FC = () => {
           {isOpenEnded ? (
             // Open-ended text response
             <textarea
-              value={answers[currentQuestion.id] || ''}
-              onChange={(e) => setAnswers(prev => ({ ...prev, [currentQuestion.id]: e.target.value }))}
+              value={answers[String(currentQuestion.id)] || ''}
+              onChange={(e) => setAnswers(prev => ({ ...prev, [String(currentQuestion.id)]: e.target.value }))}
               placeholder={currentQuestion.type === 'open-ended' ? 'Share your thoughts, experience, or insights...' : 'Enter your response...'}
               rows={currentQuestion.responseFormat === 'textarea' ? 7 : 4}
               className="w-full px-5 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent font-sans text-base leading-relaxed"
@@ -1561,9 +1871,9 @@ const CareerAssessment: React.FC = () => {
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
                   <button
                     key={num}
-                    onClick={() => setAnswers(prev => ({ ...prev, [currentQuestion.id]: num.toString() }))}
+                    onClick={() => setAnswers(prev => ({ ...prev, [String(currentQuestion.id)]: num.toString() }))}
                     className={`w-12 h-12 rounded-lg font-bold transition-all duration-200 text-sm shadow-md hover:shadow-lg ${
-                      answers[currentQuestion.id] === num.toString()
+                      answers[String(currentQuestion.id)] === num.toString()
                         ? `bg-gradient-to-r ${clusterVisuals.gradient} text-white ring-2 ring-offset-2 ring-purple-400`
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-gray-200 hover:border-gray-300'
                     }`}
@@ -1578,37 +1888,38 @@ const CareerAssessment: React.FC = () => {
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentQuestion.options && currentQuestion.options.map((option, index) => {
-                  const optionLetter = option.option === 'other' ? 'other' : String.fromCharCode(97 + index);
-                  const selectedOptions = Array.isArray(answers[currentQuestion.id]) ? answers[currentQuestion.id] as string[] : [];
-                  const isSelected = selectedOptions.includes(optionLetter);
+                  // Use the option.option field directly (it has 'a', 'b', 'c', etc.)
+                  const optionLetter = option.option || 'other';
+                  const questionKey = String(currentQuestion.id);  // Convert to STRING key
+                  const storedAnswer = answers[questionKey];
+                  const isSelected = storedAnswer === optionLetter;
                   
                   return (
                     <div 
-                      key={index}
+                      key={`${currentQuestion.id}-${optionLetter}`}
                       onClick={() => handleAnswerSelect(currentQuestion.id, optionLetter)}
-                      className={`group p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 h-full shadow-md hover:shadow-lg ${
+                      className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 h-full shadow-md hover:shadow-lg group ${
                         isSelected 
-                          ? `border-transparent bg-gradient-to-br ${clusterVisuals.gradient}` 
-                          : 'border-gray-200 bg-white hover:border-gray-300'
+                          ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white border-transparent shadow-xl' 
+                          : 'bg-white border-gray-200 text-gray-900 hover:border-gray-300'
                       }`}
                     >
-                      <div className="flex items-start h-full">
-                        <div className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mr-3 mt-0.5 transition-all font-bold text-sm ${
+                      <div className="flex items-start h-full gap-3">
+                        <div className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
                           isSelected 
-                            ? 'bg-white/30 backdrop-blur-sm ring-2 ring-white/50 text-white' 
-                            : 'bg-gray-200 text-gray-700 group-hover:bg-gray-300'
+                            ? 'bg-white bg-opacity-30 text-white' 
+                            : 'bg-gray-200 text-gray-700'
                         }`}>
                           {optionLetter === 'other' ? '✎' : optionLetter.toUpperCase()}
                         </div>
-                        <span className={`text-sm leading-relaxed font-medium ${
-                          isSelected ? 'text-white' : 'text-gray-800 group-hover:text-gray-900'
-                        }`}>{option.text}</span>
+                        <span className="text-sm leading-relaxed font-medium mt-0.5">{option.text}</span>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              {Array.isArray(answers[currentQuestion.id]) && (answers[currentQuestion.id] as string[]).includes('other') && (
+              {/* Only show "other" text input for non-Digital Twin assessments */}
+              {assessmentType !== 'digital-twin-individual' && Array.isArray(answers[String(currentQuestion.id)]) && (answers[String(currentQuestion.id)] as string[]).includes('other') && (
                 <textarea
                   value={(answers as Record<string, any>)[`${currentQuestion.id}-other-text`] || ''}
                   onChange={(e) => setAnswers(prev => ({ ...prev, [`${currentQuestion.id}-other-text`]: e.target.value }))}
@@ -1648,9 +1959,19 @@ const CareerAssessment: React.FC = () => {
             </button>
           </div>
           <button
-            onClick={handleNextQuestion}
-            disabled={!answers[currentQuestion.id]}
-            className={`px-8 py-3 rounded-xl font-semibold transition-all duration-200 ${!answers[currentQuestion.id] ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : `bg-gradient-to-r ${clusterVisuals.gradient} text-white hover:shadow-lg`}`}
+            onClick={() => {
+              // Check if all 10 questions are answered
+              if (assessmentType === 'digital-twin-individual') {
+                const allAnswered = questions.every(q => !!answers[String(q.id)]);
+                if (!allAnswered) {
+                  toast.error('Please answer all 10 questions before finishing');
+                  return;
+                }
+              }
+              handleNextQuestion();
+            }}
+            disabled={!answers[String(currentQuestion.id)]}
+            className={`px-8 py-3 rounded-xl font-semibold transition-all duration-200 ${!answers[String(currentQuestion.id)] ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : `bg-gradient-to-r ${clusterVisuals.gradient} text-white hover:shadow-lg`}`}
           >
             {currentQuestionIndex === questions.length - 1 ? 'Finish ✔️' : 'Next →'}
           </button>
@@ -1684,8 +2005,8 @@ const CareerAssessment: React.FC = () => {
     const totalQuestions = Object.keys(answers).length;
     
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
-        <div className="max-w-3xl w-full">
+      <div className="min-h-screen flex items-center justify-center px-0 py-12 bg-white">
+        <div className="w-full">
           {/* Main Thank You Card - Enhanced */}
           <div className={`bg-gradient-to-br ${gradient} rounded-3xl shadow-2xl p-12 text-white mb-8 relative overflow-hidden border-0`}>
             {/* Decorative background elements */}
@@ -1758,7 +2079,7 @@ const CareerAssessment: React.FC = () => {
             )}
 
             {/* What Happens Next */}
-            <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-indigo-200">
+            <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-indigo-200 mb-8">
               <h3 className="text-2xl font-black text-indigo-900 mb-4">What Happens Next?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-4">
@@ -1775,8 +2096,163 @@ const CareerAssessment: React.FC = () => {
                 </li>
               </ul>
             </div>
+
+            {/* Scoring Results Section */}
+            {scoringResults ? (
+              <div className="rounded-2xl p-8 mb-8">
+                <h3 className="text-3xl font-black text-purple-900 mb-8">🎯 Your Digital Twin Career Snapshot</h3>
+                
+                {/* Score Breakdown by Dimension - with color-coded cards */}
+                {scoringResults.scores && scoringResults.scores.length > 0 && (
+                  <div className="space-y-4">
+                    {scoringResults.scores.map((score: any, idx: number) => {
+                      const colors = [
+                        'from-purple-500 to-pink-500',
+                        'from-blue-500 to-cyan-500',
+                        'from-emerald-500 to-teal-500',
+                        'from-orange-500 to-amber-500',
+                        'from-rose-500 to-pink-500',
+                        'from-indigo-500 to-purple-500',
+                        'from-violet-500 to-fuchsia-500',
+                        'from-lime-500 to-green-500',
+                        'from-sky-500 to-blue-500',
+                        'from-fuchsia-500 to-rose-500'
+                      ];
+                      const colorClass = colors[idx % colors.length];
+                      const isUnanswered = score.userScore === 0 && !score.selectedOption;
+                      const statusColor = isUnanswered ? 'text-gray-400' : score.userScore >= 80 ? 'text-emerald-600' : score.userScore >= 60 ? 'text-blue-600' : score.userScore >= 40 ? 'text-amber-600' : 'text-red-600';
+                      
+                      return (
+                        <div key={idx} className={`${isUnanswered ? 'bg-gray-50 opacity-60' : 'bg-white'} rounded-lg shadow-md border-l-4 border-gradient overflow-hidden hover:shadow-lg transition-shadow`}>
+                          {/* Color Breaker at Top */}
+                          <div className={`h-1 bg-gradient-to-r ${isUnanswered ? 'from-gray-300 to-gray-300' : colorClass}`}></div>
+                          
+                          {/* Card Content */}
+                          <div className="p-6">
+                            <div className="flex justify-between items-start mb-3">
+                              <div className="flex-1">
+                                <h4 className={`text-lg font-black ${isUnanswered ? 'text-gray-500' : 'text-gray-900'}`}>
+                                  Q{score.questionId}. {score.dimensionName}
+                                </h4>
+                                <p className="text-sm text-gray-600 font-semibold">{score.indexName}</p>
+                              </div>
+                              <div className="text-right">
+                                <div className={`text-3xl font-black ${statusColor}`}>
+                                  {isUnanswered ? '?' : `${score.userScore}`}
+                                </div>
+                                <span className="text-xs font-semibold text-gray-600">{isUnanswered ? 'Not Answered' : score.scoreType}</span>
+                              </div>
+                            </div>
+                            
+                            {/* Progress Bar */}
+                            <div className={`w-full rounded-full h-2 overflow-hidden mb-3 ${isUnanswered ? 'bg-gray-300' : 'bg-gray-200'}`}>
+                              <div 
+                                className={`${isUnanswered ? 'bg-gray-300' : `bg-gradient-to-r ${colorClass}`} h-2 rounded-full transition-all`}
+                                style={{width: `${isUnanswered ? 0 : score.userScore}%`}}
+                              ></div>
+                            </div>
+                            
+                            {/* Description or Prompt */}
+                            <p className={`text-sm ${isUnanswered ? 'text-gray-500 italic' : 'text-gray-700'} leading-relaxed`}>
+                              {isUnanswered ? '✍️ Please go back and answer this question to unlock your insights.' : score.description}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Key Insights */}
+                {scoringResults.keyInsights && scoringResults.keyInsights.length > 0 && (
+                  <div className="bg-white rounded-xl p-6 mb-6 shadow-md border-2 border-purple-200">
+                    <h4 className="text-xl font-black text-purple-900 mb-4">💡 Key Insights</h4>
+                    <ul className="space-y-2">
+                      {scoringResults.keyInsights.map((insight: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-purple-600 font-black mt-1 text-lg">•</span>
+                          <span className="text-gray-700 font-semibold">{insight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Immediate Action Items */}
+                {scoringResults.actionPlan && scoringResults.actionPlan.immediate && (
+                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 mb-6 shadow-md border-2 border-orange-300">
+                    <h4 className="text-xl font-black text-orange-900 mb-4">⚡ Next 24 Hours - Immediate Actions</h4>
+                    <ul className="space-y-2">
+                      {scoringResults.actionPlan.immediate.map((action: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-orange-600 font-black">→</span>
+                          <span className="text-gray-700">{action}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Short Term Actions */}
+                {scoringResults.actionPlan && scoringResults.actionPlan.shortTerm && (
+                  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-6 mb-6 shadow-md border-2 border-yellow-300">
+                    <h4 className="text-xl font-black text-amber-900 mb-4">📅 Next 7 Days - Short Term Focus</h4>
+                    <ul className="space-y-2">
+                      {scoringResults.actionPlan.shortTerm.map((action: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-amber-600 font-black">→</span>
+                          <span className="text-gray-700">{action}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Long Term Actions */}
+                {scoringResults.actionPlan && scoringResults.actionPlan.longTerm && (
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 mb-6 shadow-md border-2 border-green-300">
+                    <h4 className="text-xl font-black text-green-900 mb-4">🚀 Next 30 Days - Long Term Strategy</h4>
+                    <ul className="space-y-2">
+                      {scoringResults.actionPlan.longTerm.map((action: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-green-600 font-black">→</span>
+                          <span className="text-gray-700">{action}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ) : null}
+
+            {/* AI-Generated Report Section - Shows after generation */}
+            {aiReport && (
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 mb-8 shadow-lg border-3 border-amber-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-4xl">🤖</span>
+                  <h3 className="text-2xl font-black text-amber-900">Your Personalized AI-Generated Report</h3>
+                </div>
+                <div 
+                  className="prose prose-sm max-w-none text-gray-800"
+                  dangerouslySetInnerHTML={{ __html: convertMarkdownToHTML(aiReport) }}
+                />
+              </div>
+            )}
+
+            {/* AI Report Loading Indicator */}
+            {loadingReport && (
+              <div className="bg-blue-50 rounded-2xl p-8 mb-8 border-2 border-blue-300 shadow-md">
+                <div className="flex items-center justify-center gap-4">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                  <div>
+                    <p className="text-lg font-bold text-blue-900">Generating your personalized AI report...</p>
+                    <p className="text-sm text-blue-700 mt-1">This typically takes 30-60 seconds</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-          
+
           {/* Action Buttons - Enhanced */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
             <button

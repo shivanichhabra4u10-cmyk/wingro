@@ -1,0 +1,486 @@
+{
+  "digitalTwinScoringFramework": {
+    "version": "1.0",
+    "description": "Complete scoring logic for Digital Twin Career Assessment - 10 dimensions × 10 options (a-j)",
+    "lastUpdated": "2025-11-24",
+    "questions": [
+      {
+        "questionId": 1,
+        "theme": "Identity & Purpose Alignment",
+        "indexName": "Identity–Purpose Alignment Index (IPA Index)",
+        "scoreType": "Readiness Score",
+        "measure": "Measures how deeply work aligns with your inner purpose & evolving identity.",
+        "scoringOptions": [
+          {
+            "option": "a",
+            "score": 100,
+            "depiction": "Your work and purpose move as one — rare alignment.",
+            "title": "Your Inner Compass: The Power of Being in Alignment",
+            "archetype": "The Aligned Visionary",
+            "keyInsight": "Your response reflects a rare and powerful Identity Emotional Story — the story of someone whose work and inner self are finally speaking the same language.",
+            "growthBlocker": "Complacency - settling for good when extraordinary is possible",
+            "hiddenStrength": "Strong intuitive radar that knows when something is right",
+            "hiddenDesire": "Expansion - shape something larger, express uniqueness at scale",
+            "futureArchetype": "Leader who leads with clarity, inspires with authenticity",
+            "microActions": {
+              "hours24": "Write a one-line statement about who you are becoming — and ensure it feels alive.",
+              "days7": "Identify one part of your work that deserves a bigger spotlight or bolder expression.",
+              "days30": "Begin integrating a new behaviour, project, or ritual that expands your identity, not just maintains it."
+            }
+          },
+          {
+            "option": "b",
+            "score": 90,
+            "depiction": "You feel meaning, but it flickers instead of flowing.",
+            "title": "Your Identity Signal: Meaning Exists, But It Needs Strengthening",
+            "archetype": "The Awakening Integrator",
+            "keyInsight": "Your choice reflects an Identity Emotional Story of partial alignment — moments where your work feels meaningful, but the connection doesn't hold long enough.",
+            "growthBlocker": "Fragmentation - life lived in pockets of meaning rather than steady rhythm",
+            "hiddenStrength": "You recognise when something feels meaningful",
+            "hiddenDesire": "Stability - work to reflect identity consistently, not in scattered moments",
+            "futureArchetype": "Someone who builds a life where meaning is the baseline",
+            "microActions": {
+              "hours24": "Identify one moment this week where you felt most yourself.",
+              "days7": "Pinpoint what created that meaning and how to repeat it.",
+              "days30": "Integrate one aligned behaviour or responsibility into your weekly rhythm."
+            }
+          },
+          {
+            "option": "c",
+            "score": 80,
+            "depiction": "You enjoy the work, but your deeper purpose hasn't joined the conversation yet.",
+            "title": "The Identity Gap: When Liking Your Work Isn't the Same as Living Your Purpose",
+            "archetype": "The Quiet Seeker",
+            "keyInsight": "This response carries an Identity Emotional Story rooted in comfort without fulfilment. You appreciate what you do, but something in your inner world knows there is more.",
+            "growthBlocker": "Functional satisfaction - the kind of comfort that slows deeper transformation",
+            "hiddenStrength": "You can sense misalignment even when things are good",
+            "hiddenDesire": "Depth - work that expresses something core, meaningful, something only you can bring",
+            "futureArchetype": "Someone whose contribution feels personal, not just professional",
+            "microActions": {
+              "hours24": "Reflect on one thing your soul wishes you could express more.",
+              "days7": "Identify where your current work allows even a small piece of your deeper self to show.",
+              "days30": "Add or request one activity that aligns with your inner purpose."
+            }
+          },
+          {
+            "option": "d",
+            "score": 70,
+            "depiction": "You're functioning, but your identity is asleep at the wheel.",
+            "title": "The Identity Numbness: When Your Inner Self Goes Quiet",
+            "archetype": "The Disconnected Wanderer",
+            "keyInsight": "Your response reveals an Identity Emotional Story marked by numbness — a sense of moving through your days without true presence.",
+            "growthBlocker": "Identity drift - the gap between who you are and what you do widens slowly",
+            "hiddenStrength": "Detachment itself is a signal - your identity's way of saying this doesn't feed me",
+            "hiddenDesire": "Awakening - you want to feel alive again, reconnect with meaningful work",
+            "futureArchetype": "Someone who works with intention, presence, and emotional involvement",
+            "microActions": {
+              "hours24": "Do one task today with full presence — no rush, no autopilot.",
+              "days7": "Identify what part of your work you feel most emotionally absent from.",
+              "days30": "Introduce or revive one activity that feels emotionally meaningful, even if small."
+            }
+          },
+          {
+            "option": "e",
+            "score": 60,
+            "depiction": "Your purpose is clear — your work simply hasn't caught up yet.",
+            "title": "The Identity Tension: When Your Purpose is Ready but Your Environment Isn't",
+            "archetype": "The Unexpressed Visionary",
+            "keyInsight": "This choice embodies an Identity Emotional Story of clarity without expression. You know who you are becoming, but your current role does not yet provide the space.",
+            "growthBlocker": "Structural mismatch - internal evolution has outpaced external environment",
+            "hiddenStrength": "Clarity of purpose - one of the strongest indicators of future leadership",
+            "hiddenDesire": "Amplification - environment that matches ambition, aligns with values, honours purpose",
+            "futureArchetype": "Someone who leads with intention and expresses identity through high-impact work",
+            "microActions": {
+              "hours24": "Write down your purpose in a single sentence — keep it visible.",
+              "days7": "Identify one area of your current work where your purpose can be expressed, even partially.",
+              "days30": "Begin aligning your external ecosystem — conversations, roles, projects — with your internal purpose."
+            }
+          },
+          {
+            "option": "f",
+            "score": 50,
+            "depiction": "You sense a calling forming beneath the surface, waiting to be articulated.",
+            "title": "The Identity Emergence: When Your Next Purpose Is Still Forming",
+            "archetype": "The Emerging Pathfinder",
+            "keyInsight": "Your response tells an Identity Emotional Story of quiet transformation — a purpose that is forming beneath the surface, not yet fully shaped.",
+            "growthBlocker": "Uncertainty - fertile kind that precedes breakthroughs",
+            "hiddenStrength": "Intuition - you can feel the shift even before it becomes rational",
+            "hiddenDesire": "Direction - you want your purpose to come into focus, to name and integrate it",
+            "futureArchetype": "Someone who finds clarity through experimentation, exploration, exposure",
+            "microActions": {
+              "hours24": "Notice what topics or conversations spark you unexpectedly.",
+              "days7": "Document patterns in what energizes you and what drains you.",
+              "days30": "Begin a small exploration project (learning, mentoring, experimenting) to test your emerging purpose."
+            }
+          },
+          {
+            "option": "g",
+            "score": 40,
+            "depiction": "You're questioning everything — a powerful sign of deeper truth emerging.",
+            "title": "The Identity Disruption: When Questioning Becomes the Beginning",
+            "archetype": "The Identity Rebuilder",
+            "keyInsight": "Your answer reveals an intense Identity Emotional Story — one where the old version of you no longer fits, and the new version has not yet fully formed.",
+            "growthBlocker": "Overwhelm - when too many identity layers shift at once, clarity gets clouded",
+            "hiddenStrength": "Awakening - questioning is not confusion, it is awareness",
+            "hiddenDesire": "Truth - a desire to know who you are without conditioning or expectation",
+            "futureArchetype": "Someone grounded, self-defined, internally anchored",
+            "microActions": {
+              "hours24": "Write down the top 3 things you are no longer willing to tolerate from your old identity.",
+              "days7": "Describe moments where you felt like your true self—notice patterns.",
+              "days30": "Begin removing one identity-layer you've outgrown (role, behaviour, expectation, belief)."
+            }
+          },
+          {
+            "option": "h",
+            "score": 30,
+            "depiction": "You're outgrowing a role that no longer matches who you're becoming.",
+            "title": "The Identity Mismatch: When You've Outgrown Your Role",
+            "archetype": "The Outgrowing Architect",
+            "keyInsight": "Your response reveals a clear Identity Emotional Story of containment — a sense of being too big for the box you're currently in.",
+            "growthBlocker": "Misfit - outer responsibilities no longer match inner capabilities or aspirations",
+            "hiddenStrength": "Growth-awareness - you can feel the misalignment sharply",
+            "hiddenDesire": "Expansion - a role that reflects your emerging self, not your past self",
+            "futureArchetype": "Someone who steps into larger responsibilities, deeper meaning, higher influence",
+            "microActions": {
+              "hours24": "List one responsibility you've outgrown and one you want to grow into.",
+              "days7": "Identify the environments where your emerging identity fits better.",
+              "days30": "Initiate a role redesign conversation or begin pursuing opportunities aligned with new identity."
+            }
+          },
+          {
+            "option": "i",
+            "score": 20,
+            "depiction": "You don't know the purpose yet, but something is pulling you forward.",
+            "title": "The Identity Pull: When Something New Calls Before You Know Its Name",
+            "archetype": "The Emerging Explorer",
+            "keyInsight": "Your answer illustrates an Identity Emotional Story of curiosity mixed with uncertainty. A shift is happening at a subconscious level before it becomes conscious.",
+            "growthBlocker": "Lack of direction - you sense movement, but cannot yet define it",
+            "hiddenStrength": "You feel the pull even without seeing destination - your identity is alive",
+            "hiddenDesire": "Exploration - discover what's next rather than commit prematurely",
+            "futureArchetype": "Someone who uncovers clarity through action, experimentation, exposure",
+            "microActions": {
+              "hours24": "Write down what you feel pulled away from — clarity often begins there.",
+              "days7": "Experiment with one new idea, project, or domain to test the pull.",
+              "days30": "Begin documenting identity patterns that show up repeatedly — themes emerge."
+            }
+          },
+          {
+            "option": "j",
+            "score": 10,
+            "depiction": "You're shedding an old identity and searching for the one that fits your next life chapter.",
+            "title": "The Identity Rebirth: You're Actively Becoming Someone New",
+            "archetype": "The Conscious Reconstructor",
+            "keyInsight": "Your response expresses an Identity Emotional Story of active reinvention — you're not stuck, lost, or confused; you're reconstructing yourself with intention.",
+            "growthBlocker": "Redefinition fatigue - shaping a new identity requires emotional and cognitive energy",
+            "hiddenStrength": "Powerful intentionality - you're choosing who you want to become",
+            "hiddenDesire": "Meaningful reinvention - an identity that resonates deeply rather than superficially",
+            "futureArchetype": "Someone grounded, intentional, expressive, purpose-led",
+            "microActions": {
+              "hours24": "Define one trait your next self must embody.",
+              "days7": "Engage in an activity or decision that reflects that new identity trait.",
+              "days30": "Start eliminating one behaviour or belief that belongs to your old identity."
+            }
+          }
+        ]
+      },
+      {
+        "questionId": 2,
+        "theme": "Flow & Strength Expression",
+        "indexName": "Flow State Access Index (FSA Index)",
+        "scoreType": "Strength Expression Score",
+        "measure": "Measures how consistently and powerfully you access flow through natural strengths.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your mind comes alive when a challenge stretches your intelligence.", "title": "Your Cognitive Edge: The Power of Deep Problem-Solving Flow", "archetype": "The Analytical Solver", "keyInsight": "Your response tells a Flow Emotional Story of mental expansion — the feeling of being fully alive when a challenge requires depth, logic, and intellectual stretch. The Strength Activation Pattern here is analytical depth; your mind thrives when pushed beyond comfort.", "growthBlocker": "Shallow work", "hiddenStrength": "Deep thinking and natural movement toward complexity", "hiddenDesire": "Mastery", "futureArchetype": "Someone who leads through expertise, logic, insight, and strategic clarity", "microActions": {"hours24": "Protect 30 minutes for uninterrupted deep thinking", "days7": "Identify your highest-complexity task and work on it during peak energy", "days30": "Redesign one part of your workflow to include regular deep-work blocks"}},
+          {"option": "b", "score": 90, "depiction": "You enter deep flow when you're building or designing something new.", "title": "Your Creative Engine: Innovation Is Your Natural State", "archetype": "The Creative Builder", "keyInsight": "Your choice reveals a Flow Emotional Story of creative ignition — you enter flow when imagination and structure meet to form something new.", "growthBlocker": "Routine and predictability", "hiddenStrength": "Creator's mind with ability to build and innovate", "hiddenDesire": "Expression", "futureArchetype": "Someone who leads through originality and bold thinking", "microActions": {"hours24": "Start or sketch one creative idea — even a small one", "days7": "Dedicate a creative block (no pressure, just exploration)", "days30": "Begin a mini-project that embodies your creative identity"}},
+          {"option": "c", "score": 80, "depiction": "You lose track of time when you're uplifting, coaching, or enabling others.", "title": "Your Empowerment Strength: You Grow When Others Grow", "archetype": "The Empowering Guide", "keyInsight": "Your answer reveals a Flow Emotional Story shaped by connection — you feel most alive when you help others rise.", "growthBlocker": "Environments that undervalue empathy", "hiddenStrength": "Ability to translate insight into impact for others", "hiddenDesire": "Contribution", "futureArchetype": "A trusted guide, mentor, or leader who uplifts others", "microActions": {"hours24": "Offer one person a genuine moment of guidance or listening", "days7": "Identify the types of people you naturally empower best", "days30": "Initiate a recurring coaching, mentoring, or peer-support activity"}},
+          {"option": "d", "score": 70, "depiction": "You thrive when you turn chaos into clarity and structure.", "title": "Your Clarity Superpower: Turning Chaos Into Order", "archetype": "The Clarity Architect", "keyInsight": "Your response reflects a unique Flow Emotional Story — the satisfaction and calm that arise when you transform confusion into coherence.", "growthBlocker": "Overly orderly or rigid environments", "hiddenStrength": "Natural ability to impose clarity on chaos with precision", "hiddenDesire": "Order", "futureArchetype": "The go-to person for strategy, structure, and simplifying complexity", "microActions": {"hours24": "Clean up one chaotic area of your workflow or inbox", "days7": "Design or refine one process that removes friction", "days30": "Build a simple framework or system that brings recurring clarity to a complex problem"}},
+          {"option": "e", "score": 60, "depiction": "Patterns, systems, and data unlock your strongest flow state.", "title": "Your Pattern-Mind: Seeing What Others Miss", "archetype": "The Insight Decoder", "keyInsight": "This choice reveals a Flow Emotional Story rooted in discovery — you feel most alive when uncovering insights hidden beneath the surface.", "growthBlocker": "Noise and tasks demanding speed over depth", "hiddenStrength": "Synthesizing information into clear insights", "hiddenDesire": "Understanding", "futureArchetype": "Highly valued for intelligent analysis and sharp insight", "microActions": {"hours24": "Analyze one small pattern in your current work — numbers, behaviour, or outcomes", "days7": "Build a simple dashboard, sheet, or list that tracks a meaningful pattern", "days30": "Conduct a deeper analysis project that gives you a new perspective on your domain"}},
+          {"option": "f", "score": 50, "depiction": "You flow best when thinking long-term, shaping direction, and imagining futures.", "title": "Your Strategic Mind: Seeing Tomorrow Before Others Do", "archetype": "The Strategic Futurist", "keyInsight": "Your response reveals a Flow Emotional Story shaped by vision — you thrive when you look beyond today and imagine what could be.", "growthBlocker": "Short-termism and reactive environments", "hiddenStrength": "Ability to see patterns of possibility far ahead of others", "hiddenDesire": "Impact", "futureArchetype": "Strategic leader or visionary role", "microActions": {"hours24": "Write down one long-term possibility or idea you believe in", "days7": "Create a simple 6-month or 1-year vision map for one area of your work or life", "days30": "Lead or initiate a strategic conversation with your team or stakeholders"}},
+          {"option": "g", "score": 40, "depiction": "You enter flow when working alongside driven, high-energy people.", "title": "Your Collaboration Genius: You Rise in High-Energy Environments", "archetype": "The Collaborative Catalyst", "keyInsight": "Your choice reveals a Flow Emotional Story built around connection, shared momentum, and collective intelligence.", "growthBlocker": "Low-energy teams and misalignment", "hiddenStrength": "Catalytic influence on groups", "hiddenDesire": "Belonging with high-performing peers", "futureArchetype": "Thrives in collaborative leadership and co-creation", "microActions": {"hours24": "Connect with one high-energy colleague and share ideas", "days7": "Join or initiate a small group/crew that shares your ambition", "days30": "Commit to a collaborative project that energizes you"}},
+          {"option": "h", "score": 30, "depiction": "Your deepest flow emerges in solitude, without interruptions.", "title": "Your Deep Independence: Flow Through Focused Solitude", "archetype": "The Independent Deep-Worker", "keyInsight": "Your response expresses a Flow Emotional Story anchored in solitude, clarity, and control over your mental space.", "growthBlocker": "Interruption and distractions", "hiddenStrength": "Self-reliance and high-quality independent work", "hiddenDesire": "Undisturbed focus", "futureArchetype": "Known for precision, depth, and high-quality execution", "microActions": {"hours24": "Block a 45-minute uninterrupted deep-work session", "days7": "Build a ritual or environment that signals focus time to others", "days30": "Restructure part of your workflow to protect regular focus blocks"}},
+          {"option": "i", "score": 20, "depiction": "Flow is rare because your work is too scattered to sustain deep concentration.", "title": "Your Flow Breakdown: When Fragmentation Blocks Your Strengths", "archetype": "The Suppressed Performer", "keyInsight": "Your selection reveals a Flow Emotional Story of fragmentation and fatigue — a lack of sustained focus or meaningful engagement in your work.", "growthBlocker": "Cognitive overload and fragmentation", "hiddenStrength": "Strengths remain intact beneath noise", "hiddenDesire": "Stability", "futureArchetype": "Performer who rediscovers strengths once freed from overwhelm", "microActions": {"hours24": "Eliminate or delegate one draining micro-task", "days7": "Identify your top three weekly priorities and protect them", "days30": "Redesign your workflow to reduce task-switching and increase focus blocks"}},
+          {"option": "j", "score": 10, "depiction": "Your real strengths are still hidden — flow hasn't found its doorway yet.", "title": "Your Hidden Potential: When Strengths Are Waiting to Be Born", "archetype": "The Emerging Talent", "keyInsight": "Your answer tells a Flow Emotional Story of early-stage discovery — a sense of having potential but not yet knowing its expression.", "growthBlocker": "Lack of exposure", "hiddenStrength": "Sensitivity to possibility", "hiddenDesire": "Exploration", "futureArchetype": "Confident and centred once strengths crystallize", "microActions": {"hours24": "Try one new task or method, even briefly — observe what feels natural", "days7": "Experiment with different roles, activities, or contexts to see what energizes you", "days30": "Create a strength-discovery journal tracking what feels draining vs energizing"}}
+        ]
+      },
+      {
+        "questionId": 3,
+        "theme": "Career Trajectory Perception",
+        "indexName": "Career Momentum Trajectory Index (CMT Index)",
+        "scoreType": "Growth Momentum Score",
+        "measure": "Captures the true trajectory—accelerating, plateauing, drifting, or pivot-ready.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your trajectory is in lift-off mode — momentum is unmistakable.", "title": "Your Momentum Curve: You Are Rising Faster Than You Realize", "archetype": "The Accelerating Builder", "keyInsight": "Your choice reveals a powerful Trajectory Emotional Story — the excitement and inner certainty that come when your work starts compounding.", "growthBlocker": "Overextension - saying yes to too much", "hiddenStrength": "Responsiveness and ability to convert feedback into action", "hiddenDesire": "Maximizing window of growth", "futureArchetype": "Someone who becomes unstoppable once aligned", "microActions": {"hours24": "Identify the one area where momentum is strongest — double down on it", "days7": "Review and eliminate one non-essential task that slows your acceleration", "days30": "Proactively initiate a move (project, visibility, relationship) that amplifies your current trajectory"}},
+          {"option": "b", "score": 90, "depiction": "You're growing well, but not yet compounding exponentially.", "title": "Your Steady Ascent: Slow, Stable, and Full of Untapped Potential", "archetype": "The Strategic Steady-Grower", "keyInsight": "Your response reveals a calm, grounded Trajectory Emotional Story — you are growing, but at a measured pace.", "growthBlocker": "Absence of stretch", "hiddenStrength": "Positive directional movement", "hiddenDesire": "Evolution", "futureArchetype": "Someone who blends calmness with ambition", "microActions": {"hours24": "Identify one area where you can increase difficulty or complexity", "days7": "Take on a task that requires new capabilities or visibility", "days30": "Initiate one growth conversation with your manager or stakeholder"}},
+          {"option": "c", "score": 80, "depiction": "Your path is steady and predictable — safe but not stretching.", "title": "Your Comfort Plateau: Safe but Limiting", "archetype": "The Settled Stabilizer", "keyInsight": "Your choice reveals a Trajectory Emotional Story of calm stability — a plateau that feels secure, structured, and manageable.", "growthBlocker": "Comfort — the subtle inertia that keeps you from exploring", "hiddenStrength": "Adaptability and stability", "hiddenDesire": "Significance and stretch", "futureArchetype": "Someone who needs intentional disruption to grow", "microActions": {"hours24": "Identify one area where you feel under-challenged", "days7": "Volunteer for a task that pushes you into a new skill zone", "days30": "Start a project, certification, or initiative that breaks predictability"}},
+          {"option": "d", "score": 70, "depiction": "You're progressing on paper but not evolving within.", "title": "The Dual-Trajectory Conflict: When Your Growth Looks Good but Feels Empty", "archetype": "The Hollow Achiever", "keyInsight": "Your response reveals a powerful Trajectory Emotional Story — the tension between external success and internal stagnation.", "growthBlocker": "Misalignment between impact and fulfilment", "hiddenStrength": "Self-awareness", "hiddenDesire": "Meaningful advancement", "futureArchetype": "Someone who outgrows the image of success", "microActions": {"hours24": "Identify one area where your work feels emotionally or intellectually under-stimulating", "days7": "Choose one project or activity that develops you, not just your résumé", "days30": "Initiate a shift toward roles or responsibilities that feel identity-aligned"}},
+          {"option": "e", "score": 60, "depiction": "You feel the slowdown — growth is happening but too slowly.", "title": "The Plateau Moment: You've Hit a Level That No Longer Stretches You", "archetype": "The Plateau Breaker", "keyInsight": "Your choice tells a clear Trajectory Emotional Story — the awareness that your momentum has slowed, even though your capability hasn't.", "growthBlocker": "Opportunity limitation", "hiddenStrength": "Independence and capability", "hiddenDesire": "Upward movement", "futureArchetype": "Someone who needs a strategic push to rise again", "microActions": {"hours24": "Identify the top 1–2 decisions where lack of guidance hurts your progress", "days7": "Find a stretch opportunity (project, responsibility, skill) that excites you", "days30": "Begin the repositioning process — visibility, mentorship, or role-expansion steps"}},
+          {"option": "f", "score": 50, "depiction": "The road ahead is foggy — you're still discovering the right direction.", "title": "The Exploration Phase: When Clarity Comes After Discovery", "archetype": "The Direction-Seeker", "keyInsight": "Your response reflects a gentle Trajectory Emotional Story of ambiguity mixed with possibility.", "growthBlocker": "Lack of clarity", "hiddenStrength": "Early-stage movement", "hiddenDesire": "Clarity", "futureArchetype": "Someone whose path reveals itself through exploration", "microActions": {"hours24": "Write down the top three things you don't want in your career — clarity often starts here", "days7": "Explore one field, role, skill, or project that sparks curiosity", "days30": "Track patterns: what energizes you vs what drains you — this reveals direction"}},
+          {"option": "g", "score": 40, "depiction": "You're growing — but in a direction that doesn't feel like yours.", "title": "The Off-Path Acceleration: Growing Fast, But Not Where It Matters", "archetype": "The Path Realigner", "keyInsight": "Your answer reveals a sharp Trajectory Emotional Story — you are progressing, moving, achieving, but not toward the life or identity you want.", "growthBlocker": "Directional misalignment", "hiddenStrength": "Self-awareness about misalignment", "hiddenDesire": "Course correction", "futureArchetype": "Someone who must shift direction, not speed", "microActions": {"hours24": "Write down the top two ways your path feels misaligned", "days7": "Identify which direction does feel true — even if not fully clear yet", "days30": "Begin reorienting one part of your work or ecosystem toward your authentic direction"}},
+          {"option": "h", "score": 30, "depiction": "You've hit a wall — politics, systems, or barriers are stalling you.", "title": "The Blocked Trajectory: When External Forces Restrict Internal Potential", "archetype": "The Barrier Breaker", "keyInsight": "Your response tells a heavy Trajectory Emotional Story — one of frustration, resistance, and invisible ceilings.", "growthBlocker": "Systemic blockage", "hiddenStrength": "Persistence despite barriers", "hiddenDesire": "Liberation", "futureArchetype": "Someone who must choose whether to climb over or walk around", "microActions": {"hours24": "Identify the real source of the block — person, system, structure, or culture", "days7": "Adjust your influence strategy — allies, visibility, skill amplification", "days30": "Begin evaluating alternative pathways (internal shift or external move)"}},
+          {"option": "i", "score": 20, "depiction": "You're preparing quietly for a major shift — the signs of reinvention have begun.", "title": "The Quiet Pivot: Your Next Chapter is Already in Motion", "archetype": "The Intentional Rebuilder", "keyInsight": "Your response reveals an exciting Trajectory Emotional Story — transition beneath the surface.", "growthBlocker": "Invisibility of pivot", "hiddenStrength": "Intentional movement", "hiddenDesire": "Transformation", "futureArchetype": "Someone whose external actions catch up with internal clarity", "microActions": {"hours24": "Write down the one sentence describing the pivot you're preparing for", "days7": "Take one visible step — learning, networking, exploring — that signals the pivot", "days30": "Begin shaping your ecosystem (skills, network, identity) toward the new direction"}},
+          {"option": "j", "score": 10, "depiction": "You're moving without a compass — clarity and direction need rebuilding.", "title": "The Drift Phase: When Lostness Is the First Step to Reinvention", "archetype": "The Identity Seeker", "keyInsight": "Your answer expresses a vulnerable and honest Trajectory Emotional Story — the feeling of walking through fog with no clear direction.", "growthBlocker": "Lack of clarity", "hiddenStrength": "Continuing to move despite uncertainty", "hiddenDesire": "Self-discovery", "futureArchetype": "Someone whose path reveals itself through exploration", "microActions": {"hours24": "Write down what feels wrong or misaligned — clarity starts by eliminating what no longer fits", "days7": "Explore three different themes, skills, or directions without pressure to commit", "days30": "Observe patterns in what excites, calms, or energizes you — these form your foundation"}}
+        ]
+      },
+      {
+        "questionId": 4,
+        "theme": "Emotional Relationship with Work",
+        "indexName": "Work–Emotion Vitality Index (WEV Index)",
+        "scoreType": "Emotional Health Score",
+        "measure": "Measures emotional connection, energy quality, and psychological engagement with work.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Work stretches you in the right ways — emotional energy is fully alive.", "title": "Your Emotional Peak Zone: The Energy of Meaningful Stretch", "archetype": "The Energized Performer", "keyInsight": "Your response reveals a vibrant Work-Emotion Story — the sensation of being stretched in ways that feel stimulating rather than draining.", "growthBlocker": "Over-stimulation", "hiddenStrength": "Vitality and emotional fuel", "hiddenDesire": "Mastery and continuous growth", "futureArchetype": "Someone who thrives in high-growth environments", "microActions": {"hours24": "Note which activities elevate your energy — they reveal your growth zones", "days7": "Protect 1–2 high-energy blocks for deep, meaningful work", "days30": "Expand your role by adding a challenge that fuels your momentum"}},
+          {"option": "b", "score": 90, "depiction": "You're invested, but you crave a deeper emotional resonance with your work.", "title": "The Half-Full Engagement: Present, But Not Fully Alive", "archetype": "The Under-Connected Achiever", "keyInsight": "Your answer reflects a subtle Work-Emotion Story — you are involved, committed, and attentive, but something deeper is missing.", "growthBlocker": "Emotional undernourishment", "hiddenStrength": "Resilience and consistency", "hiddenDesire": "Connection and emotional fulfilment", "futureArchetype": "Someone seeking authenticity and emotional alignment", "microActions": {"hours24": "Identify which tasks feel meaningful vs mechanical", "days7": "Add emotional texture — connect with a colleague, impact story, or purpose-driven task", "days30": "Initiate a shift toward responsibilities that give you a sense of emotional ownership"}},
+          {"option": "c", "score": 80, "depiction": "Work gets done, but it doesn't touch your emotional core.", "title": "The Emotional Flatline: When Work Feels Functional, Not Fulfilling", "archetype": "The Neutral Operator", "keyInsight": "Your response reveals a calm yet concerning Work-Emotion Story — work has become transactional rather than transformational.", "growthBlocker": "Monotony and routine", "hiddenStrength": "Functional efficiency", "hiddenDesire": "Activation and inspiration", "futureArchetype": "Someone seeking emotional fulfillment", "microActions": {"hours24": "Identify one part of your work that once excited you — reclaim a piece of it", "days7": "Introduce a small new challenge, idea, or responsibility into your routine", "days30": "Reposition your role around tasks that stimulate meaning, not just efficiency"}},
+          {"option": "d", "score": 70, "depiction": "You see yourself working from the outside — emotional distance is growing.", "title": "The Disconnected Self: When You Become the Observer, Not the Participant", "archetype": "The Detached Executor", "keyInsight": "Your choice reveals a profound Work-Emotion Story — one where you feel like you are performing your role rather than living it.", "growthBlocker": "Identity detachment", "hiddenStrength": "High functional resilience", "hiddenDesire": "Re-engagement and participation", "futureArchetype": "Someone who feels deeply involved", "microActions": {"hours24": "Pause and notice when the emotional disconnect is strongest — mornings, meetings, certain tasks?", "days7": "Introduce one emotionally meaningful activity into your workflow — storytelling, mentoring, creativity", "days30": "Realign your responsibilities to include tasks that engage your emotional identity"}},
+          {"option": "e", "score": 60, "depiction": "Productivity is intact, but the spark has faded quietly underneath.", "title": "The Joy Drop: When Performance Continues But Passion Fades", "archetype": "The Faded Performer", "keyInsight": "Your answer reveals a bittersweet Work-Emotion Story — you are performing well, but joy has leaked out of the experience.", "growthBlocker": "Routine-driven burnout", "hiddenStrength": "Discipline and high performance", "hiddenDesire": "Revival", "futureArchetype": "Someone whose productivity is matched by passion", "microActions": {"hours24": "Identify the exact moment you felt joy last — what triggered it?", "days7": "Add one joy-restoring element into your work (learning, experimentation, autonomy)", "days30": "Rebuild part of your role around tasks that genuinely excite you"}},
+          {"option": "f", "score": 50, "depiction": "Too many shifts are draining your emotional bandwidth.", "title": "The Fragmentation Drain: When Your Brain Is Pulled in Too Many Directions", "archetype": "The Fragmented Multitasker", "keyInsight": "Your selection reveals a Work-Emotion Story dominated by cognitive overload rather than emotional disengagement.", "growthBlocker": "Lack of protected focus", "hiddenStrength": "Adaptability", "hiddenDesire": "Coherence", "futureArchetype": "Someone who feels mentally lighter and centred", "microActions": {"hours24": "Remove or batch one category of tasks to reduce switching", "days7": "Introduce one uninterrupted block of deep focus into your week", "days30": "Redesign your weekly structure for fewer transitions and more flow"}},
+          {"option": "g", "score": 40, "depiction": "Even small tasks are demanding more emotional energy than they should.", "title": "The Emotional Weight Build-Up: When Minor Tasks Start Feeling Major", "archetype": "The Emotional Carrier", "keyInsight": "Your answer reveals a telling Work-Emotion Story — heaviness creeping in where ease once existed.", "growthBlocker": "Emotional saturation", "hiddenStrength": "Perseverance", "hiddenDesire": "Relief", "futureArchetype": "Someone who reclaims emotional agility", "microActions": {"hours24": "Identify the 2–3 small tasks that drain you disproportionately", "days7": "Offload, eliminate, or batch them to reduce emotional friction", "days30": "Reset your workload boundaries — fewer drains, more meaningful tasks"}},
+          {"option": "h", "score": 30, "depiction": "Feeling undervalued is stealing your emotional vitality.", "title": "The Invisible Contributor: When Recognition Fails to Meet Effort", "archetype": "The Unseen Achiever", "keyInsight": "Your choice reveals a poignant Work-Emotion Story — you're contributing, showing up, delivering, yet the emotional reward of being seen is missing.", "growthBlocker": "Recognition deficit", "hiddenStrength": "Commitment and contribution", "hiddenDesire": "Acknowledgement", "futureArchetype": "Someone working in an environment where effort is recognized", "microActions": {"hours24": "Identify where your contributions go unnoticed — task, team, or leadership gap", "days7": "Increase visibility intentionally — document wins, share updates, speak up", "days30": "Reevaluate your environment — move toward roles or ecosystems that reflect your value"}},
+          {"option": "i", "score": 20, "depiction": "You're functioning without emotional presence — running on habit, not heart.", "title": "The Autopilot Mode: When You Work Without Feeling Alive", "archetype": "The Emotional Sleeper", "keyInsight": "Your response reveals a muted Work-Emotion Story — you're doing the work, but the emotional engine is idling.", "growthBlocker": "Habit and disengagement", "hiddenStrength": "Discipline", "hiddenDesire": "Reanimation", "futureArchetype": "Someone who works with renewed intentionality", "microActions": {"hours24": "Interrupt the autopilot once — do one task consciously and mindfully", "days7": "Add a new stimulus (challenge, idea, collaboration) to wake up engagement", "days30": "Rebuild your role around elements that feel emotionally meaningful or exciting"}},
+          {"option": "j", "score": 10, "depiction": "You've reached the threshold — your system is asking for a reset or direction shift.", "title": "The Reset Point: When Your System Asks for a New Beginning", "archetype": "The Reset Seeker", "keyInsight": "Your answer expresses a significant Work-Emotion Story — the sense that your inner system has reached saturation and is demanding renewal.", "growthBlocker": "Accumulated misalignment", "hiddenStrength": "Awareness", "hiddenDesire": "Renewal", "futureArchetype": "Someone who begins a new chapter with intention and alignment", "microActions": {"hours24": "List the top 3 things you want to release from your current work-life", "days7": "Introduce one restorative habit — reflection, solitude, new learning, digital boundaries", "days30": "Begin resetting direction — shift role, routine, relationships, or priorities"}}
+        ]
+      },
+      {
+        "questionId": 5,
+        "theme": "Energy & Workload Reality",
+        "indexName": "Sustainable Energy Load Index (SEL Index)",
+        "scoreType": "Burnout Risk Score",
+        "measure": "Assesses energy rhythm, overload patterns, and burnout thresholds.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your weekly rhythm is healthy — energy remains steady with room to grow.", "title": "Your Energy Equilibrium: A Rare State of Sustainable Growth", "archetype": "The Balanced Performer", "keyInsight": "Your response reflects a healthy Energy Story — you are managing your workload in a way that sustains performance without consuming your emotional reserves.", "growthBlocker": "Complacency", "hiddenStrength": "Strong self-regulation", "hiddenDesire": "Optimization", "futureArchetype": "Someone who elevates performance without sacrificing health", "microActions": {"hours24": "Identify one ritual that currently preserves your balance — protect it", "days7": "Add a small energy-positive habit (sleep window, walk, reflection time)", "days30": "Redesign or streamline one recurring task to reduce friction"}},
+          {"option": "b", "score": 90, "depiction": "Pressure appears occasionally, but your recovery mechanisms are strong.", "title": "The Adaptive Energy Rhythm: You Bend Without Breaking", "archetype": "The Resilient Balancer", "keyInsight": "Your choice reveals an Energy Story of resilience — you experience fluctuations, but you recover quickly and maintain good emotional stability.", "growthBlocker": "Unpredictability", "hiddenStrength": "Elasticity and adaptability", "hiddenDesire": "Consistency", "futureArchetype": "Someone who maintains high performance without absorbing unnecessary volatility", "microActions": {"hours24": "List the 1–2 triggers that make some weeks heavier", "days7": "Build a buffer system — batching, clearer boundaries, or planning", "days30": "Restructure one demanding workflow to reduce intensity spikes"}},
+          {"option": "c", "score": 80, "depiction": "Your energy swings — people and tasks significantly shape your weeks.", "title": "The Energy Oscillation Pattern: High Highs, Low Lows", "archetype": "The Sensitive High-Performer", "keyInsight": "Your response reveals a fluctuating Energy Story — your energy isn't constant; it spikes with certain tasks and drains with others.", "growthBlocker": "Inconsistency", "hiddenStrength": "Self-awareness", "hiddenDesire": "Stability", "futureArchetype": "Someone who consciously selects energizing environments and tasks", "microActions": {"hours24": "Identify your biggest energy boosters and energy drainers", "days7": "Reduce exposure to one energy-draining task or person", "days30": "Rebuild part of your workflow around your natural energy cycles"}},
+          {"option": "d", "score": 70, "depiction": "Your workload is constant and tiring, but still within your control zone.", "title": "The Long-Distance Strain: Carrying a Load That Never Lightens", "archetype": "The Endurance Worker", "keyInsight": "Your response tells a very real Energy Story — you can handle the work, but the ongoing pressure is slowly grinding your emotional and mental reserves.", "growthBlocker": "Lack of recovery cycles", "hiddenStrength": "Endurance", "hiddenDesire": "Relief", "futureArchetype": "Someone who performs at high level while maintaining emotional spaciousness", "microActions": {"hours24": "Identify the 1–2 pressure points that consistently push you into fatigue", "days7": "Implement mini-recovery windows — micro-breaks, decompression blocks, calendar spacing", "days30": "Redesign a small part of your workload or routine to reduce ongoing strain"}},
+          {"option": "e", "score": 60, "depiction": "Disconnecting is hard — your mind rarely gets to switch off fully.", "title": "The Hyper-Responsiveness Trap: When Your Mind Never Shuts Off", "archetype": "The Perpetual Performer", "keyInsight": "Your answer reflects a high-alert Energy Story — even when you're not working, your mind remains switched on.", "growthBlocker": "Emotional vigilance", "hiddenStrength": "Dedication", "hiddenDesire": "Mental freedom", "futureArchetype": "Someone who works in cycles — intense when needed, fully off when not", "microActions": {"hours24": "Turn off one notification category — email, chat, or work alerts", "days7": "Set a fixed shutdown ritual to transition out of work mode", "days30": "Redefine your availability boundaries — when you're reachable and when you're not"}},
+          {"option": "f", "score": 50, "depiction": "You're managing, but just barely — the overextension signals are visible.", "title": "The Overload Phase: One Step Away From Burnout", "archetype": "The Overloaded Executor", "keyInsight": "Your response reveals a serious Energy Story — you're functioning, but at the edge.", "growthBlocker": "Depletion", "hiddenStrength": "Resilience", "hiddenDesire": "Relief", "futureArchetype": "Someone who operates from strength, not survival", "microActions": {"hours24": "Eliminate or defer one non-critical task — create instant bandwidth", "days7": "Identify the top two responsibilities that are unsustainably heavy — begin renegotiation", "days30": "Redesign your workload structure — boundaries, delegation, or reallocation"}},
+          {"option": "g", "score": 40, "depiction": "Your brain is carrying too much — task density is exceeding processing space.", "title": "The Cognitive Overload State: When Your Brain Is Operating Beyond Capacity", "archetype": "The Overloaded Thinker", "keyInsight": "Your response reveals a heavy Energy–Mind Story — your brain is carrying too many open loops, too many demands, too many unfinished threads.", "growthBlocker": "Cognitive clutter", "hiddenStrength": "Perseverance", "hiddenDesire": "Mental decluttering", "futureArchetype": "Someone who operates with sharper focus and fewer tabs open", "microActions": {"hours24": "Brain-dump all open tasks onto paper or a digital list to unload your mind", "days7": "Batch similar tasks to reduce cognitive switching", "days30": "Redesign your workload by eliminating or delegating lower-priority items"}},
+          {"option": "h", "score": 30, "depiction": "Your body is absorbing the workload strain before your mind does.", "title": "The Physical Fatigue Zone: When Your Body Sends the First Warning Signal", "archetype": "The Drained Achiever", "keyInsight": "Your response reveals a telling Energy–Body Story — your body is absorbing the workload's impact before your mind registers it.", "growthBlocker": "Somatic fatigue", "hiddenStrength": "Mental durability", "hiddenDesire": "Restoration", "futureArchetype": "Someone who honours their physiology as much as their ambition", "microActions": {"hours24": "Prioritize one restorative action — hydration, stretch, early sleep, light movement", "days7": "Create a physical recovery ritual — walks, stretching blocks, breathwork", "days30": "Rebuild your lifestyle rhythm to include sustainable energy cycles"}},
+          {"option": "i", "score": 20, "depiction": "You're running on the last layer of fuel — recovery isn't happening effectively.", "title": "The Reserve-Only Mode: When You're Operating Without Refill", "archetype": "The Reserve Runner", "keyInsight": "Your response illustrates a concerning Energy Story — you are functioning using emotional and physical reserves that should only be tapped occasionally.", "growthBlocker": "Lack of restoration cycles", "hiddenStrength": "Survival strength", "hiddenDesire": "Replenishment", "futureArchetype": "Someone who rebuilds energy faster than they deplete it", "microActions": {"hours24": "Remove one non-essential demand to create immediate breathing space", "days7": "Add one high-quality recovery habit — sleep consistency, nutrition upgrade, digital detox", "days30": "Redesign your weekly pattern for proper charge–discharge balance"}},
+          {"option": "j", "score": 10, "depiction": "You're functioning, but emotionally and physically depleted — burnout zone detected.", "title": "The Burnout Threshold: Functioning Outside Your Emotional bandwidth", "archetype": "The Burnout Survivor", "keyInsight": "Your choice reveals a deep Energy–Emotion Story — you are delivering, but at an emotional cost that is no longer sustainable.", "growthBlocker": "Emotional burnout", "hiddenStrength": "Grit", "hiddenDesire": "Reset", "futureArchetype": "Someone who operates with renewal, strength, and emotional alignment", "microActions": {"hours24": "Pause one draining task or say no once — reclaim a tiny piece of emotional bandwidth", "days7": "Engage in one replenishing activity — talking to someone safe, slowing down, resting intentionally", "days30": "Begin a larger reset — shifting expectations, responsibilities, or environment"}}
+        ]
+      },
+      {
+        "questionId": 6,
+        "theme": "Cultural Tension Signal",
+        "indexName": "Cultural Alignment Need Index (CAN Index)",
+        "scoreType": "Cultural Friction Score",
+        "measure": "Shows what cultural shift your system is craving — trust, safety, recognition, etc.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "You thrive in truth-first cultures — clarity fuels your best work.", "title": "The Clarity Craving: When Opacity Erodes Emotional Safety", "archetype": "The Clarity Advocate", "keyInsight": "Your answer reveals a significant Culture–Emotion Story — you thrive in environments where truth is shared openly, decisions are explained, and ambiguity is minimized.", "growthBlocker": "Informational opacity", "hiddenStrength": "Desire for clarity, alignment, and honest dialogue", "hiddenDesire": "Transparency-as-trust", "futureArchetype": "Someone operating in environments that respect open communication", "microActions": {"hours24": "Identify one area where lack of transparency affects performance or trust", "days7": "Ask clarifying questions in a neutral, non-confrontational tone", "days30": "Advocate for transparent rituals (decision logs, project updates, open Q&As)"}},
+          {"option": "b", "score": 90, "depiction": "You work best when empowered — not controlled or monitored.", "title": "The Autonomy Need: When Oversight Becomes Emotional Friction", "archetype": "The Autonomy Champion", "keyInsight": "Your response reveals a strong Culture–Emotion Story — you work best when trusted, empowered, and allowed to execute without unnecessary oversight.", "growthBlocker": "Over-control and micromanagement", "hiddenStrength": "Independence and expertise", "hiddenDesire": "Empowerment", "futureArchetype": "Someone part of an organization that values ownership", "microActions": {"hours24": "Identify the specific behaviours that feel like micromanagement", "days7": "Proactively showcase progress to create visibility without being asked", "days30": "Suggest trust-building rituals — weekly sync instead of daily checkpoints"}},
+          {"option": "c", "score": 80, "depiction": "Being unseen drains you — acknowledgment is your fuel.", "title": "The Visibility Gap: When Contribution Isn't Reflected Back", "archetype": "The Recognition Defender", "keyInsight": "Your choice reveals an emotionally rich Culture–Recognition Story — you believe that effort should be acknowledged, and impact should be seen.", "growthBlocker": "Appreciation deficit", "hiddenStrength": "Fairness and belief in merit", "hiddenDesire": "Appreciation and visibility", "futureArchetype": "Someone thriving in environments where people are valued", "microActions": {"hours24": "Notice one area where recognition is consistently missing", "days7": "Model recognition — appreciate others publicly", "days30": "Begin shaping conversations around value, not just output"}},
+          {"option": "d", "score": 70, "depiction": "Bias or favouritism irritates you — merit matters deeply.", "title": "The Equity Demand: When Unequal Treatment Disrupts Motivation", "archetype": "The Equity Guardian", "keyInsight": "Your response reflects a strong Culture–Equity Story — you are deeply affected when recognition, opportunities, or rewards follow favoritism instead of merit.", "growthBlocker": "Perceived inequality", "hiddenStrength": "Internal moral compass", "hiddenDesire": "Equitable meritocracy", "futureArchetype": "Someone who thrives in transparent, unbiased systems", "microActions": {"hours24": "Identify the patterns of unfairness — decisions, opportunities, praise distribution", "days7": "Anchor your conversations in objective outcomes", "days30": "Influence fairness rituals — clear role expectations, transparent opportunity processes"}},
+          {"option": "e", "score": 60, "depiction": "You want a culture where honesty doesn't come with risk.", "title": "The Safety Gap: When Truth Must Tiptoe", "archetype": "The Safety Builder", "keyInsight": "Your answer reveals a sensitive and insightful Culture–Emotion Story — you can sense when people hold back their ideas, concerns, or feedback.", "growthBlocker": "Conversational risk", "hiddenStrength": "Authenticity and value for honesty", "hiddenDesire": "Psychological freedom", "futureArchetype": "Someone thriving in open cultures where opinions are welcomed", "microActions": {"hours24": "Observe where silence exists — meetings, decisions, conflict zones", "days7": "Model safe expression by asking open questions and welcoming views", "days30": "Cultivate a local pocket of psychological safety"}},
+          {"option": "f", "score": 50, "depiction": "You believe siloed work kills potential — collective energy lifts you.", "title": "The Silo Frustration: When Work Happens in Islands, Not Ecosystems", "archetype": "The Collaboration Catalyst", "keyInsight": "Your response reflects a dynamic Culture–Team Story — you believe collective energy, shared ideas, and cross-team flow amplify impact.", "growthBlocker": "Structural fragmentation", "hiddenStrength": "Connector mindset", "hiddenDesire": "Synergy", "futureArchetype": "Someone who thrives in collaborative ecosystems", "microActions": {"hours24": "Identify the one team you should collaborate with but currently don't", "days7": "Initiate a cross-team conversation, sync, or co-created initiative", "days30": "Build a repeatable collaboration rhythm"}},
+          {"option": "g", "score": 40, "depiction": "Layers and rules suffocate your creativity — you crave experimentation.", "title": "The Innovation Constriction: When Bureaucracy Blocks Imagination", "archetype": "The Innovation Activator", "keyInsight": "Your response reveals a powerful Culture–Innovation Story — you thrive in environments where ideas move fast, experiments are encouraged, and layers don't suffocate initiative.", "growthBlocker": "Rigidity and approval chains", "hiddenStrength": "Imagination combined with action", "hiddenDesire": "Creative freedom", "futureArchetype": "Someone who thrives in agile, idea-forward cultures", "microActions": {"hours24": "Identify one idea that has been stuck due to layers", "days7": "Run a low-risk, small-scale experiment", "days30": "Build a mini-innovation loop in your team"}},
+          {"option": "h", "score": 30, "depiction": "You want leaders who understand human realities, not just metrics.", "title": "The Humanity Gap: When Leadership Forgets the Human Behind the Role", "archetype": "The Empathy Amplifier", "keyInsight": "Your answer unveils a deeply emotional Culture–Empathy Story — you feel the absence of human sensitivity in leadership interactions.", "growthBlocker": "Emotional disconnect", "hiddenStrength": "Compassion and human recognition", "hiddenDesire": "Human leadership", "futureArchetype": "Someone thriving where empathy is seen as strength", "microActions": {"hours24": "Acknowledge one colleague's emotional reality", "days7": "Initiate a human check-in moment in a meeting", "days30": "Model compassionate leadership rituals"}},
+          {"option": "i", "score": 20, "depiction": "Ambiguity drains you — you need roles, goals, and direction clear.", "title": "The Definition Deficit: When Ambiguity Becomes a Hidden Tax", "archetype": "The Clarity Architect", "keyInsight": "Your response reflects a precise Culture–Clarity Story — you cannot perform at your best when expectations are foggy, roles are blurry, or goals shift without notice.", "growthBlocker": "Structural ambiguity", "hiddenStrength": "Need for direction and purposeful focus", "hiddenDesire": "Clarity-enabled empowerment", "futureArchetype": "Someone thriving in structured, aligned cultures", "microActions": {"hours24": "Identify one unclear expectation that drains your energy", "days7": "Ask for alignment: What does success look like?", "days30": "Build a clarity ritual — weekly priorities, role statements, expectation check-ins"}},
+          {"option": "j", "score": 10, "depiction": "You're allergic to politics — authenticity matters more than optics.", "title": "The Politics Fatigue: When Power Games Replace Purpose", "archetype": "The Authenticity Purist", "keyInsight": "Your response reveals a strong Culture–Integrity Story — you feel emotionally drained when politics overshadow performance or relationships.", "growthBlocker": "Power-play culture", "hiddenStrength": "Authenticity", "hiddenDesire": "Realness", "futureArchetype": "Someone thriving where people speak plainly and act transparently", "microActions": {"hours24": "Identify political patterns — who, where, and how they emerge", "days7": "Navigate conversations with grounded clarity", "days30": "Build a micro-environment of authenticity"}}
+        ]
+      },
+      {
+        "questionId": 7,
+        "theme": "Leadership Energy Drain/Boost",
+        "indexName": "Leadership Impact Energy Index (LIE Index)",
+        "scoreType": "Leadership Influence Score",
+        "measure": "Measures how your manager impacts your energy, confidence, and growth potential.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your leader multiplies your growth — they are a true accelerator.", "title": "The Energy-Lifting Leader: A Catalyst for Your Momentum", "archetype": "The Uplifted Performer", "keyInsight": "Your choice reveals a highly empowering Leader–Energy Story — your leader amplifies your potential, stretches your abilities, and accelerates your growth.", "growthBlocker": "Minimal", "hiddenStrength": "Responsiveness to good mentorship", "hiddenDesire": "Mastery", "futureArchetype": "Someone who carries forward this cycle of elevation", "microActions": {"hours24": "Identify one growth insight your leader gave that accelerated your progress", "days7": "Ask for strategic stretch assignments to expand your capability", "days30": "Build a personal Growth OS — weekly reflection, targeted skill deep dives"}},
+          {"option": "b", "score": 90, "depiction": "You feel supported and safe to stretch — trust fuels your progress.", "title": "The Safety-First Leader: A Steady Foundation for Your Growth", "archetype": "The Secure Striver", "keyInsight": "Your answer reveals a balanced, nurturing Leader–Energy Story — your leader creates emotional safety, psychological comfort, and space for learning.", "growthBlocker": "Internal underutilization", "hiddenStrength": "Openness to learning", "hiddenDesire": "Courage", "futureArchetype": "Someone who blends calmness with ambition", "microActions": {"hours24": "Acknowledge one area where their support enabled you to succeed", "days7": "Request specific feedback that sharpens your growth focus", "days30": "Take on one calculated-risk project that pushes you beyond comfort"}},
+          {"option": "c", "score": 80, "depiction": "Guidance exists, but the style mismatch slows your fullest potential.", "title": "The Partial Alignment Leader: Helpful, Yet Not Quite Your Rhythm", "archetype": "The Adaptive Performer", "keyInsight": "Your response reveals a nuanced Leader–Energy Story — your leader provides guidance, but the way they operate isn't fully aligned with your natural work rhythm.", "growthBlocker": "Style mismatch", "hiddenStrength": "Adaptability", "hiddenDesire": "Resonance", "futureArchetype": "Someone who integrates multiple styles authentically", "microActions": {"hours24": "Identify the specific moments where your styles diverge", "days7": "Bridge the gap by aligning expectations and preferred communication formats", "days30": "Develop your own leadership rhythm that absorbs the useful"}},
+          {"option": "d", "score": 70, "depiction": "Your leader neither boosts nor drains you — energy remains flat.", "title": "The Flatline Leadership Effect: When You Must Create Your Own Momentum", "archetype": "The Self-Propelled Achiever", "keyInsight": "Your response reveals a calm but uninspiring Leader–Energy Story — your leader does not harm your growth, but they also do not accelerate it.", "growthBlocker": "Emotional neutrality", "hiddenStrength": "Self-drive", "hiddenDesire": "Inspiration", "futureArchetype": "Someone who creates momentum from within", "microActions": {"hours24": "Identify where you rely on your leader for direction vs where you can self-initiate", "days7": "Seek inspiration from outside the leader—mentors, peers, learning spaces", "days30": "Establish a personal acceleration loop — goals, stretch targets, self-coaching"}},
+          {"option": "e", "score": 60, "depiction": "You're navigating alone — the absence of leadership costs you energy.", "title": "The Absent Leadership Impact: When Guidance Becomes a Missing Resource", "archetype": "The Independent Navigator", "keyInsight": "Your answer reflects a challenging Leader–Energy Story — your leader is present in title but not in engagement.", "growthBlocker": "Emotional distance", "hiddenStrength": "Independence and learning to navigate", "hiddenDesire": "Connection and partnership", "futureArchetype": "Someone who provides the kind of involvement wished for", "microActions": {"hours24": "Identify the top 1–2 decisions where lack of guidance hurts your progress", "days7": "Proactively request specific inputs rather than waiting for general support", "days30": "Build your own advisory circle — peers, mentors, experts"}},
+          {"option": "f", "score": 50, "depiction": "Unpredictable leadership creates emotional whiplash and uneven motivation.", "title": "The Unpredictable Leader: When Your Growth Depends on Their Mood Swing", "archetype": "The Resilient Stabilizer", "keyInsight": "Your response reveals a volatile Leader–Energy Story — your leader oscillates between empowering and draining, creating uncertainty in your work rhythm.", "growthBlocker": "Inconsistency", "hiddenStrength": "Resilience and adaptability", "hiddenDesire": "Stability", "futureArchetype": "Someone who values steadiness and clarity", "microActions": {"hours24": "Identify patterns — when they empower you vs when they drain you", "days7": "Build your own structure independent of their mood", "days30": "Create emotional insulation and strengthen internal stability"}},
+          {"option": "g", "score": 40, "depiction": "You're growing, but the emotional price of meeting expectations is heavy.", "title": "The High-Pressure Leader: Growth at the Cost of Emotional Fatigue", "archetype": "The Grit-Forged Achiever", "keyInsight": "Your response reveals a complex Leader–Energy Story — you are being stretched, but the stretch often feels heavy, urgent, or emotionally weighty.", "growthBlocker": "Pressure-loaded guidance", "hiddenStrength": "Grit", "hiddenDesire": "Balanced challenge", "futureArchetype": "Someone who pushes others but not at expense of well-being", "microActions": {"hours24": "Identify the tasks or interactions that feel more draining than developmental", "days7": "Create boundaries around urgency — clarify timelines and real criticalities", "days30": "Rebuild your personal growth rhythm — choosing your stretch"}},
+          {"option": "h", "score": 30, "depiction": "Unclear direction or feedback quietly drains your confidence.", "title": "The Accidental Drainer: When Confusion Eats Into Your Confidence", "archetype": "The Clarity-Seeking Performer", "keyInsight": "Your answer reveals a subtle yet impactful Leader–Energy Story — your leader doesn't aim to drain you, but their communication or clarity issues create emotional leakage.", "growthBlocker": "Misalignment and unclear communication", "hiddenStrength": "Conscientiousness", "hiddenDesire": "Coherence", "futureArchetype": "Someone who communicates simply, clearly, and predictably", "microActions": {"hours24": "Note the specific moments where unclear communication caused rework or stress", "days7": "Ask for clarity in real time: Can you confirm the priority and expectation?", "days30": "Build a clarity ritual — summaries, written confirmations, weekly alignment loops"}},
+          {"option": "i", "score": 20, "depiction": "Your leader restricts your potential — your confidence dips around them.", "title": "The Confidence-Dampening Leader: When Your Potential Shrinks in Their Presence", "archetype": "The Confidence Reclaimer", "keyInsight": "Your response reveals a concerning Leader–Energy Story — your leader's style, tone, or expectations make you doubt yourself.", "growthBlocker": "Psychological constriction", "hiddenStrength": "Self-awareness", "hiddenDesire": "Psychological safety", "futureArchetype": "Someone who expands others, not shrinks them", "microActions": {"hours24": "Identify the exact behaviours that make you shrink — tone, feedback style, control", "days7": "Create distance emotionally — don't internalize their tone as truth", "days30": "Build external confidence reservoirs — mentors, communities, small wins"}},
+          {"option": "j", "score": 10, "depiction": "Leadership exhausts you — you're operating in defensive, survival-driven energy.", "title": "The Survival-Mode Leader: When Emotional Fatigue Becomes Your Default", "archetype": "The Burnout-Aware Leader in the Making", "keyInsight": "Your selection reveals a deeply draining Leader–Energy Story — your leader's presence, style, or expectations consistently deplete your emotional reserves.", "growthBlocker": "Overload culture", "hiddenStrength": "Endurance", "hiddenDesire": "Emotional safety and sustainability", "futureArchetype": "Someone who leads with steadiness, respect, and humanity", "microActions": {"hours24": "Identify the moments where their presence triggers tension or fatigue", "days7": "Protect your emotional boundary — minimize non-essential interactions", "days30": "Begin designing your exit from survival mode"}}}
+        ]
+      },
+      {
+        "questionId": 8,
+        "theme": "Meaning & Values Alignment",
+        "indexName": "Values–Work Harmony Index (VWH Index)",
+        "scoreType": "Values Alignment Score",
+        "measure": "Evaluates how closely your work matches your core beliefs, identity, and meaning.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your work beautifully mirrors what you stand for — rare alignment.", "title": "The Congruence State: When Your Work Reflects Your Soul's Signature", "archetype": "The Aligned Contributor", "keyInsight": "Your response reveals a deeply harmonious Values–Identity Story — your daily work expresses your principles, beliefs, and inner compass.", "growthBlocker": "Complacency", "hiddenStrength": "Authenticity", "hiddenDesire": "Expansion", "futureArchetype": "Someone who leads transformation rooted in meaning", "microActions": {"hours24": "Identify one specific moment this week where your work expressed your principles", "days7": "Seek a stretch task that deepens your contribution to a value-driven outcome", "days30": "Build your personal Meaning OS — define top 3 values for your next chapter"}},
+          {"option": "b", "score": 90, "depiction": "Your values steer your choices, and your work largely supports them.", "title": "The Anchored Decision-Maker: Living Your Values, Not Just Naming Them", "archetype": "The Intentional Pathfinder", "keyInsight": "Your answer reflects a strong Values–Behaviour Story — your choices are rooted in principles, not pressure.", "growthBlocker": "Limited stretch", "hiddenStrength": "Intentionality", "hiddenDesire": "Deeper embodiment", "futureArchetype": "Someone who inspires through consistency, integrity, and conviction", "microActions": {"hours24": "Name the one value you protected most strongly this month", "days7": "Align a key work decision explicitly to your values", "days30": "Design a Values Expansion Plan for your next career step"}},
+          {"option": "c", "score": 80, "depiction": "You're aligned within, but your environment doesn't always match your values.", "title": "The Inner-Outer Mismatch: When Your Values Shine, but Your Culture Doesn't", "archetype": "The Integrity Holder", "keyInsight": "Your response reveals a powerful but challenging Values–Environment Story — internally, you know what you stand for, but externally, the culture doesn't always match.", "growthBlocker": "Cultural dissonance", "hiddenStrength": "Integrity", "hiddenDesire": "Resonance", "futureArchetype": "Someone who influences environments or chooses aligned ones", "microActions": {"hours24": "Identify the top 1–2 cultural mismatches causing friction", "days7": "Anchor your behaviour in your internal compass", "days30": "Decide whether to influence the environment or transition to an aligned one"}},
+          {"option": "d", "score": 70, "depiction": "You know your values, but you're not consistently living them yet.", "title": "The Partial Alignment State: When Your Values Are Known but Not Yet Embodied", "archetype": "The Conscious Re-aligner", "keyInsight": "Your response reveals a meaningful Values–Behaviour Gap Story — you have clarity about what matters, but your daily decisions don't always reflect it.", "growthBlocker": "Misaligned behaviour loops", "hiddenStrength": "Awareness", "hiddenDesire": "Congruence", "futureArchetype": "Someone whose choices mirror their truth", "microActions": {"hours24": "Pinpoint one recent decision that contradicted your values", "days7": "Make one value-led choice, even if small", "days30": "Create a Values in Action plan"}},
+          {"option": "e", "score": 60, "depiction": "You understand your values, but struggle to translate them into career direction.", "title": "The Directional Uncertainty: When Values Exist, but the Career Path Doesn't Yet Integrate Them", "archetype": "The Purpose-Seeking Navigator", "keyInsight": "Your answer reflects a thoughtful Values–Career Story — you're clear about what you believe, but the link between those beliefs and your career direction is still forming.", "growthBlocker": "Misalignment of purpose pathways", "hiddenStrength": "Self-awareness", "hiddenDesire": "Integration", "futureArchetype": "Someone whose career becomes extension of principles", "microActions": {"hours24": "Identify your top 3 values", "days7": "Assess which aspects of your current role support or contradict them", "days30": "Explore roles, industries, or pathways where values become career anchors"}},
+          {"option": "f", "score": 50, "depiction": "Your values are changing — you're in a meaningful identity evolution.", "title": "The Evolution Phase: When Your Inner Compass Is Rewriting Itself", "archetype": "The Evolving Architect", "keyInsight": "Your choice reveals a dynamic Values–Identity Transformation Story — you're in a period where your beliefs, priorities, and internal compass are evolving.", "growthBlocker": "Uncertainty", "hiddenStrength": "Self-honesty", "hiddenDesire": "Clarity", "futureArchetype": "Someone who aligns next chapter with updated beliefs", "microActions": {"hours24": "Notice what no longer energizes — these are outdated values", "days7": "Track moments of resonance — what feels meaningful now", "days30": "Define your emergent values blueprint"}},
+          {"option": "g", "score": 40, "depiction": "Your work and identity feel increasingly misaligned — friction is rising.", "title": "The Expanding Gap: When Your Work No Longer Reflects Your Evolving Identity", "archetype": "The Identity Evolver", "keyInsight": "Your response reveals a profound Values–Identity Drift Story — who you are becoming is drifting away from what you currently do.", "growthBlocker": "Stagnation", "hiddenStrength": "Self-awareness", "hiddenDesire": "Realignment", "futureArchetype": "Someone whose career mirrors expanded self", "microActions": {"hours24": "Name the aspects of your identity that have grown beyond your current role", "days7": "Identify the work elements that contradict who you're becoming", "days30": "Explore aligned pathways"}},
+          {"option": "h", "score": 30, "depiction": "You're beginning to doubt whether your career reflects who you are becoming.", "title": "The Identity Inquiry: When Doubt Signals an Awakening", "archetype": "The Authenticity Seeker", "keyInsight": "Your selection reflects a reflective Values–Identity Questioning Story — you're examining whether the life you've built aligns with your true self.", "growthBlocker": "Uncertainty about authenticity", "hiddenStrength": "Courage in questioning", "hiddenDesire": "Authenticity", "futureArchetype": "Someone who builds career from inside out", "microActions": {"hours24": "Write the top 3 traits that define your identity today", "days7": "Review your work and identify what reflects or suppresses these traits", "days30": "Begin shaping a career narrative anchored in true identity"}},
+          {"option": "i", "score": 20, "depiction": "External demands are pulling you away from what truly matters to you.", "title": "The Values Tug-of-War: When Purpose Battles Obligation", "archetype": "The Purpose–Obligation Balancer", "keyInsight": "Your response reveals an emotionally rich Values–Conflict Story — your inner sense of meaning clashes with the realities of responsibility and expectation.", "growthBlocker": "Dual pressure", "hiddenStrength": "Integrity", "hiddenDesire": "Harmony", "futureArchetype": "Someone finding a path where impact doesn't require compromise", "microActions": {"hours24": "Identify the exact situations where meaning lost to pressure", "days7": "Make one small decision prioritizing meaning over expectation", "days30": "Redesign a part of your career to reduce pressure-driven decisions"}},
+          {"option": "j", "score": 10, "depiction": "You feel disconnected from meaning — your inner compass needs recalibration.", "title": "The Disconnection Phase: When Meaning Evaporates and Purpose Feels Distant", "archetype": "The Meaning Reclaimer", "keyInsight": "Your choice reflects a significant Values–Meaning Disconnection Story — you're operating, performing, delivering… but without emotional resonance.", "growthBlocker": "Purpose depletion", "hiddenStrength": "Capacity and functioning strength", "hiddenDesire": "Direction", "futureArchetype": "Someone finding meaning through reconnection", "microActions": {"hours24": "Acknowledge the disconnection without judgment", "days7": "Revisit moments where you felt most alive", "days30": "Begin constructing a new purpose pathway"}}
+        ]
+      },
+      {
+        "questionId": 9,
+        "theme": "Reinvention & Future-Readiness",
+        "indexName": "Reinvention Readiness Index (RRI Index)",
+        "scoreType": "Reinvention Readiness Score",
+        "measure": "Measures how emotionally and mentally prepared you are for major career change.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "You're ready to leap — energy and clarity are aligned for a big change.", "title": "The Leap Energy: When Your Future Pulls You Stronger Than Your Present Holds You", "archetype": "The Ready Leaper", "keyInsight": "Your response reveals a powerful Reinvention–Momentum Story — you're standing at the edge of a new chapter with excitement, not fear.", "growthBlocker": "Direction clarity", "hiddenStrength": "Courage", "hiddenDesire": "Expansion", "futureArchetype": "Someone who moves with conviction and shapes opportunities", "microActions": {"hours24": "Capture the top 3 areas where you feel the strongest pull for reinvention", "days7": "Choose one direction and create a first-10-steps plan", "days30": "Execute a bold action — sign up, apply, build, launch, pitch, or collaborate"}},
+          {"option": "b", "score": 90, "depiction": "You're genuinely open to new paths — curiosity is guiding you forward.", "title": "The Exploration Phase: When Curiosity Becomes Your Reinvention Compass", "archetype": "The Open Explorer", "keyInsight": "Your response reveals a thoughtful Reinvention–Curiosity Story — you may not have chosen a specific path, but you're emotionally open to discovery.", "growthBlocker": "Choice overwhelm", "hiddenStrength": "Openness and willingness", "hiddenDesire": "Alignment", "futureArchetype": "Someone who crafts career through exploration", "microActions": {"hours24": "Identify 2–3 potential reinvention possibilities that excite you", "days7": "Run micro-experiments — short learning bursts, conversations, role simulations", "days30": "Shortlist one direction that feels most alive"}},
+          {"option": "c", "score": 80, "depiction": "You sense something bigger ahead — the spark of reinvention is alive.", "title": "The Calling Whisper: When Reinvention Begins as a Feeling, Not a Plan", "archetype": "The Intuitive Awakener", "keyInsight": "Your response reveals a soulful Reinvention–Intuition Story — the next chapter isn't clear, but you can feel its presence.", "growthBlocker": "Ambiguity", "hiddenStrength": "Intuition", "hiddenDesire": "Purpose", "futureArchetype": "Someone who embodies larger, more meaningful version of themselves", "microActions": {"hours24": "Write the sensations — what bigger feels like for you", "days7": "Follow the intuitive breadcrumbs — people, ideas, industries that spark energy", "days30": "Shape a prototype of your bigger self"}},
+          {"option": "d", "score": 70, "depiction": "You've been building toward change — the groundwork is already in motion.", "title": "The Readiness Phase: When Your Past Work Quietly Prepared You for a Bigger Chapter", "archetype": "The Prepared Architect", "keyInsight": "Your response reflects a grounded Reinvention–Preparation Story — you're not leaping impulsively; you've been intentionally building for this moment.", "growthBlocker": "Timing anxiety", "hiddenStrength": "Strategic patience", "hiddenDesire": "Activation", "futureArchetype": "Someone who executes reinvention with mastery", "microActions": {"hours24": "List the top 3 capabilities you've built that signal readiness", "days7": "Identify the exact moment that should start your transition", "days30": "Launch your Reinvention Activation Plan"}},
+          {"option": "e", "score": 60, "depiction": "You want change, but prefer stability as your safety net.", "title": "The Balanced Reinventor: When Hope Meets Practicality", "archetype": "The Strategic Optimist", "keyInsight": "Your response reveals a thoughtful Reinvention–Stability Story — you are open to change but equally anchored in the need for safety and control.", "growthBlocker": "Risk perception", "hiddenStrength": "Maturity", "hiddenDesire": "Assurance", "futureArchetype": "Someone who transitions with elegance", "microActions": {"hours24": "Write down the exact risks you fear", "days7": "Design a Safety Net Blueprint — savings, skill gaps, fallback options", "days30": "Begin a low-risk reinvention experiment"}},
+          {"option": "f", "score": 50, "depiction": "You feel a shift coming, but the direction is still foggy.", "title": "The Undefined Shift: When You Know Change Is Near, but Its Shape Is Still Forming", "archetype": "The Transitional Seeker", "keyInsight": "Your answer reflects a subtle Reinvention–Ambiguity Story — your body, intuition, and mind sense change, but clarity hasn't arrived yet.", "growthBlocker": "Lack of definition", "hiddenStrength": "Sensitivity to evolution", "hiddenDesire": "Insight", "futureArchetype": "Someone who finds clarity through exploration", "microActions": {"hours24": "Document the hints — conversations, ideas, skills, moments that spark curiosity", "days7": "Expose yourself to new worlds — industries, people, books, environments", "days30": "Shortlist 2–3 potential reinvention directions"}},
+          {"option": "g", "score": 40, "depiction": "The unknowns feel heavy — clarity must rise before momentum can build.", "title": "The Overwhelm Zone: When Reinvention Feels Bigger Than Your Current Capacity", "archetype": "The Anxious but Aware Transformer", "keyInsight": "Your response reveals an honest Reinvention–Anxiety Story — you sense the need for change, but the ambiguity of the next step triggers turbulence.", "growthBlocker": "Uncertainty overload", "hiddenStrength": "Awareness", "hiddenDesire": "Reassurance", "futureArchetype": "Someone who moves with confidence through clarity", "microActions": {"hours24": "Acknowledge your anxiety", "days7": "Break reinvention into micro-decisions", "days30": "Build a clarity map — options, risks, rewards"}},
+          {"option": "h", "score": 30, "depiction": "Part of you wants change; part resists — the tug-of-war is real.", "title": "The Inner Tug-of-War: When Desire and Safety Pull You in Opposite Directions", "archetype": "The Integrative Reinventor", "keyInsight": "Your answer reveals a powerful Reinvention–Duality Story — one part of you seeks growth; another part holds tightly to familiarity and safety.", "growthBlocker": "Inner resistance", "hiddenStrength": "Balance", "hiddenDesire": "Integration", "futureArchetype": "Someone who transforms while carrying forward the best", "microActions": {"hours24": "Write down the two parts of you", "days7": "Identify what the resisting part is protecting", "days30": "Design a hybrid transition"}},
+          {"option": "i", "score": 20, "depiction": "Reinvention feels overwhelming — fear is louder than possibility right now.", "title": "The Fear Barrier: When Reinvention Feels Like a Threat Instead of an Opportunity", "archetype": "The Fear-Aware Rebuilder", "keyInsight": "Your response reveals a raw Reinvention–Fear Story — you're not resisting change; you're afraid of its magnitude, consequences, or emotional demands.", "growthBlocker": "Fear of loss", "hiddenStrength": "Vulnerability awareness", "hiddenDesire": "Safety", "futureArchetype": "Someone who transforms once fear is replaced with clarity", "microActions": {"hours24": "Identify the exact fear", "days7": "Reduce fear through exposure — learn, observe, analyse", "days30": "Build a Safety Layer"}},
+          {"option": "j", "score": 10, "depiction": "You know change is needed, but you don't know how to begin — stuck at the starting line.", "title": "The Inertia Loop: When You Want Change but Can't Find the Starting Point", "archetype": "The Still Potential", "keyInsight": "Your answer reveals a relatable Reinvention–Stagnation Story — the desire for change is real, but the starting line is invisible.", "growthBlocker": "Overwhelm paralysis", "hiddenStrength": "Awareness of stuckness", "hiddenDesire": "Roadmap", "futureArchetype": "Someone who gains momentum through small steps", "microActions": {"hours24": "Identify one area of your life or career that feels most misaligned", "days7": "Take the smallest possible action", "days30": "Build a Reinvention Momentum Loop"}}
+        ]
+      },
+      {
+        "questionId": 10,
+        "theme": "Hidden Passion & Future Self Expression",
+        "indexName": "Passion Expression Alignment Index (PEA Index)",
+        "scoreType": "Passion Clarity Score",
+        "measure": "Reveals your deepest passion signature and how clearly it aligns with future identity.",
+        "scoringOptions": [
+          {"option": "a", "score": 100, "depiction": "Your soul speaks through creation — imagination is your native language.", "title": "The Creative Identity: Your Soul Speaks Through What You Make", "archetype": "The Creative Builder", "keyInsight": "Your answer reveals a profound Creative–Purpose Story — you feel most alive when your inner world takes shape through ideas, structures, visuals, products, or concepts.", "growthBlocker": "Suppression in non-creative environments", "hiddenStrength": "Generativity", "hiddenDesire": "Expression", "futureArchetype": "Someone who leads through innovation and artistic intelligence", "microActions": {"hours24": "Capture one idea you've been holding back", "days7": "Build a tiny prototype", "days30": "Launch a creative project"}},
+          {"option": "b", "score": 90, "depiction": "You're wired to improve lives — meaning drives your future more than title.", "title": "The Impact Identity: You Are Wired for Significance, Not Just Success", "archetype": "The Meaning-Maker", "keyInsight": "Your response reveals a powerful Impact–Purpose Story — you feel fulfilled when your work leaves people, systems, or communities better than before.", "growthBlocker": "Smallness", "hiddenStrength": "Empathy combined with ambition", "hiddenDesire": "Meaningful contribution", "futureArchetype": "Someone leading with conscience", "microActions": {"hours24": "Identify one person or group you can meaningfully help today", "days7": "Start a micro-initiative — mentoring, teaching, volunteering", "days30": "Design an impact blueprint"}},
+          {"option": "c", "score": 80, "depiction": "You're built to become world-class — depth and discipline define your path.", "title": "The Mastery Path: You're Meant to Become World-Class at Something", "archetype": "The Deep Specialist", "keyInsight": "Your response reveals a compelling Mastery–Identity Story — you're driven by the desire to excel deeply, not broadly.", "growthBlocker": "Distraction", "hiddenStrength": "Discipline", "hiddenDesire": "Mastery and excellence", "futureArchetype": "Someone becoming the go-to expert", "microActions": {"hours24": "Identify the craft or skill you're instinctively drawn to deepen", "days7": "Create a daily or weekly mastery ritual", "days30": "Enroll in a mastery pathway"}},
+          {"option": "d", "score": 70, "depiction": "You thrive when you choose your rhythm — autonomy is your highest currency.", "title": "The Freedom Blueprint: You Are Meant to Build a Life, Not Just a Career", "archetype": "The Freedom Architect", "keyInsight": "Your answer reveals a deeply personal Freedom–Identity Story — structure or rigidity drains you, while autonomy energizes you.", "growthBlocker": "Constraint and control", "hiddenStrength": "Self-leadership", "hiddenDesire": "Freedom and self-direction", "futureArchetype": "Someone defining pace, priorities, and projects", "microActions": {"hours24": "Identify one area where you can reclaim autonomy", "days7": "Create a personal workflow supporting your natural rhythm", "days30": "Build or explore a freedom-oriented pathway"}},
+          {"option": "e", "score": 60, "depiction": "You're meant to guide people and shape systems — influence is your calling.", "title": "The Leadership Calling: Your Influence Is Not Accidental—It's Inherent", "archetype": "The Guided Leader in the Making", "keyInsight": "Your answer reveals a compelling Leadership–Purpose Story — you're drawn to guide people, shape culture, influence direction, and leave a mark beyond individual contribution.", "growthBlocker": "Underutilization", "hiddenStrength": "Presence and natural influence", "hiddenDesire": "Impact through leadership", "futureArchetype": "Someone in visible leadership roles", "microActions": {"hours24": "Notice where people already come to you for direction", "days7": "Claim a leadership micro-space", "days30": "Start crafting your leadership brand"}},
+          {"option": "f", "score": 50, "depiction": "Your mind thinks in future tense — you're a natural builder of new ideas.", "title": "The Innovation Drive: You Think in Possibilities, Not Limitations", "archetype": "The Future-Maker", "keyInsight": "Your response reveals a powerful Innovation–Identity Story — you're energized by challenges that require imagination, experimentation, and bold thinking.", "growthBlocker": "Bureaucracy", "hiddenStrength": "Divergent thinking", "hiddenDesire": "Innovation and creation", "futureArchetype": "Someone shaping the future of industries", "microActions": {"hours24": "Identify a problem that frustrates you", "days7": "Build a small prototype, model, or experiment", "days30": "Launch an innovation project"}},
+          {"option": "g", "score": 40, "depiction": "You're motivated by knowledge — teaching and mentoring light your inner fire.", "title": "The Wisdom Path: You Are Wired to Grow and Help Others Grow", "archetype": "The Knowledge Catalyst", "keyInsight": "Your answer reveals a meaningful Learning–Purpose Story — growth energizes you, and teaching feels natural because knowledge is your generosity.", "growthBlocker": "Stagnation", "hiddenStrength": "Clarity and teaching ability", "hiddenDesire": "Growth and sharing knowledge", "futureArchetype": "Someone guiding and facilitating others", "microActions": {"hours24": "Share one insight or resource with someone who needs it", "days7": "Offer a mentoring session or lead a short learning circle", "days30": "Start a knowledge platform"}},
+          {"option": "h", "score": 30, "depiction": "You're drawn to new worlds — experiences, industries, and environments energize you.", "title": "The Explorer's Spirit: You Are Designed for Movement, Discovery, and Expansion", "archetype": "The Boundless Explorer", "keyInsight": "Your response reflects an adventurous Exploration–Identity Story — monotony suffocates you; novelty awakens you.", "growthBlocker": "Routine", "hiddenStrength": "Adaptability", "hiddenDesire": "Exploration and variety", "futureArchetype": "Someone with life filled with new experiences", "microActions": {"hours24": "Explore one new topic, space, or environment you've never considered", "days7": "Break routine", "days30": "Plan a larger exploration experiment"}},
+          {"option": "i", "score": 20, "depiction": "Helping others find direction or hope is your quiet superpower.", "title": "The Service Compass: You Are Built to Be a Light for Others", "archetype": "The Light-Giver", "keyInsight": "Your response reveals a deeply heartfelt Service–Purpose Story — fulfilment comes when you guide, uplift, or support others through confusion or struggle.", "growthBlocker": "Misplacement in non-service roles", "hiddenStrength": "Compassion and emotional intelligence", "hiddenDesire": "Service and support", "futureArchetype": "Someone in service-oriented leadership or coaching", "microActions": {"hours24": "Offer support to someone who is emotionally or mentally stuck", "days7": "Facilitate a clarity conversation or reflective session", "days30": "Build a service pathway"}},
+          {"option": "j", "score": 10, "depiction": "You want your life's work to outlive you — legacy matters more than applause.", "title": "The Legacy Drive: Your Work Is a Bridge Between Your Life and the Future", "archetype": "The Legacy Maker", "keyInsight": "Your answer reveals a profound Legacy–Purpose Story — you want your work to outlive you, touch people you may never meet, and leave a mark that shapes the future.", "growthBlocker": "Short-termism", "hiddenStrength": "Vision and long-horizon thinking", "hiddenDesire": "Legacy building", "futureArchetype": "Someone creating institutions, movements, or enduring frameworks", "microActions": {"hours24": "Define what legacy means to you", "days7": "Start documenting your wisdom, frameworks, or methods", "days30": "Begin a legacy-building project"}}
+        ]
+      }
+    ],
+    "scoringMatrix": {
+      "description": "Universal scoring scale applied to all questions",
+      "scale": {
+        "a": {
+          "score": 100,
+          "label": "Excellent",
+          "range": "80-100",
+          "color": "emerald"
+        },
+        "b": {
+          "score": 90,
+          "label": "Excellent",
+          "range": "80-100",
+          "color": "emerald"
+        },
+        "c": {
+          "score": 80,
+          "label": "Strong",
+          "range": "60-79",
+          "color": "cyan"
+        },
+        "d": {
+          "score": 70,
+          "label": "Strong",
+          "range": "60-79",
+          "color": "cyan"
+        },
+        "e": {
+          "score": 60,
+          "label": "Developing",
+          "range": "40-59",
+          "color": "amber"
+        },
+        "f": {
+          "score": 50,
+          "label": "Developing",
+          "range": "40-59",
+          "color": "amber"
+        },
+        "g": {
+          "score": 40,
+          "label": "Focus Area",
+          "range": "0-39",
+          "color": "red"
+        },
+        "h": {
+          "score": 30,
+          "label": "Focus Area",
+          "range": "0-39",
+          "color": "red"
+        },
+        "i": {
+          "score": 20,
+          "label": "Focus Area",
+          "range": "0-39",
+          "color": "red"
+        },
+        "j": {
+          "score": 10,
+          "label": "Focus Area",
+          "range": "0-39",
+          "color": "red"
+        }
+      }
+    },
+    "readinessLevels": {
+      "80-100": "Highly Ready for Growth",
+      "70-79": "Ready with Focus Areas",
+      "60-69": "Moderately Ready with Development Needs",
+      "50-59": "Emerging Readiness - Foundation Building",
+      "0-49": "Significant Transformation Opportunity"
+    },
+    "archetypeCategories": {
+      "aligned": ["The Aligned Visionary", "The Awakening Integrator", "The Quiet Seeker"],
+      "transitional": ["The Disconnected Wanderer", "The Unexpressed Visionary", "The Emerging Pathfinder"],
+      "transformational": ["The Identity Rebuilder", "The Outgrowing Architect", "The Emerging Explorer", "The Conscious Reconstructor"]
+    },
+    "expandableFields": {
+      "description": "To expand scoring for additional questions, follow this structure:",
+      "template": {
+        "questionId": "NUMBER",
+        "theme": "DIMENSION_NAME",
+        "indexName": "FULL_INDEX_NAME_WITH_ABBREVIATION",
+        "scoreType": "SCORE_TYPE_NAME",
+        "measure": "ONE_LINE_DESCRIPTION",
+        "scoringOptions": [
+          {
+            "option": "a-j",
+            "score": "100-10 (decreasing by 10)",
+            "depiction": "SHORT_STATEMENT",
+            "title": "FULL_TITLE",
+            "archetype": "ARCHETYPE_NAME",
+            "keyInsight": "DETAILED_EXPLANATION",
+            "growthBlocker": "MAIN_CHALLENGE",
+            "hiddenStrength": "UNDERLYING_POWER",
+            "hiddenDesire": "TRUE_WANT",
+            "futureArchetype": "NEXT_EVOLUTION",
+            "microActions": {
+              "hours24": "ACTION",
+              "days7": "ACTION",
+              "days30": "ACTION"
+            }
+          }
+        ]
+      }
+    },
+    "reportSections": {
+      "overallMetrics": [
+        "Average Score (0-100)",
+        "Readiness Level",
+        "Primary Archetype",
+        "Highest Scoring Dimension",
+        "Lowest Scoring Dimension",
+        "Overall Career Insight"
+      ],
+      "visualization": [
+        "Bar chart showing all 10 question scores",
+        "Score summary table (Question # | Theme | Index | Score Type | Score | Status)",
+        "Individual question cards with expandable details",
+        "Score distribution summary"
+      ],
+      "actionPlan": [
+        "Immediate actions (24 hours)",
+        "Short-term actions (7 days)",
+        "Long-term actions (30 days)"
+      ]
+    }
+  }
+}
