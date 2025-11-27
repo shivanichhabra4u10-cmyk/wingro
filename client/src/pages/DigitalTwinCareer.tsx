@@ -1082,7 +1082,14 @@ const CareerAssessment: React.FC = () => {
                               <h5 className="text-base font-bold text-purple-800 mb-2">{score.title}</h5>
                             )}
                             
-                            {/* Description or Prompt */}
+                            {/* Depiction (Brief Summary) */}
+                            {!isUnanswered && score.depiction && (
+                              <div className="text-sm text-gray-700 font-medium mb-3 italic">
+                                {score.depiction}
+                              </div>
+                            )}
+                            
+                            {/* Key Insight (Detailed Analysis) */}
                             <div className={`text-sm ${isUnanswered ? 'text-gray-500 italic' : 'text-gray-700'} leading-relaxed whitespace-pre-line`}>
                               {isUnanswered ? '✍️ Please go back and answer this question to unlock your insights.' : score.description}
                             </div>

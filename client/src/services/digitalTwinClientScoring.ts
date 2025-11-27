@@ -13,6 +13,7 @@ export interface DigitalTwinScore {
   maxScore: number;
   percentageScore: number;
   selectedOption: string;
+  depiction?: string;
   description: string;
   insight: string;
   recommendation: string;
@@ -374,7 +375,8 @@ function getDefaultInsight(questionId: number, option: string): any {
 
   // Return data from JSON
   return {
-    keyInsight: optionData.depiction || optionData.keyInsight || `Option ${option.toUpperCase()}`,
+    depiction: optionData.depiction || `Brief insight for ${option.toUpperCase()}`,
+    keyInsight: optionData.keyInsight || optionData.depiction || `Option ${option.toUpperCase()}`,
     rootCause: optionData.growthBlocker || `Growth dimension for question ${questionId}`,
     futureArchetype: optionData.archetype || optionData.futureArchetype || 'The Evolving Professional',
     title: optionData.title || '',
@@ -455,6 +457,7 @@ export function calculateDigitalTwinScores(answers: { [key: string]: string }): 
       maxScore: 100,
       percentageScore: score,
       selectedOption,
+      depiction: insightInfo?.depiction || '',
       description: insightInfo?.keyInsight || 'Your response has been recorded.',
       insight: insightInfo?.keyInsight || '',
       recommendation: insightInfo?.rootCause || '',
