@@ -129,6 +129,12 @@ const CareerAssessment: React.FC = () => {
   const [loadingReport, setLoadingReport] = useState(false);
   const [scoringResults, setScoringResults] = useState<any>(null);
   const [, setLoadingScores] = useState(false);
+  const [expandedInsights, setExpandedInsights] = useState<{ [key: string]: boolean }>({});
+  
+  // Toggle expanded state for a specific insight
+  const toggleInsight = (key: string) => {
+    setExpandedInsights(prev => ({ ...prev, [key]: !prev[key] }));
+  };
   
   // Handle user data input changes
   const handleUserDataChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -996,10 +1002,7 @@ const CareerAssessment: React.FC = () => {
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-400 rounded-2xl p-6 mb-8 shadow-lg">
                 <p className="text-emerald-900 text-lg font-black">
                   ✓ Your responses have been securely stored and encrypted
-                </p>
-                <p className="text-emerald-800 text-sm font-semibold mt-2">
-                  Our team will analyze your insights within 24 hours
-                </p>
+                </p>              
               </div>
             )}
 
@@ -1090,8 +1093,29 @@ const CareerAssessment: React.FC = () => {
                             )}
                             
                             {/* Key Insight (Detailed Analysis) */}
-                            <div className={`text-sm ${isUnanswered ? 'text-gray-500 italic' : 'text-gray-700'} leading-relaxed whitespace-pre-line`}>
-                              {isUnanswered ? '✍️ Please go back and answer this question to unlock your insights.' : score.description}
+                            <div className={`text-sm ${isUnanswered ? 'text-gray-500 italic' : 'text-gray-700'} leading-relaxed`}>
+                              {isUnanswered ? (
+                                <span className="italic">✍️ Please go back and answer this question to unlock your insights.</span>
+                              ) : (
+                                <>
+                                  <div className="whitespace-pre-line">
+                                    {expandedInsights[score.dimension] 
+                                      ? score.description 
+                                      : (score.description && score.description.length > 450)
+                                        ? `${score.description.substring(0, 450)}...` 
+                                        : score.description
+                                    }
+                                  </div>
+                                  {score.description && score.description.length > 450 && (
+                                    <button
+                                      onClick={() => toggleInsight(score.dimension)}
+                                      className="text-white hover:text-gray-100 font-bold mt-3 inline-flex items-center gap-1 transition-colors underline decoration-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg shadow-md"
+                                    >
+                                      {expandedInsights[score.dimension] ? '← Read Less' : 'Read More →'}
+                                    </button>
+                                  )}
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
