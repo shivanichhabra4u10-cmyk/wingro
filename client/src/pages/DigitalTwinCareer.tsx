@@ -57,6 +57,8 @@ interface UserData {
   firstName: string;
   lastName: string;
   email: string;
+  contactNo: string;
+  linkedInUrl?: string;
   jobTitle?: string;
   company?: string;
   yearsExperience?: string;
@@ -112,6 +114,8 @@ const CareerAssessment: React.FC = () => {
     firstName: '',
     lastName: '',
     email: '',
+    contactNo: '',
+    linkedInUrl: '',
     jobTitle: '',
     company: '',
     yearsExperience: '',
@@ -154,8 +158,8 @@ const CareerAssessment: React.FC = () => {
   // Handle moving from intro to aspiration step
   const handleContinueToAspiration = () => {
     // Validate required fields
-    if (!userData.firstName || !userData.lastName || !userData.email) {
-      toast.error('Please fill in all required fields');
+    if (!userData.firstName || !userData.lastName || !userData.email || !userData.contactNo) {
+      toast.error('Please fill in all required fields (First Name, Last Name, Email, and Contact Number)');
       return;
     }
     setShowIntro(false);
@@ -178,12 +182,18 @@ const CareerAssessment: React.FC = () => {
         toast.error('Email is required');
         return;
       }
+      if (!userData.contactNo || !userData.contactNo.trim()) {
+        toast.error('Contact number is required');
+        return;
+      }
 
       // Log the data being sent
       console.log('Sending user data to backend:', {
         firstName: userData.firstName?.trim(),
         lastName: userData.lastName?.trim(),
         email: userData.email?.trim(),
+        contactNo: userData.contactNo?.trim(),
+        linkedInUrl: userData.linkedInUrl?.trim(),
         jobTitle: userData.jobTitle?.trim(),
         company: userData.company?.trim(),
         aspiration: userData.aspiration?.trim(),
@@ -196,6 +206,8 @@ const CareerAssessment: React.FC = () => {
         firstName: userData.firstName.trim(),
         lastName: userData.lastName.trim(),
         email: userData.email.trim(),
+        contactNo: userData.contactNo.trim(),
+        linkedInUrl: (userData.linkedInUrl || '').trim(),
         jobTitle: (userData.jobTitle || '').trim(),
         company: (userData.company || '').trim(),
         yearsExperience: (userData.yearsExperience || '').trim(),
@@ -629,6 +641,36 @@ const CareerAssessment: React.FC = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
+
+          {/* Contact and LinkedIn fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="contactNo" className="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
+              <input 
+                type="tel"
+                id="contactNo"
+                name="contactNo"
+                value={userData.contactNo}
+                onChange={handleUserDataChange}
+                required
+                placeholder="+1 234 567 8900"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="linkedInUrl" className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile URL</label>
+              <input 
+                type="url"
+                id="linkedInUrl"
+                name="linkedInUrl"
+                value={userData.linkedInUrl}
+                onChange={handleUserDataChange}
+                placeholder="https://linkedin.com/in/yourprofile"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
           
           {/* Professional fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -645,7 +687,7 @@ const CareerAssessment: React.FC = () => {
             </div>
             
             <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company/Organization</label>
+              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company/Organization/School/College</label>
               <input 
                 type="text"
                 id="company"

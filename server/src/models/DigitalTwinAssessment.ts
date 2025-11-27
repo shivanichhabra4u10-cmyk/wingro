@@ -5,10 +5,11 @@ export interface IDigitalTwinIndividual extends Document {
   firstName: string;
   lastName: string;
   email: string;
+  contactNo: string;
+  linkedinUrl?: string;
   jobTitle?: string;
   company?: string;
   yearsExperience?: string;
-  linkedinUrl?: string;
   responseData?: any; // Will store the 10 diagnostic questions responses
   startedAt: Date;
   completedAt?: Date;
@@ -41,6 +42,15 @@ const DigitalTwinIndividualSchema: Schema = new Schema(
       lowercase: true,
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email address']
     },
+    contactNo: {
+      type: String,
+      required: [true, 'Contact number is required'],
+      trim: true
+    },
+    linkedinUrl: {
+      type: String,
+      trim: true
+    },
     jobTitle: {
       type: String,
       trim: true
@@ -51,10 +61,6 @@ const DigitalTwinIndividualSchema: Schema = new Schema(
     },
     yearsExperience: {
       type: String
-    },
-    linkedinUrl: {
-      type: String,
-      trim: true
     },
     responseData: {
       type: Schema.Types.Mixed,

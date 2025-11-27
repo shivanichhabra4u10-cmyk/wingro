@@ -308,20 +308,22 @@ export const assessmentController = {
         firstName,
         lastName,
         email,
+        contactNo,
+        linkedinUrl,
         jobTitle,
         company,
-        yearsExperience,
-        linkedinUrl
+        yearsExperience
       } = req.body;
 
       // Trim string values (handles both JSON and form data)
       firstName = typeof firstName === 'string' ? firstName.trim() : firstName;
       lastName = typeof lastName === 'string' ? lastName.trim() : lastName;
       email = typeof email === 'string' ? email.trim() : email;
+      contactNo = typeof contactNo === 'string' ? contactNo.trim() : contactNo;
+      linkedinUrl = typeof linkedinUrl === 'string' ? linkedinUrl.trim() : linkedinUrl;
       jobTitle = typeof jobTitle === 'string' ? jobTitle.trim() : jobTitle;
       company = typeof company === 'string' ? company.trim() : company;
       yearsExperience = typeof yearsExperience === 'string' ? yearsExperience.trim() : yearsExperience;
-      linkedinUrl = typeof linkedinUrl === 'string' ? linkedinUrl.trim() : linkedinUrl;
       userId = typeof userId === 'string' ? userId.trim() : userId;
 
       console.log('Received Digital Twin assessment:', {
@@ -337,10 +339,11 @@ export const assessmentController = {
         firstName,
         lastName,
         email,
+        contactNo,
+        linkedinUrl,
         jobTitle,
         company,
         yearsExperience,
-        linkedinUrl,
         assessmentType: 'digitaltwin',
         responseData: {},
         completed: false
