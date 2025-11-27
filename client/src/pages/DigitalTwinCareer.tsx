@@ -977,9 +977,7 @@ const CareerAssessment: React.FC = () => {
               <p className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}>
                 Thank you for your thoughtful responses
               </p>
-              <p className="text-lg font-semibold drop-shadow-lg opacity-95" style={{textShadow: '0 2px 6px rgba(0,0,0,0.3)'}}>
-                Your insights have been securely saved and will guide your transformation journey
-              </p>
+             
             </div>
           </div>
           
@@ -1101,12 +1099,12 @@ const CareerAssessment: React.FC = () => {
                                   <div className="whitespace-pre-line">
                                     {expandedInsights[score.dimension] 
                                       ? score.description 
-                                      : (score.description && score.description.length > 450)
-                                        ? `${score.description.substring(0, 450)}...` 
+                                      : (score.description && score.description.length > 400)
+                                        ? `${score.description.substring(0, 400)}...` 
                                         : score.description
                                     }
                                   </div>
-                                  {score.description && score.description.length > 450 && (
+                                  {score.description && score.description.length > 400 && (
                                     <button
                                       onClick={() => toggleInsight(score.dimension)}
                                       className="text-white hover:text-gray-100 font-bold mt-3 inline-flex items-center gap-1 transition-colors underline decoration-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg shadow-md"
@@ -1117,6 +1115,52 @@ const CareerAssessment: React.FC = () => {
                                 </>
                               )}
                             </div>
+
+                            {/* Micro-Actions for This Question */}
+                            {!isUnanswered && score.microActions && (score.microActions.hours24 || score.microActions.days7 || score.microActions.days30) && (
+                              <div className="mt-6 space-y-4">
+                                <h5 className="text-base font-black text-purple-800 mb-3">🎯 Your Action Plan for This Dimension:</h5>
+                                
+                                {/* 24 Hours */}
+                                {score.microActions.hours24 && (
+                                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg p-4 border-l-4 border-orange-500">
+                                    <div className="flex items-start gap-3">
+                                      <span className="text-orange-600 font-black text-lg mt-0.5">⚡</span>
+                                      <div>
+                                        <h6 className="text-sm font-bold text-orange-900 mb-1">Next 24 Hours:</h6>
+                                        <p className="text-sm text-gray-700">{score.microActions.hours24}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {/* 7 Days */}
+                                {score.microActions.days7 && (
+                                  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg p-4 border-l-4 border-amber-500">
+                                    <div className="flex items-start gap-3">
+                                      <span className="text-amber-600 font-black text-lg mt-0.5">📅</span>
+                                      <div>
+                                        <h6 className="text-sm font-bold text-amber-900 mb-1">Next 7 Days:</h6>
+                                        <p className="text-sm text-gray-700">{score.microActions.days7}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {/* 30 Days */}
+                                {score.microActions.days30 && (
+                                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-4 border-l-4 border-green-500">
+                                    <div className="flex items-start gap-3">
+                                      <span className="text-green-600 font-black text-lg mt-0.5">🚀</span>
+                                      <div>
+                                        <h6 className="text-sm font-bold text-green-900 mb-1">Next 30 Days:</h6>
+                                        <p className="text-sm text-gray-700">{score.microActions.days30}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       );
