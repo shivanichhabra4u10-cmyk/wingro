@@ -5,6 +5,7 @@ export interface IContact extends Document {
   email: string;
   phoneNumber?: string; // Optional phone number
   subject: string;
+  interestedIn: string;
   message: string;
   createdAt: Date;
 }
@@ -33,6 +34,11 @@ const ContactSchema: Schema = new Schema({
   subject: {
     type: String,
     required: [true, 'Subject is required'],
+    trim: true
+  },
+  interestedIn: {
+    type: String,
+    required: [true, 'Interested in field is required'],
     trim: true
   },
   message: {

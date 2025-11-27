@@ -15,7 +15,7 @@ export const contactController = {
       }
 
       // Extract form data from request body
-      const { name, email, phoneNumber, subject, message } = req.body;
+      const { name, email, phoneNumber, subject, interestedIn, message } = req.body;
 
       // Create new contact entry in MongoDB
       const contactEntry = await Contact.create({
@@ -23,6 +23,7 @@ export const contactController = {
         email,
         phoneNumber, // Include phone number if provided
         subject,
+        interestedIn,
         message
       });
 

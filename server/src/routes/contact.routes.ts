@@ -13,6 +13,7 @@ router.post(
     body('email').isEmail().withMessage('Please enter a valid email address'),
     body('phoneNumber').optional().trim(),
     body('subject').trim().not().isEmpty().withMessage('Subject is required'),
+    body('interestedIn').trim().not().isEmpty().withMessage('Interested in field is required'),
     body('message').trim().not().isEmpty().withMessage('Message is required')
   ],
   contactController.submitContactForm

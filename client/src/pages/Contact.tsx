@@ -7,6 +7,7 @@ const Contact: React.FC = () => {
     email: '',
     phoneNumber: '',
     subject: '',
+    interestedIn: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +23,7 @@ const Contact: React.FC = () => {
     try {
       const response = await contact.submit(formData);
       setSubmitted(true);
-      setFormData({ name: '', email: '', phoneNumber: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', phoneNumber: '', subject: '', interestedIn: '', message: '' });
     } catch (error) {
       alert('An error occurred. Please try again later.');
     } finally {
@@ -95,7 +96,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">Phone Number (optional)</label>
+                    <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                     <input
                       type="tel"
                       id="phoneNumber"
@@ -105,22 +106,40 @@ const Contact: React.FC = () => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-                      required
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Product Question">Product Question</option>
-                      <option value="Partnership Opportunity">Partnership Opportunity</option>
-                      <option value="Support Request">Support Request</option>
-                    </select>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                        required
+                      >
+                        <option value="">Select a subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Product Question">Product Question</option>
+                        <option value="Partnership Opportunity">Partnership Opportunity</option>
+                        <option value="Support Request">Support Request</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="interestedIn" className="block text-sm font-medium text-gray-700 mb-1">Interested in</label>
+                      <select
+                        id="interestedIn"
+                        name="interestedIn"
+                        value={formData.interestedIn}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                        required
+                      >
+                        <option value="">Select an option</option>
+                        <option value="E-Accelerator">E-Accelerator</option>
+                        <option value="E-Incubator">E-Incubator</option>
+                        <option value="Digital Twin">Digital Twin</option>
+                      </select>
+                    </div>
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
