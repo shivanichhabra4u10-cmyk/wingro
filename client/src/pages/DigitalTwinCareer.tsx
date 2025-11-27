@@ -859,7 +859,7 @@ const CareerAssessment: React.FC = () => {
 
           {/* Options */}
           <div className="space-y-4">
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {currentQuestion.options && currentQuestion.options.map((option: any, index: number) => {
                 const optionLetter = option.option || String.fromCharCode(97 + index);
                 const questionKey = String(currentQuestion.id);  // Convert to STRING key
