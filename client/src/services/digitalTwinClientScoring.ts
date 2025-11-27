@@ -1,6 +1,9 @@
 // Client-side Digital Twin Scoring Service
 // Calculates all 10 question scores immediately without backend calls
 
+// Import scoring logic from JSON file
+import scoringLogicData from '../data/DIGITAL-TWIN-SCORING-LOGIC.json';
+
 export interface DigitalTwinScore {
   questionId: number;
   dimensionName: string;
@@ -14,6 +17,7 @@ export interface DigitalTwinScore {
   insight: string;
   recommendation: string;
   archetype: string;
+  title?: string;
   microActions: {
     hours24: string;
     days7: string;
@@ -125,9 +129,11 @@ const questionMetadata = [
 ];
 
 // Insight data for Q1 and Q2 (comprehensive), Q3-Q10 use defaults
-const insightData: { [key: string]: any } = {
+// COMMENTED OUT - NOT IN USE
+/* const insightData: { [key: string]: any } = {
   'Q1-a': {
-    keyInsight: 'Your work and purpose move as one — rare alignment.',
+    title: 'Your Inner Compass: The Power of Being in Alignment',
+    keyInsight: 'Your response reflects a rare and powerful Identity Emotional Story — the story of someone whose work and inner self are finally speaking the same language. This level of alignment does not happen by accident; it is a signal that your values, talents, and personal evolution are moving in the same direction. The Purpose Alignment Root Cause behind this is clarity: you know what you stand for, and your work is becoming a natural extension of that truth. It also indicates emotional maturity and deep self-awareness — you've done the inner work required to recognise what feels right and what doesn't.\n\nBut even in alignment, there is always a Growth Blocker hidden in the corners. For you, it is not misalignment — it is complacency. People who feel aligned often forget to stretch further. The danger is not confusion; it is settling for "good" when "extraordinary" is possible. Yet your Inner Compass Strength is exceptional — you have a strong intuitive radar that knows when something is right for your evolution. This intuition allows you to make bold decisions that others are afraid to make.\n\nBeneath this sits an Identity-Based Hidden Desire: you don't just want alignment — you want expansion. You want to shape something larger than yourself, express your uniqueness at scale, and build a legacy beyond daily work. Your Purpose-Driven Future Self is someone who leads with clarity, inspires with authenticity, and stands out because your identity and impact are inseparable.\n\nYour Identity Archetype is "The Aligned Visionary" — someone who grows not from force, but from inner truth. To strengthen this alignment, follow your Identity Reset Micro-Actions:\n\nNext 24 hours: Write a one-line statement about who you are becoming — and ensure it feels alive.\n\nNext 7 days: Identify one part of your work that deserves a bigger spotlight or bolder expression.\n\nNext 30 days: Begin integrating a new behaviour, project, or ritual that expands your identity, not just maintains it.\n\nYour Identity Fit Index indicates a high alignment, but not a destination — a launchpad. Your role supports your identity today, but your future self will require more influence, more creativity, and a wider stage. Finally, the Digital Twin (Identity Edition) whispers a gentle truth:\n"You're on the right path — but the next version of you is waiting for a bigger canvas."',
     rootCause: 'Identity expression through meaningful work',
     futureArchetype: 'The Aligned Visionary',
     microActions: {
@@ -326,28 +332,53 @@ const insightData: { [key: string]: any } = {
       days30: 'Create a strength-discovery journal tracking what feels draining vs energizing.'
     }
   }
-};
+}; */
 
-// Get default insight for Q3-Q10
+// Get default insight for all questions (Q1-Q10) from JSON
 function getDefaultInsight(questionId: number, option: string): any {
-  const archetypes: { [key: string]: string } = {
-    a: 'The Accelerating Builder',
-    b: 'The Strategic Steady-Grower',
-    c: 'The Settled Stabilizer',
-    d: 'The Hollow Achiever',
-    e: 'The Plateau Breaker',
-    f: 'The Direction-Seeker',
-    g: 'The Path Realigner',
-    h: 'The Barrier Breaker',
-    i: 'The Intentional Rebuilder',
-    j: 'The Identity Seeker'
-  };
+  // Find the question in the JSON data
+  const questionData = scoringLogicData.digitalTwinScoringFramework.questions.find(
+    (q: any) => q.questionId === questionId
+  );
 
+  if (!questionData) {
+    return {
+      keyInsight: `Option ${option.toUpperCase()}`,
+      rootCause: `Growth dimension for question ${questionId}`,
+      futureArchetype: 'The Evolving Professional',
+      microActions: {
+        hours24: 'Reflect on this dimension today.',
+        days7: 'Take one action aligned with your insight.',
+        days30: 'Integrate learning from this dimension into your career strategy.'
+      }
+    };
+  }
+
+  // Find the specific option in the scoring options
+  const optionData = questionData.scoringOptions.find(
+    (opt: any) => opt.option === option
+  );
+
+  if (!optionData) {
+    return {
+      keyInsight: `Option ${option.toUpperCase()}`,
+      rootCause: `Growth dimension for question ${questionId}`,
+      futureArchetype: 'The Evolving Professional',
+      microActions: {
+        hours24: 'Reflect on this dimension today.',
+        days7: 'Take one action aligned with your insight.',
+        days30: 'Integrate learning from this dimension into your career strategy.'
+      }
+    };
+  }
+
+  // Return data from JSON
   return {
-    keyInsight: `Your response for question ${questionId} option ${option} has been recorded.`,
-    rootCause: `Growth dimension for question ${questionId}`,
-    futureArchetype: archetypes[option] || 'The Evolving Professional',
-    microActions: {
+    keyInsight: optionData.depiction || optionData.keyInsight || `Option ${option.toUpperCase()}`,
+    rootCause: optionData.growthBlocker || `Growth dimension for question ${questionId}`,
+    futureArchetype: optionData.archetype || optionData.futureArchetype || 'The Evolving Professional',
+    title: optionData.title || '',
+    microActions: optionData.microActions || {
       hours24: 'Reflect on this dimension today.',
       days7: 'Take one action aligned with your insight.',
       days30: 'Integrate learning from this dimension into your career strategy.'
@@ -357,13 +388,13 @@ function getDefaultInsight(questionId: number, option: string): any {
 
 // Get insight data for a specific question and option
 function getInsightData(questionId: number, option: string): any {
-  const key = `Q${questionId}-${option}`;
+  // const key = `Q${questionId}-${option}`;
 
-  if (insightData[key]) {
-    return insightData[key];
-  }
+  // if (insightData[key]) {
+  //   return insightData[key];
+  // }
 
-  // For Q3-Q10, return default templates
+  // For all questions, return default templates (insightData commented out)
   return getDefaultInsight(questionId, option);
 }
 
@@ -428,6 +459,7 @@ export function calculateDigitalTwinScores(answers: { [key: string]: string }): 
       insight: insightInfo?.keyInsight || '',
       recommendation: insightInfo?.rootCause || '',
       archetype: insightInfo?.futureArchetype || 'In Development',
+      title: insightInfo?.title || '',
       microActions: insightInfo?.microActions || { hours24: '', days7: '', days30: '' }
     });
   }
