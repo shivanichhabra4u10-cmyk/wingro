@@ -1309,14 +1309,7 @@ const CareerAssessment: React.FC = () => {
               Return to Home
             </button>
             <button
-              onClick={() => {
-                setShowResults(false);
-                setShowAssessment(false);
-                setShowIntro(true);
-                setShowAspirationStep(false);
-                setAnswers({});
-                window.scrollTo(0, 0);
-              }}
+              onClick={() => window.location.href = '/digital-twin'}
               className="px-10 py-5 bg-white text-indigo-700 font-black text-lg rounded-2xl transition transform hover:scale-110 shadow-xl border-3 border-indigo-600 hover:bg-indigo-50 drop-shadow-lg"
             >
               Retake Assessment
