@@ -46,6 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { name: 'Book a Coach', href: '/marketplace' },
         { name: 'Join as Coach', href: '/join-as-coach' },
       ],
+      hidden: true,
     },
       {
         name: 'Our Programs',
@@ -55,6 +56,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           { name: 'E Incubator', href: '/programs/e-incubator' },
           { name: 'Growth Link', href: '/programs/growth-link' },
         ],
+        hidden: true,
       },
     // Knowledge Hub menu (hidden, set hidden: true to hide from UI but keep in code for future use)
     {
@@ -73,6 +75,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { name: 'Join Community', href: '/grow-with-community' },
         { name: 'Provider Marketplace', href: '/community/provider-marketplace' },
       ],
+      hidden: true,
     },
   ];
 
@@ -155,8 +158,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               })}
               {/* Admin menu for admin users */}
               {isAdmin && <AdminMenu />}
-              {/* Prominent Take Assessment button */}
-              <a
+              {/* Prominent Take Assessment button - Hidden */}
+              {false && <a
                 href="/assessment-selection"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -165,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 <span className="mr-2">📝</span>
                 Take Assessment
-              </a>
+              </a>}
               {/* Prominent Digital Twin button */}
               <Link
                 to="/digital-twin"
@@ -258,7 +261,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   )}
                 </div>
               ) : (
-                <Link
+                false && <Link
                   to="/login"
                   className="text-xs font-medium text-gray-700 hover:text-cyan-700 px-4 py-1.5 rounded-full hover:bg-gray-50 border border-gray-200 transition-all"
                 >
