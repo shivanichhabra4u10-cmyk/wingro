@@ -769,18 +769,23 @@ const CareerAssessment: React.FC = () => {
   // Render the plan selection section (shown first)
   const renderPlanSelectionSection = () => {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-6 shadow-2xl">
-            <span className="text-5xl">🚀</span>
+        <div className="relative rounded-2xl shadow-lg p-8">
+          <div className="absolute inset-0 border-2 border-gray-300 rounded-2xl"></div>
+          <div className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8">
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-4 shadow-md">
+                <span className="text-white text-3xl font-bold">🚀</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4">
+                Choose Your Digital Twin Experience
+              </h1>
+              <p className="text-lg text-gray-700 font-medium max-w-3xl mx-auto leading-relaxed">
+                Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
+              </p>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4">
-            Choose Your Digital Twin Experience
-          </h1>
-          <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto">
-            Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
-          </p>
         </div>
 
         {/* Pricing Plans */}
