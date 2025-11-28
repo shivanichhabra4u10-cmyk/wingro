@@ -778,10 +778,10 @@ const CareerAssessment: React.FC = () => {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-4 shadow-md">
                 <span className="text-white text-3xl font-bold">🚀</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4 leading-normal" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.4' }}>
                 Choose Your Digital Twin Experience
               </h1>
-              <p className="text-lg text-gray-700 font-medium max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                 Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
               </p>
             </div>
