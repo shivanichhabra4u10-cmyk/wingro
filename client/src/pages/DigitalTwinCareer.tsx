@@ -1353,66 +1353,6 @@ const CareerAssessment: React.FC = () => {
                     })}
                   </div>
                 )}
-
-                {/* Key Insights */}
-                {scoringResults.keyInsights && scoringResults.keyInsights.length > 0 && (
-                  <div className="bg-white rounded-xl p-6 mb-6 shadow-md border-2 border-purple-200">
-                    <h4 className="text-xl font-black text-purple-900 mb-4">💡 Key Insights</h4>
-                    <ul className="space-y-2">
-                      {scoringResults.keyInsights.map((insight: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="text-purple-600 font-black mt-1 text-lg">•</span>
-                          <span className="text-gray-700 font-semibold">{insight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Immediate Action Items */}
-                {scoringResults.actionPlan && scoringResults.actionPlan.immediate && (
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 mb-6 shadow-md border-2 border-orange-300">
-                    <h4 className="text-xl font-black text-orange-900 mb-4">⚡ Next 24 Hours - Immediate Actions</h4>
-                    <ul className="space-y-2">
-                      {scoringResults.actionPlan.immediate.map((action: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="text-orange-600 font-black">→</span>
-                          <span className="text-gray-700">{action}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Short Term Actions */}
-                {scoringResults.actionPlan && scoringResults.actionPlan.shortTerm && (
-                  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-6 mb-6 shadow-md border-2 border-yellow-300">
-                    <h4 className="text-xl font-black text-amber-900 mb-4">📅 Next 7 Days - Short Term Focus</h4>
-                    <ul className="space-y-2">
-                      {scoringResults.actionPlan.shortTerm.map((action: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="text-amber-600 font-black">→</span>
-                          <span className="text-gray-700">{action}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Long Term Actions */}
-                {scoringResults.actionPlan && scoringResults.actionPlan.longTerm && (
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 mb-6 shadow-md border-2 border-green-300">
-                    <h4 className="text-xl font-black text-green-900 mb-4">🚀 Next 30 Days - Long Term Strategy</h4>
-                    <ul className="space-y-2">
-                      {scoringResults.actionPlan.longTerm.map((action: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="text-green-600 font-black">→</span>
-                          <span className="text-gray-700">{action}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
               </div>
             ) : null}
 
