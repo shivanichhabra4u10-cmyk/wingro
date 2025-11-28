@@ -372,23 +372,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
         </div>
       </div>
 
-      {/* Trust Signals */}
-      <div className="mt-12 text-center">
-        <div className="inline-flex items-center space-x-6 text-sm text-gray-600">
-          <div className="flex items-center">
-            <span className="text-green-600 mr-2">🔒</span>
-            Secure Payment
-          </div>
-          <div className="flex items-center">
-            <span className="text-blue-600 mr-2">💳</span>
-            Easy Refunds
-          </div>
-          <div className="flex items-center">
-            <span className="text-purple-600 mr-2">⚡</span>
-            Instant Access
-          </div>
-        </div>
-      </div>
+     
     </div>
   );
 };
