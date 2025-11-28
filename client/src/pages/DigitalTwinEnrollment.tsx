@@ -84,7 +84,7 @@ const DigitalTwinEnrollment: React.FC = () => {
 
       // Submit to contact API (reusing existing contact endpoint)
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/contact/submit`,
+        `${process.env.REACT_APP_API_URL}/api/contact`,
         enrollmentData
       );
 
