@@ -1158,7 +1158,7 @@ const CareerAssessment: React.FC = () => {
                             <div className="flex justify-between items-start mb-3">
                               <div className="flex-1">
                                 <h4 className={`text-lg font-black ${isUnanswered ? 'text-gray-500' : 'text-gray-900'}`}>
-                                  Q{score.questionId}. {score.dimensionName}
+                                  {score.dimensionName}
                                 </h4>
                                 <p className="text-sm text-gray-600 font-semibold">{score.indexName}</p>
                               </div>
