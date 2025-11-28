@@ -89,7 +89,11 @@ const DigitalTwinEnrollment: React.FC = () => {
       );
 
       if (response.data.success) {
-        toast.success('🎉 Enrollment request submitted successfully! We will contact you soon.');
+        toast.success('🎉 Enrollment request submitted successfully!');
+        
+        // Store enrollment data in sessionStorage
+        sessionStorage.setItem('enrollmentSuccess', 'true');
+        sessionStorage.setItem('enrolledPlan', planDetails[formData.selectedPlan]?.name || formData.selectedPlan);
         
         // Reset form
         setFormData({
@@ -102,10 +106,10 @@ const DigitalTwinEnrollment: React.FC = () => {
           message: ''
         });
 
-        // Redirect to thank you or home after 2 seconds
+        // Redirect back to Digital Twin with enrollment confirmation
         setTimeout(() => {
-          navigate('/');
-        }, 2000);
+          navigate('/digital-twin?enrolled=true');
+        }, 1500);
       } else {
         toast.error('Failed to submit enrollment. Please try again.');
       }

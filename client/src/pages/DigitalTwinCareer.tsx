@@ -137,6 +137,8 @@ const CareerAssessment: React.FC = () => {
   const [, setLoadingScores] = useState(false);
   const [expandedInsights, setExpandedInsights] = useState<{ [key: string]: boolean }>({});
   const [selectedPlan, setSelectedPlan] = useState<string>('');
+  const [showEnrollmentConfirmation, setShowEnrollmentConfirmation] = useState(false);
+  const [enrolledPlanName, setEnrolledPlanName] = useState<string>('');
   
   // Toggle expanded state for a specific insight
   const toggleInsight = (key: string) => {
@@ -146,9 +148,16 @@ const CareerAssessment: React.FC = () => {
   // Handle plan selection and proceed to intro
   const handlePlanSelection = (planId: string) => {
     setSelectedPlan(planId);
-    setShowPlanSelection(false);
-    setShowIntro(true);
-    window.scrollTo(0, 0);
+    
+    // If it's the free plan, proceed directly to intro
+    if (planId === 'digital-twin-free') {
+      setShowPlanSelection(false);
+      setShowIntro(true);
+      window.scrollTo(0, 0);
+    } else {
+      // For paid plans, navigate to enrollment page
+      window.location.href = `/digital-twin-enrollment?plan=${planId}`;
+    }
   };
   
   // Handle user data input changes
@@ -259,6 +268,21 @@ const CareerAssessment: React.FC = () => {
       toast.error(error.response?.data?.message || 'Network error. Please check your connection and try again.');
     }
   };
+
+  // Check for enrollment success on mount
+  useEffect(() => {
+    const enrollmentSuccess = sessionStorage.getItem('enrollmentSuccess');
+    const enrolledPlan = sessionStorage.getItem('enrolledPlan');
+    
+    if (enrollmentSuccess === 'true' && enrolledPlan) {
+      setEnrolledPlanName(enrolledPlan);
+      setShowEnrollmentConfirmation(true);
+      
+      // Clear session storage
+      sessionStorage.removeItem('enrollmentSuccess');
+      sessionStorage.removeItem('enrolledPlan');
+    }
+  }, []);
 
   // Clean up chart instances when component unmounts or when showResults changes
   useEffect(() => {
@@ -1471,6 +1495,85 @@ const CareerAssessment: React.FC = () => {
         draggable
         pauseOnHover
       />
+
+      {/* Enrollment Confirmation Dialog */}
+      {showEnrollmentConfirmation && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-8 md:p-12 relative animate-fadeIn">
+            {/* Decorative elements */}
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+              <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl">
+                <span className="text-5xl">🎉</span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="mt-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4">
+                Enrollment Successful!
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 font-semibold">
+                You have been successfully enrolled in:
+              </p>
+              
+              {/* Enrolled Plan Display */}
+              <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-rose-100 rounded-2xl p-6 mb-6 border-2 border-purple-300">
+                <p className="text-2xl font-black text-purple-900">{enrolledPlanName}</p>
+              </div>
+
+              <div className="bg-blue-50 rounded-xl p-6 mb-8 border-2 border-blue-200">
+                <div className="flex items-start gap-3 text-left">
+                  <span className="text-3xl">💼</span>
+                  <div>
+                    <h3 className="font-bold text-blue-900 mb-2 text-lg">What happens next?</h3>
+                    <ul className="text-sm text-blue-800 space-y-2">
+                      <li>✓ Our team will contact you within 24 hours</li>
+                      <li>✓ We'll share payment details and onboarding instructions</li>
+                      <li>✓ Your personalized transformation journey will begin!</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 mb-6 border-2 border-green-200">
+                <p className="text-lg font-bold text-green-900 mb-3">
+                  Meanwhile, would you like to continue with the FREE Basic Assessment?
+                </p>
+                <p className="text-sm text-green-700 mb-4">
+                  Get immediate insights into your career alignment and discover your Digital Twin profile at no cost!
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => {
+                    setShowEnrollmentConfirmation(false);
+                    navigate('/');
+                  }}
+                  className="flex-1 px-6 py-4 border-2 border-gray-300 text-gray-700 font-bold text-lg rounded-xl hover:bg-gray-50 transition-all"
+                >
+                  No, Thanks
+                </button>
+                <button
+                  onClick={() => {
+                    setShowEnrollmentConfirmation(false);
+                    setSelectedPlan('digital-twin-free');
+                    setShowPlanSelection(false);
+                    setShowIntro(true);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="flex-1 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold text-lg rounded-xl hover:shadow-2xl transition-all hover:scale-105"
+                >
+                  🚀 Yes, Start Free Assessment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main content section */}
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
