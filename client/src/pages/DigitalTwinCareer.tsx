@@ -1411,7 +1411,7 @@ const CareerAssessment: React.FC = () => {
               Your Digital Twin Journey Awaits
             </p>
             <p className="text-gray-700 font-semibold text-lg mb-4">
-              We'll reach out within 24 hours with your personalized insights and transformation roadmap
+              We'll reach out to you with your personalized insights and transformation roadmap
             </p>
             <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-200">
               <p className="text-gray-600 font-medium mb-1">Assessment ID</p>
@@ -1472,7 +1472,7 @@ const CareerAssessment: React.FC = () => {
                   <div>
                     <h3 className="font-bold text-blue-900 mb-2 text-lg">What happens next?</h3>
                     <ul className="text-sm text-blue-800 space-y-2">
-                      <li>✓ Our team will contact you within 24 hours</li>
+                      <li>✓ Our team will reach out to you</li>
                       <li>✓ We'll share payment details and onboarding instructions</li>
                       <li>✓ Your personalized transformation journey will begin!</li>
                     </ul>
