@@ -124,7 +124,8 @@ const CareerAssessment: React.FC = () => {
     passion: '',
     purpose: ''
   });
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
+  const [showPlanSelection, setShowPlanSelection] = useState(true);
   const [showAspirationStep, setShowAspirationStep] = useState(false);
   const [showAssessment, setShowAssessment] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -135,10 +136,19 @@ const CareerAssessment: React.FC = () => {
   const [scoringResults, setScoringResults] = useState<any>(null);
   const [, setLoadingScores] = useState(false);
   const [expandedInsights, setExpandedInsights] = useState<{ [key: string]: boolean }>({});
+  const [selectedPlan, setSelectedPlan] = useState<string>('');
   
   // Toggle expanded state for a specific insight
   const toggleInsight = (key: string) => {
     setExpandedInsights(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  // Handle plan selection and proceed to intro
+  const handlePlanSelection = (planId: string) => {
+    setSelectedPlan(planId);
+    setShowPlanSelection(false);
+    setShowIntro(true);
+    window.scrollTo(0, 0);
   };
   
   // Handle user data input changes
@@ -728,6 +738,58 @@ const CareerAssessment: React.FC = () => {
             </button>
           </div>
         </form>
+      </div>
+    );
+  };
+
+  // Render the plan selection section (shown first)
+  const renderPlanSelectionSection = () => {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-6 shadow-2xl">
+            <span className="text-5xl">🚀</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4">
+            Choose Your Digital Twin Experience
+          </h1>
+          <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto">
+            Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
+          </p>
+        </div>
+
+        {/* Pricing Plans */}
+        <DigitalTwinPricingPlans 
+          userId={assessmentId} 
+          assessmentType="digital-twin-individual"
+          onPlanSelect={handlePlanSelection}
+        />
+
+        {/* Additional Info */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 max-w-3xl mx-auto border-2 border-blue-200">
+            <h3 className="text-2xl font-bold text-blue-900 mb-4">What Happens Next?</h3>
+            <ul className="text-left space-y-3 text-blue-800">
+              <li className="flex items-start gap-3">
+                <span className="text-2xl">①</span>
+                <span className="font-semibold">Select your preferred plan above</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-2xl">②</span>
+                <span className="font-semibold">Complete the 10-question Digital Twin assessment</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-2xl">③</span>
+                <span className="font-semibold">Receive your personalized insights and transformation roadmap</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-2xl">④</span>
+                <span className="font-semibold">Access your selected plan benefits and coaching</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   };
@@ -1416,6 +1478,7 @@ const CareerAssessment: React.FC = () => {
         </div>
       ) : (
         <>
+          {showPlanSelection && renderPlanSelectionSection()}
           {showIntro && renderIntroSection()}
           {showAssessment && renderAssessmentSection()}
           {showResults && renderResultsSection()}

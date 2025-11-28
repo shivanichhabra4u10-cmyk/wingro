@@ -21,20 +21,28 @@ interface DigitalTwinPlan {
 interface DigitalTwinPricingPlansProps {
   userId?: string;
   assessmentType?: string;
+  onPlanSelect?: (planId: string) => void;
 }
 
-const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userId, assessmentType }) => {
+const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userId, assessmentType, onPlanSelect }) => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Navigate to enrollment page
+  // Handle plan selection or enrollment
   const handleBuyPlan = async (planId: string) => {
     if (isProcessing) return;
     
     try {
       setIsProcessing(true);
       
-      // Navigate to enrollment page with plan details
+      // If onPlanSelect callback is provided, use it (for pre-assessment plan selection)
+      if (onPlanSelect) {
+        onPlanSelect(planId);
+        setIsProcessing(false);
+        return;
+      }
+      
+      // Otherwise, navigate to enrollment page (for post-assessment enrollment)
       window.location.href = `/digital-twin-enrollment?plan=${planId}`;
     } catch (error) {
       alert('Unable to proceed. Please try again later.');
@@ -310,14 +318,27 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                   }}
                   disabled={isProcessing}
                 >
-                  {isProcessing ? 'Processing...' : 'Enroll for this'}
+                  {isProcessing ? 'Processing...' : (onPlanSelect ? 'Select & Continue' : 'Enroll for this')}
                 </button>
               )}
 
               {plan.isFree && (
-                <div className="w-full py-4 rounded-xl font-bold text-lg text-center bg-green-100 text-green-800 border-2 border-green-300">
-                  ✓ You're Viewing This Now
-                </div>
+                <button
+                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
+                    onPlanSelect 
+                      ? 'bg-green-600 hover:bg-green-700 text-white cursor-pointer hover:shadow-xl' 
+                      : 'bg-green-100 text-green-800 border-2 border-green-300'
+                  } ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  onClick={(e) => {
+                    if (onPlanSelect) {
+                      e.stopPropagation();
+                      handleBuyPlan(plan.id);
+                    }
+                  }}
+                  disabled={isProcessing || !onPlanSelect}
+                >
+                  {onPlanSelect ? (isProcessing ? 'Processing...' : 'Start Free Assessment') : '✓ You\'re Viewing This Now'}
+                </button>
               )}
             </div>
           </div>
