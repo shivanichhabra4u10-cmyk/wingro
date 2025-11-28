@@ -156,15 +156,15 @@ const CareerAssessment: React.FC = () => {
     }));
   };
 
-  // Handle moving from intro to aspiration step
-  const handleContinueToAspiration = () => {
+  // Handle moving from intro to assessment
+  const handleContinueToAspiration = async () => {
     // Validate required fields
     if (!userData.firstName || !userData.lastName || !userData.email || !userData.contactNo) {
       toast.error('Please fill in all required fields (First Name, Last Name, Email, and Contact Number)');
       return;
     }
-    setShowIntro(false);
-    setShowAspirationStep(true);
+    // Directly start assessment
+    await handleStartAssessment();
   };
 
   // Handle starting the assessment (move from aspiration step to assessment)
@@ -212,9 +212,9 @@ const CareerAssessment: React.FC = () => {
         jobTitle: (userData.jobTitle || '').trim(),
         company: (userData.company || '').trim(),
         yearsExperience: (userData.yearsExperience || '').trim(),
-        aspiration: (userData.aspiration || '').trim(),
-        passion: (userData.passion || '').trim(),
-        purpose: (userData.purpose || '').trim(),
+        aspiration: '',
+        passion: '',
+        purpose: '',
         individualType: assessmentType,
         category: localStorage.getItem('digitalTwinCategory') || '',
         assessmentType: 'digital-twin-individual'
@@ -241,7 +241,7 @@ const CareerAssessment: React.FC = () => {
       setAssessmentId(assessmentId);
       console.log('Digital Twin started with ID:', assessmentId);
       toast.success('Digital Twin started successfully!');
-      setShowAspirationStep(false);
+      setShowIntro(false);
       setShowAssessment(true);
     } catch (error: any) {
       console.error('Error starting digital twin:', error);
@@ -724,7 +724,7 @@ const CareerAssessment: React.FC = () => {
               onClick={handleContinueToAspiration}
               className="w-full md:w-auto px-6 py-3 bg-purple-600 text-white font-medium rounded-md hover:bg-purple-700 transition-colors"
             >
-              Start
+              Begin Assessment
             </button>
           </div>
         </form>
@@ -1417,7 +1417,6 @@ const CareerAssessment: React.FC = () => {
       ) : (
         <>
           {showIntro && renderIntroSection()}
-          {showAspirationStep && renderAspirationSection()}
           {showAssessment && renderAssessmentSection()}
           {showResults && renderResultsSection()}
         </>
