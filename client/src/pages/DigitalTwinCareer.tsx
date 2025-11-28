@@ -20,7 +20,7 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import { calculateDigitalTwinScores } from '../services/digitalTwinClientScoring';
-import TieredPlans from '../components/TieredPlans';
+import DigitalTwinPricingPlans from '../components/DigitalTwinPricingPlans';
 
 // Register Chart.js components
 ChartJS.register(
@@ -1115,14 +1115,12 @@ const CareerAssessment: React.FC = () => {
                 </div>
               </div>
 
-              <div className="relative z-10 text-center">
-                <p className="text-sm text-purple-200 mb-4">⏰ Limited Time: Get 20% off when you unlock your report today!</p>
-              </div>
+              
             </div>
 
-            {/* Tiered Plans Section */}
+            {/* Digital Twin Pricing Plans Section */}
             <div className="mb-8">
-              <TieredPlans />
+              <DigitalTwinPricingPlans userId={assessmentId} assessmentType="digital-twin-individual" />
             </div>
 
             {/* Scoring Results Section */}
