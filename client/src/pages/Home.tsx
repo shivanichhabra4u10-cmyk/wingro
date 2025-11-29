@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
+  // Update this array when you add/remove brand images
+  const brandImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
     <div className="bg-white min-h-screen flex flex-col space-y-12 pb-16">
       {/* Hero Section */}
@@ -81,7 +84,7 @@ const Home: React.FC = () => {
             `
           }} />
           <div className="flex items-center space-x-8" style={{ animation: 'brandScroll 6s linear infinite' }}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((id, index) => (
+            {brandImages.map((id, index) => (
               <div key={index} className="flex-shrink-0" style={{ width: '180px', height: '180px', padding: '16px' }}>
                 <img
                   src={`/images/Brand-${id}.png`}
