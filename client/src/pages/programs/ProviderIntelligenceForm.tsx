@@ -336,7 +336,7 @@ const questionnaire: Question[][] = [
       "Hold a values review session", "Follow the law strictly", "Seek third-party ethics advisor", "Run stakeholder poll", "Vote democratically", "Decide as founder", "Pause project until resolved", "Communicate transparently to users", "Ignore if minor", "Unsure — need guidance"
     ], type: "radio", name: "moralChoiceResponse" },
     { label: "14️⃣ Describe how your values show up in day-to-day work (≤ 75 words).", type: "text", name: "valuesDayToDay" },
-    { label: "15️⃣ Why do you believe the Wingrox AI e-Accelerator™ is right for you now?", options: [
+    { label: "15️⃣ Why do you believe the Wingrox AI e-Accelerator is right for you now?", options: [
       "Need structured playbooks to scale", "Seeking funding readiness", "Want to fix unit economics", "Need mentors for growth ops", "Looking for AI-powered growth insights", "Need peer community support", "Seeking corporate pilot opportunities", "Want investor visibility", "Looking for accountability system", "All of the above"
     ], type: "radio", name: "acceleratorReason" },
     { label: "16️⃣ Time commitment you can realistically dedicate to the program:", options: [
@@ -395,7 +395,7 @@ export default function ProviderIntelligenceForm() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-8">
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-2xl font-bold mb-2 text-blue-700">Wingrox AI e-Accelerator™ — Screening & Selection Questionnaire</h1>
+        <h1 className="text-2xl font-bold mb-2 text-blue-700">Wingrox AI e-Accelerator — Screening & Selection Questionnaire</h1>
         <div className="flex items-center mb-6">
           {steps.map((label, idx) => (
             <div key={label} className="flex items-center">

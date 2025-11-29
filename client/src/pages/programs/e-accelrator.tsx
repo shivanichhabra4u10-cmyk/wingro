@@ -9,7 +9,7 @@ const EAccelerator: React.FC = () => {
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <div className="flex-1 flex flex-col gap-4">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-700 mb-2">Wingrox AI e-Growth Accelerator™</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-700 mb-2">Wingrox AI e-Growth Accelerator</h1>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-2">From Momentum → Mastery → Market Leadership → Legacy</h2>
           <p className="text-lg text-gray-600">“Don’t just grow fast—grow intelligently.”</p>
           <p className="text-md text-gray-500">We’re Intelligence-First Growth Accelerator. We blend human mentors + AI growth engines to remove your bottlenecks, create measurable momentum, and turn promising ventures into scalable, investable, globally admired businesses.</p>
@@ -36,7 +36,7 @@ const EAccelerator: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-800 mb-2">Why it Exists?</h3>
           <p className="text-md text-gray-600 mb-2">Build the world’s first accelerator where intelligence leads growth—so companies scale smart, ethical, and strong.</p>
           <h3 className="text-2xl font-bold text-blue-800 mt-6 mb-2">What it Delivers?</h3>
-          <p className="text-md text-gray-600 mb-2">We map your pains, design a clear growth path, run focused sprints, and prove outcomes—using the Pain Intelligence Hub™ and Growth Navigator Engine™.</p>
+          <p className="text-md text-gray-600 mb-2">We map your pains, design a clear growth path, run focused sprints, and prove outcomes—using the Pain Intelligence Hub and Growth Navigator Engine.</p>
           <p className="text-md text-gray-500 mb-2">In short: We find what’s stuck → we fix it → we prove it works.</p>
           <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow mt-4">Learn how it works →</button>
         </div>
@@ -100,7 +100,7 @@ const EAccelerator: React.FC = () => {
       <section className="flex flex-col gap-6">
         <h3 className="text-xl font-bold text-blue-700 mb-2">The Wingrox Solution: Intelligent Acceleration</h3>
         <ol className="list-decimal ml-6 text-gray-700 mb-2">
-          <li>Growth Readiness Navigator™ checks: bottlenecks, psychology, market, revenue, discipline</li>
+          <li>Growth Readiness Navigator checks: bottlenecks, psychology, market, revenue, discipline</li>
           <li>Join a Pod: guided by Program Lead (human) + AI Co-Mentor (Wingrox GPT)</li>
           <li>Run custom sprints with proof at every step</li>
         </ol>
@@ -134,7 +134,7 @@ const EAccelerator: React.FC = () => {
               </tr>
               <tr className="border-b">
                 <td className="px-4 py-2">Pitstop-verified progress</td>
-                <td className="px-4 py-2">Every sprint ends with Go / Pivot / Scale on the Trust Ledger™.</td>
+                <td className="px-4 py-2">Every sprint ends with Go / Pivot / Scale on the Trust Ledger.</td>
               </tr>
               <tr className="border-b">
                 <td className="px-4 py-2">Ethics & impact</td>
@@ -153,12 +153,12 @@ const EAccelerator: React.FC = () => {
       <section className="flex flex-col gap-6">
         <h3 className="text-xl font-bold text-blue-700 mb-2">What You’ll Achieve (Program Outcomes)</h3>
         <ul className="list-disc ml-6 text-gray-700 mb-2">
-          <li>✅ Pain → Progress → Profit → Legacy Roadmap™</li>
-          <li>✅ A Trust Ledger™ trail of verified traction</li>
+          <li>✅ Pain → Progress → Profit → Legacy Roadmap</li>
+          <li>✅ A Trust Ledger trail of verified traction</li>
           <li>✅ A Growth Operating System (repeatable, scalable)</li>
           <li>✅ Access to Wingrox e-Investor Network (CSR funds + VCs + corporates)</li>
           <li>✅ A Leadership Playbook aligned to your persona</li>
-          <li>✅ Auto-listing on GrowthLink™ for enterprise & global partnerships</li>
+          <li>✅ Auto-listing on GrowthLink for enterprise & global partnerships</li>
         </ul>
       </section>
 
@@ -171,7 +171,7 @@ const EAccelerator: React.FC = () => {
           <li>S1–S3: Diagnosis → Blueprint → Acceleration</li>
           <li>S4–S5: Revenue Reinvention → Customer Flywheel</li>
           <li>S6–S7: Funding & Partnerships → Demo Week</li>
-          <li>Post: GrowthLink™ + Alumni Guild</li>
+          <li>Post: GrowthLink + Alumni Guild</li>
         </ul>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow mt-4">See full architecture →</button>
       </section>
@@ -195,7 +195,7 @@ const EAccelerator: React.FC = () => {
         <ul className="list-disc ml-6 text-gray-700 mb-2">
           <li>Personalized sprints (not generic classes)</li>
           <li>Human + AI mentors (not advice roulette)</li>
-          <li>Trust Ledger™ proof (not claims)</li>
+          <li>Trust Ledger proof (not claims)</li>
           <li>Funding ladder beyond Demo Day (not one shot)</li>
           <li>SME-friendly & impact-aligned by design</li>
         </ul>

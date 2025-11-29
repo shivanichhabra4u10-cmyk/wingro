@@ -59,7 +59,7 @@ const EIncubator: React.FC = () => {
               <tr className="border-b">
                 <td className="px-4 py-2">2️⃣</td>
                 <td className="px-4 py-2">Validate Your Idea</td>
-                <td className="px-4 py-2">Test your problem–solution fit using the Pain Intelligence Hub™</td>
+                <td className="px-4 py-2">Test your problem–solution fit using the Pain Intelligence Hub</td>
               </tr>
               <tr className="border-b">
                 <td className="px-4 py-2">3️⃣</td>
@@ -79,7 +79,7 @@ const EIncubator: React.FC = () => {
               <tr>
                 <td className="px-4 py-2">6️⃣</td>
                 <td className="px-4 py-2">Scale & Leave a Legacy</td>
-                <td className="px-4 py-2">Join our e-Accelerator & GrowthLink™ network</td>
+                <td className="px-4 py-2">Join our e-Accelerator & GrowthLink network</td>
               </tr>
             </tbody>
           </table>
@@ -159,12 +159,12 @@ const EIncubator: React.FC = () => {
 
       {/* Why Founders Love e-Incubator */}
       <section className="flex flex-col gap-6">
-        <h3 className="text-xl font-bold text-indigo-700 mb-2">Why Founders Love e-Incubator™</h3>
+        <h3 className="text-xl font-bold text-indigo-700 mb-2">Why Founders Love e-Incubator</h3>
         <ul className="list-disc ml-6 text-gray-700 mb-2">
           <li>🧬 A Personalized Pathway — AI adapts the program to your persona.</li>
           <li>⚙️ Human + AI Collaboration — You’re paired with a Growth Architect (human) and AI Co-Mentor (Wingrox GPT).</li>
-          <li>📈 Milestone-Verified Growth — Each sprint ends with a transparent “Go / Pivot / Scale” decision recorded in the Trust Ledger™.</li>
-          <li>🌍 Network as an Asset — Lifetime access to GrowthLink™, alumni founders, and investors.</li>
+          <li>📈 Milestone-Verified Growth — Each sprint ends with a transparent “Go / Pivot / Scale” decision recorded in the Trust Ledger.</li>
+          <li>🌍 Network as an Asset — Lifetime access to GrowthLink, alumni founders, and investors.</li>
           <li>♻️ Ethics & Impact by Design — ESG alignment and social-impact validation built-in.</li>
         </ul>
         <div className="flex gap-4 mt-4">
@@ -178,10 +178,10 @@ const EIncubator: React.FC = () => {
         <h3 className="text-xl font-bold text-indigo-700 mb-2">By Graduation, You’ll Have</h3>
         <ul className="list-disc ml-6 text-gray-700 mb-2">
           <li>✅ A validated Problem → Solution → Market → Model → MVP → Funding → Legacy story</li>
-          <li>✅ Proof of traction & trust in the Trust Ledger™</li>
+          <li>✅ Proof of traction & trust in the Trust Ledger</li>
           <li>✅ Access to investors, grants, and enterprise pilots</li>
-          <li>✅ Your own Persona-Aligned Foundership Playbook™</li>
-          <li>✅ Entry into the GrowthLink™ ecosystem for scale</li>
+          <li>✅ Your own Persona-Aligned Foundership Playbook</li>
+          <li>✅ Entry into the GrowthLink ecosystem for scale</li>
         </ul>
       </section>
 
@@ -229,7 +229,7 @@ const EIncubator: React.FC = () => {
       {/* Final CTA Banner */}
       <section className="mt-12 text-center">
         <h3 className="text-2xl font-bold text-indigo-700 mb-2">Ready to Start Your Founder Journey?</h3>
-        <p className="text-md text-gray-600 mb-2">Join the WinGrox AI e-Incubator™ — where ideas become impact in just 12 weeks.</p>
+        <p className="text-md text-gray-600 mb-2">Join the WinGrox AI e-Incubator — where ideas become impact in just 12 weeks.</p>
         <div className="flex flex-col md:flex-row gap-4 justify-center mt-4">
           <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full shadow">Apply Now → Launch Your Idea</button>
         </div>

@@ -40,7 +40,7 @@ const DigitalTwinEnrollment: React.FC = () => {
       color: 'from-gray-400 to-gray-600'
     },
     'gold-reinvention': { 
-      name: 'Gold — Career Reinvention Accelerator™', 
+      name: 'Gold — Career Reinvention Accelerator', 
       price: '₹24,999',
       color: 'from-yellow-500 to-orange-600'
     },
@@ -254,7 +254,7 @@ const DigitalTwinEnrollment: React.FC = () => {
               >
                 <option value="">Choose a plan...</option>
                 <option value="silver-identity">Silver — Identity Alignment Breakthrough (₹4,999)</option>
-                <option value="gold-reinvention">Gold — Career Reinvention Accelerator™ (₹24,999)</option>
+                <option value="gold-reinvention">Gold — Career Reinvention Accelerator (₹24,999)</option>
                 <option value="platinum-mastery">Platinum — Elite Transformation & Leadership Mastery (₹75,000)</option>
               </select>
             </div>

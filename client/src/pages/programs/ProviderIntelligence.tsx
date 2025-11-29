@@ -604,7 +604,7 @@ const ProviderIntelligence: React.FC = () => {
       <section className="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl p-8 md:p-12 text-white relative overflow-hidden mb-8 shadow-lg">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-400 mb-4 tracking-tight" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
-            WinGrox AI Connect™ — Provider Intelligence Questionnaire
+            WinGrox AI Connect — Provider Intelligence Questionnaire
           </h1>
           <p className="text-lg md:text-xl text-blue-100 mb-6">
             Decode the provider's capability, credibility, capacity, and compatibility — so the Pain Intelligence Hub can compute a Match Confidence Score and feed it into the Trust Ledger.

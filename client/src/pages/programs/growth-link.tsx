@@ -62,7 +62,7 @@ const GrowthLink: React.FC = () => {
       <section className="flex flex-col gap-6">
         <h3 className="text-2xl font-bold text-blue-800 mb-2">The WinGrox Solution — GrowthLink</h3>
         <p className="text-md text-gray-700 mb-2">“Where Credibility Meets Opportunity.”</p>
-        <p className="text-md text-gray-500 mb-2">GrowthLink™ is the intelligence layer that transforms chaos into clarity. Every match follows our verified 4-brain framework:</p>
+        <p className="text-md text-gray-500 mb-2">GrowthLink is the intelligence layer that transforms chaos into clarity. Every match follows our verified 4-brain framework:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-blue-50 p-4 rounded-xl shadow flex flex-col gap-2">
             <span className="font-bold text-blue-700">1️⃣ Pain Discovery Engine</span>
@@ -116,7 +116,7 @@ const GrowthLink: React.FC = () => {
             <li>Post Your Challenge (Free Diagnostic)</li>
             <li>AI Diagnostic & Pain Signature Creation</li>
             <li>Intelligent Matchmaking</li>
-            <li>Smart Contract + Trust Ledger™</li>
+            <li>Smart Contract + Trust Ledger</li>
           </ol>
             <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full shadow self-start" onClick={() => window.location.href = 'http://localhost:3000/programs/growth-link/pain-discovery'}>Post a Challenge → Free AI Diagnostic</button>
         </div>
@@ -124,7 +124,7 @@ const GrowthLink: React.FC = () => {
           <h4 className="text-lg font-bold text-indigo-700 mb-2">FOR PROVIDERS — Pitch with Intelligence, Not Guesswork.</h4>
           <p className="text-md text-gray-600 mb-2">“Be discovered not because you shout louder — but because you fit smarter.”</p>
           <ol className="list-decimal ml-6 text-gray-700 mb-2">
-            <li>Create Your Capability Signature™</li>
+            <li>Create Your Capability Signature</li>
             <li>Get Matched to Real Problems</li>
             <li>Deliver & Earn with Trust</li>
           </ol>

@@ -78,7 +78,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       badge: 'Quick Clarity',
       description: 'Entry-level premium experience: clarity + direction + quick wins',
       features: [
-        'Full Digital Twin Intelligence™ Report (30+ pages personalized)',
+        'Full Digital Twin Intelligence Report (30+ pages personalized)',
         'Top 3 Strength Signatures + 3 Growth Limiters decoded',
         'Purpose & Alignment Blueprint',
         'Micro-Action Roadmap: next 7 days + 30 days',
@@ -94,7 +94,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
     {
       id: 'gold-reinvention',
       title: 'GOLD',
-      subtitle: 'Career Reinvention Accelerator™',
+      subtitle: 'Career Reinvention Accelerator',
       price: '₹24,999',
       priceValue: 24999,
       currency: 'INR',

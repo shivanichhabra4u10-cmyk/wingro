@@ -44,7 +44,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
       color: 'from-gray-400 to-gray-600'
     },
     'gold-reinvention': { 
-      name: 'Gold — Career Reinvention Accelerator™', 
+      name: 'Gold — Career Reinvention Accelerator', 
       price: '₹24,999',
       color: 'from-yellow-500 to-orange-600'
     },
@@ -93,7 +93,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
       );
 
       if (response.data.success) {
-        toast.success('🎉 Enrollment request submitted successfully! Our team will contact you within 24 hours.');
+        toast.success('🎉 Enrollment request submitted successfully! Our team will contact you.');
         
         // Reset form
         setFormData({
@@ -275,7 +275,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
                 >
                   <option value="">Choose a plan...</option>
                   <option value="silver-identity">Silver — Identity Alignment Breakthrough (₹4,999)</option>
-                  <option value="gold-reinvention">Gold — Career Reinvention Accelerator™ (₹24,999)</option>
+                  <option value="gold-reinvention">Gold — Career Reinvention Accelerator (₹24,999)</option>
                   <option value="platinum-mastery">Platinum — Elite Transformation & Leadership Mastery (₹75,000)</option>
                 </select>
               </div>

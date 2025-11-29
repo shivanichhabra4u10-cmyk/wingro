@@ -23,7 +23,7 @@ function getPartSectionLabel(step: number): string {
   return `Part ${step + 1}`;
 }
 
-// This is a multi-step screening questionnaire for Wingrox AI e-Accelerator™
+// This is a multi-step screening questionnaire for Wingrox AI e-Accelerator
 // Each section is a step, with radio/checkbox questions and some text/file uploads
 
 type Question = {
@@ -1488,7 +1488,7 @@ const sections: Section[] = [
     title: "Section P — Accelerator Alignment & Commitment",
     questions: [
       {
-        label: "Why do you believe the Wingrox AI e-Accelerator™ is right for you now?",
+        label: "Why do you believe the Wingrox AI e-Accelerator is right for you now?",
         type: "radio",
         name: "acceleratorFit",
         options: [
@@ -1633,7 +1633,7 @@ export default function EAcceleratorScreening() {
       <section className="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl p-8 md:p-12 text-white relative overflow-hidden mb-8 shadow-lg">
         <div className="relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-400 mb-4 tracking-tight" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
-            Wingrox AI e-Accelerator™ — Screening & Selection Questionnaire
+            Wingrox AI e-Accelerator — Screening & Selection Questionnaire
           </h1>
           <p className="text-xl text-blue-100 mb-6">
             Please complete each section to help us understand your growth readiness and needs. Your responses are confidential and will be used to generate personalized insights.

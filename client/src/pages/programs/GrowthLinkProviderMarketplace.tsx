@@ -15,7 +15,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
       <section className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 text-white py-16 px-4 md:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-200">
-            WinGrox AI GrowthLink™
+            WinGrox AI GrowthLink
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Provider Challenge Marketplace</h2>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 font-medium">
@@ -24,7 +24,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4 text-lg">
             <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">🎯 Verified Challenges</span>
             <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">💰 Real Budgets</span>
-            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">🤝 Trust Ledger™ Verified</span>
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">🤝 Trust Ledger Verified</span>
           </div>
         </div>
       </section>
@@ -43,7 +43,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-xl">✓</span>
-                  <span>Access <strong>Pain Signatures™</strong> — distilled unmet needs & impact scope</span>
+                  <span>Access <strong>Pain Signatures</strong> — distilled unmet needs & impact scope</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-500 text-xl">✓</span>
@@ -72,7 +72,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="bg-blue-100 text-blue-600 font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span>
-                  <span>Collaborate via Trust Ledger™ verification</span>
+                  <span>Collaborate via Trust Ledger verification</span>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
               <div className="flex items-center gap-4 mb-4 md:mb-0">
                 <span className="text-4xl">🧩</span>
                 <div>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">PAIN SIGNATURE™</span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">PAIN SIGNATURE</span>
                   <h4 className="text-sm text-gray-500 mt-1">HEALTHCARE CLUSTER</h4>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
               <h6 className="font-bold text-gray-800 mb-3 text-lg">Ready to Transform Healthcare Operations?</h6>
               <p className="text-gray-700 mb-4">
                 Have you built smart scheduling, queue management, or predictive analytics systems? 
-                Attach a short concept note or video demo — shortlisted proposals receive verified onboarding through WinGrox AI Trust Ledger™.
+                Attach a short concept note or video demo — shortlisted proposals receive verified onboarding through WinGrox AI Trust Ledger.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button 
@@ -221,7 +221,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
                   🟩 Submit Solution Proposal
                 </button>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200">
-                  Learn More About Trust Ledger™
+                  Learn More About Trust Ledger
                 </button>
               </div>
             </div>
@@ -251,7 +251,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
       {/* Provider Benefits */}
       <section className="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-16 mt-16">
         <div className="max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <h3 className="text-3xl font-bold mb-8">Why Top Providers Choose GrowthLink™</h3>
+          <h3 className="text-3xl font-bold mb-8">Why Top Providers Choose GrowthLink</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
               <div className="text-4xl mb-4">🎯</div>
@@ -261,7 +261,7 @@ const GrowthLinkProviderMarketplace: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
               <div className="text-4xl mb-4">🛡️</div>
               <h4 className="font-bold text-xl mb-3">Trust & Verification</h4>
-              <p className="text-blue-100">Every engagement is Trust Ledger™ verified, ensuring secure payments and professional collaboration</p>
+              <p className="text-blue-100">Every engagement is Trust Ledger verified, ensuring secure payments and professional collaboration</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
               <div className="text-4xl mb-4">📈</div>
