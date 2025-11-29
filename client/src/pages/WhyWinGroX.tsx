@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 
 const WhyWinGroX: React.FC = () => {
   const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [expandedTestimonials, setExpandedTestimonials] = useState<{ [key: number]: boolean }>({});
 
   useEffect(() => {
     import('../data/testimonials.json').then((mod) => setTestimonials(mod.default || mod));
   }, []);
+
+  const toggleTestimonial = (index: number) => {
+    setExpandedTestimonials(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   return (
     <div className="flex flex-col space-y-12 pb-16">
@@ -99,7 +107,17 @@ const WhyWinGroX: React.FC = () => {
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg">
               {t.type === 'comment' ? (
                 <>
-                  <p className="text-gray-700 italic mb-4">"{t.text}"</p>
+                  <p className="text-gray-700 italic mb-4">
+                    "{expandedTestimonials[idx] ? t.text : t.text.substring(0, 150) + (t.text.length > 150 ? '...' : '')}"
+                  </p>
+                  {t.text.length > 150 && (
+                    <button
+                      onClick={() => toggleTestimonial(idx)}
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-4 py-2 rounded mb-4 transition-colors"
+                    >
+                      {expandedTestimonials[idx] ? 'Read Less' : 'Read More'}
+                    </button>
+                  )}
                   <div className="flex items-center">
                     <div className="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
                     <div>
