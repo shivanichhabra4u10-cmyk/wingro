@@ -364,7 +364,10 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
               </p>
             </div>
             <div className="md:w-1/3 md:text-right md:pl-6">
-              <button className="bg-white text-purple-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-purple-50 transition-all hover:shadow-2xl hover:scale-105">
+              <button 
+                onClick={() => window.location.href = '/contact'}
+                className="bg-white text-purple-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-purple-50 transition-all hover:shadow-2xl hover:scale-105"
+              >
                 Contact Us
               </button>
             </div>
