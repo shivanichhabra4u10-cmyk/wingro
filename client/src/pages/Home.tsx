@@ -67,10 +67,22 @@ const Home: React.FC = () => {
       {/* Featured By Section - Social Proof */}
       <section className="bg-gradient-to-b from-gray-50 to-white rounded-xl p-8 shadow-lg">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-800">Trusted By Industry Leaders</h2>
-        <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
-          <div className="flex items-center space-x-4 animate-scroll">
-            {[1, 2, 3, 4, 5,6,7,8,9].map((id) => (
-              <div key={id} className="flex-shrink-0 w-48 h-48 p-4">
+        <div className="relative w-full overflow-hidden rounded-lg shadow-lg" style={{ height: '200px' }}>
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              @keyframes brandScroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+            `
+          }} />
+          <div className="flex items-center space-x-8" style={{ animation: 'brandScroll 6s linear infinite' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((id, index) => (
+              <div key={index} className="flex-shrink-0" style={{ width: '180px', height: '180px', padding: '16px' }}>
                 <img
                   src={`/images/Brand-${id}.png`}
                   alt={`Brand ${id}`}
