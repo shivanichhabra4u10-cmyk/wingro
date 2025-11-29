@@ -21,6 +21,7 @@ import {
 import { Radar } from 'react-chartjs-2';
 import { calculateDigitalTwinScores } from '../services/digitalTwinClientScoring';
 import DigitalTwinPricingPlans from '../components/DigitalTwinPricingPlans';
+import EnrollmentModal from '../components/EnrollmentModal';
 
 // Register Chart.js components
 ChartJS.register(
@@ -139,6 +140,8 @@ const CareerAssessment: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [showEnrollmentConfirmation, setShowEnrollmentConfirmation] = useState(false);
   const [enrolledPlanName, setEnrolledPlanName] = useState<string>('');
+  const [showEnrollmentModal, setShowEnrollmentModal] = useState(false);
+  const [enrollmentPlan, setEnrollmentPlan] = useState<string>('');
   
   // Toggle expanded state for a specific insight
   const toggleInsight = (key: string) => {
@@ -148,6 +151,8 @@ const CareerAssessment: React.FC = () => {
   // Handle plan selection and proceed to intro
   const handlePlanSelection = (planId: string) => {
     setSelectedPlan(planId);
+    console.log('Plan selected:', planId);
+    console.log('Current state - showResults:', showResults);
     
     // If it's the free plan, proceed directly to intro
     if (planId === 'digital-twin-free') {
@@ -155,8 +160,25 @@ const CareerAssessment: React.FC = () => {
       setShowIntro(true);
       window.scrollTo(0, 0);
     } else {
-      // For paid plans, navigate to enrollment page
-      window.location.href = `/digital-twin-enrollment?plan=${planId}`;
+      // For paid plans:
+      // Check if enrolled=true in URL (user came from enrollment page or wants modal)
+      const searchParams = new URLSearchParams(location.search);
+      const enrollmentMode = searchParams.get('enrolled') === 'true';
+      console.log('Enrollment mode from URL:', enrollmentMode);
+      console.log('Current URL:', location.search);
+      
+      // If user is viewing results OR enrolled=true in URL, show modal to preserve context
+      // If user is at beginning (plan selection), navigate to enrollment page
+      if (showResults || enrollmentMode) {
+        // Show modal to keep them on current page
+        console.log('Opening enrollment modal');
+        setEnrollmentPlan(planId);
+        setShowEnrollmentModal(true);
+      } else {
+        // User is at beginning - navigate to enrollment page (normal flow)
+        console.log('Navigating to enrollment page');
+        navigate(`/digital-twin-enrollment?plan=${planId}`);
+      }
     }
   };
   
@@ -282,7 +304,13 @@ const CareerAssessment: React.FC = () => {
       sessionStorage.removeItem('enrollmentSuccess');
       sessionStorage.removeItem('enrolledPlan');
     }
-  }, []);
+
+    // Check if URL has enrolled=true parameter
+    const searchParams = new URLSearchParams(location.search);
+    if (searchParams.get('enrolled') === 'true') {
+      console.log('URL has enrolled=true parameter - enrollment modal mode enabled');
+    }
+  }, [location.search]);
 
   // Clean up chart instances when component unmounts or when showResults changes
   useEffect(() => {
@@ -1211,7 +1239,11 @@ const CareerAssessment: React.FC = () => {
 
             {/* Digital Twin Pricing Plans Section */}
             <div className="mb-8">
-              <DigitalTwinPricingPlans userId={assessmentId} assessmentType="digital-twin-individual" />
+              <DigitalTwinPricingPlans 
+                userId={assessmentId} 
+                assessmentType="digital-twin-individual"
+                onPlanSelect={handlePlanSelection}
+              />
             </div>
 
             {/* Scoring Results Section */}
@@ -1532,6 +1564,13 @@ const CareerAssessment: React.FC = () => {
           {showResults && renderResultsSection()}
         </>
       )}
+
+      {/* Enrollment Modal */}
+      <EnrollmentModal
+        isOpen={showEnrollmentModal}
+        onClose={() => setShowEnrollmentModal(false)}
+        selectedPlan={enrollmentPlan}
+      />
     </div>
   );
 };
