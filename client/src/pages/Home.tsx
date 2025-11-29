@@ -87,7 +87,7 @@ const Home: React.FC = () => {
             {brandImages.map((id, index) => (
               <div key={index} className="flex-shrink-0" style={{ width: '180px', height: '180px', padding: '16px' }}>
                 <img
-                  src={`/images/Brand-${id}.png`}
+                  src={`${process.env.PUBLIC_URL}/images/Brand-${id}.png`}
                   alt={`Brand ${id}`}
                   className="w-full h-full object-contain"
                 />
