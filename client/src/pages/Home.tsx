@@ -11,9 +11,13 @@ const Home: React.FC = () => {
       <section className="relative rounded-xl overflow-hidden mb-8 shadow-lg">
         <div className="bg-gradient-to-r from-blue-900 to-indigo-800 p-8 md:p-12 text-white">
           <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-400">
-              WinGroX AI
-            </h1>
+            <div className="flex justify-center mb-6">
+              <img 
+                src={`${process.env.PUBLIC_URL}/WGLogoWhite.png`} 
+                alt="WinGroX AI Logo" 
+                className="h-15 md:h-15 lg:h-20 w-21 object-contain"
+              />
+            </div>
             <h2 className="text-xl md:text-2xl font-semibold mb-5 text-blue-100">
               Your AI-Powered Growth Partner
             </h2>
