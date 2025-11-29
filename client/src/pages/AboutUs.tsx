@@ -84,21 +84,21 @@ const AboutUs: React.FC = () => {
         {/* Team members grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
-            <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-gray-100 to-blue-100 mb-4"></div>
+            <img src="/images/VijayJagannathan.jpg" alt="Vijay Jagannathan" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
             <h3 className="font-bold text-lg mb-1">Vijay Jagannathan</h3>
             <p className="text-cyan-600 text-sm mb-3">Advisor</p>
             <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
           </div>
           
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
-            <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-gray-100 to-blue-100 mb-4"></div>
+            <img src="/images/KiranMakkar.jpg" alt="Kiran Makkar" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
             <h3 className="font-bold text-lg mb-1">Kiran Makkar</h3>
             <p className="text-cyan-600 text-sm mb-3">Manager</p>
             <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
           </div>
           
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
-            <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-gray-100 to-blue-100 mb-4"></div>
+            <img src="/images/RavinderSoni.jpg" alt="Ravinder Soni" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
             <h3 className="font-bold text-lg mb-1">Ravinder Soni</h3>
             <p className="text-cyan-600 text-sm mb-3">Position</p>
             <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
