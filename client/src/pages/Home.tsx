@@ -67,21 +67,22 @@ const Home: React.FC = () => {
       {/* Featured By Section - Social Proof */}
       <section className="bg-gradient-to-b from-gray-50 to-white rounded-xl p-8 shadow-lg">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-800">Trusted By Industry Leaders</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-          <div className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
-            <div className="h-8 bg-gray-200 rounded-md w-32"></div>
-          </div>
-          <div className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
-            <div className="h-8 bg-gray-200 rounded-md w-32"></div>
-          </div>
-          <div className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
-            <div className="h-8 bg-gray-200 rounded-md w-32"></div>
-          </div>
-          <div className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
-            <div className="h-8 bg-gray-200 rounded-md w-32"></div>
+        <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
+          <div className="flex items-center space-x-4 animate-scroll">
+            {[1, 2, 3, 4, 5,6,7,8,9].map((id) => (
+              <div key={id} className="flex-shrink-0 w-48 h-48 p-4">
+                <img
+                  src={`/images/Brand-${id}.png`}
+                  alt={`Brand ${id}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+    
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-xl p-8 text-white text-center">
