@@ -13,7 +13,7 @@ const Home: React.FC = () => {
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <div className="flex justify-center mb-6">
               <img 
-                src={`${process.env.PUBLIC_URL}/WGLogoWhite.png`} 
+                src={`/WGLogoWhite.png`} 
                 alt="WinGroX AI Logo" 
                 className="h-12 md:h-14 lg:h-16 w-auto object-contain max-w-md"
               />
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
             {brandImages.map((id, index) => (
               <div key={index} className="flex-shrink-0" style={{ width: '180px', height: '180px', padding: '16px' }}>
                 <img
-                  src={`/images/Brand-${id}.png`}
+                  src="/images/KiranMakkar.jpg"
                   alt={`Brand ${id}`}
                   className="w-full h-full object-contain"
                 />
