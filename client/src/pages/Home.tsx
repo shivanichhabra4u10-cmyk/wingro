@@ -15,7 +15,7 @@ const Home: React.FC = () => {
               <img 
                 src={`${process.env.PUBLIC_URL}/WGLogoWhite.png`} 
                 alt="WinGroX AI Logo" 
-                className="h-15 md:h-15 lg:h-20 w-21 object-contain"
+                className="h-12 md:h-14 lg:h-16 w-auto object-contain max-w-md"
               />
             </div>
             <h2 className="text-xl md:text-2xl font-semibold mb-5 text-blue-100">
