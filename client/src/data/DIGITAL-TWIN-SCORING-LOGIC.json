@@ -4,196 +4,198 @@
     "description": "Complete scoring logic for Digital Twin Career Assessment - 10 dimensions × 10 options (a-j)",
     "lastUpdated": "2025-11-24",
     "questions": [
-      {
-        "questionId": 1,
-        "theme": "Identity & Purpose Alignment",
-        "question": "How connected do you feel to your deeper purpose through your current professional role?",
-        "indexName": "Identity–Purpose Alignment Index (IPA Index)",
-        "scoreType": "Readiness Score",
-        "measure": "Measures how deeply work aligns with your inner purpose & evolving identity.",
-        "scoringOptions": [
-          {
-            "option": "a",
-            "score": 100,
-            "text": "I feel deeply aligned — my work expresses who I am becoming.",
-            "depiction": "Your work and inner purpose are aligned — this is a strong launchpad for exponential growth.",
-            "title": "You Are Already Working in Alignment — Now It's Time to Scale Your Impact",
-            "archetype": "The Aligned Visionary",
-            "keyInsight": "You're in a strong position compared to most professionals:\nYou're not searching for meaning —\nyour current role already supports who you are becoming.\nThat tells us 3 things:\n1️⃣ Your self-awareness is mature\n2️⃣ Your career decisions align with your inner values\n3️⃣ You've already built a strong foundation for growth\nMost people spend years trying to reach this alignment —\nyou've crossed the first big milestone.\nNow the question shifts from:\n\"Am I doing the right thing?\"\nto\n\"How do I multiply the impact of what I'm already doing?\"\n\nWhat Your Alignment Unlocks\n✔ Faster recognition — because authentic work shows\n✔ Greater influence — because purpose drives your confidence\n✔ Higher value roles — because clarity accelerates growth\n✔ Monetization potential — because your strengths are already visible\nAlignment isn't the peak —\nit's the launchpad for exponential progression.\n\nHow Your Digital Twin Accelerates You\nRight now, your strengths are proven —\nbut not fully structured or scalable.\nYour Digital Twin will:\n▸ Diagnose the strengths with highest commercial return\n▸ Build your Professional Equity Score\n▸ Map future roles where your purpose multiplies value\n▸ Identify monetization pathways aligned to your identity\n▸ Provide a 90-day visibility & career elevation plan\nAlignment + Structure = Career acceleration\n\nBest-Fit Program Recommendation\nThe Gold Program will help you:\n▸ Translate alignment → Influence\n▸ Build your leadership brand narrative\n▸ Increase your earning potential inside your aligned space\n▸ Capture growth opportunities faster than organic progression\nThis is how aligned professionals move from being valued\nto being high-value.\n\nNow that we know your foundation is strong,\nthe next insight is critical:\nWhere do you feel most in flow — and why does that matter for your success?",
-            "growthBlocker": "Complacency - settling for good when extraordinary is possible",
-            "hiddenStrength": "Strong intuitive radar that knows when something is right",
-            "hiddenDesire": "Expansion - shape something larger, express uniqueness at scale",
-            "futureArchetype": "Leader who leads with clarity, inspires with authenticity",
-            "microActions": {
-              "hours24": "Identify 1 part of your work where you consistently add unique value. That becomes your strength signal.",
-              "days7": "Increase visibility: Present your work, mentor someone, propose an improvement.",
-              "days30": "Attach your expertise to business outcomes — impact must be measured, not just felt. Aligned professionals grow fastest when others see their alignment."
-            }
-          },
-          {
-            "option": "b",
-            "score": 90,
-            "text": "I feel meaning occasionally, but it's inconsistent or fragile.",            
-            "depiction": "You do feel purpose — it just doesn't show up often enough yet.",
-            "title": "Your Identity Signal: Meaning Exists, But It Needs Strengthening",
-            "archetype": "The Awakening Integrator",
-            "keyInsight": "Your choice reflects an Identity Emotional Story of partial alignment — moments where your work feels meaningful, but the connection doesn't hold long enough. The Purpose Alignment Root Cause here is inconsistency: your identity finds expression occasionally, but the environment or the role doesn't support it continuously. The main Identity-Level Growth Blocker is fragmentation — a life lived in pockets of meaning rather than a steady rhythm of alignment. Yet there is a powerful Inner Compass Strength beneath this: you recognise when something feels meaningful, and that awareness is your advantage.\n\nThe Identity-Based Hidden Desire behind this choice is stability — you want your work to reflect your identity more consistently, not in scattered moments. Your Purpose-Driven Future Self is someone who builds a life where meaning is the baseline, not the exception. Your Identity Archetype here is \"The Awakening Integrator\" — someone who is starting to merge their inner truth with the outer world.\n\nTo strengthen alignment, follow these Identity Reset Micro-Actions:\n\n24 hours: Identify one moment this week where you felt most \"yourself.\"\n\n7 days: Pinpoint what created that meaning and how to repeat it.\n\n30 days: Integrate one aligned behaviour or responsibility into your weekly rhythm.\n\nYour Identity Fit Index shows moderate alignment but high potential for improvement. The Digital Twin reflects:\n\"Your moments of meaning are signals — not accidents. Build around them.\"",
-            "growthBlocker": "Fragmentation - life lived in pockets of meaning rather than steady rhythm",
-            "hiddenStrength": "You recognise when something feels meaningful",
-            "hiddenDesire": "Stability - work to reflect identity consistently, not in scattered moments",
-            "futureArchetype": "Someone who builds a life where meaning is the baseline",
-            "microActions": {
-              "hours24": "Identify one moment this week where you felt most yourself.",
-              "days7": "Pinpoint what created that meaning and how to repeat it.",
-              "days30": "Integrate one aligned behaviour or responsibility into your weekly rhythm."
-            }
-          },
-          {
-            "option": "c",
-            "score": 80,
-            "text": "I like what I do, but I'm not sure it reflects my deeper purpose.",
-            "depiction": "You enjoy what you do, but it doesn't fully represent who you are becoming.",
-            "title": "The Identity Gap: When Liking Your Work Isn't the Same as Living Your Purpose",
-            "archetype": "The Quiet Seeker",
-            "keyInsight": "This response carries an Identity Emotional Story rooted in comfort without fulfilment. You appreciate what you do, but something in your inner world knows there is more. The Purpose Alignment Root Cause is the mild disconnect between liking a role and being expressed by a role. Your Identity-Level Growth Blocker is \"functional satisfaction\" — the kind of comfort that slows deeper transformation. However, you possess a strong Inner Compass Strength: you can sense misalignment even when things are \"good,\" and that awareness is the seed of identity evolution.\n\nYour Identity-Based Hidden Desire is depth — you want work that expresses something core, something meaningful, something only you can bring. Your Purpose-Driven Future Self is someone whose contribution feels personal, not just professional. Your Identity Archetype is \"The Quiet Seeker,\" someone who is ready for inner clarity before taking bigger steps.\n\nTo bridge the identity gap, implement these Identity Reset Micro-Actions:\n\n24 hours: Reflect on one thing your soul wishes you could express more.\n\n7 days: Identify where your current work allows even a small piece of your deeper self to show.\n\n30 days: Add or request one activity that aligns with your inner purpose.\n\nYour Identity Fit Index shows \"acceptable fit\" but not \"true alignment.\"\nThe Digital Twin whispers:\n\"Liking is fine… but you're meant for something that feels like truth.\"",
-            "growthBlocker": "Functional satisfaction - the kind of comfort that slows deeper transformation",
-            "hiddenStrength": "You can sense misalignment even when things are good",
-            "hiddenDesire": "Depth - work that expresses something core, meaningful, something only you can bring",
-            "futureArchetype": "Someone whose contribution feels personal, not just professional",
-            "microActions": {
-              "hours24": "Reflect on one thing your soul wishes you could express more.",
-              "days7": "Identify where your current work allows even a small piece of your deeper self to show.",
-              "days30": "Add or request one activity that aligns with your inner purpose."
-            }
-          },
-          {
-            "option": "d",
-            "score": 70,
-            "text": "I've grown detached — it feels like I'm on autopilot most days.",
-            "depiction": "You're performing well… but your heart isn't really in the room anymore.",
-            "title": "The Identity Numbness: When Your Inner Self Goes Quiet",
-            "archetype": "The Disconnected Wanderer",
-            "keyInsight": "Your response reveals an Identity Emotional Story marked by numbness — a sense of moving through your days without true presence. The Purpose Alignment Root Cause here is emotional detachment: your inner self is no longer participating in your work, even if your outer self continues to function. This leads to a deep Identity-Level Growth Blocker: identity drift, where the gap between who you are and what you do widens slowly but steadily. And yet, your Inner Compass Strength is still active; detachment itself is a signal. It is your identity's way of telling you, \"This is not feeding me anymore.\"\n\nYour Identity-Based Hidden Desire is awakening — you want to feel alive again, to reconnect with something that holds emotional and personal meaning. Your Purpose-Driven Future Self is someone who works with intention, presence, and emotional involvement rather than autopilot execution. Your Identity Archetype here is \"The Disconnected Wanderer,\" someone whose next chapter begins with re-sensing themselves.\n\nYour Identity Reset Micro-Actions will help you reawaken:\n\n24 hours: Do one task today with full presence — no rush, no autopilot.\n\n7 days: Identify what part of your work you feel most emotionally absent from.\n\n30 days: Introduce or revive one activity that feels emotionally meaningful, even if small.\n\nYour Identity Fit Index indicates a low alignment, but high potential if you recalibrate.\nThe Digital Twin reflects:\n\"Your detachment is not a flaw — it is a message. You're meant to reawaken.\"",
-            "growthBlocker": "Identity drift - the gap between who you are and what you do widens slowly",
-            "hiddenStrength": "Detachment itself is a signal - your identity's way of saying this doesn't feed me",
-            "hiddenDesire": "Awakening - you want to feel alive again, reconnect with meaningful work",
-            "futureArchetype": "Someone who works with intention, presence, and emotional involvement",
-            "microActions": {
-              "hours24": "Do one task today with full presence — no rush, no autopilot.",
-              "days7": "Identify what part of your work you feel most emotionally absent from.",
-              "days30": "Introduce or revive one activity that feels emotionally meaningful, even if small."
-            }
-          },
-          {
-            "option": "e",
-            "score": 60,
-            "text": "My purpose is clear, but my work does not support it yet.",
-            "depiction": "You know exactly what drives you — now your work needs to catch up.",
-            "title": "The Identity Tension: When Your Purpose is Ready but Your Environment Isn't",
-            "archetype": "The Unexpressed Visionary",
-            "keyInsight": "This choice embodies an Identity Emotional Story of clarity without expression. You know who you are becoming, but your current role does not yet provide the space to express that truth. The Purpose Alignment Root Cause is structural mismatch — your internal evolution has outpaced the external environment. The resulting Identity-Level Growth Blocker is frustration: the sense of holding back your potential because the current container is too small.\n\nYet, your Inner Compass Strength is exceptional — clarity of purpose is one of the strongest indicators of future leadership. Your Identity-Based Hidden Desire is amplification: you want an environment that matches your ambition, aligns with your values, and honours your purpose. Your Purpose-Driven Future Self is someone who leads with intention and expresses their identity through high-impact work. Your Identity Archetype is \"The Unexpressed Visionary\" — someone whose next chapter requires a bigger playing field.\n\nYour Identity Reset Micro-Actions can accelerate this transition:\n\n24 hours: Write down your purpose in a single sentence — keep it visible.\n\n7 days: Identify one area of your current work where your purpose can be expressed, even partially.\n\n30 days: Begin aligning your external ecosystem — conversations, roles, or projects — with your internal purpose.\n\nYour Identity Fit Index currently sits at \"purpose-high, role-low.\"\nThe Digital Twin says:\n\"Your purpose is not waiting — your environment is. It's time to expand.\"",
-            "growthBlocker": "Structural mismatch - internal evolution has outpaced external environment",
-            "hiddenStrength": "Clarity of purpose - one of the strongest indicators of future leadership",
-            "hiddenDesire": "Amplification - environment that matches ambition, aligns with values, honours purpose",
-            "futureArchetype": "Someone who leads with intention and expresses identity through high-impact work",
-            "microActions": {
-              "hours24": "Write down your purpose in a single sentence — keep it visible.",
-              "days7": "Identify one area of your current work where your purpose can be expressed, even partially.",
-              "days30": "Begin aligning your external ecosystem — conversations, roles, projects — with your internal purpose."
-            }
-          },
-          {
-            "option": "f",
-            "score": 50,
-            "text": "I sense an emerging purpose, but I can't articulate it fully.",
-            "depiction": "You can feel the right direction forming, but the words aren't clear yet.",
-            "title": "The Identity Emergence: When Your Next Purpose Is Still Forming",
-            "archetype": "The Emerging Pathfinder",
-            "keyInsight": "Your response tells an Identity Emotional Story of quiet transformation — a purpose that is forming beneath the surface, not yet fully shaped, but undeniably present. The Purpose Alignment Root Cause is emergence: your identity is evolving faster than your language or clarity. The major Identity-Level Growth Blocker is uncertainty — not the bad kind, but the fertile kind that precedes breakthroughs. Your Inner Compass Strength is intuition; you can feel the shift even before it becomes rational.\n\nYour Identity-Based Hidden Desire is direction — you want your purpose to come into focus, to name it, understand it, and integrate it into your work. Your Purpose-Driven Future Self is someone who finds clarity through experimentation, exploration, and exposure to new ideas. Your Identity Archetype is \"The Emerging Pathfinder\" — a seeker in motion, evolving through curiosity.\n\nYour Identity Reset Micro-Actions will help this emerging purpose reveal itself:\n\n24 hours: Notice what topics or conversations spark you unexpectedly.\n\n7 days: Document patterns in what energizes you and what drains you.\n\n30 days: Begin a small exploration project (learning, mentoring, experimenting) to test your emerging purpose.\n\nYour Identity Fit Index shows moderate alignment, but high potential as clarity develops.\nThe Digital Twin offers reassurance:\n\"Your purpose is not missing — it is unfolding. Stay curious.\"",
-            "growthBlocker": "Uncertainty - fertile kind that precedes breakthroughs",
-            "hiddenStrength": "Intuition - you can feel the shift even before it becomes rational",
-            "hiddenDesire": "Direction - you want your purpose to come into focus, to name and integrate it",
-            "futureArchetype": "Someone who finds clarity through experimentation, exploration, exposure",
-            "microActions": {
-              "hours24": "Notice what topics or conversations spark you unexpectedly.",
-              "days7": "Document patterns in what energizes you and what drains you.",
-              "days30": "Begin a small exploration project (learning, mentoring, experimenting) to test your emerging purpose."
-            }
-          },
-          {
-            "option": "g",
-            "score": 40,
-            "text": "I'm questioning everything — my identity, values, direction.",
-            "depiction": "You're questioning everything because you're growing past where you are now.",
-            "title": "The Identity Disruption: When Questioning Becomes the Beginning",
-            "archetype": "The Identity Rebuilder",
-            "keyInsight": "Your answer reveals an intense Identity Emotional Story — one where the old version of you no longer fits, and the new version has not yet fully formed. The Purpose Alignment Root Cause here is disruption: your inner system is recalibrating, pulling you out of certainty so you can reshape your identity. Your major Identity-Level Growth Blocker is overwhelm; when too many identity layers shift at once, clarity gets clouded. Yet your Inner Compass Strength is awakening — questioning is not confusion; it is awareness. People who question deeply are the ones who evolve the most profoundly.\n\nYour Identity-Based Hidden Desire is truth — a desire to know who you are without conditioning, expectation, or inherited identity roles. Your Purpose-Driven Future Self is someone grounded, self-defined, and internally anchored. Your Identity Archetype is \"The Identity Rebuilder,\" someone who breaks old containers to grow a more authentic self.\n\nSupport this transition with Identity Reset Micro-Actions:\n\n24 hours: Write down the top 3 things you are no longer willing to tolerate from your old identity.\n\n7 days: Describe moments where you felt like your \"true self\"—notice patterns.\n\n30 days: Begin removing one identity-layer you've outgrown (role, behaviour, expectation, or belief).\n\nYour Identity Fit Index shows a mismatch — but this mismatch is the starting point of reinvention.\nThe Digital Twin whispers:\n\"Questioning is not a crisis. It is your evolution calling.\"",
-            "growthBlocker": "Overwhelm - when too many identity layers shift at once, clarity gets clouded",
-            "hiddenStrength": "Awakening - questioning is not confusion, it is awareness",
-            "hiddenDesire": "Truth - a desire to know who you are without conditioning or expectation",
-            "futureArchetype": "Someone grounded, self-defined, internally anchored",
-            "microActions": {
-              "hours24": "Write down the top 3 things you are no longer willing to tolerate from your old identity.",
-              "days7": "Describe moments where you felt like your true self—notice patterns.",
-              "days30": "Begin removing one identity-layer you've outgrown (role, behaviour, expectation, belief)."
-            }
-          },
-          {
-            "option": "h",
-            "score": 30,
-            "text": "I feel stuck in a role that no longer fits who I'm becoming.",
-            "depiction": "You've simply outgrown the role — the role hasn't grown with you.",
-            "title": "The Identity Mismatch: When You've Outgrown Your Role",
-            "archetype": "The Outgrowing Architect",
-            "keyInsight": "Your response reveals a clear Identity Emotional Story of containment — a sense of being too big for the box you're currently in. The Purpose Alignment Root Cause is identity evolution: you're growing, but your role is static. The central Identity-Level Growth Blocker is misfit — your outer responsibilities no longer match your inner capabilities or aspirations. Yet the Inner Compass Strength you possess is growth-awareness; you're not numb — you can feel the misalignment sharply, and that is powerful.\n\nYour Identity-Based Hidden Desire is expansion — a desire for a role that reflects your emerging self, not your past self. Your Purpose-Driven Future Self is someone who steps into larger responsibilities, deeper meaning, or higher influence. Your Identity Archetype is \"The Outgrowing Architect,\" someone whose identity has evolved faster than their environment.\n\nUse these Identity Reset Micro-Actions to initiate movement:\n\n24 hours: List one responsibility you've outgrown and one you want to grow into.\n\n7 days: Identify the environments where your emerging identity fits better.\n\n30 days: Initiate a role redesign conversation or begin pursuing opportunities aligned with your new identity.\n\nYour Identity Fit Index indicates a low match between who you are becoming and where you currently are.\nThe Digital Twin reflects:\n\"You are not stuck — your identity has simply outgrown the space.\"",
-            "growthBlocker": "Misfit - outer responsibilities no longer match inner capabilities or aspirations",
-            "hiddenStrength": "Growth-awareness - you can feel the misalignment sharply",
-            "hiddenDesire": "Expansion - a role that reflects your emerging self, not your past self",
-            "futureArchetype": "Someone who steps into larger responsibilities, deeper meaning, higher influence",
-            "microActions": {
-              "hours24": "List one responsibility you've outgrown and one you want to grow into.",
-              "days7": "Identify the environments where your emerging identity fits better.",
-              "days30": "Initiate a role redesign conversation or begin pursuing opportunities aligned with new identity."
-            }
-          },
-          {
-            "option": "i",
-            "score": 20,
-            "text": "I don't know my purpose, but I feel a pull toward something new.",
-            "depiction": "Purpose isn't defined yet — but the pull toward something better is strong.",
-            "title": "The Identity Pull: When Something New Calls Before You Know Its Name",
-            "archetype": "The Emerging Explorer",
-            "keyInsight": "Your answer illustrates an Identity Emotional Story of curiosity mixed with uncertainty. The Purpose Alignment Root Cause is inner stirring — a shift happening at a subconscious level before it becomes conscious. The Identity-Level Growth Blocker is lack of direction, not lack of potential; you sense movement, but cannot yet define it. Yet your Inner Compass Strength is undeniable — you feel the \"pull\" even without seeing the destination, which means your identity is alive and signalling.\n\nYour Identity-Based Hidden Desire is exploration — a desire to discover what's next rather than commit prematurely. Your Purpose-Driven Future Self is someone who uncovers clarity through action, experimentation, and exposure. Your Identity Archetype is \"The Emerging Explorer,\" someone who follows the pull, not the map.\n\nClarify your identity with Identity Reset Micro-Actions:\n\n24 hours: Write down what you feel pulled away from — clarity often begins there.\n\n7 days: Experiment with one new idea, project, or domain to test the pull.\n\n30 days: Begin documenting identity patterns that show up repeatedly — themes emerge long before purpose names itself.\n\nYour Identity Fit Index shows \"clarity-low, intuition-high,\" a combination that leads to breakthroughs.\nThe Digital Twin affirms:\n\"You don't need to know the destination. You just need to honour the pull.\"",
-            "growthBlocker": "Lack of direction - you sense movement, but cannot yet define it",
-            "hiddenStrength": "You feel the pull even without seeing destination - your identity is alive",
-            "hiddenDesire": "Exploration - discover what's next rather than commit prematurely",
-            "futureArchetype": "Someone who uncovers clarity through action, experimentation, exposure",
-            "microActions": {
-              "hours24": "Write down what you feel pulled away from — clarity often begins there.",
-              "days7": "Experiment with one new idea, project, or domain to test the pull.",
-              "days30": "Begin documenting identity patterns that show up repeatedly — themes emerge."
-            }
-          },
-          {
-            "option": "j",
-            "score": 10,
-            "text": "I'm reinventing myself and searching for a more meaningful identity.",
-            "depiction": "You're shedding an old identity and shaping a new one — a pivotal reinvention moment.",
-            "title": "The Identity Rebirth: You're Actively Becoming Someone New",
-            "archetype": "The Conscious Reconstructor",
-            "keyInsight": "Your response expresses an Identity Emotional Story of active reinvention — you're not stuck, lost, or confused; you're reconstructing yourself with intention. The Purpose Alignment Root Cause is conscious evolution: you've recognised that your former self has served its purpose, and a more meaningful identity is ready to be shaped. The Identity-Level Growth Blocker here is not resistance but redefinition fatigue — shaping a new identity requires emotional and cognitive energy. Yet your Inner Compass Strength is powerful intentionality; you're choosing who you want to become, not waiting for circumstances to decide.\n\nYour Identity-Based Hidden Desire is meaningful reinvention — an identity that resonates deeply rather than superficially. Your Purpose-Driven Future Self is someone grounded, intentional, expressive, and purpose-led. Your Identity Archetype is \"The Conscious Reconstructor,\" someone who builds a life from awareness, not autopilot.\n\nStrengthen your reinvention with Identity Reset Micro-Actions:\n\n24 hours: Define one trait your \"next self\" must embody.\n\n7 days: Engage in an activity or decision that reflects that new identity trait.\n\n30 days: Start eliminating one behaviour or belief that belongs to your old identity.\n\nYour Identity Fit Index shows you are in a transition phase — not misaligned, but actively reshaping.\nThe Digital Twin whispers:\n\"You're not finding yourself. You're building yourself.\"",
-            "growthBlocker": "Redefinition fatigue - shaping a new identity requires emotional and cognitive energy",
-            "hiddenStrength": "Powerful intentionality - you're choosing who you want to become",
-            "hiddenDesire": "Meaningful reinvention - an identity that resonates deeply rather than superficially",
-            "futureArchetype": "Someone grounded, intentional, expressive, purpose-led",
-            "microActions": {
-              "hours24": "Define one trait your next self must embody.",
-              "days7": "Engage in an activity or decision that reflects that new identity trait.",
-              "days30": "Start eliminating one behaviour or belief that belongs to your old identity."
-            }
-          }
-        ]
-      },
+    {
+  "questionId": 1,
+  "theme": "Current Role & Purpose Alignment",
+  "question": "How well does your current role align with your sense of purpose?",
+  "indexName": "Purpose Alignment Index (PAI)",
+  "scoreType": "Alignment Score",
+  "measure": "Evaluates the degree to which current work reflects personal values, meaning, and long-term direction.",
+  "scoringOptions": [
+    {
+      "option": "a",
+      "score": 100,
+      "text": "Deeply aligned — my work reflects my values and future direction.",
+      "depiction": "Your work and inner purpose are aligned — this is a strong launchpad for exponential growth.",
+      "title": "You Are Already Working in Alignment — Now It's Time to Scale Your Impact",
+      "archetype": "The Aligned Accelerator",
+      "keyInsight": "You're in a strong position compared to most professionals: You're not searching for meaning — your current role already supports who you are becoming.\n\nThat tells us 3 things:\n1️⃣ Your self-awareness is mature\n2️⃣ Your career decisions align with your inner values\n3️⃣ You've already built a strong foundation for growth\n\nMost people spend years trying to reach this alignment — you've crossed the first big milestone.\n\nNow the question shifts from: \"Am I doing the right thing?\" to \"How do I multiply the impact of what I'm already doing?\"\n\n**What Your Alignment Unlocks**\n\n✔ Faster recognition — because authentic work shows\n✔ Greater influence — because purpose drives your confidence\n✔ Higher value roles — because clarity accelerates growth\n✔ Monetization potential — because your strengths are already visible\n\nAlignment isn't the peak — it's the launchpad for exponential progression.\n\n**How Your Digital Twin Accelerates You**\n\nRight now, your strengths are proven — but not fully structured or scalable.\n\nYour Digital Twin will:\n• Diagnose the strengths with highest commercial return\n• Build your Professional Equity Score\n• Map future roles where your purpose multiplies value\n• Identify monetization pathways aligned to your identity\n• Provide a 90-day visibility & career elevation plan\n\nAlignment + Structure = Career acceleration\n\n**Best-Fit Program Recommendation**\n\nThe **Gold Program** will help you:\n• Translate alignment → Influence\n• Build your leadership brand narrative\n• Increase your earning potential inside your aligned space\n• Capture growth opportunities faster than organic progression\n\nThis is how aligned professionals move from being valued to being high-value.\n\nNow that we know your foundation is strong, the next insight is critical: Where do you feel most in flow — and why does that matter for your success?",
+      "growthBlocker": "Lack of structure and scalability in proven strengths",
+      "hiddenStrength": "Mature self-awareness and value-aligned decision-making",
+      "hiddenDesire": "Multiplying impact of aligned work",
+      "futureArchetype": "High-value professional with exponential influence",
+      "microActions": {
+        "hours24": "Identify 1 part of your work where you consistently add unique value — that becomes your strength signal",
+        "days7": "Increase visibility: present your work, mentor someone, propose an improvement",
+        "days30": "Attach your expertise to business outcomes — impact must be measured, not just felt"
+      }
+    },
+    {
+      "option": "b",
+      "score": 90,
+      "text": "Mostly aligned — purpose shows up, but not consistently.",
+      "depiction": "You do feel purpose — it just doesn't show up often enough yet.",
+      "title": "You Experience Purpose — But It Isn't Consistent Yet",
+      "archetype": "The Intermittent Purpose-Seeker",
+      "keyInsight": "You're not disconnected from purpose — it just shows up in pockets. You have moments where the work feels meaningful… but the frequency is not where it should be.\n\nThis tells us:\n✓ The direction is broadly right\n✓ But the day-to-day work mix does not always reflect what matters to you\n✓ You're capable of more fulfillment than you currently access\n\nYou're close. You just haven't created a repeatable system for meaning.\n\n**What This Means for Your Career Growth**\n\n✔ You have clarity about what feels energizing\n✔ You're not willing to settle for \"just a job\"\n✔ You want purpose to be the rule — not an exception\n✔ You have the internal motivation to elevate your role\n\nThe good news? Your purpose isn't lost. It simply needs more space in your professional identity.\n\n**How Your Digital Twin Strengthens Alignment**\n\nRight now, purpose is showing… but not yet integrated into your role.\n\nYour Digital Twin will:\n• Reveal your Purpose Expression Score\n• Identify exact tasks that unlock maximum meaning and performance\n• Build a purpose-aligned role narrative to influence leaders\n• Map internal or external roles where purpose turns into career velocity\n• Track alignment progress to prevent stagnation\n\nThis converts \"sometimes aligned\" → into strategically aligned and rewarded.\n\n**Best-Fit Program Recommendation**\n\nThe **Silver Program** will help you:\n• Strengthen consistency of purpose at work\n• Build visibility for your most meaningful strengths\n• Create a role evolution path tailored to who you're becoming\n• Prevent future disengagement or plateauing\n\nBecause when meaning becomes consistent, growth becomes continuous.\n\nNow that we have clarity on purpose alignment, the next insight unlocks your performance energy: Where do you experience your strongest flow?",
+      "growthBlocker": "Inconsistent integration of purpose into daily work",
+      "hiddenStrength": "Clarity about energizing work and internal motivation",
+      "hiddenDesire": "Purpose as the rule, not the exception",
+      "futureArchetype": "Strategically aligned professional with continuous growth",
+      "microActions": {
+        "hours24": "Identify 2 activities at work that give you energy → start prioritizing them",
+        "days7": "Start a conversation with your manager about expanding work aligned to your strong contribution areas",
+        "days30": "Redesign 10–15% of your weekly workload toward purpose-driven tasks"
+      }
+    },
+    {
+      "option": "c",
+      "score": 80,
+      "text": "Somewhat aligned — I like what I do, but it's not deeply meaningful yet.",
+      "depiction": "You enjoy what you do, but it doesn't fully represent who you are becoming.",
+      "title": "You Like What You Do — But You Know It's Not Your Deeper Purpose",
+      "archetype": "The Under-Expressed Performer",
+      "keyInsight": "You are competent, respected, and performing well. But your current role doesn't yet reflect the future identity you envision. There is a gap between capability and expression.\n\nThis signals a strategic turning point in your career:\n✓ You have achieved functional success\n✓ You want meaning, not just productivity\n✓ You see opportunities beyond your current job scope\n✓ You feel ready for more responsibility, creativity, or ownership\n\nYou're not disengaged — you're under-expressed.\n\n**What This Means for Your Growth Outlook**\n\nMost professionals who reach your stage face two choices:\n\n| Path | Outcome |\n|---|---|\n| Continue as is | You become efficient at a role that no longer represents you |\n| Redesign your narrative | You accelerate into roles that reflect your evolving identity |\n\nRight now, your environment benefits more from your capability than you benefit from the environment. Your next career leap comes from elevating how your strengths show up in business outcomes.\n\n**Why Your Digital Twin Is Relevant Now**\n\nYou are transitioning from: Execution → Identity-led Influence\n\nYour Digital Twin will help you:\n1️⃣ Decode your unique value and future role archetype\n2️⃣ Map purpose-aligned growth opportunities internally + externally\n3️⃣ Build a reinvention narrative backed by business metrics\n4️⃣ Avoid the plateau that comes when strengths are invisible\n\nThis provides acceleration without disruption.\n\n**Best-Fit Program Recommendation**\n\nBecause you are not lost — just under-recognized — the **Gold Program** (purpose-to-positioning alignment) is the best strategic match:\n• Strength differentiation\n• Opportunity mapping\n• 90-day role elevation strategy\n• Influence and perception design\n\nThis is how people move from doing well to being in demand.\n\nWhere does your energy actually peak at work? That tells us where your identity wants to grow next.",
+      "growthBlocker": "Gap between capability and expression",
+      "hiddenStrength": "Functional success and readiness for greater responsibility",
+      "hiddenDesire": "Identity-led influence and meaningful advancement",
+      "futureArchetype": "In-demand professional reflecting evolved identity",
+      "microActions": {
+        "hours24": "Write one sentence that defines who you want to be known as professionally (e.g., \"Value creator in digital transformation\")",
+        "days7": "Link that identity to real contributions by taking up one initiative that reflects your future value",
+        "days30": "Re-align 15–20% of your time toward projects that reflect who you're becoming — not just what you're assigned"
+      }
+    },
+    {
+      "option": "d",
+      "score": 70,
+      "text": "Neutral — I'm performing well, but not emotionally engaged.",
+      "depiction": "You're performing well… but your heart isn't really in the room anymore.",
+      "title": "You Are Operating on Autopilot — Not Because You Lack Skill, But Because the Work No Longer Stretches You",
+      "archetype": "The Stagnant High-Performer",
+      "keyInsight": "You are meeting expectations. You may even be seen as reliable and consistent. But the emotional connection is fading.\n\nThis is a career risk zone — not because performance is low, but because growth is invisible.\n\n**What This Signals Professionally**\n\n| Indicator | Interpretation |\n|---|---|\n| Routine feels repetitive | Skills are stagnating instead of strengthening |\n| Work requires less cognitive effort | Learning curve has flattened |\n| Limited excitement for new tasks | Identity growth has paused |\n| Others advancing faster | Not ability — visibility and momentum gap |\n\nThis situation is common after early success — but staying here too long leads to career invisibility.\n\nYou are contributing — but not evolving fast enough to match your potential.\n\n**Why the Digital Twin Matters for You Right Now**\n\nYou need:\n✔ Renewed challenge\n✔ Purpose-led role design\n✔ Repositioning of your strengths\n\nYour Digital Twin will act as a growth accelerator by:\n1️⃣ Mapping dormant strengths that are not being leveraged\n2️⃣ Designing work that aligns to future identity\n3️⃣ Helping you break routine-driven stagnation\n4️⃣ Providing milestones that rebuild excitement and recognition\n\nThis prevents slow decline into disengagement.\n\n**Best-Fit Program Recommendation**\n\nYou don't need reinvention — you need re-ignition and re-positioning.\n\nThe **Silver Program** helps:\n• Diagnose effort vs. growth mismatch\n• Redesign workload around strengths\n• Re-establish momentum and recognition\n• Build accountability for change\n\nSmall redesigns now → Market-shaping outcomes later.\n\nTo tailor your path forward, we decode where your flow actually occurs.",
+      "growthBlocker": "Routine-driven stagnation and flattened learning curve",
+      "hiddenStrength": "Reliability and consistent performance capability",
+      "hiddenDesire": "Renewed challenge and repositioned strengths",
+      "futureArchetype": "Re-ignited professional with visible momentum",
+      "microActions": {
+        "hours24": "Scan your role and highlight 1–2 areas where the business expects transformation — not maintenance",
+        "days7": "Ask for initiatives that introduce newness: new stakeholder groups, regions, metrics, or business problems",
+        "days30": "Craft a role redefinition statement: \"How I can deliver higher-impact outcomes over the next quarter…\""
+      }
+    },
+    {
+      "option": "e",
+      "score": 60,
+      "text": "Misaligned — my purpose is clear, but my role doesn't support it.",
+      "depiction": "You know exactly what drives you — now your work needs to catch up.",
+      "title": "Your Purpose Is Clear — But Your Current Role Isn't the Place Where It Can Grow",
+      "archetype": "The Misfit High-Potential",
+      "keyInsight": "This is a high-clarity, low-fit situation. You know what matters to you. You know the impact you want to create. But the environment you are in doesn't support the direction you want to go.\n\nThis is not a capability issue — this is an alignment and opportunity gap.\n\n**What This Means in Career Terms**\n\n| Reality | Leadership Interpretation |\n|---|---|\n| You've outgrown your role | Ready for bigger scope |\n| Your purpose doesn't match business priorities | Misfit to current org strategy |\n| Effort feels under-rewarded | Low ROI on your strengths |\n| You are thinking about the future | Identity shift already happening |\n\nIf this continues unaddressed, the organization will benefit from your stability, but you won't benefit from meaningful advancement.\n\n**Why the Digital Twin is Important at This Stage**\n\nYour challenge is not \"knowing.\" Your challenge is activation — converting purpose into opportunity flow.\n\nYour Digital Twin will help:\n1️⃣ Translate purpose into measurable growth outcomes\n2️⃣ Re-map your strengths to future-oriented roles\n3️⃣ Build a narrative that leaders can champion\n4️⃣ Show market value beyond current organization\n\nThis removes friction between who you are and where you're working.\n\n**Best-Fit Program Recommendation**\n\nYou are on the verge of a strategic identity upgrade. To move faster with less trial-and-error:\n\n**Gold Program** — Best for people who know their direction but need a structured plan to reshape work, visibility, and future roles around their purpose.\n\nThis ensures you grow toward the future you believe in — not away from it.\n\nNext, let's understand where your strengths naturally come alive, because that is where you will scale your purpose.",
+      "growthBlocker": "Alignment and opportunity gap in current environment",
+      "hiddenStrength": "High clarity on purpose and desired impact",
+      "hiddenDesire": "Activation of purpose into opportunity flow",
+      "futureArchetype": "Professional growing toward believed-in future",
+      "microActions": {
+        "hours24": "Identify where your purpose overlaps with business goals — even 20% overlap is enough to begin",
+        "days7": "Start showing visible contributions aligned to that purpose — stakeholders only recognize what they can see",
+        "days30": "Initiate conversations around: a role that supports your strongest values, ownership of problems you are uniquely motivated to solve, pathways to build influence around purpose-aligned work"
+      }
+    },
+    {
+      "option": "f",
+      "score": 50,
+      "text": "Uncertain — I sense purpose exists, but I haven't found it yet.",
+      "depiction": "You can feel the right direction forming, but the words aren't clear yet.",
+      "title": "Your Purpose Is Emerging — But Not Yet Fully Articulated",
+      "archetype": "The Emerging Identity",
+      "keyInsight": "You are in a transitional identity phase. You can feel a strong pull toward something more meaningful, but you may not yet have the right words or structure for it.\n\nThis is normal — and often the most pivotal stage of career transformation.\n\n**What This Means in Career Reality**\n\n| Your Experience Today | What It Signals Strategically |\n|---|---|\n| You're attracted to new ideas without clear labels | Hidden strengths are surfacing |\n| You feel restless in repetitive work | Your growth direction is changing |\n| You want more meaning but don't know how to define it | Early purpose formation |\n| You hesitate to commit to one path | You're exploring identity options |\n\nYou are not confused — you are mapping your next version.\n\nIf ignored, this stage can turn into frustration or stagnation. If developed well, it becomes the foundation of your most rewarding career move.\n\n**Why Digital Twin Matters at This Stage**\n\nWhen purpose isn't fully defined, people often reduce their ambition to what's familiar.\n\nYour Digital Twin will:\n1️⃣ Decode hidden motivations driving your career decisions\n2️⃣ Identify future roles that align with your emerging identity\n3️⃣ Map monetizable strengths you may be underusing\n4️⃣ Remove guesswork and reveal where you will thrive next\n\nIt gives structure to what is currently instinct.\n\n**Best-Fit Program Recommendation**\n\nRight now, clarity is your unlock. Choosing the right path will determine the next 5–10 years of opportunity.\n\n**Silver Program** — the right level for discovery + structure to help you define your purpose, test options, and accelerate clarity before you commit to your pivot.\n\nYou are early in the reinvention curve — and that is the smartest time to get guidance.\n\nLet's now decode where your energy and strengths become obvious — because purpose is built on what you naturally do well.",
+      "growthBlocker": "Undefined purpose reducing ambition to familiar patterns",
+      "hiddenStrength": "Hidden strengths surfacing and growth direction changing",
+      "hiddenDesire": "Structure for emerging instincts and identity",
+      "futureArchetype": "Professional with articulated, rewarding career direction",
+      "microActions": {
+        "hours24": "Note 3 moments last month where you felt energized or proud — these are early signals of emerging purpose",
+        "days7": "Test one new experience: a new responsibility at work, a side project, or a skills workshop",
+        "days30": "Share one early direction with a trusted colleague or mentor to build clarity and confidence"
+      }
+    },
+    {
+      "option": "g",
+      "score": 40,
+      "text": "Disconnected — I'm questioning my direction and identity.",
+      "depiction": "You're questioning everything because you're growing past where you are now.",
+      "title": "You're Questioning Everything — Your Identity, Values, Direction",
+      "archetype": "The Identity Questioner",
+      "keyInsight": "This stage feels uncomfortable — but it is actually a maturity milestone. You are no longer willing to fit into a life that doesn't feel right. Your internal expectations have evolved faster than your external reality.\n\n**What This Really Means**\n\n| What You're Experiencing | What It Indicates |\n|---|---|\n| Loss of motivation for work you used to enjoy | Your purpose has outgrown your role |\n| Frequent reflection about meaning and direction | Higher self-awareness developing |\n| Thinking about big changes but unsure where to start | Early reinvention pressure |\n| Frustration with \"going through the motions\" | Identity and career mismatch |\n\nThis is not a crisis — this is identity intelligence waking up. Most people ignore this signal and stay stuck. You are confronting it — which puts you ahead of the curve.\n\n**The Risk If Ignored**\n\nWhen identity evolves but action doesn't, three things happen:\n1️⃣ Confidence drops\n2️⃣ Work becomes emotionally heavier\n3️⃣ Reinvention becomes harder later\n\nYou need a structured way to translate questioning into clarity.\n\n**Why Digital Twin Is Critical Here**\n\nRight now, you have insights — but no directional proof.\n\nYour Digital Twin reveals:\n✔ Where your identity is moving\n✔ Which roles will give meaning + momentum\n✔ What strengths will create your next career opportunity\n✔ A clear path to reinvent without losing stability\n\nIt converts uncertainty into evidence-driven confidence.\n\n**Best-Fit Program Recommendation**\n\nYour shift is real — and deserves a professional framework.\n\nThe **Gold Program** gives you:\n• Deeper assessment\n• Identity evolution mapping\n• Future career simulation\n• A structured portfolio of next-step experiments\n\nSo you don't drift — you transition with strategy.\n\nYour next unlock lies in understanding where your energy naturally rises — because those strengths indicate your future direction.",
+      "growthBlocker": "Identity evolution without actionable direction",
+      "hiddenStrength": "Higher self-awareness and maturity milestone",
+      "hiddenDesire": "Evidence-driven confidence and strategic transition",
+      "futureArchetype": "Professional transitioning with strategic clarity",
+      "microActions": {
+        "hours24": "Write down what has changed in you over the last 12–18 months: your priorities, fears, ambitions",
+        "days7": "Have a conversation with someone outside your usual circle — fresh perspectives reveal blind spots",
+        "days30": "Test one low-risk change to break the pattern: new environment, new project/skill experiment, or delegating/declining misaligned tasks"
+      }
+    },
+    {
+      "option": "h",
+      "score": 30,
+      "text": "Frustrated — I feel stuck in a role that no longer fits who I'm becoming.",
+      "depiction": "You've simply outgrown the role — the role hasn't grown with you.",
+      "title": "I Feel Stuck in a Role That No Longer Fits Who I'm Becoming",
+      "archetype": "The Constrained Growth-Seeker",
+      "keyInsight": "You've outgrown the version of yourself your current job still expects you to be. That tension you feel is a growth signal, not a failure signal.\n\nYou have more capability than your role currently allows — and your ambition now exceeds your environment.\n\n**What This Really Means**\n\n| Current Reality | What It Indicates |\n|---|---|\n| Work feels repetitive or predictable | Skills are underutilized |\n| You no longer see a future in the role | Opportunity mismatch |\n| You feel irritated by limits | Readiness for larger scope |\n| You want more impact, responsibility | Leadership energy emerging |\n\nYou don't lack talent — you lack a platform that recognizes and stretches it.\n\n**The Risk If Ignored**\n\nStaying too long in a role that restricts you causes:\n1️⃣ Declining motivation\n2️⃣ Lost momentum in your career story\n3️⃣ Your strengths becoming invisible over time\n\nBeing stuck becomes a habit — not a moment. You deserve more than maintenance mode.\n\n**Why a Digital Twin Matters Here**\n\nYou need data-backed clarity about:\n✔ What roles and environments support your growth\n✔ Which strengths should be visible and monetized\n✔ How to reposition your value without starting from scratch\n✔ Your next chapter — validated and visualized\n\nA Digital Twin replaces guesswork with a career blueprint uniquely aligned to your evolving identity.\n\n**Best-Fit Program Recommendation**\n\nThe **Gold Program** is ideal — because you're not lost… you're ready for a controlled leap:\n• Clarity on the right direction\n• Strategic repositioning\n• A plan to elevate influence and opportunity\n\nYou move from \"stuck\" to strategically visible.\n\nNow let's identify where you naturally come alive in your work — because that is where your next role should be built.",
+      "growthBlocker": "Role restrictions on capability and ambition",
+      "hiddenStrength": "Leadership energy and readiness for larger scope",
+      "hiddenDesire": "Platform that recognizes and stretches capability",
+      "futureArchetype": "Strategically visible professional in growth role",
+      "microActions": {
+        "hours24": "Identify 2–3 tasks where you are most underutilized — that's where your future growth lies",
+        "days7": "Ask for one high-visibility assignment or propose one — not more workload, more opportunity",
+        "days30": "Build proof points: pilot an improvement, lead a micro-initiative, deliver a measurable win"
+      }
+    },
+    {
+      "option": "i",
+      "score": 20,
+      "text": "Lost — I don't know my purpose, but I feel a pull toward something new.",
+      "depiction": "Purpose isn't defined yet — but the pull toward something better is strong.",
+      "title": "I Don't Know My Purpose, But I Feel a Pull Toward Something New",
+      "archetype": "The Internal Explorer",
+      "keyInsight": "This does not mean you are lost. It means your internal ambition is expanding faster than the clarity to support it.\n\nYou're sensing change before you can define it — which is exactly how most successful reinventions begin.\n\n**What This Really Means**\n\n| What You're Feeling | What It Signals |\n|---|---|\n| Dissatisfaction without a clear reason | Internal evolution in progress |\n| Curiosity about new skills or roles | Desire for higher expression |\n| Thinking \"there must be more than this\" | Purpose readiness milestone |\n| Hesitation to commit to big decisions | Lack of validated direction |\n\nPurpose doesn't appear fully formed. It emerges through exploration. You're already in motion — just internally.\n\n**The Risk If Ignored**\n\nIf you wait for purpose to \"arrive,\" you may spend years in:\n1️⃣ Cycles of uncertainty\n2️⃣ Fear of wrong choices\n3️⃣ Underutilized potential\n\nYour direction improves only when you move.\n\n**Why a Digital Twin Matters Here**\n\nRight now, you have a signal but no structure.\n\nYour Digital Twin helps you:\n✔ Detect your emerging strengths and motivations\n✔ Identify career paths aligned with who you're becoming\n✔ Minimize risky pivots and maximize smart exploration\n✔ Build confidence through clarity and proof\n\nIt converts the pull you're feeling into a validated roadmap.\n\n**Best-Fit Program Recommendation**\n\nThe **Silver Program** is a strong starting point: It focuses on discovery — not dramatic disruption:\n• Structured clarity-building exercises\n• Insight into your most promising direction\n• Action plan for purpose-aligned skill growth\n• Initial visualization of your future self\n\nYou don't need all the answers today — you only need momentum in the right direction.\n\nNext, let's decode what tasks or situations make you feel most alive — that's where purpose starts becoming practical.",
+      "growthBlocker": "Lack of validated direction for internal evolution",
+      "hiddenStrength": "Internal ambition expanding and purpose readiness",
+      "hiddenDesire": "Validated roadmap from emerging signal",
+      "futureArchetype": "Professional with momentum in promising direction",
+      "microActions": {
+        "hours24": "Note 3–5 activities that energize you more than the rest — even slightly. This is where early purpose hides",
+        "days7": "Try one micro-experiment: attend a new learning session, shadow someone in a different team, explore a new tool or topic",
+        "days30": "Show results from one experiment — purpose needs evidence, not pressure"
+      }
+    },
+    {
+      "option": "j",
+      "score": 10,
+      "text": "Searching — I'm actively reinventing myself and looking for a more meaningful path.",
+      "depiction": "You're shedding an old identity and shaping a new one — a pivotal reinvention moment.",
+      "title": "I'm Reinventing Myself and Searching for a More Meaningful Identity",
+      "archetype": "The Active Reinventor",
+      "keyInsight": "You are not in crisis — you are in transition. Most people wait until discomfort forces them to change. You are choosing to redesign your direction before you outgrow your life.\n\nThat is a strategic reinvention mindset — and it's a major strength.\n\n**What This Really Indicates**\n\n| Your Current State | What It Means for Your Future |\n|---|---|\n| Letting go of an old identity | High self-awareness and maturity |\n| Exploring new possibilities | Rising ambition and readiness |\n| Questioning what truly matters | Values are evolving upward |\n| Looking for greater meaning | Growth has become non-negotiable |\n\nYou're not running away from something — you're moving toward someone: a more aligned version of you.\n\n**The Current Risk**\n\nWithout a structured reinvention plan:\n• Momentum can dissolve into confusion\n• Confidence can fluctuate\n• Opportunities may stay invisible\n\nReinvention without direction becomes reinvention without results.\n\n**Why a Digital Twin Is a Game-Changer**\n\nRight now, you're carrying a strong intention — your Digital Twin converts that into a measurable transformation:\n✔ Identifies your future strengths\n✔ Predicts best-fit career pathways\n✔ Eliminates guesswork in transition decisions\n✔ Validates your identity shift with evidence and clarity\n\nInstead of \"searching,\" you'll be designing your next chapter.\n\n**Best-Fit Program Recommendation**\n\nYou are actively reshaping your life — you need a structured accelerator.\n\nThe **Gold Program** is built for this stage:\n• Full reinvention roadmap\n• Strength and career fit predictions\n• Skill development and opportunity mapping\n• Confidence-building transitions\n\nYour next version deserves more than trial and error.\n\nNow let's decode where your peak energy shows up — that's where your reinvention gains traction fast.",
+      "growthBlocker": "Lack of structured reinvention plan",
+      "hiddenStrength": "Strategic reinvention mindset and high self-awareness",
+      "hiddenDesire": "Designing next chapter with measurable transformation",
+      "futureArchetype": "Professionally aligned and reinvented identity",
+      "microActions": {
+        "hours24": "Define what version of you is ending — clarity on the \"old identity\" accelerates the new one",
+        "days7": "Choose ONE direction to test — not five. Reinvention succeeds with focus",
+        "days30": "Show a visible shift: a new skill gained, a project launched, a bold connection made"
+      }
+    }
+  ]
+}
+
+,
       {
   "questionId": 2,
   "theme": "Flow & Strength Expression",
