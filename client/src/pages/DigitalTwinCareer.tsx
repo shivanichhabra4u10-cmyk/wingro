@@ -150,9 +150,7 @@ const CareerAssessment: React.FC = () => {
 
   // Handle plan selection and proceed to intro
   const handlePlanSelection = (planId: string) => {
-    setSelectedPlan(planId);
-    console.log('Plan selected:', planId);
-    console.log('Current state - showResults:', showResults);
+    setSelectedPlan(planId);    
     
     // If it's the free plan, proceed directly to intro
     if (planId === 'digital-twin-free') {
