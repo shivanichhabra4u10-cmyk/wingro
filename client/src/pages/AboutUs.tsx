@@ -100,16 +100,23 @@ const AboutUs: React.FC = () => {
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
             <img src="/images/RavinderSoni.jpg" alt="Ravinder Soni" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
             <h3 className="font-bold text-lg mb-1">Ravinder Soni</h3>
-            <p className="text-cyan-600 text-sm mb-3">Position</p>
+            <p className="text-cyan-600 text-sm mb-3">Growth Architect</p>
             <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
           </div>
           
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
-            <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-gray-100 to-blue-100 mb-4"></div>
-            <h3 className="font-bold text-lg mb-1">Team Member</h3>
-            <p className="text-cyan-600 text-sm mb-3">Position</p>
+            <img src="/images/KumariValamootoo.png" alt="Kumari Valamootoo" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
+            <h3 className="font-bold text-lg mb-1">Kumari Valamootoo</h3>
+            <p className="text-cyan-600 text-sm mb-3">Growth Architect</p>
             <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
           </div>
+
+          <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
+            <img src="/images/Shiva.png" alt="Shivanand Kamat" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
+            <h3 className="font-bold text-lg mb-1">Shivanand Kamat</h3>
+            <p className="text-cyan-600 text-sm mb-3">Growth Architect</p>
+            <p className="text-gray-600 text-sm">Brief description about the team member and their expertise in AI, psychology or business growth.</p>
+          </div>          
         </div>
       </section>
       
