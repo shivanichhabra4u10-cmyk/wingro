@@ -170,18 +170,19 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full -ml-40 -mb-40 blur-3xl"></div>
           
+          {/* 50% OFF Badge - Top Right */}
+          <div className="absolute top-4 right-4 z-20 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-4 py-2 rounded-xl shadow-2xl">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">🎉</span>
+              <div>
+                <p className="text-lg font-black leading-tight">50% OFF</p>
+                <p className="text-[10px] font-semibold opacity-90 leading-tight">Limited Time</p>
+              </div>
+            </div>
+          </div>
+
           <div className="relative z-10">
             <div className="text-center mb-8">
-              {/* Single 50% OFF Banner */}
-              <div className="inline-flex items-center gap-3 mb-6 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-6 py-3 rounded-xl shadow-2xl transform hover:scale-105 transition-all animate-pulse">
-                <span className="text-3xl">🎉</span>
-                <div className="text-left">
-                  <p className="text-2xl font-black tracking-tight">50% OFF</p>
-                  <p className="text-xs font-semibold opacity-90">Limited Time Offer on All Programs</p>
-                </div>
-                <span className="text-3xl">🎉</span>
-              </div>
-              
               <h3 className="text-3xl md:text-4xl font-black mb-4 drop-shadow-lg">
                 Explore Our Full Program Magazines
               </h3>
