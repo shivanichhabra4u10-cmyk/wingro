@@ -82,7 +82,7 @@ const convertMarkdownToHTML = (markdown: string): string => {
   const tableRegex = /\n\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
   html = html.replace(tableRegex, (match, header, rows) => {
     const headerCells = header.split('|').filter((cell: string) => cell.trim()).map((cell: string) => 
-      `<th style='padding: 12px; text-align: left; border: 1px solid #e0e0e0; font-weight: 600;'>${cell.trim()}</th>`
+      `<th style='padding: 8px; text-align: left; border: 1px solid #e0e0e0; font-weight: 600;'>${cell.trim()}</th>`
     ).join('');
     
     const rowsArray = rows.trim().split('\n').filter((r: string) => r.trim() && r.includes('|')).map((row: string) => {
@@ -90,12 +90,12 @@ const convertMarkdownToHTML = (markdown: string): string => {
         // Filter out empty cells at start/end (from leading/trailing |)
         return cell.trim() || (idx > 0 && idx < arr.length - 1);
       }).map((cell: string) => 
-        `<td style='padding: 12px; border: 1px solid #e0e0e0;'>${cell.trim()}</td>`
+        `<td style='padding: 8px; border: 1px solid #e0e0e0;'>${cell.trim()}</td>`
       ).join('');
       return cells ? `<tr>${cells}</tr>` : '';
     }).filter((row: string) => row).join('');
     
-    return `\n<table style='width: 100%; border-collapse: collapse; margin: 8px 0 16px 0; border: 1px solid #e0e0e0; background: white;'>
+    return `\n<table style='width: 100%; border-collapse: collapse; margin: 0 0 8px 0; border: 1px solid #e0e0e0; background: white;'>
       <thead><tr style='background: #f5f5f5;'>${headerCells}</tr></thead>
       <tbody>${rowsArray}</tbody>
     </table>\n`;
@@ -103,9 +103,9 @@ const convertMarkdownToHTML = (markdown: string): string => {
   
   html = html
     // Headers (with proper spacing)
-    .replace(/^### (.*$)/gim, '<h3 style="margin-top: 24px; margin-bottom: 12px;">$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2 style="margin-top: 24px; margin-bottom: 12px;">$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1 style="margin-top: 24px; margin-bottom: 12px;">$1</h1>')
+    .replace(/^### (.*$)/gim, '<h3 style="margin-top: 5px; margin-bottom: 12px;">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 style="margin-top: 5px; margin-bottom: 12px;">$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1 style="margin-top: 5px; margin-bottom: 12px;">$1</h1>')
     // Bold
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     // Italic
@@ -119,6 +119,10 @@ const convertMarkdownToHTML = (markdown: string): string => {
     // Lists
     .replace(/^[\-•] (.*$)/gim, '<li>$1</li>')
     .replace(/(<li>.*?<\/li>)/s, '<ul style="margin: 12px 0; padding-left: 24px;">$1</ul>');
+  
+  // Clean up spacing around tables - remove breaks and close paragraphs before tables
+  html = html.replace(/(<br \/>)*\s*(<table)/g, '</p>$2');
+  html = html.replace(/(<\/table>)\s*(<br \/>)*/g, '$1<p style="margin-bottom: 16px;">');
   
   // Wrap in paragraph if not already wrapped
   if (!html.startsWith('<h') && !html.startsWith('<p') && !html.startsWith('<ul') && !html.startsWith('<table')) {
