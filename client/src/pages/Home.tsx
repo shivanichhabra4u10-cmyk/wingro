@@ -28,8 +28,9 @@ const Home: React.FC = () => {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <div className="flex flex-col md:flex-row gap-4 w-full">
-                <Link to="/assessment-selection" className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                  Start Free Assessment
+                {/*Temp redirecting to Digital Twin from assessment-selection*/}
+                <Link to="/digital-twin" className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                  Start Digital Twin
                 </Link>
                 <Link to="/products" className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                   Explore Our Products
