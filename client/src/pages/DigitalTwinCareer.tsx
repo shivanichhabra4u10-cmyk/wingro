@@ -818,22 +818,22 @@ const CareerAssessment: React.FC = () => {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
-        <div className="relative rounded-2xl shadow-lg p-8">
+        <div className="relative rounded-2xl shadow-lg p-4">
           <div className="absolute inset-0 border-2 border-gray-300 rounded-2xl"></div>
-          <div className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8">
+          <div className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-4 shadow-md">
-                <span className="text-white text-3xl font-bold">🚀</span>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mb-3 shadow-md">
+                <span className="text-white text-2xl font-bold">🚀</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4 leading-normal" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.4' }}>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-3 leading-normal" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.4' }}>
                 Build Your Digital Twin
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
                 Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
               </p>
               <button 
                 onClick={() => handlePlanSelection('digital-twin-free')}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-base px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
                 <span>Start Free Assessment</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
