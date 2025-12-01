@@ -1285,86 +1285,8 @@ const CareerAssessment: React.FC = () => {
                 <p className="text-red-900 text-lg font-bold">⚠️ {submitError}</p>
               </div>
             )}
+              
             
-            {!submitError && (
-              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-400 rounded-2xl p-6 mb-8 shadow-lg">
-                <p className="text-emerald-900 text-lg font-black">
-                  ✓ Your responses have been securely stored and encrypted
-                </p>              
-              </div>
-            )}
-
-            {/* What Happens Next */}
-            <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-indigo-200 mb-8">
-              <h3 className="text-2xl font-black text-indigo-900 mb-4">What Happens Next?</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-4">
-                  <span className="text-2xl font-black text-indigo-600 flex-shrink-0">①</span>
-                  <span className="text-gray-800 font-semibold text-lg">We analyze your unique patterns, strengths, and transformation opportunities</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-2xl font-black text-purple-600 flex-shrink-0">②</span>
-                  <span className="text-gray-800 font-semibold text-lg">We generate your personalized Digital Twin profile with actionable insights</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-2xl font-black text-pink-600 flex-shrink-0">③</span>
-                  <span className="text-gray-800 font-semibold text-lg">You receive a comprehensive transformation roadmap tailored to your vision</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Unlock Your Full Potential Section */}
-            <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-10 mb-8 text-white shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full -ml-40 -mb-40 blur-3xl"></div>
-              
-              <div className="relative z-10 text-center mb-8">
-                <h3 className="text-4xl font-black mb-4 drop-shadow-lg">🔓 Unlock Your Complete Digital Twin Report</h3>
-                <p className="text-xl font-semibold mb-2 text-blue-100">
-                  You've completed the assessment — now unlock your personalized transformation roadmap!
-                </p>
-                <p className="text-lg text-purple-200">
-                  Choose a plan below to receive your detailed insights, expert coaching, and personalized action plans tailored to your unique career DNA.
-                </p>
-              </div>
-
-              <div className="relative z-10 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 mb-6">
-                <h4 className="text-2xl font-bold mb-4 text-center">✨ What You'll Get:</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">🎯</span>
-                    <div>
-                      <p className="font-bold text-lg">Deep Career Insights</p>
-                      <p className="text-sm text-purple-100">Comprehensive analysis of your 10 career dimensions with expert interpretation</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">🚀</span>
-                    <div>
-                      <p className="font-bold text-lg">Personalized Action Plans</p>
-                      <p className="text-sm text-purple-100">Step-by-step roadmap with 24h, 7-day, and 30-day transformation strategies</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">👥</span>
-                    <div>
-                      <p className="font-bold text-lg">Expert Coaching Access</p>
-                      <p className="text-sm text-purple-100">1:1 sessions with AI-powered career coaches and mentors</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">📊</span>
-                    <div>
-                      <p className="font-bold text-lg">Progress Tracking</p>
-                      <p className="text-sm text-purple-100">Monthly check-ins and milestone tracking to ensure your growth</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-            </div>
-
             {/* Digital Twin Pricing Plans Section */}
             <div className="mb-8">
               <DigitalTwinPricingPlans 

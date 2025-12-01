@@ -150,17 +150,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
 
   return (
     <div className="digital-twin-pricing-plans py-12 px-4">
-      {/* Header Section */}
-      <div className="text-center mb-12 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-          Ready for a Bigger Leap?
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-          Along with your free snapshot, you now have the opportunity to step into deeper self-discovery 
-          and accelerated growth through our <span className="font-semibold text-purple-600">premium transformation programs</span>.
-        </p>
-      </div>
-
+      
       {/* Magazine Showcase - Prominent CTA */}
       <div className="mb-12 max-w-6xl mx-auto">
         <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
