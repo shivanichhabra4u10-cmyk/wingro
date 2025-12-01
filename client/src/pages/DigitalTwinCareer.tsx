@@ -1173,7 +1173,7 @@ const CareerAssessment: React.FC = () => {
                     reportSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg cursor-pointer hover:underline transition-all"
+                className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg cursor-pointer underline hover:no-underline transition-all bg-transparent border-none"
                 style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}
               >
                 View your Digital Twin Career Snapshot! 🚀
