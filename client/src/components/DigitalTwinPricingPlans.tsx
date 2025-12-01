@@ -160,6 +160,175 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
         </p>
       </div>
 
+      {/* Magazine Showcase - Prominent CTA */}
+      <div className="mb-12 max-w-6xl mx-auto">
+        <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full -ml-40 -mb-40 blur-3xl"></div>
+          
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl mb-4 border-2 border-white/30">
+                <span className="text-4xl">📖</span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-black mb-4 drop-shadow-lg">
+                Explore Our Full Program Magazines
+              </h3>
+              <p className="text-lg text-purple-100 leading-relaxed max-w-3xl mx-auto mb-2">
+                Before you choose, dive deep into each program with our beautifully crafted interactive magazines. 
+                See the full curriculum, success stories, and transformation roadmaps in detail.
+              </p>
+              <p className="text-base text-yellow-300 font-bold animate-pulse">
+                ⚡ Click any card below to open the complete program guide!
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {/* Silver Magazine Card */}
+              <div className="group relative overflow-hidden rounded-2xl border-3 border-white/30 hover:border-white/60 transition-all bg-gradient-to-br from-gray-100 to-gray-200">
+                <a
+                  href="https://heyzine.com/flip-book/557e60d24e.html#page/2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-6 hover:shadow-2xl transition-all"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 to-gray-600/20 group-hover:from-gray-400/30 group-hover:to-gray-600/30 transition-all"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center shadow-lg">
+                        <span className="text-3xl">🥈</span>
+                      </div>
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-xs font-black text-gray-800">OPEN MAGAZINE</span>
+                      </div>
+                    </div>
+                    <h4 className="font-black text-2xl text-gray-900 mb-2">Silver Program</h4>
+                    <p className="text-sm text-gray-700 font-semibold mb-3">Identity Alignment Breakthrough</p>
+                    <p className="text-3xl font-black text-gray-800 mb-4">₹4,999</p>
+                    <div className="flex items-center justify-between text-gray-800 group-hover:text-gray-900">
+                      <span className="text-sm font-bold">View Full Details →</span>
+                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                <div className="relative z-10 px-6 pb-6">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleBuyPlan('silver-identity');
+                    }}
+                    className="w-full py-3 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white font-bold rounded-lg transition-all hover:shadow-xl"
+                  >
+                    🚀 Enroll Now
+                  </button>
+                </div>
+              </div>
+
+              {/* Gold Magazine Card - Enhanced */}
+              <div className="group relative overflow-hidden rounded-2xl border-4 border-yellow-400 hover:border-yellow-300 transition-all bg-gradient-to-br from-yellow-100 to-orange-200 transform scale-105 md:scale-110">
+                <div className="absolute top-3 right-3 z-20">
+                  <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg animate-bounce">
+                    🔥 MOST POPULAR
+                  </span>
+                </div>
+                <a
+                  href="https://heyzine.com/flip-book/d9de1ac3f8.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-6 hover:shadow-2xl transition-all"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 group-hover:from-yellow-400/30 group-hover:to-orange-500/30 transition-all"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-xl ring-2 ring-yellow-300">
+                        <span className="text-3xl">🥇</span>
+                      </div>
+                      <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full ring-2 ring-orange-400">
+                        <span className="text-xs font-black text-orange-800">OPEN MAGAZINE</span>
+                      </div>
+                    </div>
+                    <h4 className="font-black text-2xl text-orange-900 mb-2">Gold Program</h4>
+                    <p className="text-sm text-orange-800 font-bold mb-3">Career Reinvention Accelerator</p>
+                    <p className="text-3xl font-black text-orange-900 mb-4">₹24,999</p>
+                    <div className="flex items-center justify-between text-orange-900 group-hover:text-orange-950">
+                      <span className="text-sm font-black">View Full Details →</span>
+                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                <div className="relative z-10 px-6 pb-6">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleBuyPlan('gold-reinvention');
+                    }}
+                    className="w-full py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold rounded-lg transition-all hover:shadow-xl hover:scale-105"
+                  >
+                    🚀 Enroll Now
+                  </button>
+                </div>
+              </div>
+
+              {/* Platinum Magazine Card */}
+              <div className="group relative overflow-hidden rounded-2xl border-3 border-white/30 hover:border-white/60 transition-all bg-gradient-to-br from-purple-100 to-pink-200">
+                <a
+                  href="https://heyzine.com/flip-book/6842909c74.html#page/1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-6 hover:shadow-2xl transition-all"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                        <span className="text-3xl">💎</span>
+                      </div>
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-xs font-black text-purple-800">OPEN MAGAZINE</span>
+                      </div>
+                    </div>
+                    <h4 className="font-black text-2xl text-purple-900 mb-2">Platinum Program</h4>
+                    <p className="text-sm text-purple-700 font-semibold mb-3">Elite Transformation & Leadership</p>
+                    <p className="text-3xl font-black text-purple-900 mb-4">₹75,000</p>
+                    <div className="flex items-center justify-between text-purple-900 group-hover:text-purple-950">
+                      <span className="text-sm font-bold">View Full Details →</span>
+                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                <div className="relative z-10 px-6 pb-6">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleBuyPlan('platinum-mastery');
+                    }}
+                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-lg transition-all hover:shadow-xl"
+                  >
+                    🚀 Enroll Now
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <div className="inline-flex items-center gap-2 bg-yellow-400/20 backdrop-blur-md border-2 border-yellow-400/40 rounded-xl px-6 py-3">
+                <span className="text-2xl">💡</span>
+                <p className="text-sm font-bold text-white">
+                  Pro Tip: Open the magazines in a new tab to explore while you browse the plans below!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Subheading */}
       <div className="text-center mb-10">
         <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600">
