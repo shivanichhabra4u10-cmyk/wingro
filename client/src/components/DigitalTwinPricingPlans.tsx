@@ -149,11 +149,11 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
   ];
 
   return (
-    <div className="digital-twin-pricing-plans py-12 px-4">
+    <div className="digital-twin-pricing-plans py-4 px-4">
       
       {/* Magazine Showcase - Prominent CTA */}
-      <div className="mb-12 max-w-6xl mx-auto">
-        <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
+      <div className="mb-6 max-w-6xl mx-auto">
+        <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-6 md:p-8 shadow-2xl text-white relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full -ml-40 -mb-40 blur-3xl"></div>

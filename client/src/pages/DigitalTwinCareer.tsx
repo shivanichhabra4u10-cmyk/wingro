@@ -1253,10 +1253,10 @@ const CareerAssessment: React.FC = () => {
     const gradient = 'from-purple-600 via-pink-500 to-rose-500';
     
     return (
-      <div className="min-h-screen flex items-center justify-center px-0 py-12 bg-white">
+      <div className="min-h-screen flex items-center justify-center px-0 py-4 bg-white">
         <div className="w-full">
           {/* Main Thank You Card - Enhanced */}
-          <div className={`bg-gradient-to-br ${gradient} rounded-3xl shadow-2xl p-12 text-white mb-8 relative overflow-hidden border-0`}>
+          <div className={`bg-gradient-to-br ${gradient} rounded-3xl shadow-2xl p-6 md:p-8 text-white mb-4 relative overflow-hidden border-0`}>
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/10 rounded-full -ml-36 -mb-36 blur-3xl"></div>
@@ -1269,35 +1269,26 @@ const CareerAssessment: React.FC = () => {
             </div>
           </div>
           
-          {/* Completion Summary Card - Enhanced */}
-          <div className="bg-white rounded-2xl shadow-2xl p-10 mb-10 border-0">
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              {/* Questions Answered */}
-              
+          {/* Success/Error Message */}
+          {submitError && (
+            <div className="bg-red-100 border-2 border-red-400 rounded-2xl p-6 mb-4">
+              <p className="text-red-900 text-lg font-bold">⚠️ {submitError}</p>
             </div>
-            
-            {/* Success/Error Message */}
-            {submitError && (
-              <div className="bg-red-100 border-2 border-red-400 rounded-2xl p-6 mb-8">
-                <p className="text-red-900 text-lg font-bold">⚠️ {submitError}</p>
-              </div>
-            )}
-              
-            
-            {/* Digital Twin Pricing Plans Section */}
-            <div className="mb-8">
-              <DigitalTwinPricingPlans 
-                userId={assessmentId} 
-                assessmentType="digital-twin-individual"
-                onPlanSelect={handlePlanSelection}
-                hasCompletedAssessment={true}
-              />
-            </div>
+          )}
+          
+          {/* Digital Twin Pricing Plans Section */}
+          <div className="mb-4">
+            <DigitalTwinPricingPlans 
+              userId={assessmentId} 
+              assessmentType="digital-twin-individual"
+              onPlanSelect={handlePlanSelection}
+              hasCompletedAssessment={true}
+            />
+          </div>
 
-            {/* Scoring Results Section */}
-            {scoringResults ? (
-              <div className="rounded-2xl p-8 mb-8">
+          {/* Scoring Results Section */}
+          {scoringResults ? (
+              <div className="rounded-2xl p-4 md:p-6 mb-4">
                 <h3 className="text-3xl font-black text-purple-900 mb-8">🎯 Your Digital Twin Career Snapshot</h3>
                 
                 {/* Score Breakdown by Dimension - with color-coded cards */}
@@ -1446,8 +1437,8 @@ const CareerAssessment: React.FC = () => {
               </div>
             ) : null}
 
-            {/* AI-Generated Report Section - Shows after generation */}
-            {aiReport && (
+          {/* AI-Generated Report Section - Shows after generation */}
+          {aiReport && (
               <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 mb-8 shadow-lg border-3 border-amber-300">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-4xl">🤖</span>
@@ -1460,8 +1451,8 @@ const CareerAssessment: React.FC = () => {
               </div>
             )}
 
-            {/* AI Report Loading Indicator */}
-            {loadingReport && (
+          {/* AI Report Loading Indicator */}
+          {loadingReport && (
               <div className="bg-blue-50 rounded-2xl p-8 mb-8 border-2 border-blue-300 shadow-md">
                 <div className="flex items-center justify-center gap-4">
                   <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -1472,7 +1463,6 @@ const CareerAssessment: React.FC = () => {
                 </div>
               </div>
             )}
-          </div>
 
           {/* Action Buttons - Enhanced */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
