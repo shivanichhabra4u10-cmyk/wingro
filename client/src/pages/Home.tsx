@@ -32,12 +32,20 @@ const Home: React.FC = () => {
                 <Link to="/digital-twin" className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                   Start Digital Twin
                 </Link>
-                <Link to="/products" className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                {/* Temporarily disabled - Work in progress */}
+                <button onClick={() => alert('Coming Soon! This feature is currently under development.')} className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                   Explore Our Products
-                </Link>
-                <Link to="/marketplace" className="bg-transparent border-2 border-cyan-500 hover:bg-cyan-900/30 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300">
+                </button>
+                {/* <Link to="/products" className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                  Explore Our Products
+                </Link> */}
+                {/* Temporarily disabled - Work in progress */}
+                <button onClick={() => alert('Coming Soon! This feature is currently under development.')} className="bg-transparent border-2 border-cyan-500 hover:bg-cyan-900/30 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300">
                   Meet Growth Architects
-                </Link>
+                </button>
+                {/* <Link to="/marketplace" className="bg-transparent border-2 border-cyan-500 hover:bg-cyan-900/30 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300">
+                  Meet Growth Architects
+                </Link> */}
               </div>
             </div>
           </div>
@@ -93,7 +101,7 @@ const Home: React.FC = () => {
               <div className="relative" style={{ paddingBottom: '56.25%' }}>
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/cYgz54WLwIU"
+                  src="https://www.youtube.com/watch?v=QTqic30u3NQ"
                   title="WinGroX AI Company Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
