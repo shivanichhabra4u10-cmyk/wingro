@@ -679,115 +679,6 @@ const CareerAssessment: React.FC = () => {
               <li>All responses are confidential and secure.</li>
             </ul>
           </div>
-
-          {/* Program Showcase - Magazine Style */}
-          <div className="mb-6">
-            <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-300 shadow-lg">
-              <div className="text-center mb-4">
-                <h3 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-2">
-                  📚 Explore Our Transformation Programs
-                </h3>
-                <p className="text-sm text-gray-700 font-semibold">
-                  View detailed program guides before you start. Click any card to explore the complete curriculum.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Silver Program Card */}
-                <a
-                  href="https://heyzine.com/flip-book/557e60d24e.html#page/2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl border-2 border-gray-300 hover:border-gray-500 transition-all hover:shadow-2xl hover:-translate-y-2 bg-gradient-to-br from-gray-50 to-gray-100"
-                >
-                  <div className="p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center shadow-md">
-                        <span className="text-2xl">🥈</span>
-                      </div>
-                      <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                    <h4 className="font-black text-lg text-gray-900 mb-1">Silver Program</h4>
-                    <p className="text-xs text-gray-600 mb-2">Identity Alignment Breakthrough</p>
-                    <p className="text-2xl font-black text-gray-700 mb-3">₹4,999</p>
-                    <div className="inline-flex items-center text-xs font-semibold text-purple-700 group-hover:text-purple-900 transition-colors">
-                      View Complete Guide
-                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-
-                {/* Gold Program Card */}
-                <a
-                  href="https://heyzine.com/flip-book/d9de1ac3f8.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl border-2 border-orange-300 hover:border-orange-500 transition-all hover:shadow-2xl hover:-translate-y-2 bg-gradient-to-br from-yellow-50 to-orange-100 ring-2 ring-orange-400 transform scale-105"
-                >
-                  <div className="absolute top-2 right-2 z-10">
-                    <span className="bg-orange-600 text-white text-[10px] font-black px-2 py-1 rounded-full shadow-lg animate-pulse">MOST POPULAR</span>
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-lg">
-                        <span className="text-2xl">🥇</span>
-                      </div>
-                      <svg className="w-5 h-5 text-orange-400 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                    <h4 className="font-black text-lg text-orange-900 mb-1">Gold Program</h4>
-                    <p className="text-xs text-orange-700 mb-2">Career Reinvention Accelerator</p>
-                    <p className="text-2xl font-black text-orange-800 mb-3">₹24,999</p>
-                    <div className="inline-flex items-center text-xs font-semibold text-orange-700 group-hover:text-orange-900 transition-colors">
-                      View Complete Guide
-                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-
-                {/* Platinum Program Card */}
-                <a
-                  href="https://heyzine.com/flip-book/6842909c74.html#page/1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl border-2 border-purple-300 hover:border-purple-500 transition-all hover:shadow-2xl hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-pink-100"
-                >
-                  <div className="p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
-                        <span className="text-2xl">💎</span>
-                      </div>
-                      <svg className="w-5 h-5 text-purple-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                    <h4 className="font-black text-lg text-purple-900 mb-1">Platinum Program</h4>
-                    <p className="text-xs text-purple-700 mb-2">Elite Transformation & Leadership</p>
-                    <p className="text-2xl font-black text-purple-800 mb-3">₹75,000</p>
-                    <div className="inline-flex items-center text-xs font-semibold text-purple-700 group-hover:text-purple-900 transition-colors">
-                      View Complete Guide
-                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="mt-4 text-center">
-                <p className="text-xs text-gray-600 font-medium">
-                  💡 <span className="font-bold">Pro Tip:</span> Take a moment to explore these guides now — understanding program details helps you make informed decisions about your transformation journey!
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
         
         <form className="space-y-6">
@@ -935,11 +826,20 @@ const CareerAssessment: React.FC = () => {
                 <span className="text-white text-3xl font-bold">🚀</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mb-4 leading-normal" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.4' }}>
-                Choose Your Digital Twin Experience
+                Build Your Digital Twin
               </h1>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                 Select the plan that best fits your transformation goals. Complete the assessment after choosing your plan.
               </p>
+              <button 
+                onClick={() => handlePlanSelection('digital-twin-free')}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              >
+                <span>Start Free Assessment</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
