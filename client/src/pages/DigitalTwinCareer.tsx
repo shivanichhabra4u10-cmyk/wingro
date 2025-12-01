@@ -1263,9 +1263,18 @@ const CareerAssessment: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             
             <div className="relative z-10 text-center">
-              <p className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}>
+              <button 
+                onClick={() => {
+                  const reportSection = document.getElementById('career-snapshot-section');
+                  if (reportSection) {
+                    reportSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}
+                className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg cursor-pointer hover:underline transition-all"
+                style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}
+              >
                 View your Digital Twin Career Snapshot below! 🚀
-              </p>             
+              </button>             
             </div>
           </div>
           
@@ -1289,7 +1298,7 @@ const CareerAssessment: React.FC = () => {
           {/* Scoring Results Section */}
           {scoringResults ? (
               <div className="rounded-2xl p-4 md:p-6 mb-4">
-                <h3 className="text-3xl font-black text-purple-900 mb-8">🎯 Your Digital Twin Career Snapshot</h3>
+                <h3 id="career-snapshot-section" className="text-3xl font-black text-purple-900 mb-8">🎯 Your Digital Twin Career Snapshot</h3>
                 
                 {/* Score Breakdown by Dimension - with color-coded cards */}
                 {scoringResults.scores && scoringResults.scores.length > 0 && (
