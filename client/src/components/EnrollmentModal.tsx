@@ -159,6 +159,107 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
               </p>
             </div>
 
+            {/* Program Showcase - Magazine Style */}
+            <div className="mb-8">
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  📚 Explore Our Programs in Detail
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Click to view the complete program guide and curriculum
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Silver Program Card */}
+                <a
+                  href="https://heyzine.com/flip-book/557e60d24e.html#page/2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-xl border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-gray-50 to-gray-100"
+                >
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center">
+                        <span className="text-2xl">🥈</span>
+                      </div>
+                      <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <h4 className="font-black text-lg text-gray-900 mb-1">Silver</h4>
+                    <p className="text-xs text-gray-600 mb-2">Identity Alignment Breakthrough</p>
+                    <p className="text-2xl font-black text-gray-700 mb-3">₹4,999</p>
+                    <div className="inline-flex items-center text-xs font-semibold text-gray-700 group-hover:text-purple-600 transition-colors">
+                      View Magazine
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Gold Program Card */}
+                <a
+                  href="https://heyzine.com/flip-book/d9de1ac3f8.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-xl border-2 border-orange-200 hover:border-orange-400 transition-all hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-yellow-50 to-orange-100 ring-2 ring-orange-300"
+                >
+                  <div className="absolute top-2 right-2">
+                    <span className="bg-orange-600 text-white text-[10px] font-black px-2 py-1 rounded-full">POPULAR</span>
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-lg">
+                        <span className="text-2xl">🥇</span>
+                      </div>
+                      <svg className="w-5 h-5 text-orange-400 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <h4 className="font-black text-lg text-orange-900 mb-1">Gold</h4>
+                    <p className="text-xs text-orange-700 mb-2">Career Reinvention Accelerator</p>
+                    <p className="text-2xl font-black text-orange-800 mb-3">₹24,999</p>
+                    <div className="inline-flex items-center text-xs font-semibold text-orange-700 group-hover:text-orange-900 transition-colors">
+                      View Magazine
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Platinum Program Card */}
+                <a
+                  href="https://heyzine.com/flip-book/6842909c74.html#page/1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-xl border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-purple-50 to-pink-100"
+                >
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                        <span className="text-2xl">💎</span>
+                      </div>
+                      <svg className="w-5 h-5 text-purple-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <h4 className="font-black text-lg text-purple-900 mb-1">Platinum</h4>
+                    <p className="text-xs text-purple-700 mb-2">Elite Transformation & Leadership</p>
+                    <p className="text-2xl font-black text-purple-800 mb-3">₹75,000</p>
+                    <div className="inline-flex items-center text-xs font-semibold text-purple-700 group-hover:text-purple-900 transition-colors">
+                      View Magazine
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
             {/* Selected Plan Display */}
             {formData.selectedPlan && planDetails[formData.selectedPlan] && (
               <div className={`bg-gradient-to-r ${planDetails[formData.selectedPlan].color} rounded-2xl p-5 mb-6 text-white shadow-xl`}>
