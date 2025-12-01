@@ -1253,8 +1253,8 @@ const CareerAssessment: React.FC = () => {
     const gradient = 'from-purple-600 via-pink-500 to-rose-500';
     
     return (
-      <div className="min-h-screen flex items-center justify-center px-0 py-4 bg-white">
-        <div className="w-full">
+      <div className="min-h-screen flex items-center justify-center px-4 py-4 bg-white">
+        <div className="w-full max-w-6xl mx-auto">
           {/* Main Thank You Card - Enhanced */}
           <div className={`bg-gradient-to-br ${gradient} rounded-3xl shadow-2xl p-6 md:p-8 text-white mb-4 relative overflow-hidden border-0`}>
             {/* Decorative background elements */}
