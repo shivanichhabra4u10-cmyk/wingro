@@ -7,9 +7,11 @@ interface DigitalTwinPlan {
   title: string;
   subtitle: string;
   price: string;
+  oldPrice?: string;
   priceValue?: number;
   currency?: string;
   badge?: string;
+  badgeColor?: string;
   description: string;
   features: string[];
   benefits?: string[];
@@ -57,9 +59,11 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       title: 'DIGITAL TWIN STARTER',
       subtitle: 'Discover Yourself. Begin Your Reinvention.',
       price: 'FREE',
+      oldPrice: '₹999',
       priceValue: 0,
       currency: 'INR',
-      badge: 'Current Plan',
+      badge: '50% OFF',
+      badgeColor: 'green',
       description: 'This free experience helps you decode who you are today so you can start moving toward who you want to become. Get a powerful snapshot of your strengths, energy patterns, and direction.',
       features: [
         'Your personalized Digital Twin (Starter Version)',
@@ -76,9 +80,11 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       title: 'SILVER',
       subtitle: 'Identity Alignment Breakthrough',
       price: '₹4,999',
+      oldPrice: '₹9,999',
       priceValue: 4999,
       currency: 'INR',
-      badge: 'Quick Clarity',
+      badge: '50% OFF',
+      badgeColor: 'green',
       description: 'Entry-level premium experience: clarity + direction + quick wins',
       features: [
         'Full Digital Twin Intelligence Report (30+ pages personalized)',
@@ -99,9 +105,11 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       title: 'GOLD',
       subtitle: 'Career Reinvention Accelerator',
       price: '₹24,999',
+      oldPrice: '₹49,999',
       priceValue: 24999,
       currency: 'INR',
-      badge: 'Most Popular',
+      badge: '50% OFF',
+      badgeColor: 'green',
       highlighted: true,
       description: 'Deep guided transition into your next role or version',
       features: [
@@ -126,9 +134,11 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       title: 'PLATINUM',
       subtitle: 'Elite Transformation & Leadership Mastery',
       price: '₹74,999',
+      oldPrice: '₹1,49,999',
       priceValue: 74999,
       currency: 'INR',
-      badge: 'Elite',
+      badge: '50% OFF',
+      badgeColor: 'green',
       description: 'Your Digital Twin evolves into your Performance Co-Pilot',
       features: [
         'Everything in Gold',
@@ -162,6 +172,15 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
           
           <div className="relative z-10">
             <div className="text-center mb-8">
+              {/* Single 50% OFF Banner */}
+              <div className="inline-flex items-center gap-3 mb-6 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-6 py-3 rounded-xl shadow-2xl transform hover:scale-105 transition-all animate-pulse">
+                <span className="text-3xl">🎉</span>
+                <div className="text-left">
+                  <p className="text-2xl font-black tracking-tight">50% OFF</p>
+                  <p className="text-xs font-semibold opacity-90">Limited Time Offer on All Programs</p>
+                </div>
+                <span className="text-3xl">🎉</span>
+              </div>
               
               <h3 className="text-3xl md:text-4xl font-black mb-4 drop-shadow-lg">
                 Explore Our Full Program Magazines
@@ -326,18 +345,10 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
             } ${selectedPlan === plan.id ? 'ring-4 ring-blue-500' : ''}`}
             onClick={() => setSelectedPlan(plan.id)}
           >
-            {/* Badge */}
-            {plan.badge && (
-              <div
-                className={`absolute top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide ${
-                  plan.highlighted
-                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg'
-                    : plan.isFree
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-blue-100 text-blue-800'
-                }`}
-              >
-                {plan.badge}
+            {/* Badge - Show Most Popular for Gold at top-right */}
+            {plan.highlighted && (
+              <div className="absolute top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg">
+                🔥 MOST POPULAR
               </div>
             )}
 
@@ -379,16 +390,28 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
 
               {/* Price */}
               <div className="mb-6">
-                <div
-                  className={`text-5xl font-black ${
-                    plan.highlighted
-                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600'
-                      : plan.isFree
-                      ? 'text-green-600'
-                      : 'text-gray-900'
-                  }`}
-                >
-                  {plan.price}
+                {plan.oldPrice && (
+                  <div className="text-xl text-gray-500 line-through mb-2">
+                    {plan.oldPrice}
+                  </div>
+                )}
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`text-5xl font-black ${
+                      plan.highlighted
+                        ? 'text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600'
+                        : plan.isFree
+                        ? 'text-green-600'
+                        : 'text-gray-900'
+                    }`}
+                  >
+                    {plan.price}
+                  </div>
+                  {plan.badgeColor === 'green' && plan.badge && (
+                    <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-lg">
+                      {plan.badge}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -471,8 +494,8 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                 <button
                   className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
                     onPlanSelect 
-                      ? 'bg-green-600 hover:bg-green-700 text-white cursor-pointer hover:shadow-xl' 
-                      : 'bg-green-100 text-green-800 border-2 border-green-300'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white cursor-pointer hover:shadow-xl' 
+                      : 'bg-gradient-to-r from-green-500 to-emerald-600 text-white border-2 border-green-400'
                   } ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''}`}
                   onClick={(e) => {
                     if (onPlanSelect) {
@@ -482,7 +505,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                   }}
                   disabled={isProcessing || !onPlanSelect}
                 >
-                  {onPlanSelect ? (isProcessing ? 'Processing...' : 'Start Free Assessment') : '✓ You\'re Viewing This Now'}
+                  {onPlanSelect ? (isProcessing ? 'Processing...' : 'Start Free Assessment') : '✓ Active - 50% OFF Applied'}
                 </button>
               )}
             </div>
