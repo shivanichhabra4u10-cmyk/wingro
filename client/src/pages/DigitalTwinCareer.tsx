@@ -1371,6 +1371,7 @@ const CareerAssessment: React.FC = () => {
                 userId={assessmentId} 
                 assessmentType="digital-twin-individual"
                 onPlanSelect={handlePlanSelection}
+                hasCompletedAssessment={true}
               />
             </div>
 

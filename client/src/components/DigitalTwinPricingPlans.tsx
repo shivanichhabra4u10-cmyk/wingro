@@ -22,9 +22,10 @@ interface DigitalTwinPricingPlansProps {
   userId?: string;
   assessmentType?: string;
   onPlanSelect?: (planId: string) => void;
+  hasCompletedAssessment?: boolean;
 }
 
-const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userId, assessmentType, onPlanSelect }) => {
+const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userId, assessmentType, onPlanSelect, hasCompletedAssessment }) => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -312,15 +313,18 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       </div>
 
       {/* Subheading */}
-      <div className="text-center mb-10">
+      {!hasCompletedAssessment && (
+        <div className="text-center mb-10">
         <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600">
           Premium Growth Pathways to Choose From
         </h3>
       </div>
+      )}
 
       {/* Plans Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-        {plans.map((plan) => (
+      {!hasCompletedAssessment && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {plans.map((plan) => (
           <div
             key={plan.id}
             className={`relative rounded-2xl overflow-hidden transition-all duration-300 h-full flex flex-col ${
@@ -493,8 +497,9 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
               )}
             </div>
           </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Contact CTA Section */}
       <div className="mt-16 max-w-5xl mx-auto">
