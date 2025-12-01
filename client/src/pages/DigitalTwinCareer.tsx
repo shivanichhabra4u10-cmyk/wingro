@@ -1263,6 +1263,9 @@ const CareerAssessment: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             
             <div className="relative z-10 text-center">
+              <p className="text-sm md:text-base font-semibold mb-1 drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}>
+                ✓ Responses Saved
+              </p>
               <button 
                 onClick={() => {
                   const reportSection = document.getElementById('career-snapshot-section');
@@ -1273,7 +1276,7 @@ const CareerAssessment: React.FC = () => {
                 className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg cursor-pointer hover:underline transition-all"
                 style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}
               >
-                View your Digital Twin Career Snapshot below! 🚀
+                View your Digital Twin Career Snapshot! 🚀
               </button>             
             </div>
           </div>
