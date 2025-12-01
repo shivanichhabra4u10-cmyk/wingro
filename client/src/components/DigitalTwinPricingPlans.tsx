@@ -57,6 +57,8 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       title: 'DIGITAL TWIN STARTER',
       subtitle: 'Discover Yourself. Begin Your Reinvention.',
       price: 'FREE',
+      priceValue: 0,
+      currency: 'INR',
       badge: 'Current Plan',
       description: 'This free experience helps you decode who you are today so you can start moving toward who you want to become. Get a powerful snapshot of your strengths, energy patterns, and direction.',
       features: [
@@ -123,8 +125,8 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
       id: 'platinum-mastery',
       title: 'PLATINUM',
       subtitle: 'Elite Transformation & Leadership Mastery',
-      price: '₹75,000',
-      priceValue: 75000,
+      price: '₹74,999',
+      priceValue: 74999,
       currency: 'INR',
       badge: 'Elite',
       description: 'Your Digital Twin evolves into your Performance Co-Pilot',
@@ -176,7 +178,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
               {/* Silver Magazine Card */}
               <div className="group relative overflow-hidden rounded-2xl border-3 border-white/30 hover:border-white/60 transition-all bg-gradient-to-br from-gray-100 to-gray-200">
                 <a
-                  href="https://heyzine.com/flip-book/557e60d24e.html#page/2"
+                  href="https://heyzine.com/flip-book/db6b06d90f.html#page/1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 hover:shadow-2xl transition-all"
@@ -193,7 +195,10 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                     </div>
                     <h4 className="font-black text-2xl text-gray-900 mb-2">Silver Program</h4>
                     <p className="text-sm text-gray-700 font-semibold mb-3">Identity Alignment Breakthrough</p>
-                    <p className="text-3xl font-black text-gray-800 mb-4">₹4,999</p>
+                    <div className="mb-4">
+                      <p className="text-lg text-gray-500 line-through mb-1">₹9,999</p>
+                      <p className="text-3xl font-black text-gray-800">₹4,999</p>
+                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
@@ -217,7 +222,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                   </span>
                 </div>
                 <a
-                  href="https://heyzine.com/flip-book/d9de1ac3f8.html"
+                  href="https://heyzine.com/flip-book/d419b60858.html#page/1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 hover:shadow-2xl transition-all"
@@ -234,7 +239,10 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                     </div>
                     <h4 className="font-black text-2xl text-orange-900 mb-2">Gold Program</h4>
                     <p className="text-sm text-orange-800 font-bold mb-3">Career Reinvention Accelerator</p>
-                    <p className="text-3xl font-black text-orange-900 mb-4">₹24,999</p>
+                    <div className="mb-4">
+                      <p className="text-lg text-orange-600 line-through mb-1">₹49,999</p>
+                      <p className="text-3xl font-black text-orange-900">₹24,999</p>
+                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
@@ -253,7 +261,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
               {/* Platinum Magazine Card */}
               <div className="group relative overflow-hidden rounded-2xl border-3 border-white/30 hover:border-white/60 transition-all bg-gradient-to-br from-purple-100 to-pink-200">
                 <a
-                  href="https://heyzine.com/flip-book/6842909c74.html#page/1"
+                  href="https://heyzine.com/flip-book/a5c3f1a21f.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 hover:shadow-2xl transition-all"
@@ -270,7 +278,10 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                     </div>
                     <h4 className="font-black text-2xl text-purple-900 mb-2">Platinum Program</h4>
                     <p className="text-sm text-purple-700 font-semibold mb-3">Elite Transformation & Leadership</p>
-                    <p className="text-3xl font-black text-purple-900 mb-4">₹75,000</p>
+                    <div className="mb-4">
+                      <p className="text-lg text-purple-600 line-through mb-1">₹1,49,999</p>
+                      <p className="text-3xl font-black text-purple-900">₹74,999</p>
+                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
