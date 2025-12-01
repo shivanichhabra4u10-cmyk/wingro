@@ -421,7 +421,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
                   <div>
                     <h4 className="font-bold text-blue-900 mb-1 text-sm">What happens next?</h4>
                     <ul className="text-xs text-blue-800 space-y-0.5">
-                      <li>✓ Our team will review your enrollment within 24 hours</li>
+                      <li>✓ Our team will review your enrollment and will reach out to you</li>
                       <li>✓ We'll send payment details and onboarding instructions</li>
                       <li>✓ Your personalized Digital Twin journey begins!</li>
                     </ul>
