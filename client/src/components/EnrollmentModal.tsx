@@ -294,6 +294,26 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
 
             {/* Enrollment Form */}
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Plan Selection */}
+              <div>
+                <label htmlFor="selectedPlan" className="block text-sm font-bold text-gray-900 mb-1">
+                  Select Your Plan *
+                </label>
+                <select
+                  id="selectedPlan"
+                  name="selectedPlan"
+                  value={formData.selectedPlan}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2.5 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 transition-all"
+                >
+                  <option value="">Choose a plan...</option>
+                  <option value="silver-identity">Silver — Identity Alignment Breakthrough (₹4,999)</option>
+                  <option value="gold-reinvention">Gold — Career Reinvention Accelerator (₹24,999)</option>
+                  <option value="platinum-mastery">Platinum — Elite Transformation & Leadership Mastery (₹75,000)</option>
+                </select>
+              </div>
+
               {/* Name Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -376,26 +396,6 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
                   className="w-full px-4 py-2.5 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 transition-all"
                   placeholder="https://linkedin.com/in/yourprofile"
                 />
-              </div>
-
-              {/* Plan Selection */}
-              <div>
-                <label htmlFor="selectedPlan" className="block text-sm font-bold text-gray-900 mb-1">
-                  Select Your Plan *
-                </label>
-                <select
-                  id="selectedPlan"
-                  name="selectedPlan"
-                  value={formData.selectedPlan}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 transition-all"
-                >
-                  <option value="">Choose a plan...</option>
-                  <option value="silver-identity">Silver — Identity Alignment Breakthrough (₹4,999)</option>
-                  <option value="gold-reinvention">Gold — Career Reinvention Accelerator (₹24,999)</option>
-                  <option value="platinum-mastery">Platinum — Elite Transformation & Leadership Mastery (₹75,000)</option>
-                </select>
               </div>
 
               {/* Message */}
