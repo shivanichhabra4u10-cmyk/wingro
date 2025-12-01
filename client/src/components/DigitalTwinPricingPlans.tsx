@@ -200,18 +200,12 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                         <span className="text-3xl">🥈</span>
                       </div>
                       <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span className="text-xs font-black text-gray-800">OPEN MAGAZINE</span>
+                        <span className="text-xs font-black text-gray-800">View Magazine</span>
                       </div>
                     </div>
                     <h4 className="font-black text-2xl text-gray-900 mb-2">Silver Program</h4>
                     <p className="text-sm text-gray-700 font-semibold mb-3">Identity Alignment Breakthrough</p>
                     <p className="text-3xl font-black text-gray-800 mb-4">₹4,999</p>
-                    <div className="flex items-center justify-between text-gray-800 group-hover:text-gray-900">
-                      <span className="text-sm font-bold">View Full Details →</span>
-                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
@@ -220,7 +214,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                       e.stopPropagation();
                       handleBuyPlan('silver-identity');
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white font-bold rounded-lg transition-all hover:shadow-xl"
+                    className="w-full py-2.5 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white font-bold rounded-lg transition-all hover:shadow-xl text-sm"
                   >
                     🚀 Enroll Now
                   </button>
@@ -247,18 +241,12 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                         <span className="text-3xl">🥇</span>
                       </div>
                       <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full ring-2 ring-orange-400">
-                        <span className="text-xs font-black text-orange-800">OPEN MAGAZINE</span>
+                        <span className="text-xs font-black text-orange-800">View Magazine</span>
                       </div>
                     </div>
                     <h4 className="font-black text-2xl text-orange-900 mb-2">Gold Program</h4>
                     <p className="text-sm text-orange-800 font-bold mb-3">Career Reinvention Accelerator</p>
                     <p className="text-3xl font-black text-orange-900 mb-4">₹24,999</p>
-                    <div className="flex items-center justify-between text-orange-900 group-hover:text-orange-950">
-                      <span className="text-sm font-black">View Full Details →</span>
-                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
@@ -267,7 +255,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                       e.stopPropagation();
                       handleBuyPlan('gold-reinvention');
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold rounded-lg transition-all hover:shadow-xl hover:scale-105"
+                    className="w-full py-2.5 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold rounded-lg transition-all hover:shadow-xl hover:scale-105 text-sm"
                   >
                     🚀 Enroll Now
                   </button>
@@ -289,18 +277,12 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                         <span className="text-3xl">💎</span>
                       </div>
                       <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span className="text-xs font-black text-purple-800">OPEN MAGAZINE</span>
+                        <span className="text-xs font-black text-purple-800">View Magazine</span>
                       </div>
                     </div>
                     <h4 className="font-black text-2xl text-purple-900 mb-2">Platinum Program</h4>
                     <p className="text-sm text-purple-700 font-semibold mb-3">Elite Transformation & Leadership</p>
                     <p className="text-3xl font-black text-purple-900 mb-4">₹75,000</p>
-                    <div className="flex items-center justify-between text-purple-900 group-hover:text-purple-950">
-                      <span className="text-sm font-bold">View Full Details →</span>
-                      <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
                   </div>
                 </a>
                 <div className="relative z-10 px-6 pb-6">
@@ -309,7 +291,7 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
                       e.stopPropagation();
                       handleBuyPlan('platinum-mastery');
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-lg transition-all hover:shadow-xl"
+                    className="w-full py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-lg transition-all hover:shadow-xl text-sm"
                   >
                     🚀 Enroll Now
                   </button>
