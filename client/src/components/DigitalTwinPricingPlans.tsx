@@ -160,15 +160,12 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
           
           <div className="relative z-10">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl mb-4 border-2 border-white/30">
-                <span className="text-4xl">📖</span>
-              </div>
+              
               <h3 className="text-3xl md:text-4xl font-black mb-4 drop-shadow-lg">
                 Explore Our Full Program Magazines
               </h3>
               <p className="text-lg text-purple-100 leading-relaxed max-w-3xl mx-auto mb-2">
-                Before you choose, dive deep into each program with our beautifully crafted interactive magazines. 
-                See the full curriculum, success stories, and transformation roadmaps in detail.
+                Dive deep into each program — see curriculum, success stories, and transformation roadmaps.
               </p>
               <p className="text-base text-yellow-300 font-bold animate-pulse">
                 ⚡ Click any card below to open the complete program guide!
@@ -290,14 +287,6 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
               </div>
             </div>
 
-            <div className="mt-8 text-center">
-              <div className="inline-flex items-center gap-2 bg-yellow-400/20 backdrop-blur-md border-2 border-yellow-400/40 rounded-xl px-6 py-3">
-                <span className="text-2xl">💡</span>
-                <p className="text-sm font-bold text-white">
-                  Pro Tip: Open the magazines in a new tab to explore while you browse the plans below!
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
