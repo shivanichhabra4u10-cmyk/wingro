@@ -4,7 +4,7 @@
     "description": "Complete scoring logic for Digital Twin Career Assessment - 10 dimensions × 10 options (a-j)",
     "lastUpdated": "2025-11-24",
     "questions": [
-    {
+   {
   "questionId": 1,
   "theme": "Current Role & Purpose Alignment",
   "question": "How well does your current role align with your sense of purpose?",
@@ -53,9 +53,9 @@
       "score": 80,
       "text": "Somewhat aligned — I like what I do, but it's not deeply meaningful yet.",
       "depiction": "You enjoy what you do, but it doesn't fully represent who you are becoming.",
-      "title": "You Like What You Do — But You Know It's Not Your Deeper Purpose",
+      "title": "You Like What You Do — But It’s Not Yet Connected to Who You’re Becoming",
       "archetype": "The Under-Expressed Performer",
-      "keyInsight": "You are competent, respected, and performing well. But your current role doesn't yet reflect the future identity you envision. There is a gap between capability and expression.\n\nThis signals a strategic turning point in your career:\n✓ You have achieved functional success\n✓ You want meaning, not just productivity\n✓ You see opportunities beyond your current job scope\n✓ You feel ready for more responsibility, creativity, or ownership\n\nYou're not disengaged — you're under-expressed.\n\n**What This Means for Your Growth Outlook**\n\nMost professionals who reach your stage face two choices:\n\n| Path | Outcome |\n|---|---|\n| Continue as is | You become efficient at a role that no longer represents you |\n| Redesign your narrative | You accelerate into roles that reflect your evolving identity |\n\nRight now, your environment benefits more from your capability than you benefit from the environment. Your next career leap comes from elevating how your strengths show up in business outcomes.\n\n**Why Your Digital Twin Is Relevant Now**\n\nYou are transitioning from: Execution → Identity-led Influence\n\nYour Digital Twin will help you:\n1️⃣ Decode your unique value and future role archetype\n2️⃣ Map purpose-aligned growth opportunities internally + externally\n3️⃣ Build a reinvention narrative backed by business metrics\n4️⃣ Avoid the plateau that comes when strengths are invisible\n\nThis provides acceleration without disruption.\n\n**Best-Fit Program Recommendation**\n\nBecause you are not lost — just under-recognized — the **Gold Program** (purpose-to-positioning alignment) is the best strategic match:\n• Strength differentiation\n• Opportunity mapping\n• 90-day role elevation strategy\n• Influence and perception design\n\nThis is how people move from doing well to being in demand.\n\nWhere does your energy actually peak at work? That tells us where your identity wants to grow next.",
+      "keyInsight": "You're successful in your role.\nYou enjoy a good part of what you do.\nBut there's a gap:\n**You're not convinced that your current work reflects\nyour deeper identity, values, or long-term direction.**\n\nThis is a classic early-misalignment signal:\n ✓ The job is fine — but doesn't fully feel like you\n ✓ You've grown, but the role hasn't evolved with you\n ✓ You're contributing… not necessarily becoming\n\n**You're not stuck.**\n**You're simply not fully seen yet.**\n\n**What This Means for Your Career**\n\n✔ You have strong performance capability\n✔ You want your identity to play a bigger role in your success\n✔ You can't ignore that inner \"pull\" forever\n✔ You're ready for work that feels both rewarding and representative\n\nThis stage, if navigated well, can lead to a major professional upgrade.\n\n**How Your Digital Twin Will Accelerate Alignment**\n\nYou need visibility into what your best-fit future looks like.\n\nYour Digital Twin gives you:\n ✓ Identity Alignment Score — how well work matches who you are\n ✓ Strength monetization mapping — where your value grows fastest\n ✓ Role transformation pathways inside/outside your current domain\n ✓ Language to communicate your evolving identity to leadership\n ✓ A 90-day identity-building blueprint\n\n**You move from feeling capable →\nto being positioned as valuable and distinct.**\n\n**Best-Fit Program Recommendation**\n\nTo shift from \"I do good work\"\nto \"my work represents who I am\",\nthe **Gold Program** is ideal:\n ✓ Career identity design\n ✓ Strategic reputation building\n ✓ Leadership-aligned role evolution\n ✓ Value articulation frameworks\n\nThis ensures your next promotion isn't just a title —\nit's a truer version of your professional self.\n\nNow that we've established how aligned you feel today,\nthe next unlocking step is:\n**Where do you feel in flow — and how can that drive your growth?**",
       "growthBlocker": "Gap between capability and expression",
       "hiddenStrength": "Functional success and readiness for greater responsibility",
       "hiddenDesire": "Identity-led influence and meaningful advancement",
@@ -194,7 +194,6 @@
     }
   ]
 }
-
 ,
       {
   "questionId": 2,
