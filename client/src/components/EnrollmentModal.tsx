@@ -20,6 +20,7 @@ interface EnrollmentFormData {
 
 const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, selectedPlan = '' }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showProgramShowcase, setShowProgramShowcase] = useState(false);
   
   const [formData, setFormData] = useState<EnrollmentFormData>({
     firstName: '',
@@ -159,18 +160,33 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
               </p>
             </div>
 
-            {/* Program Showcase - Magazine Style */}
+            {/* Program Showcase - Magazine Style (Collapsible) */}
             <div className="mb-8">
-              <div className="text-center mb-4">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  📚 Explore Our Programs in Detail
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Click to view the complete program guide and curriculum
+              <button
+                type="button"
+                onClick={() => setShowProgramShowcase(!showProgramShowcase)}
+                className="w-full text-center mb-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-2 border-purple-200 hover:border-purple-400 transition-all group"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <h3 className="text-lg font-bold text-gray-900">
+                    📚 Explore Our Programs in Detail
+                  </h3>
+                  <svg 
+                    className={`w-5 h-5 text-purple-600 transition-transform ${showProgramShowcase ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                <p className="text-sm text-gray-600 mt-1">
+                  {showProgramShowcase ? 'Hide' : 'Click to view'} complete program guides and curriculum
                 </p>
-              </div>
+              </button>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {showProgramShowcase && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-fadeIn">
                 {/* Silver Program Card */}
                 <a
                   href="https://heyzine.com/flip-book/557e60d24e.html#page/2"
@@ -248,7 +264,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
                     </div>
                     <h4 className="font-black text-lg text-purple-900 mb-1">Platinum</h4>
                     <p className="text-xs text-purple-700 mb-2">Elite Transformation & Leadership</p>
-                    <p className="text-2xl font-black text-purple-800 mb-3">₹75,000</p>
+                    <p className="text-2xl font-black text-purple-800 mb-3">₹74,999</p>
                     <div className="inline-flex items-center text-xs font-semibold text-purple-700 group-hover:text-purple-900 transition-colors">
                       View Magazine
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -258,6 +274,7 @@ const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClose, sele
                   </div>
                 </a>
               </div>
+              )}
             </div>
 
             {/* Selected Plan Display */}
