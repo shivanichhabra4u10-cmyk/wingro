@@ -642,6 +642,45 @@ const CareerAssessment: React.FC = () => {
     }
   };
 
+  // Download report as PDF
+  const downloadReportAsPDF = () => {
+    // Get the entire results container
+    const element = document.querySelector('.rounded-2xl.p-4.md\\:p-6.mb-4');
+    if (!element) {
+      toast.error('Report content not found. Please ensure results are loaded.');
+      return;
+    }
+
+    const opt = {
+      margin: [0.5, 0.5, 0.5, 0.5],
+      filename: `Digital-Twin-Career-Report-${assessmentId || 'report'}.pdf`,
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { 
+        scale: 2, 
+        useCORS: true, 
+        letterRendering: true,
+        logging: false,
+        windowWidth: 1200
+      },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+
+    toast.info('Generating PDF... This may take a moment.');
+    
+    html2pdf()
+      .set(opt)
+      .from(element)
+      .save()
+      .then(() => {
+        toast.success('PDF downloaded successfully!');
+      })
+      .catch((error: any) => {
+        console.error('PDF generation error:', error);
+        toast.error('Failed to generate PDF. Please try again.');
+      });
+  };
+
 
 
   // Progress percentage for the assessment
@@ -1201,7 +1240,18 @@ const CareerAssessment: React.FC = () => {
           {/* Scoring Results Section */}
           {scoringResults ? (
               <div className="rounded-2xl p-4 md:p-6 mb-4">
-                <h3 id="career-snapshot-section" className="text-3xl font-black text-purple-900 mb-8">🎯 Your Digital Twin Career Snapshot</h3>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                  <h3 id="career-snapshot-section" className="text-3xl font-black text-purple-900">🎯 Your Digital Twin Career Snapshot</h3>
+                  <button
+                    onClick={downloadReportAsPDF}
+                    className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-xl transition-all hover:shadow-lg flex items-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Your Digital Twin PDF
+                  </button>
+                </div>
                 
                 {/* Score Breakdown by Dimension - with color-coded cards */}
                 {scoringResults.scores && scoringResults.scores.length > 0 && (
