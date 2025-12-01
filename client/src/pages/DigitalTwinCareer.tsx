@@ -651,34 +651,53 @@ const CareerAssessment: React.FC = () => {
       return;
     }
 
-    const opt = {
-      margin: [0.5, 0.5, 0.5, 0.5],
-      filename: `Digital-Twin-Career-Report-${assessmentId || 'report'}.pdf`,
-      image: { type: 'jpeg', quality: 0.95 },
-      html2canvas: { 
-        scale: 2, 
-        useCORS: true, 
-        letterRendering: true,
-        logging: false,
-        windowWidth: 1200
-      },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    };
-
-    toast.info('Generating PDF... This may take a moment.');
+    // Store original expanded state
+    const originalExpandedState = { ...expandedInsights };
     
-    html2pdf()
-      .set(opt)
-      .from(element)
-      .save()
-      .then(() => {
-        toast.success('PDF downloaded successfully!');
-      })
-      .catch((error: any) => {
-        console.error('PDF generation error:', error);
-        toast.error('Failed to generate PDF. Please try again.');
+    // Expand all insights before generating PDF
+    const allExpanded: { [key: string]: boolean } = {};
+    if (scoringResults?.scores) {
+      scoringResults.scores.forEach((score: any) => {
+        allExpanded[score.dimension] = true;
       });
+    }
+    setExpandedInsights(allExpanded);
+
+    // Wait for state to update and DOM to re-render
+    setTimeout(() => {
+      const opt = {
+        margin: [0.5, 0.5, 0.5, 0.5],
+        filename: `Digital-Twin-Career-Report-${assessmentId || 'report'}.pdf`,
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { 
+          scale: 2, 
+          useCORS: true, 
+          letterRendering: true,
+          logging: false,
+          windowWidth: 1200
+        },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+
+      toast.info('Generating PDF... This may take a moment.');
+      
+      html2pdf()
+        .set(opt)
+        .from(element)
+        .save()
+        .then(() => {
+          toast.success('PDF downloaded successfully!');
+          // Restore original expanded state
+          setExpandedInsights(originalExpandedState);
+        })
+        .catch((error: any) => {
+          console.error('PDF generation error:', error);
+          toast.error('Failed to generate PDF. Please try again.');
+          // Restore original expanded state even on error
+          setExpandedInsights(originalExpandedState);
+        });
+    }, 500); // Give React time to re-render with expanded content
   };
 
 
