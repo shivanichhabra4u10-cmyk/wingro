@@ -73,28 +73,60 @@ interface UserData {
 const convertMarkdownToHTML = (markdown: string): string => {
   if (!markdown) return '';
   
-  let html = markdown
-    // Headers
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+  let html = markdown;
+  
+  // Convert markdown tables to HTML tables
+  // First, normalize all line breaks to \n for consistent processing
+  html = html.replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
+  
+  const tableRegex = /\n\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
+  html = html.replace(tableRegex, (match, header, rows) => {
+    const headerCells = header.split('|').filter((cell: string) => cell.trim()).map((cell: string) => 
+      `<th style='padding: 12px; text-align: left; border: 1px solid #e0e0e0; font-weight: 600;'>${cell.trim()}</th>`
+    ).join('');
+    
+    const rowsArray = rows.trim().split('\n').filter((r: string) => r.trim() && r.includes('|')).map((row: string) => {
+      const cells = row.split('|').filter((cell: string, idx: number, arr: any[]) => {
+        // Filter out empty cells at start/end (from leading/trailing |)
+        return cell.trim() || (idx > 0 && idx < arr.length - 1);
+      }).map((cell: string) => 
+        `<td style='padding: 12px; border: 1px solid #e0e0e0;'>${cell.trim()}</td>`
+      ).join('');
+      return cells ? `<tr>${cells}</tr>` : '';
+    }).filter((row: string) => row).join('');
+    
+    return `\n<table style='width: 100%; border-collapse: collapse; margin: 8px 0 16px 0; border: 1px solid #e0e0e0; background: white;'>
+      <thead><tr style='background: #f5f5f5;'>${headerCells}</tr></thead>
+      <tbody>${rowsArray}</tbody>
+    </table>\n`;
+  });
+  
+  html = html
+    // Headers (with proper spacing)
+    .replace(/^### (.*$)/gim, '<h3 style="margin-top: 24px; margin-bottom: 12px;">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 style="margin-top: 24px; margin-bottom: 12px;">$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1 style="margin-top: 24px; margin-bottom: 12px;">$1</h1>')
     // Bold
-    .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     // Italic
-    .replace(/\*(.*)\*/gim, '<em>$1</em>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
     // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank">$1</a>')
-    // Line breaks
-    .replace(/\n\n/gim, '</p><p>')
-    .replace(/\n/gim, '<br />')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #2563eb; text-decoration: underline;">$1</a>')
+    // Paragraph breaks (double line break)
+    .replace(/\n\n+/g, '</p><p style="margin-bottom: 16px;">')
+    // Single line breaks
+    .replace(/\n/g, '<br />')
     // Lists
-    .replace(/^\- (.*$)/gim, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+    .replace(/^[\-•] (.*$)/gim, '<li>$1</li>')
+    .replace(/(<li>.*?<\/li>)/s, '<ul style="margin: 12px 0; padding-left: 24px;">$1</ul>');
   
   // Wrap in paragraph if not already wrapped
-  if (!html.startsWith('<h') && !html.startsWith('<p') && !html.startsWith('<ul')) {
-    html = `<p>${html}</p>`;
+  if (!html.startsWith('<h') && !html.startsWith('<p') && !html.startsWith('<ul') && !html.startsWith('<table')) {
+    html = `<p style="margin-bottom: 16px;">${html}</p>`;
   }
+  
+  // Clean up any empty paragraphs or multiple breaks
+  html = html.replace(/<p[^>]*><\/p>/g, '').replace(/(<br \/>)+/g, '<br />');
   
   return html;
 };
@@ -1317,14 +1349,18 @@ const CareerAssessment: React.FC = () => {
                                 <span className="italic">✍️ Please go back and answer this question to unlock your insights.</span>
                               ) : (
                                 <>
-                                  <div className="whitespace-pre-line">
-                                    {expandedInsights[score.dimension] 
-                                      ? score.description 
-                                      : (score.description && score.description.length > 400)
-                                        ? `${score.description.substring(0, 400)}...` 
-                                        : score.description
-                                    }
-                                  </div>
+                                  <div 
+                                    className="prose prose-sm max-w-none"
+                                    dangerouslySetInnerHTML={{ 
+                                      __html: convertMarkdownToHTML(
+                                        expandedInsights[score.dimension] 
+                                          ? score.description 
+                                          : (score.description && score.description.length > 400)
+                                            ? `${score.description.substring(0, 400)}...` 
+                                            : score.description
+                                      )
+                                    }}
+                                  />
                                   {score.description && score.description.length > 400 && (
                                     <button
                                       onClick={() => toggleInsight(score.dimension)}
