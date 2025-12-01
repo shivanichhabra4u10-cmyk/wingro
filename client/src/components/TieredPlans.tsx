@@ -106,24 +106,6 @@ const TieredPlans: React.FC<TieredPlansProps> = ({ plans = defaultPlans, userId,
           </div>
         ))}
       </div>
-      
-      {/* Contact Us Section */}
-      <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-sm">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-2/3 mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold text-gray-800">Need a custom solution?</h3>
-            <p className="text-gray-600 mt-2">
-              Our growth specialists can help design a program that fits your exact needs. 
-              Reach out for a free consultation and learn how we can tailor our approach to your unique situation.
-            </p>
-          </div>
-          <div className="md:w-1/3 md:text-right md:pl-4">
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg hover:shadow-md transition-all font-medium">
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

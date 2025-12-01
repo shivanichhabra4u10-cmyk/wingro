@@ -491,36 +491,6 @@ const DigitalTwinPricingPlans: React.FC<DigitalTwinPricingPlansProps> = ({ userI
         </div>
       )}
 
-      {/* Contact CTA Section */}
-      <div className="mt-16 max-w-5xl mx-auto">
-        <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
-          
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-2/3 mb-6 md:mb-0">
-              <h3 className="text-3xl md:text-4xl font-black mb-4">
-                Need a Custom Solution?
-              </h3>
-              <p className="text-lg text-purple-100 leading-relaxed">
-                Our growth specialists can help design a program that fits your exact needs. 
-                Reach out for a <span className="font-bold text-white">free consultation</span> and 
-                learn how we can tailor our approach to your unique transformation journey.
-              </p>
-            </div>
-            <div className="md:w-1/3 md:text-right md:pl-6">
-              <button 
-                onClick={() => window.location.href = '/contact'}
-                className="bg-white text-purple-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-purple-50 transition-all hover:shadow-2xl hover:scale-105"
-              >
-                Contact Us
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
      
     </div>
   );

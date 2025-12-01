@@ -975,6 +975,33 @@ const CareerAssessment: React.FC = () => {
             </ul>
           </div>
         </div>
+
+        {/* Need a Custom Solution Section */}
+        <div className="mt-12 max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24 blur-3xl"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0">
+                <h3 className="text-2xl md:text-3xl font-black text-white">Need a custom solution?</h3>
+                <p className="text-purple-100 mt-2 leading-relaxed">
+                  Our growth specialists can help design a program that fits your exact needs. 
+                  Reach out for a free consultation and learn how we can tailor our approach to your unique transformation journey.
+                </p>
+              </div>
+              <div className="md:w-1/3 md:text-right md:pl-4">
+                <button 
+                  onClick={() => window.location.href = '/contact'}
+                  className="bg-white text-purple-900 py-3 px-6 rounded-xl hover:bg-purple-50 hover:shadow-xl transition-all font-bold text-lg"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
@@ -1236,43 +1263,14 @@ const CareerAssessment: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             
             <div className="relative z-10 text-center">
-              {/* Success Icon - Animated and Larger */}
-              <div className="mb-8 flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse scale-150"></div>
-                  <div className="absolute inset-2 bg-white/10 rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
-                  <div className="relative w-32 h-32 bg-white/30 rounded-full flex items-center justify-center border-4 border-white/80 backdrop-blur-sm">
-                    <svg className="w-20 h-20 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Main message - Enhanced Contrast & Typography */}
-              <h1 className="text-5xl md:text-7xl font-black mb-4 drop-shadow-lg" style={{textShadow: '0 6px 20px rgba(0,0,0,0.4)', letterSpacing: '-0.02em'}}>
-                Assessment Complete!
-              </h1>
-              
-              {/* Digital Twin Message - NEW */}
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 mb-6 border border-white/30">
-                <p className="text-3xl md:text-4xl font-black mb-3 drop-shadow-lg" style={{textShadow: '0 4px 12px rgba(0,0,0,0.3)'}}>
-                  🚀 Your Digital Twin Creation Begins
-                </p>
-                <p className="text-lg md:text-xl font-semibold drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}>
-                  Your first step towards building your Digital Twin is done. We're analyzing your insights to create a personalized transformation roadmap.
-                </p>
-              </div>
-              
               <p className="text-xl md:text-2xl font-bold mb-2 drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.3)'}}>
-                Thank you for your thoughtful responses
-              </p>
-             
+                View your Digital Twin Career Snapshot below! 🚀
+              </p>             
             </div>
           </div>
           
           {/* Completion Summary Card - Enhanced */}
-          <div className="bg-white rounded-3xl shadow-2xl p-10 mb-10 border-0">
+          <div className="bg-white rounded-2xl shadow-2xl p-10 mb-10 border-0">
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {/* Questions Answered */}
@@ -1492,6 +1490,33 @@ const CareerAssessment: React.FC = () => {
             </button>
           </div>
           
+          {/* Need a Custom Solution Section */}
+          <div className="mt-12 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24 blur-3xl"></div>
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center">
+                <div className="md:w-2/3 mb-6 md:mb-0">
+                  <h3 className="text-2xl md:text-3xl font-black text-white">Need a custom solution?</h3>
+                  <p className="text-purple-100 mt-2 leading-relaxed">
+                    Our growth specialists can help design a program that fits your exact needs. 
+                    Reach out for a free consultation and learn how we can tailor our approach to your unique transformation journey.
+                  </p>
+                </div>
+                <div className="md:w-1/3 md:text-right md:pl-4">
+                  <button 
+                    onClick={() => window.location.href = '/contact'}
+                    className="bg-white text-purple-900 py-3 px-6 rounded-xl hover:bg-purple-50 hover:shadow-xl transition-all font-bold text-lg"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Footer Information - Enhanced */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center border-t-4 border-gradient-to-r from-indigo-600 to-pink-600">
             <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600 mb-4">
