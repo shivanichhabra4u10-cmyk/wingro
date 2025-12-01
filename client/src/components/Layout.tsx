@@ -14,6 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownTimerRef = useRef<NodeJS.Timeout | null>(null);
   // Use real authentication context
   const { user, logout, isAdmin } = useAuth();
@@ -179,8 +180,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Digital Twin
               </Link>
             </div>
-            {/* User menu */}
-            <div className="flex items-center ml-2">
+            {/* Mobile menu button and User menu */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+                aria-label="Menu"
+              >
+                {mobileMenuOpen ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
               {user ? (
                 <div className="relative group">
                   <button
@@ -271,6 +287,123 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="px-4 pt-2 pb-3 space-y-1">
+              {navigation.filter(item => !item.hidden).map((item) => {
+                if (item.submenu && item.submenu.length > 0) {
+                  return (
+                    <div key={item.name} className="space-y-1">
+                      <button
+                        className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
+                        onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                      >
+                        <span className="flex items-center gap-2">
+                          <span>{item.icon}</span>
+                          <span>{item.name}</span>
+                        </span>
+                        <svg
+                          className={`w-4 h-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {activeDropdown === item.name && (
+                        <div className="pl-8 space-y-1">
+                          {item.submenu.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.href}
+                              className={`block px-3 py-2 rounded-lg text-sm ${
+                                location.pathname === sub.href
+                                  ? 'bg-blue-100 text-blue-700 font-semibold'
+                                  : 'text-gray-600 hover:bg-gray-100'
+                              }`}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setActiveDropdown(null);
+                              }}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                } else if ('href' in item && item.href) {
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${
+                        location.pathname === item.href
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'text-gray-700 hover:bg-gray-100'
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <span>{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  );
+                }
+                return null;
+              })}
+
+              {/* Digital Twin button in mobile */}
+              <Link
+                to="/digital-twin"
+                className="flex items-center gap-2 px-3 py-2 mt-2 rounded-lg text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>🤖</span>
+                <span>Digital Twin</span>
+              </Link>
+
+              {/* User section in mobile menu */}
+              {user && (
+                <div className="border-t border-gray-200 pt-3 mt-3">
+                  <div className="px-3 py-2 text-sm text-gray-500">
+                    <div className="font-semibold text-gray-900">{user.name}</div>
+                    <div className="text-xs">{user.email}</div>
+                  </div>
+                  <Link
+                    to="/profile"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>👤</span>
+                    <span>Profile</span>
+                  </Link>
+                  <Link
+                    to="/cart"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>🛒</span>
+                    <span>Cart</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50"
+                  >
+                    <span>🚪</span>
+                    <span>Sign out</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
       <main className="pt-16">
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">{children}</div>
