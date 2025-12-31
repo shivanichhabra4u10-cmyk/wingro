@@ -157,6 +157,18 @@ The application uses MongoDB for data storage with the following main collection
 - `communityPosts` - User posts and questions in community
 - `comments` - Comments on community posts
 
+### Mongo DB Restore
+
+- Step 1 - Create new cluster in Free Tier
+
+- Step 2 - Open Windows Power Shell as administrator
+
+mongodump --uri "mongodb+srv://shivanichhabra4u10:rzJnUw4hZWtsOmzU@wingrocluster.rdz8evo.mongodb.net" --out "C:\Backup\dump"
+
+- Step 3 (copy connection string from Connect --> driver -- enter previous password )
+mongorestore --uri "mongodb+srv://shivanichhabra4u10:rzJnUw4hZWtsOmzU@wingroxcluster.rrbmh0f.mongodb.net" --drop C:\Backup\dump
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -165,3 +177,4 @@ The application uses MongoDB for data storage with the following main collection
 - npm or yarn
 
 ### Installation
+
