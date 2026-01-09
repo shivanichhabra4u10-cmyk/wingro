@@ -12,6 +12,7 @@ import checkoutRoutes from './checkout.routes';
 import cartRoutes from './cart.routes';
 import bookingRoutes from './booking.routes';
 import userPlanRoutes from './userPlan.routes';
+import leadGenerationRoutes from './leadGenerationRoutes';
 
 const router = Router();
 
@@ -34,5 +35,6 @@ router.use('/community', communityRoutes);
 router.use('/cart', cartRoutes);
 router.use('/', checkoutRoutes); // Stripe checkout and downloads
 router.use('/user-plan', userPlanRoutes);
+router.use('/leads', leadGenerationRoutes);
 
 export default router;

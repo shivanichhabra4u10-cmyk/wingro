@@ -179,6 +179,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <span className="mr-2">🤖</span>
                 Digital Twin
               </Link>
+              {/* Get Playbook button */}
+              <Link
+                to="/get-playbook"
+                className="ml-2 px-5 py-2 rounded-full text-base font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 text-white shadow-lg border-2 border-cyan-300 hover:scale-105 hover:shadow-xl transition-all duration-200"
+                style={{ letterSpacing: '0.03em' }}
+              >
+                <span className="mr-2">📚</span>
+                Get Playbook
+              </Link>
             </div>
             {/* Mobile menu button and User menu */}
             <div className="flex items-center gap-2">
