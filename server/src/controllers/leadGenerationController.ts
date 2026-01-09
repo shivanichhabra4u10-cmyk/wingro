@@ -64,10 +64,26 @@ export const submitLead = async (req: Request, res: Response): Promise<void> => 
  */
 export const downloadPlaybook = async (req: Request, res: Response): Promise<void> => {
   try {
-    const pdfPath = path.join(__dirname, '../../public/sample-playbook.pdf');
+    // Try multiple possible paths for the PDF
+    const possiblePaths = [
+      path.join(__dirname, '../../public/sample-playbook.pdf'),
+      path.join(process.cwd(), 'public/sample-playbook.pdf'),
+      path.join(process.cwd(), 'server/public/sample-playbook.pdf'),
+      path.join(__dirname, '../../../public/sample-playbook.pdf'),
+    ];
+
+    let pdfPath: string | null = null;
+    for (const testPath of possiblePaths) {
+      if (fs.existsSync(testPath)) {
+        pdfPath = testPath;
+        console.log('✅ Found PDF at:', testPath);
+        break;
+      }
+    }
 
     // Check if file exists
-    if (!fs.existsSync(pdfPath)) {
+    if (!pdfPath) {
+      console.error('❌ PDF not found. Tried paths:', possiblePaths);
       res.status(404).json({
         success: false,
         message: 'Playbook PDF not found',
