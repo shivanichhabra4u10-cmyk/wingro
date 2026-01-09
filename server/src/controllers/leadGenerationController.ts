@@ -8,10 +8,10 @@ import fs from 'fs';
  */
 export const submitLead = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { name, companyName, email, contactNo, interestedInDigitalTwin } = req.body;
+    const { name, companyName, email, contactNo, painAreas, interestedInDigitalTwin } = req.body;
 
     // Validation
-    if (!name || !companyName || !email || !contactNo) {
+    if (!name || !companyName || !email || !contactNo || !painAreas) {
       res.status(400).json({
         success: false,
         message: 'All fields are required',
@@ -35,6 +35,7 @@ export const submitLead = async (req: Request, res: Response): Promise<void> => 
       companyName,
       email,
       contactNo,
+      painAreas,
       interestedInDigitalTwin: interestedInDigitalTwin || false,
     });
 

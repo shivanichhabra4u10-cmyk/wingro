@@ -107,7 +107,7 @@ const router = createBrowserRouter(
       <Route path="assessment-selection" element={<AssessmentSelection />} />
       <Route path="digital-twin" element={<DigitalTwinCareer />} />
       <Route path="digital-twin-enrollment" element={<DigitalTwinEnrollment />} />
-      <Route path="get-playbook" element={<GetPlaybook />} />
+      <Route path="request-consultation" element={<GetPlaybook />} />
       <Route path="student-9-10" element={<CareerAssessment />} />
       <Route path="student-11-12" element={<CareerAssessment />} />
       <Route path="professional" element={<CareerAssessment />} />

@@ -8,12 +8,15 @@ const GetPlaybook: React.FC = () => {
     companyName: '',
     email: '',
     contactNo: '',
+    painAreas: '',
     interestedInDigitalTwin: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -24,7 +27,7 @@ const GetPlaybook: React.FC = () => {
     e.preventDefault();
 
     // Validation
-    if (!formData.name || !formData.companyName || !formData.email || !formData.contactNo) {
+    if (!formData.name || !formData.companyName || !formData.email || !formData.contactNo || !formData.painAreas) {
       toast.error('Please fill in all required fields');
       return;
     }
@@ -44,16 +47,8 @@ const GetPlaybook: React.FC = () => {
       const response = await axios.post(`${API_BASE_URL}/api/leads/submit`, formData);
 
       if (response.data.success) {
-        toast.success('Thank you! Your playbook download will begin shortly.');
-
-        // Trigger PDF download
-        const downloadUrl = `${API_BASE_URL}/api/leads/download-playbook`;
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.download = 'WinGroX-AI-Playbook.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        toast.success('Thank you! Our team will get back to you soon.');
+        setIsSubmitted(true);
 
         // Reset form
         setFormData({
@@ -61,6 +56,7 @@ const GetPlaybook: React.FC = () => {
           companyName: '',
           email: '',
           contactNo: '',
+          painAreas: '',
           interestedInDigitalTwin: false,
         });
       }
@@ -77,10 +73,10 @@ const GetPlaybook: React.FC = () => {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            📚 Get Your Free Playbook
+            � Request a Consultation
           </h1>
           <p className="text-lg text-gray-600">
-            Unlock powerful insights and strategies. Fill in your details below to download our comprehensive playbook.
+            Share your details and challenges with us. Our team will review your needs and schedule a personalized consultation.
           </p>
         </div>
 
@@ -154,6 +150,23 @@ const GetPlaybook: React.FC = () => {
               />
             </div>
 
+            {/* Top 5 Pain Areas/Challenges */}
+            <div>
+              <label htmlFor="painAreas" className="block text-sm font-medium text-gray-700 mb-2">
+                Top 5 Pain Areas/Challenges <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="painAreas"
+                name="painAreas"
+                value={formData.painAreas}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"
+                placeholder="Please list your top 5 pain areas or challenges (e.g., low employee retention, lack of career development programs, unclear growth paths, etc.)"
+              />
+            </div>
+
             {/* Digital Twin Interest Checkbox */}
             <div className="flex items-start">
               <div className="flex items-center h-6">
@@ -192,16 +205,31 @@ const GetPlaybook: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <span>📥</span>
-                  <span>Download Playbook</span>
+                  <span>�</span>
+                  <span>Submit Details</span>
                 </>
               )}
             </button>
+
+            {/* Success Message */}
+            {isSubmitted && (
+              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <svg className="h-6 w-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <h4 className="text-green-800 font-semibold">Thank you for your submission!</h4>
+                    <p className="text-green-700 text-sm mt-1">Our team will review your details and get back to you shortly.</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-500">
-              By downloading, you agree to receive occasional updates from WinGroX AI. 
+              By submitting, you agree to receive occasional updates from WinGroX AI. 
               We respect your privacy and you can unsubscribe at any time.
             </p>
           </div>

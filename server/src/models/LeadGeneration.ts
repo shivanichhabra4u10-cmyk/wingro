@@ -5,6 +5,7 @@ export interface ILeadGeneration extends Document {
   companyName: string;
   email: string;
   contactNo: string;
+  painAreas: string;
   interestedInDigitalTwin: boolean;
   createdAt: Date;
 }
@@ -28,6 +29,11 @@ const leadGenerationSchema = new Schema<ILeadGeneration>(
       lowercase: true,
     },
     contactNo: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    painAreas: {
       type: String,
       required: true,
       trim: true,
