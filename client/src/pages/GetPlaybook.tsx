@@ -9,7 +9,7 @@ const GetPlaybook: React.FC = () => {
     email: '',
     contactNo: '',
     painAreas: '',
-    interestedInDigitalTwin: false,
+    interestedInDigitalTwin: true,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -73,7 +73,7 @@ const GetPlaybook: React.FC = () => {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            � Request a Consultation
+            💬 Submit Your Challenge
           </h1>
           <p className="text-lg text-gray-600">
             Share your details and challenges with us. Our team will review your needs and schedule a personalized consultation.
@@ -150,10 +150,10 @@ const GetPlaybook: React.FC = () => {
               />
             </div>
 
-            {/* Top 5 Pain Areas/Challenges */}
+            {/* Top 3 Pain Areas/Challenges */}
             <div>
               <label htmlFor="painAreas" className="block text-sm font-medium text-gray-700 mb-2">
-                Top 5 Pain Areas/Challenges <span className="text-red-500">*</span>
+                Top 3 Pain Areas/Challenges (Organization Specific) <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="painAreas"
@@ -163,7 +163,7 @@ const GetPlaybook: React.FC = () => {
                 required
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"
-                placeholder="Please list your top 5 pain areas or challenges (e.g., low employee retention, lack of career development programs, unclear growth paths, etc.)"
+                placeholder="Please list your top 3 pain areas or challenges (e.g., low employee retention, lack of career development programs, unclear growth paths, etc.)"
               />
             </div>
 
@@ -227,12 +227,7 @@ const GetPlaybook: React.FC = () => {
             )}
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500">
-              By submitting, you agree to receive occasional updates from WinGroX AI. 
-              We respect your privacy and you can unsubscribe at any time.
-            </p>
-          </div>
+
         </div>
 
         {/* Benefits Section */}
