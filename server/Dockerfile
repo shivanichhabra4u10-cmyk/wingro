@@ -18,6 +18,8 @@ COPY tsconfig.json ./
 RUN npm install
 # Copy source code
 COPY src ./src
+# Copy public folder with PDF files
+COPY public ./public
 # Build the app
 RUN npm run build
 
@@ -27,6 +29,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY src ./src
+COPY public ./public
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 # Debug: list contents of /app and /app/src before build
