@@ -569,7 +569,7 @@ export const community = {
 };
 
 // Export the entire API
-export default {
+const apiService = {
   community,
   auth,
   products,
@@ -578,3 +578,5 @@ export default {
   growthPlans,
   goals
 };
+
+export default apiService;

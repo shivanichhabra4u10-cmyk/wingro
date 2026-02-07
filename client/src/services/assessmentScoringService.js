@@ -6,7 +6,6 @@
  */
 
 import assessmentData from '../data/student-9-10-questions.json';
-import { createAssessmentScorer } from '../utils/assessmentScoringUtils';
 
 // Import other assessment data when available
 // import student1112Data from '../data/student-11-12-questions-with-scoring.json';
@@ -366,10 +365,12 @@ export const getRecommendationsByType = (assessmentType, scores) => {
   }
 };
 
-export default {
+const assessmentScoringService = {
   calculateAssessmentScores,
   getRecommendations,
   generateSummaryReport,
   calculateScoresByType,
   getRecommendationsByType
 };
+
+export default assessmentScoringService;
