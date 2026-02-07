@@ -123,7 +123,7 @@ export const createAssessmentScorer = (assessmentData = student910QuestionsData)
   const getRecommendations = (scores) => {
     if (!scores || scores.error) return [];
     
-    const { dimensionScores, primaryProfile } = scores;
+    const { dimensionScores } = scores;
     const recommendations = [];
     
     // Generic recommendations based on dimension scores
@@ -229,8 +229,10 @@ export const createScoringProfessional = (scoringData) => {
   return createAssessmentScorer(scoringData);
 };
 
-export default {
+const assessmentScoringUtils = {
   createAssessmentScorer,
   createScoring1112,
   createScoringProfessional
 };
+
+export default assessmentScoringUtils;

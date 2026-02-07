@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { productsApiWithFiles } from '../../services/productsApiWithFiles';
 import { useAuth } from '../../context/AuthContext';
@@ -81,17 +81,10 @@ const AdminProducts: React.FC = () => {
   const [videoFiles, setVideoFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [videoPreviews, setVideoPreviews] = useState<string[]>([]);
-  const [pendingFiles, setPendingFiles] = useState<File[]>([]);
-  const [filesToDelete, setFilesToDelete] = useState<string[]>([]);
 
   const navigate = useNavigate();
-  const { user } = useAuth();
 
-  useEffect(() => {
-    fetchProducts();
-  }, [page, pageSize]);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       const response = await productsApiWithFiles.getAll({ page, limit: pageSize });
@@ -105,7 +98,11 @@ const AdminProducts: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, pageSize]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const handleOpenForm = (mode: 'create' | 'edit', product?: Product) => {
   setGenericFiles([]);
