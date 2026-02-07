@@ -1,4 +1,3 @@
-import { uploadFile, getPublicUrl } from './supabaseStorage';
 import * as supabaseStorage from './supabaseStorage';
 
 // Singleton storageService to hold the current provider

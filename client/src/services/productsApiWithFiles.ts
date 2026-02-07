@@ -1,5 +1,5 @@
 import { products } from './api';
-import { ProductFile, ProductFileType, uploadProductFile } from './productFileService';
+import { ProductFile, uploadProductFile } from './productFileService';
 import { api } from './api';
 
 // Extended API for products with file management
