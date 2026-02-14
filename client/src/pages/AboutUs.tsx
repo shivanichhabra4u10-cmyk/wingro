@@ -119,9 +119,9 @@ const AboutUs: React.FC = () => {
           </div>   
 
           <div className="p-6 border border-gray-200 rounded-lg hover:border-cyan-300 hover:shadow-md transition-all text-center">
-            <img src="/images/Vinay.jpg" alt="Vinay Gandok" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
-            <h3 className="font-bold text-lg mb-1">Vinay Gandok</h3>
-            <p className="text-cyan-600 text-sm mb-3">Global Growth Leader</p>
+            <img src="/images/Vinay.jpg" alt="Vinay Gandhok" className="w-24 h-24 mx-auto rounded-full object-cover mb-4" />
+            <h3 className="font-bold text-lg mb-1">Vinay Gandhok</h3>
+            <p className="text-cyan-600 text-sm mb-3">Global Growth Director</p>
             <p className="text-gray-600 text-sm"></p>
           </div>          
         </div>
